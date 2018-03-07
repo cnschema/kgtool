@@ -162,10 +162,21 @@ def task_stat_kg_pattern(args):
                 continue
             key = "_meta_lines"
             counter[key]+=1
+            if counter[key] % 10000 == 0:
+                logging.info(json4debug(counter))
+                
             #logging.info(line)
             item = json.loads(line)
             counter = stat_kg_pattern(item, counter)
+
+    # print result
     logging.info(json4debug(counter))
+
+    #write to output
+    filename = args.get("output")
+    if filename:
+        # save result to file
+        json2file(counter, filename)
 
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
@@ -173,14 +184,14 @@ if __name__ == "__main__":
 
     optional_params = {
         '--filepath': 'input filepath',
-        '--batch': 'batch id',
+        '--output': 'output filename',
     }
     main_subtask(__name__, optional_params=optional_params)
 
 """
     generate sample data and statistics
 
-    python kgtool/kg.py task_stat_kg_pattern --filepath=tests/*.jsons
+    python kgtool/kg.py task_stat_kg_pattern --filepath=tests/*.jsons --output=local/test_kg_stat.json
 
 
 """
