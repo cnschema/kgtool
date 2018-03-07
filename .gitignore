@@ -1,5 +1,6 @@
 # customized skip
 local
+venv
 .DS_Store
 
 

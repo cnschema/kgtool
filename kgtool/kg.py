@@ -79,7 +79,7 @@ def stat_jsonld(data, key=None, counter=None):
     return counter
 
 
-def stat_kg_pattern(data, counter=None, level=0):
+def stat_kg_pattern(data, counter=None, level=0, flags=""):
     if counter == None:
         counter = collections.Counter()
 
@@ -92,9 +92,10 @@ def stat_kg_pattern(data, counter=None, level=0):
 
         ret = {}
         for p,v in data.items():
-            # do not count merged from
-            if p in "mergedFrom":
-                continue
+            if not "mergeFrom" in flags:
+                # do not count merged from
+                if p in "mergedFrom":
+                    continue
             ret[p] = stat_kg_pattern(v, counter, level+1)
         return counter
     else:
