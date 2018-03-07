@@ -53,7 +53,7 @@ class CoreTestCase(unittest.TestCase):
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
-            ret = stat_kg_pattern(data, "ds1")
+            ret = stat_kg_pattern(data)
             print json4debug(ret)
             #raise("aa")
 

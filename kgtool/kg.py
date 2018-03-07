@@ -115,6 +115,7 @@ def stat_kg_pattern_entity(entity, counter, level):
     # @type range
     if not entity.get("@type") in [list]:
         key = u"warn_type_not_list_{}".format(entity_domain)
+        #print (json4debug(counter))
         counter[key]+=1
 
     # @type
