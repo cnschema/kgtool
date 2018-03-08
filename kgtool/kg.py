@@ -95,7 +95,9 @@ def stat_kg_pattern(data, counter=None, level=0, flags=""):
             if not "mergeFrom" in flags:
                 # do not count merged from
                 if p in "mergedFrom":
-                    continue
+                     assert type(v) == list
+                     counter["total_mergedFrom_out"] += len(v)
+                     continue
             ret[p] = stat_kg_pattern(v, counter, level+1)
         return counter
     else:
@@ -166,9 +168,15 @@ def task_stat_kg_pattern(args):
                 logging.info(json4debug(counter))
                 
             #logging.info(line)
-            item = json.loads(line)
-            counter = stat_kg_pattern(item, counter)
-
+            try:
+                item = json.loads(line)
+            except:
+                counter[u"warn_skip_lines"] += 1
+                counter[u"warn_skip_lines_{}".format(os.path.basename(filename))] +=1
+                continue
+            else:
+                counter = stat_kg_pattern(item, counter)
+                
     # print result
     logging.info(json4debug(counter))
 
