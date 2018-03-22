@@ -3,7 +3,7 @@
 History
 -------
 
-0.1.0 (2018-03-07)
+0.0.1 (2018-03-07)
 ++++++++++++++++++
 * migrate simple scripts from cnschema/cdata
 * add kg.py to

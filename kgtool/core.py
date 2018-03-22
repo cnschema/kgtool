@@ -59,6 +59,10 @@ def main_subtask(module_name, method_prefixs=["task_"], optional_params={}):
     logging.info("unsupported")
 
 
+###############
+#  file utilities
+
+
 ####################################
 # file path
 
@@ -306,38 +310,6 @@ def stat(items, unique_fields, value_fields=[], printCounter=True):
 
     return counter
 
-def stat_jsonld(data, key=None, counter=None):
-    """
-        provide statistics for jsonld, right now only count triples
-        see also https://json-ld.org/playground/
-        note:  attributes  @id @context do not contribute any triple
-    """
-    if counter is None:
-        counter = collections.Counter()
-
-    if isinstance(data, dict):
-        ret = {}
-        for k, v in data.items():
-            stat_jsonld(v, k, counter)
-            counter[u"p_{}".format(k)] += 0
-        if key:
-            counter["triple"] += 1
-            counter[u"p_{}".format(key)] +=1
-    elif isinstance(data, list):
-        [stat_jsonld(x, key, counter) for x in data]
-        if key in ["tag"]:
-            for x in data:
-                if isinstance(x, dict) and x.get("name"):
-                    counter[u"{}_{}".format(key, x["name"])] +=1
-                elif type(x) in [basestring, unicode]:
-                    counter[u"{}_{}".format(key, x)] +=1
-
-    else:
-        if key and key not in ["@id","@context"]:
-            counter["triple"] += 1
-            counter[u"p_{}".format(key)] +=1
-
-    return counter
 
 
 def item2sample(item):
@@ -409,25 +381,6 @@ def item2flatstr(key, item, ret, option="list2sample"):
     return ret
 
 
-def stat_items(items, option="list2sample"):
-    ret = {"stat": collections.Counter() }
-    if not type(items) == list:
-        raise Exception("expect list of items")
-
-    for idx, item in enumerate(items):
-        ret["stat"]["cnt_total"]+=1
-
-        if ret["stat"]["cnt_total"] == 1:
-            #first line
-            ret["sample"] = item2sample( item )
-
-
-        for k,v in item2flatstr("", item, {}, option=option).items():
-            if len(v) > 0:
-                ret["stat"][u"cnt_key_{}".format(k)] += 1
-
-    return ret
-
 
 
 if __name__ == "__main__":
@@ -441,9 +394,6 @@ if __name__ == "__main__":
     main_subtask(__name__, optional_params=optional_params)
 
 """
-    generate sample data and statistics
-
-    python kgtool/core.py task_download2summary --filename=local/public/eastmoney/price_eastmoney_fundinfo_20170831full.json
 
     python kgtool/core.py task_download2summary --filename=local/public/eastmoney/price_eastmoney/normal/price_eastmoney_tzzh_all_20170918full.json
 
