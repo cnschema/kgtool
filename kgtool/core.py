@@ -280,6 +280,22 @@ def any2sha1(text):
     return hashlib.sha1(text).hexdigest()
 
 
+def any2sha256(text):
+    """
+        convert a string into sha256hash. For json object/array, first convert
+        it into canonical json string.
+    """
+    # canonicalize json object or json array
+    if type(text) in [dict, list]:
+        text = json.dumps(text, sort_keys=True)
+
+    # assert question as utf8
+    if isinstance(text, unicode):
+        text = text.encode('utf-8')
+
+    return hashlib.sha256(text).hexdigest()
+
+
 def stat(items, unique_fields, value_fields=[], printCounter=True):
     counter = collections.Counter()
     unique_counter = collections.defaultdict(list)

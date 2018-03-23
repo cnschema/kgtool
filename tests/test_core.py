@@ -149,6 +149,11 @@ class CoreTestCase(unittest.TestCase):
         tout = any2unicode(tin)
         logging.info((tin, tout))
 
+    def test_any2sha256(self):
+        tin = "你好世界"
+        tout = any2sha256(tin)
+        assert "beca6335b20ff57ccc47403ef4d9e0b8fccb4442b3151c2e7d50050673d43172" == tout, tout
+
     def test_any2sha1(self):
         tin = "你好世界"
         tout = any2sha1(tin)
