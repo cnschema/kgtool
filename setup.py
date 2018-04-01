@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='kgtool',
-      version='0.0.1',
+      version='0.0.2',
       description='simple knowledge graph tools with minimal dependency',
       long_description=readme(),
       classifiers=[
@@ -22,6 +22,7 @@ setup(name='kgtool',
       license='Apache 2.0',
       packages=['kgtool'],
       install_requires=[
+        'xlrd', 'xlwt'
       ],
       test_suite='nose.collector',
       tests_require=['nose'],
