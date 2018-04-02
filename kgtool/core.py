@@ -256,6 +256,7 @@ def any2unicode(data):
     elif isinstance(data, unicode):
         return data
     elif type(data) in [str, basestring]:
+        logging.info("convert[{}]".format(data))
         return data.decode("utf-8")
     elif type(data) in [int, float]:
         return data
@@ -315,7 +316,7 @@ def stat(items, unique_fields, value_fields=[], printCounter=True):
 #            else:
 #                vx = value
             if value is not None:
-                counter[u"{}_{}".format(field, value)] += 1
+                counter[u"{}_value_{}".format(field, value)] += 1
         for field in unique_fields:
             counter[u"{}_unique".format(field)] = len(set(unique_counter[field]))
             counter[u"{}_nonempty".format(field)] = len(unique_counter[field])
