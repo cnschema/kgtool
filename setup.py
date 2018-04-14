@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='kgtool',
-      version='0.0.2',
+      version='0.0.3',
       description='simple knowledge graph tools with minimal dependency',
       long_description=readme(),
       classifiers=[
