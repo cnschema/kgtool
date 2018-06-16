@@ -24,8 +24,38 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 from core import *  # noqa
 
 
+def stat_table(items, unique_fields, value_fields=[], printCounter=True):
+    counter = collections.Counter()
+    unique_counter = collections.defaultdict(list)
 
-def stat_items(items, option="list2sample"):
+    for item in items:
+        counter["all"] += 1
+        for field in unique_fields:
+            if item.get(field):
+                unique_counter[field].append(item[field])
+        for field in value_fields:
+            value = item.get(field)
+            value = normalize_value(value)
+#            if value is None:
+#                continue
+#            elif type(value) in [ float, int ]:
+#                vx = "%1.0d" % value
+#            else:
+#                vx = value
+            if value is not None:
+                counter[u"{}_{}".format(field, value)] += 1
+        for field in unique_fields:
+            counter[u"{}_unique".format(field)] = len(set(unique_counter[field]))
+            counter[u"{}_nonempty".format(field)] = len(unique_counter[field])
+
+    if printCounter:
+        logging.info(json.dumps(counter, ensure_ascii=False,
+                                indent=4, sort_keys=True))
+
+    return counter
+
+
+def stat_sample(items):
     ret = {"stat": collections.Counter() }
     if not type(items) == list:
         raise Exception("expect list of items")
@@ -166,7 +196,7 @@ def task_stat_kg_pattern(args):
             counter[key]+=1
             if counter[key] % 10000 == 0:
                 logging.info(json4debug(counter))
-                
+
             #logging.info(line)
             try:
                 item = json.loads(line)
@@ -176,7 +206,7 @@ def task_stat_kg_pattern(args):
                 continue
             else:
                 counter = stat_kg_pattern(item, counter)
-                
+
     # print result
     logging.info(json4debug(counter))
 
@@ -199,7 +229,7 @@ if __name__ == "__main__":
 """
     generate sample data and statistics
 
-    python kgtool/kg.py task_stat_kg_pattern --filepath=tests/*.jsons --output=local/test_kg_stat.json
+    python kgtool/stat.py task_stat_kg_pattern --filepath=tests/*.jsons --output=local/test_kg_stat.json
 
 
 """

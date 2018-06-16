@@ -11,7 +11,7 @@ except ImportError:
     import unittest
 
 from kgtool.core import *  # noqa
-from kgtool.kg import *  # noqa
+from kgtool.stat import *  # noqa
 
 
 class CoreTestCase(unittest.TestCase):
@@ -19,7 +19,7 @@ class CoreTestCase(unittest.TestCase):
         pass
 
     def test_statJsonld(self):
-        tin = "test_kg_stat.jsonld"
+        tin = "test_stat_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
@@ -29,7 +29,7 @@ class CoreTestCase(unittest.TestCase):
             assert ret[u"tag_抒情"] == 1
 
     def test_stat_jsonld(self):
-        tin = "test_kg_stat.jsonld"
+        tin = "test_stat_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
@@ -38,18 +38,22 @@ class CoreTestCase(unittest.TestCase):
             assert ret["triple"] == 29
             assert ret[u"tag_抒情"] == 1
 
-    def test_stat_items(self):
-        tin = "test_kg_stat.jsonld"
+    def stat_sample(self):
+        tin = "test_stat_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
             data = [data]
-            ret = stat_items(data)
+            ret = stat_samples(data)
             print json4debug(ret)
             #raise("aa")
 
+    def test_stat_table(self):
+        table = [{u"名称": u"张三", u"年龄": u"13.0"}, {u"名称": u"李四", u"年龄": u"20"}]
+        ret = stat_table(table,[u"名称", u"年龄"],[u"名称", u"年龄"])
+
     def test_stat_kg_pattern(self):
-        tin = "test_kg_stat.jsonld"
+        tin = "test_stat_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)

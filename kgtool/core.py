@@ -320,6 +320,29 @@ def any2sha256(text):
     return counter
 
 
+####################################
+# string parser
+
+def parseListValue(value, regex=ur"[，,、；;／/]"):
+    """
+        parse unicode string into a list
+        if the input is not unicode or list, raise exception
+    """
+    vtype = type(value)
+
+    if vtype in [unicode]:
+        ret = re.split(regex, value)
+    elif vtype in [list]:
+        ret = value
+    else:
+        assert False
+
+    return ret
+
+
+####################################
+# object processor
+
 def item2sample(item):
     if type(item) in [list]:
         if len(item) > 0:
@@ -333,6 +356,7 @@ def item2sample(item):
         return ret
     else:
         return item
+
 
 
 def normalize_value(v, option="list2sample"):

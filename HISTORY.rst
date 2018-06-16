@@ -5,6 +5,9 @@ History
 
 ++++++++++++++++++
 * change  stat  add "_value_" in stat entry
+* add core.parseListValue
+* add cns_excel, cns_schema for process excel based CnSchema
+* cns_excel::task_excel2jsonld  convert excel-based schema to JSON-LD version
 
 0.0.3 (2018-04-14)
 ++++++++++++++++++
@@ -12,7 +15,7 @@ History
 
 0.0.2 (2018-03-07)
 ++++++++++++++++++
-* add any2sha256
+* add core.any2sha256
 * add table
 
 0.0.1 (2018-03-07)

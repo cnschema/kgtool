@@ -188,11 +188,12 @@ class CoreTestCase(unittest.TestCase):
         assert json_object["description"] == ret["description"]
         assert ret.get("interests") is None
 
+    def test_parseListValue(self):
+        ret = parseListValue(u"原文，正文")
+        assert len(ret) == 2
 
 
-    def test_stat(self):
-        data = [{u"名称": u"张三", u"年龄": u"13.0"}, {u"名称": u"李四", u"年龄": u"20"}]
-        ret = stat(data,[u"名称", u"年龄"],[u"名称", u"年龄"])
+
 
 
 if __name__ == '__main__':

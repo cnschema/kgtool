@@ -1,0 +1,17 @@
+[
+{
+  "mainType": "MusicRecording",
+  "byArtist":[],
+  "名称":"暧昧",
+  "keywords":["抒情"],
+  "tags":[{"name":"抒情"},{"name":"愉快"}],
+  "image":{"should be": "text"}
+},
+{
+  "mainType": "Person",
+  "name": "李白" ,
+  "别名": ["青莲居士"] ,
+  "description": "中国诗人" ,
+  "donotconvert" : "不应改转换"
+}
+]
