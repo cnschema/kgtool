@@ -264,7 +264,8 @@ class CnsSchema:
                         "text": "minCardinality",
                         "property": p,
                         "expected": cardinality["minCardinality"],
-                        "actual": cardAcual
+                        "actual": cardAcual,
+                        "item": cnsItem
                     }
                     logging.warn(_report(report, bug))
 
@@ -276,7 +277,8 @@ class CnsSchema:
                             "text": "maxCardinality",
                             "property": p,
                             "expected": cardinality["maxCardinality"],
-                            "actual": cardAcual
+                            "actual": cardAcual,
+                            "item": cnsItem
                         }
                         logging.warn(_report(report, bug))
 
@@ -382,7 +384,7 @@ class CnsSchema:
         self.indexValidateRange["@id"] = {"text": "UUID", "pythonTypeValue":[basestring,unicode,str]}
         self.indexValidateRange["@type"] = {"text": "Text", "pythonTypeValue":[basestring,unicode,str]}
 #        self.indexValidateRange ["@context"] = {"text": "SYS", "cnsRange": []}
-        self.indexValidateRange ["@graph"] = {"text": "SYS", "cnsRange": ["Thing"]}
+        self.indexValidateRange ["@graph"] = {"text": "SYS", "cnsRange": ["Metadata"]}
         self.indexValidateRange ["rdfs:domain"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
         self.indexValidateRange ["rdfs:range"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
         self.indexValidateRange["rdfs:subClassOf"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
@@ -416,8 +418,8 @@ class CnsSchema:
         self.indexValidateDomain = collections.defaultdict( list )
 
         #init system property
-        self.indexValidateDomain ["@id"] = ["Thing","Link", "CardinalityConstraint"]
-        self.indexValidateDomain ["@type"] = ["Thing","Link","DataStructure"]
+        self.indexValidateDomain ["@id"] = ["Thing","Link", "Metadata"]
+        self.indexValidateDomain ["@type"] = ["Thing","Link", "Metadata","DataStructure"]
         self.indexValidateDomain ["@context"] = ["Ontology"]
         self.indexValidateDomain ["@graph"] = ["Ontology"]
         self.indexValidateDomain ["rdfs:domain"] = ["rdf:Property"]
@@ -441,7 +443,7 @@ class CnsSchema:
 
                     # special hack
                     if d in ["Top"]:
-                        self.indexValidateDomain[p].extend(["Thing", "Link", "DataStructure"])
+                        self.indexValidateDomain[p].extend(["Thing", "Link", "Metadata", "DataStructure"])
 
 
         # dedup

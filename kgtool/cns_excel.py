@@ -126,7 +126,7 @@ class CnsExcel():
     def _loadSheetChangelog(self,  sheet_name, items):
         xlabel = "changelog"
         if sheet_name == xlabel:
-            xtype = ["CreativeWork", "Thing"]
+            xtype = ["OntologyVersion", "Metadata", "Thing"]
         else:
             return False
 
@@ -155,7 +155,7 @@ class CnsExcel():
     def _loadSheetCardinality(self,  sheet_name, items):
         xlabel = "cardinality"
         if sheet_name == xlabel:
-            xtype = ["CardinalityConstraint", "DataStructure"]
+            xtype = ["CardinalityConstraint", "Metadata", "Thing"]
         else:
             return False
 
@@ -163,13 +163,16 @@ class CnsExcel():
             if not self._isValidRow(item):
                 continue
 
-            xid = "http://meta.cnschema.org/cardinality/{}_{}".format(
+            name = "cardinality_{}_{}".format(
                 item["className"],
                 item["propertyName"]
             )
+
+            xid = "http://meta.cnschema.org/constraint/{}".format( name )
             cnsItem = {
                 "@type": xtype,
                 "@id": xid,
+                "name": name
             }
             for p,v in item.items():
                 self._copy_values(cnsItem, p, v, sheet_name)
@@ -195,9 +198,9 @@ class CnsExcel():
         #logging.info( xlabel )
 
         if "class" == xlabel:
-            xtype = ["rdfs:Class", "Definition", "Thing"]
+            xtype = ["rdfs:Class", "Definition", "Metadata", "Thing"]
         elif "property" == xlabel:
-            xtype = ["rdf:Property", "Definition","Thing"]
+            xtype = ["rdf:Property", "Definition","Metadata", "Thing"]
         else:
             assert False
 

@@ -8,6 +8,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -24,6 +25,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -41,13 +43,14 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-meta", 
             "name": "CardinalityConstraint", 
             "nameZh": "概念分类与属性的关联限制", 
             "rdfs:subClassOf": [
-                "Thing"
+                "Metadata"
             ], 
             "version": "v18Q3"
         }, 
@@ -56,6 +59,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -72,6 +76,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-entity", 
@@ -88,6 +93,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-meta", 
@@ -103,6 +109,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-meta", 
@@ -119,6 +126,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -135,6 +143,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -151,13 +160,14 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-meta", 
             "name": "Definition", 
             "nameZh": "概念定义", 
             "rdfs:subClassOf": [
-                "Thing"
+                "Metadata"
             ], 
             "version": "v18Q3"
         }, 
@@ -166,6 +176,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -182,6 +193,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -198,6 +210,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -214,6 +227,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-meta", 
@@ -226,10 +240,27 @@
             "version": "v18Q2"
         }, 
         {
+            "@id": "http://cnschema.org/Metadata", 
+            "@type": [
+                "rdfs:Class", 
+                "Definition", 
+                "Metadata", 
+                "Thing"
+            ], 
+            "category": "class-meta", 
+            "name": "Metadata", 
+            "nameZh": "元数据", 
+            "rdfs:subClassOf": [
+                "Thing"
+            ], 
+            "version": "v18Q3"
+        }, 
+        {
             "@id": "http://cnschema.org/Number", 
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -246,13 +277,30 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-meta", 
             "name": "Ontology", 
             "nameZh": "概念本体", 
             "rdfs:subClassOf": [
+                "Metadata"
+            ], 
+            "version": "v18Q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/OntologyVersion", 
+            "@type": [
+                "rdfs:Class", 
+                "Definition", 
+                "Metadata", 
                 "Thing"
+            ], 
+            "category": "class-meta", 
+            "name": "OntologyVersion", 
+            "nameZh": "概念本体的版本", 
+            "rdfs:subClassOf": [
+                "Metadata"
             ], 
             "version": "v18Q3"
         }, 
@@ -261,6 +309,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -281,6 +330,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-entity", 
@@ -297,6 +347,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-entity", 
@@ -313,6 +364,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-entity", 
@@ -329,6 +381,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -345,6 +398,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-entity", 
@@ -360,6 +414,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -376,6 +431,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-entity", 
@@ -392,6 +448,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-meta", 
@@ -404,6 +461,7 @@
             "@type": [
                 "rdfs:Class", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "class-data", 
@@ -420,6 +478,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -436,6 +495,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -451,6 +511,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -465,6 +526,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -482,6 +544,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -497,6 +560,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -517,6 +581,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -532,6 +597,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -547,6 +613,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -562,6 +629,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -576,6 +644,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -592,6 +661,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -606,6 +676,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -620,6 +691,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -635,6 +707,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -650,6 +723,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -665,6 +739,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -680,6 +755,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-storage", 
@@ -697,6 +773,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-storage", 
@@ -713,6 +790,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-storage", 
@@ -730,6 +808,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -747,6 +826,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -768,6 +848,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -783,6 +864,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -803,6 +885,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -818,6 +901,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -833,6 +917,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -849,6 +934,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -864,6 +950,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -878,6 +965,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -893,6 +981,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -908,6 +997,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -924,6 +1014,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -945,6 +1036,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -960,6 +1052,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -975,6 +1068,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -990,6 +1084,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1006,6 +1101,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1021,6 +1117,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -1035,6 +1132,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -1050,6 +1148,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -1064,6 +1163,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -1085,6 +1185,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -1104,6 +1205,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -1124,6 +1226,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -1143,6 +1246,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1158,6 +1262,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -1172,6 +1277,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1187,6 +1293,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1202,6 +1309,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1217,6 +1325,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -1233,6 +1342,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -1247,6 +1357,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1262,6 +1373,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1278,6 +1390,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -1294,6 +1407,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1309,6 +1423,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "alternateName": [
@@ -1330,6 +1445,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-storage", 
@@ -1345,6 +1461,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-storage", 
@@ -1360,6 +1477,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-storage", 
@@ -1375,6 +1493,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1390,6 +1509,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1405,6 +1525,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-semantics", 
@@ -1422,6 +1543,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1437,6 +1559,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ext-semantics", 
@@ -1452,6 +1575,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-core-sys", 
@@ -1467,6 +1591,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -1481,6 +1606,7 @@
             "@type": [
                 "rdf:Property", 
                 "Definition", 
+                "Metadata", 
                 "Thing"
             ], 
             "category": "property-ontology", 
@@ -1498,372 +1624,437 @@
     ], 
     "cardinality": [
         {
-            "@id": "http://meta.cnschema.org/cardinality/AggregateRating_aggregateRatingDetail", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_AggregateRating_aggregateRatingDetail", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "AggregateRating", 
             "minCardinality": 0, 
+            "name": "cardinality_AggregateRating_aggregateRatingDetail", 
             "propertyName": "aggregateRatingDetail"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/AggregateRating_bestRating", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_AggregateRating_bestRating", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "AggregateRating", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_AggregateRating_bestRating", 
             "propertyName": "bestRating"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/AggregateRating_ratingCount", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_AggregateRating_ratingCount", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "AggregateRating", 
             "minCardinality": 1, 
+            "name": "cardinality_AggregateRating_ratingCount", 
             "propertyName": "ratingCount"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/AggregateRating_ratingValue", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_AggregateRating_ratingValue", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "AggregateRating", 
             "minCardinality": 1, 
+            "name": "cardinality_AggregateRating_ratingValue", 
             "propertyName": "ratingValue"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Comment_datePublished", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Comment_datePublished", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "Comment", 
             "minCardinality": 1, 
+            "name": "cardinality_Comment_datePublished", 
             "propertyName": "datePublished"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Comment_downvoteCount", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Comment_downvoteCount", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Comment", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Comment_downvoteCount", 
             "propertyName": "downvoteCount"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Comment_text", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Comment_text", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "Comment", 
             "minCardinality": 1, 
+            "name": "cardinality_Comment_text", 
             "propertyName": "text"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Comment_upvoteCount", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Comment_upvoteCount", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Comment", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Comment_upvoteCount", 
             "propertyName": "upvoteCount"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/InteractionCounter_interactionType", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_InteractionCounter_interactionType", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "InteractionCounter", 
             "minCardinality": 1, 
+            "name": "cardinality_InteractionCounter_interactionType", 
             "propertyName": "interactionType"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/InteractionCounter_userInteractionCount", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_InteractionCounter_userInteractionCount", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "InteractionCounter", 
             "minCardinality": 1, 
+            "name": "cardinality_InteractionCounter_userInteractionCount", 
             "propertyName": "userInteractionCount"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Link_endDate", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Link_endDate", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Link", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Link_endDate", 
             "propertyName": "endDate"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Link_in", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Link_in", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "Link", 
             "minCardinality": 1, 
+            "name": "cardinality_Link_in", 
             "propertyName": "in"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Link_out", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Link_out", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "Link", 
             "minCardinality": 1, 
+            "name": "cardinality_Link_out", 
             "propertyName": "out"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Link_startDate", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Link_startDate", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Link", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Link_startDate", 
             "propertyName": "startDate"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/QuantitativeValue_datePublished", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_QuantitativeValue_datePublished", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "QuantitativeValue", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_QuantitativeValue_datePublished", 
             "propertyName": "datePublished"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/QuantitativeValue_statedIn", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_QuantitativeValue_statedIn", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "QuantitativeValue", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_QuantitativeValue_statedIn", 
             "propertyName": "statedIn"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/QuantitativeValue_value", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_QuantitativeValue_value", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "QuantitativeValue", 
             "minCardinality": 1, 
+            "name": "cardinality_QuantitativeValue_value", 
             "propertyName": "value"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_alternateName", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_alternateName", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_alternateName", 
             "propertyName": "alternateName"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_alternateNameEn", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_alternateNameEn", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_alternateNameEn", 
             "propertyName": "alternateNameEn"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_alternateNameRaw", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_alternateNameRaw", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_alternateNameRaw", 
             "propertyName": "alternateNameRaw"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_description", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_description", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_description", 
             "propertyName": "description"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_identifier", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_identifier", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_identifier", 
             "propertyName": "identifier"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_image", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_image", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_image", 
             "propertyName": "image"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_keywords", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_keywords", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_keywords", 
             "propertyName": "keywords"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_links", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_links", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_links", 
             "propertyName": "links"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_mergedFrom", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_mergedFrom", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_mergedFrom", 
             "propertyName": "mergedFrom"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_name", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_name", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "1", 
             "className": "Thing", 
             "minCardinality": 1, 
+            "name": "cardinality_Thing_name", 
             "propertyName": "name"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_name", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_name", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_1", 
             "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_name", 
             "propertyName": "name"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_seeAlso", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_seeAlso", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_seeAlso", 
             "propertyName": "seeAlso"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_tags", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_tags", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_tags", 
             "propertyName": "tags"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Thing_tags", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Thing_tags", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Thing", 
             "minCardinality": 0, 
+            "name": "cardinality_Thing_tags", 
             "propertyName": "tags"
         }, 
         {
-            "@id": "http://meta.cnschema.org/cardinality/Top_uTrackingIds", 
+            "@id": "http://meta.cnschema.org/constraint/cardinality_Top_uTrackingIds", 
             "@type": [
                 "CardinalityConstraint", 
-                "DataStructure"
+                "Metadata", 
+                "Thing"
             ], 
             "category": "0_n", 
             "className": "Top", 
             "minCardinality": 0, 
+            "name": "cardinality_Top_uTrackingIds", 
             "propertyName": "uTrackingIds"
         }
     ], 
     "changelog": {
         "@id": "http://meta.cnschema.org/version/vNext", 
         "@type": [
-            "CreativeWork", 
+            "OntologyVersion", 
+            "Metadata", 
             "Thing"
         ], 
         "datePublished": "2018-05-19", 
