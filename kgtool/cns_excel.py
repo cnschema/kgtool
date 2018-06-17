@@ -43,7 +43,8 @@ MAP_NAME_URLPATTERN = {
 SCHEMA_EXCEL_HEADER = {
 	"class": {
 		"COPY": ["nameZh",
-            "version", "category",
+            "version",
+            "category",
 			"descriptionZh",
 			"descriptionZhSource",
 			"description",
@@ -54,21 +55,27 @@ SCHEMA_EXCEL_HEADER = {
 	"property": {
 		"COPY": [
 			"nameZh",
-            "version", "category",
+            "version",
+            "category",
 			"descriptionZh",
 			"descriptionZhSource",
 			"description",
-			"descriptionSource",
-			"exampleValue"
+			"descriptionSource"
 		],
 		"SKIP": ["cnschemaName"]
 	},
-	"cardinality": {
-		"COPY": ["className", "propertyName", "category"],
+	"template": {
+		"COPY": [
+            "minCardinality",
+            "maxCardinality",
+            "className",
+            "propertyName",
+            "propertyNameZh",
+            "propertyAlternateName",],
 		"SKIP": []
 	},
 	"changelog": {
-		"COPY": ["datePublished", "name", "description"],
+		"COPY": ["datePublished", "name", "text"],
 		"SKIP": []
 	}
 }
@@ -79,7 +86,7 @@ SCHEMA_EXCEL_HEADER_SKIP = {
     "property": [
                 "cnschemaName",
                 ],
-    "cardinality": [],
+    "template": [],
     "changelog": [],
 }
 
@@ -126,7 +133,7 @@ class CnsExcel():
     def _loadSheetChangelog(self,  sheet_name, items):
         xlabel = "changelog"
         if sheet_name == xlabel:
-            xtype = ["OntologyVersion", "Metadata", "Thing"]
+            xtype = ["CnsChangelog", "CnsMetadata", "Thing"]
         else:
             return False
 
@@ -138,7 +145,7 @@ class CnsExcel():
 
             name = item["name"]
             assert name
-            xid = "http://meta.cnschema.org/version/{}".format(name)
+            xid = "http://meta.cnschema.org/changelog/{}".format(name)
 
             cnsItem = {
                 "@type": xtype,
@@ -153,9 +160,9 @@ class CnsExcel():
         return True
 
     def _loadSheetCardinality(self,  sheet_name, items):
-        xlabel = "cardinality"
+        xlabel = "template"
         if sheet_name == xlabel:
-            xtype = ["CardinalityConstraint", "Metadata", "Thing"]
+            xtype = ["CnsTemplate", "CnsMetadata", "Thing"]
         else:
             return False
 
@@ -163,12 +170,12 @@ class CnsExcel():
             if not self._isValidRow(item):
                 continue
 
-            name = "cardinality_{}_{}".format(
+            name = "{}_{}".format(
                 item["className"],
                 item["propertyName"]
             )
 
-            xid = "http://meta.cnschema.org/constraint/{}".format( name )
+            xid = "http://meta.cnschema.org/template/{}".format( name )
             cnsItem = {
                 "@type": xtype,
                 "@id": xid,
@@ -177,7 +184,7 @@ class CnsExcel():
             for p,v in item.items():
                 self._copy_values(cnsItem, p, v, sheet_name)
 
-            self.schema.addMetadata( "cardinality", cnsItem )
+            self.schema.addMetadata( "template", cnsItem )
 
         return True
 
@@ -198,9 +205,9 @@ class CnsExcel():
         #logging.info( xlabel )
 
         if "class" == xlabel:
-            xtype = ["rdfs:Class", "Definition", "Metadata", "Thing"]
+            xtype = ["rdfs:Class", "CnsDefinition", "CnsMetadata", "Thing"]
         elif "property" == xlabel:
-            xtype = ["rdf:Property", "Definition","Metadata", "Thing"]
+            xtype = ["rdf:Property", "CnsDefinition","CnsMetadata", "Thing"]
         else:
             assert False
 
@@ -297,8 +304,8 @@ if __name__ == "__main__":
 
 """
     excel2jsonld  and n-quad
-    mv ~/Downloads/cns-thing-18q3.xlsx ~/haizhi/git/kgtool/local/
-    python kgtool/cns_excel.py task_excel2jsonld --input_file=local/cns-thing-18q3.xlsx --output_file=schema/cns-thing-18q3.jsonld --debug_dir=local/
+    mv ~/Downloads/cns_thing_18q3.xlsx ~/haizhi/git/kgtool/local/
+    python kgtool/cns_excel.py task_excel2jsonld --input_file=local/cns_thing_18q3.xlsx --output_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
 
 
 """

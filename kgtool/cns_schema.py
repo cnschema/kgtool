@@ -26,19 +26,20 @@ from core import *  # noqa
 """
 It stores cnSchema data:
  * definition: defintion of a class, property, or a constant
- * metadata: list of cardinality restriction， changelog
+ * metadata: list of template restriction， changelog
 
 It offers the following functions:
-* cns loader： load a collection of cnSchema,
+* cns loader: load a collection of cnSchema,
    * load class/property addDefinition
-   * load cardinality restriction metadata
+   * load template restriction metadata
    * load version metadata
    * validate unique name/alias of class/property,
-* cns converter
-* cnsValidate : validate integrity constraints
-   * class-property cardinality
+* cnsConvert: convert non-cnSchema JSON into cnsItem using cnsSchema properties
+* cnsValidate: validate integrity constraints
+   * class-property template
    * class-property association
    * property range
+* cnsGraphviz: generate a graphviz dot format of a schema
 """
 
 def _report(report, bug):
@@ -51,7 +52,7 @@ class CnsSchema:
     def __init__(self):
         # Schema raw data: metadata information, key => value
         # version
-        # cardinality
+        # template
         self.metadata = collections.defaultdict(list)
 
         # Schema raw data: concept definition,  @id => entity
@@ -67,8 +68,8 @@ class CnsSchema:
         #index: 定义名称映射表  defintion alias => definition（property/class）
         self.indexDefinitionAlias = {}
 
-        #index: VALIDATION  class => cardinality Object
-        self.indexValidateCardinality = collections.defaultdict( dict )
+        #index: VALIDATION  class => template Object
+        self.indexValidateTemplate = collections.defaultdict( dict )
 
         #index: VALIDATION  property => expected types
         self.indexValidateDomain = collections.defaultdict( list )
@@ -90,10 +91,12 @@ class CnsSchema:
             # do not validate
             pass
 
+
+
     def cnsValidate(self, cnsItem, report):
         """
             validate the following
-            * cardinality restriction  (class-property binding)
+            * template restriction  (class-property binding)
 
             * range of property
         """
@@ -102,7 +105,7 @@ class CnsSchema:
         if not self._validateSystem(cnsItem, report):
             return report
 
-        self._validateCardinality(cnsItem, report)
+        self._validateTemplate(cnsItem, report)
 
         self._validateRange(cnsItem, report)
 
@@ -199,7 +202,7 @@ class CnsSchema:
 
 
     def _validateDomain(self, cnsItem, report):
-        # cardinality validation
+        # template validation
         validated_property = set()
         for p in cnsItem:
             domainExpected = self.indexValidateDomain.get(p)
@@ -245,12 +248,12 @@ class CnsSchema:
                 }
                 logging.warn(_report(report, bug))
 
-    def _validateCardinality(self, cnsItem, report):
-        # cardinality validation
+    def _validateTemplate(self, cnsItem, report):
+        # template validation
         validated_property = set()
         for xtype in cnsItem["@type"]:
-            for cardinality in self.indexValidateCardinality[xtype]:
-                p = cardinality["propertyName"]
+            for template in self.indexValidateTemplate[xtype]:
+                p = template["propertyName"]
                 if p in validated_property:
                     continue
                 else:
@@ -258,25 +261,25 @@ class CnsSchema:
 
                 cardAcual = len(json_get_list(cnsItem, p))
 
-                if cardAcual < cardinality["minCardinality"]:
+                if cardAcual < template["minCardinality"]:
                     bug = {
-                        "category": "warn_validate_cardinality",
+                        "category": "warn_validate_template",
                         "text": "minCardinality",
                         "property": p,
-                        "expected": cardinality["minCardinality"],
+                        "expected": template["minCardinality"],
                         "actual": cardAcual,
                         "item": cnsItem
                     }
                     logging.warn(_report(report, bug))
 
 
-                if "maxCardinality" in cardinality:
-                    if cardAcual > cardinality["maxCardinality"]:
+                if "maxCardinality" in template:
+                    if cardAcual > template["maxCardinality"]:
                         bug = {
-                            "category": "warn_validate_cardinality",
+                            "category": "warn_validate_template",
                             "text": "maxCardinality",
                             "property": p,
-                            "expected": cardinality["maxCardinality"],
+                            "expected": template["maxCardinality"],
                             "actual": cardAcual,
                             "item": cnsItem
                         }
@@ -339,7 +342,7 @@ class CnsSchema:
         self._buildindexPropertyAlias(schemaList)
         self._buildindexDefinitionAlias(schemaList)
         self._buildIndexRange(schemaList)
-        self._buildIndexCardinality(schemaList)
+        self._buildIndexTemplate(schemaList)
         self._buildIndexDomain(schemaList)
 
         self._validateSchema()
@@ -347,16 +350,16 @@ class CnsSchema:
         return self._stat()
 
     def _validateSchema(self):
-        for cardinality in self.metadata["cardinality"]:
-            cls = self.indexDefinitionAlias.get( cardinality["className"] )
+        for template in self.metadata["template"]:
+            cls = self.indexDefinitionAlias.get( template["className"] )
             #logging.info(json4debug(sorted(self.indexDefinitionAlias.keys())))
-            assert cls, json4debug(cardinality)
-            assert cls["name"] == cardinality["className"]
+            assert cls, json4debug(template)
+            assert cls["name"] == template["className"]
             assert cls["@type"][0] == "rdfs:Class"
 
-            prop = self.indexDefinitionAlias.get( cardinality["propertyName"] )
-            assert prop, json4debug(cardinality)
-            assert prop["name"] == cardinality["propertyName"]
+            prop = self.indexDefinitionAlias.get( template["propertyName"] )
+            assert prop, json4debug(template)
+            assert prop["name"] == template["propertyName"]
             assert prop["@type"][0] == "rdf:Property"
 
     def _stat(self):
@@ -367,7 +370,9 @@ class CnsSchema:
             elif  "rdfs:Class" in cnsItem["@type"]:
                 stat["cntClass"] +=1
 
-        stat["cntCardinality"] += len(self.metadata["cardinality"])
+        stat["cntTemplate"] += len(self.metadata["template"])
+
+        stat["cntTemplateGroup"] += len(set([x["className"] for x in self.metadata["template"]]))
 
         ret = {
             "name" : self.metadata["name"],
@@ -384,7 +389,7 @@ class CnsSchema:
         self.indexValidateRange["@id"] = {"text": "UUID", "pythonTypeValue":[basestring,unicode,str]}
         self.indexValidateRange["@type"] = {"text": "Text", "pythonTypeValue":[basestring,unicode,str]}
 #        self.indexValidateRange ["@context"] = {"text": "SYS", "cnsRange": []}
-        self.indexValidateRange ["@graph"] = {"text": "SYS", "cnsRange": ["Metadata"]}
+        self.indexValidateRange ["@graph"] = {"text": "SYS", "cnsRange": ["CnsMetadata"]}
         self.indexValidateRange ["rdfs:domain"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
         self.indexValidateRange ["rdfs:range"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
         self.indexValidateRange["rdfs:subClassOf"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
@@ -418,10 +423,10 @@ class CnsSchema:
         self.indexValidateDomain = collections.defaultdict( list )
 
         #init system property
-        self.indexValidateDomain ["@id"] = ["Thing","Link", "Metadata"]
-        self.indexValidateDomain ["@type"] = ["Thing","Link", "Metadata","DataStructure"]
-        self.indexValidateDomain ["@context"] = ["Ontology"]
-        self.indexValidateDomain ["@graph"] = ["Ontology"]
+        self.indexValidateDomain ["@id"] = ["Thing","Link", "CnsMetadata"]
+        self.indexValidateDomain ["@type"] = ["Thing","Link", "CnsMetadata","CnsDataStructure"]
+        self.indexValidateDomain ["@context"] = ["CnsOntology"]
+        self.indexValidateDomain ["@graph"] = ["CnsOntology"]
         self.indexValidateDomain ["rdfs:domain"] = ["rdf:Property"]
         self.indexValidateDomain ["rdfs:range"] = ["rdf:Property"]
         self.indexValidateDomain["rdfs:subClassOf"] = ["rdfs:Class"]
@@ -443,29 +448,37 @@ class CnsSchema:
 
                     # special hack
                     if d in ["Top"]:
-                        self.indexValidateDomain[p].extend(["Thing", "Link", "Metadata", "DataStructure"])
+                        self.indexValidateDomain[p].extend(["Thing",CnsLink, "CnsMetadata", "CnsDataStructure"])
 
 
         # dedup
         for p in self.indexValidateDomain:
             self.indexValidateDomain[p] = sorted(set(self.indexValidateDomain[p]))
 
-    def _buildIndexCardinality(self, schemaList):
+    def _buildIndexTemplate(self, schemaList):
         #reset
-        self.indexValidateCardinality = collections.defaultdict(list)
+        self.indexValidateTemplate = collections.defaultdict(list)
 
         #build
         for schema in schemaList:
-            for cardinality in schema.metadata["cardinality"]:
-                d = cardinality["className"]
-                temp = cardinality["category"].split("_")
-                cardinality["minCardinality"] = int(temp[0])
-                if len(temp)==2:
-                    if temp[1] in ["n"]:
-                        pass
-                    else:
-                        cardinality["maxCardinality"] = int(temp[1])
-                self.indexValidateCardinality[d].append( cardinality )
+            for template in schema.metadata["template"]:
+                d = template["className"]
+                template["minCardinality"] = int(template["minCardinality"])
+                assert template["minCardinality"] in [0,1], template
+
+                p = "maxCardinality"
+                if p not in template:
+                    pass
+                elif type(template[p]) in [float, int]:
+                    template[p] = int(template[p])
+                    assert template[p] == 1, template
+                elif len(template[p]) == 0:
+                    del template[p]
+                    pass
+                else:
+                    assert False, template
+
+                self.indexValidateTemplate[d].append( template )
 
     def _buildindexPropertyAlias(self, schemaList):
         self.indexPropertyAlias = {}
@@ -549,7 +562,7 @@ class CnsSchema:
 
 
     def addMetadata(self, group, item):
-        if group in ["version", "cardinality"]:
+        if group in ["version", "template"]:
             self.metadata[group].append(item)
         else:
             self.metadata[group] = item
@@ -565,6 +578,103 @@ class CnsSchema:
 
         return output
 
+    def cnsGraphviz(self, name):
+        def _getName(definition):
+            return u"{}（{}）".format(definition["name"], definition["nameZh"])
+
+        def _addNode(definition, nodeMap):
+            if "rdf:Property" in definition["@type"]:
+                p = "property"
+            else:
+                p = "class"
+            nodeMap[p].add(_getName(definition))
+
+        def _addLink(link, linkList, nodeMap):
+            linkList.append(link)
+            _addNode(link["from"], nodeMap)
+            _addNode(link["to"], nodeMap)
+            if link["type"] == "domain_range":
+                _addNode(link["relation"], nodeMap)
+
+        # preprare data
+        linkList = []
+        nodeMap = collections.defaultdict(set)
+
+        for definition in self.definition.values():
+            #domain range relation
+            if "rdf:Property" in definition["@type"]:
+                rangeClass = self.indexDefinitionAlias.get( definition["rdfs:range"] )
+                domainClass = self.indexDefinitionAlias.get( definition["rdfs:domain"] )
+                if domainClass and rangeClass:
+                    link = {
+                        "from": domainClass,
+                        "to": rangeClass,
+                        "relation": definition,
+                        "type": "domain_range"
+                    }
+                    _addLink(link, linkList, nodeMap)
+
+            #super class relation
+            p = "rdfs:subClassOf"
+            superList = definition.get(p,[])
+            for super in superList:
+                superClass = self.indexDefinitionAlias.get(super)
+                link = {
+                    "from": definition,
+                    "to": superClass,
+                    "type": p,
+                }
+                _addLink(link, linkList, nodeMap)
+
+            #super property relation
+            p = "rdfs:subPropertyOf"
+            superList = definition.get(p,[])
+            for super in superList:
+                superProperty = self.indexDefinitionAlias.get(super)
+                link = {
+                    "from": definition,
+                    "to": superProperty,
+                    "type": p,
+                }
+                _addLink(link, linkList, nodeMap)
+
+        # generate graph
+        lines = []
+        lines.append(u"digraph {} ".format(name))
+        lines.append("{")
+        lines.append("\t# dot -Tpng {}.dot -o{}.png".format(name, name))
+        lines.append('\trankdir = "LR"')
+        #nodes
+        lines.append('\n\tnode [shape=oval]')
+        lines.extend(sorted(list(nodeMap["class"])))
+        lines.append("")
+
+        lines.append('\n\tnode [shape=rect]')
+        lines.extend(sorted(list(nodeMap["property"])))
+        lines.append("")
+
+        #links
+        for link in linkList:
+            if link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
+                line = u'\t{} -> {}\t [style=dotted]'.format(
+                    _getName(link["from"]),
+                    _getName(link["to"]) )
+                lines.append(line)
+            else:
+                line = u'\t{} -> {}\t '.format(
+                    _getName(link["from"]),
+                    _getName(link["relation"]))
+                lines.append(line)
+
+                line = u'\t{} -> {}\t '.format(
+                    _getName(link["relation"]),
+                    _getName(link["to"]))
+                lines.append(line)
+        lines.append(u"}")
+
+        ret = u'\n'.join(lines)
+        logging.info(ret)
+        return ret
 
     def exportJsonLd(self, filename=None):
         xid = "http://cnschema.org/schema/{}".format(self.metadata["name"] )
@@ -574,12 +684,12 @@ class CnsSchema:
                         "@vocab": "http://cnschema.org/"
                     },
                     "@id": xid,
-                    "@type": ["Ontology", "Thing"],
+                    "@type": ["CnsOntology", "Thing"],
                     "name": self.metadata["name"] ,
                     "@graph": self.definition.values() }
 
         for p in self.metadata:
-            if p in ["changelog", "cardinality"]:
+            if p in ["changelog", "template"]:
                 jsonld[p] = self.metadata[p]
             else:
                 assert p in ["name"], p
@@ -607,7 +717,7 @@ class CnsSchema:
         for p in ["name"]:
             self.addMetadata(p, jsonld[p])
 
-        for p in ["cardinality", "changelog"]:
+        for p in ["template", "changelog"]:
             for v in jsonld[p]:
                 self.addMetadata(p, v)
 
@@ -638,6 +748,22 @@ def task_importJsonld(args):
             logging.info(json4debug([idx, x[idx],y[idx]]) )
             break
 
+
+def task_graphviz(args):
+    logging.info( "called task_excel2jsonld" )
+    filename = args["input_file"]
+    cnsSchema = CnsSchema()
+    cnsSchema.importJsonLd(filename)
+
+    #validate if we can reproduce the same jsonld based on input
+    jsonld_input = file2json(filename)
+
+    name = os.path.basename(args["input_file"]).split(u".")[0]
+    name = re.sub(ur"-","_", name)
+    xdebug_file = os.path.join(args["debug_dir"], name+u".dot")
+    ret = cnsSchema.cnsGraphviz(name)
+    lines2file([ret], xdebug_file)
+
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
     logging.getLogger("requests").setLevel(logging.WARNING)
@@ -651,10 +777,13 @@ if __name__ == "__main__":
 
 """
     # task 1: import jsonld (and is loaded completely)
-    python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns-thing-18q3.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
 
     # task 2: convert
 
     # task 3: validate
+
+    # task 4: graphviz
+    python kgtool/cns_schema.py task_graphviz --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
 
 """

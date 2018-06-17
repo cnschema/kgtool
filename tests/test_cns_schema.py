@@ -16,7 +16,7 @@ from kgtool.cns_schema import *  # noqa
 
 class CoreTestCase(unittest.TestCase):
     def setUp(self):
-        filenameSchema = "../schema/cns-thing-18q3.jsonld"
+        filenameSchema = "../schema/cns_thing_18q3.jsonld"
         self.filenameSchema = file2abspath(filenameSchema)
         self.cnsSchema = CnsSchema()
         self.cnsSchema.importJsonLd(self.filenameSchema)
@@ -75,7 +75,7 @@ class CoreTestCase(unittest.TestCase):
             assert False, len(report["bugs"])
 
     def test_cnsValidateRecursive(self):
-        tin = "../schema/cns-thing-18q3.jsonld"
+        tin = "../schema/cns_thing_18q3.jsonld"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
