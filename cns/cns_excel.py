@@ -17,13 +17,18 @@ import re
 import collections
 import glob
 
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
+
+from kgtool.core import *  # noqa
+from kgtool.table import *  # noqa
+from cns.cns_schema import *
+
+
 # global constants
 VERSION = 'v20180519'
 CONTEXTS = [os.path.basename(__file__), VERSION]
 
-from core import *  # noqa
-from table import *  # noqa
-from cns_schema import *
 
 """
 * load CnSchema instance
@@ -305,7 +310,7 @@ if __name__ == "__main__":
 """
     excel2jsonld  and n-quad
     mv ~/Downloads/cns_thing_18q3.xlsx ~/haizhi/git/kgtool/local/
-    python kgtool/cns_excel.py task_excel2jsonld --input_file=local/cns_thing_18q3.xlsx --output_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_thing_18q3.xlsx --output_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
 
 
 """

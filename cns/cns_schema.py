@@ -17,11 +17,15 @@ import re
 import collections
 import glob
 
+sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath('..'))
+
+from kgtool.core import *  # noqa
+
 # global constants
 VERSION = 'v20180519'
 CONTEXTS = [os.path.basename(__file__), VERSION]
 
-from core import *  # noqa
 
 """
 It stores cnSchema data:
@@ -35,9 +39,9 @@ It offers the following functions:
    * load version metadata
    * validate unique name/alias of class/property,
 * cnsConvert: convert non-cnSchema JSON into cnsItem using cnsSchema properties
-* cnsValidate: validate integrity constraints
-   * class-property template
-   * class-property association
+* cnsValidate: validate integrity constraints imposed by template and property definition
+   * class-property binding
+   * property domain
    * property range
 * cnsGraphviz: generate a graphviz dot format of a schema
 """
@@ -554,9 +558,13 @@ class CnsSchema:
             if p == "name":
                 continue
 
+            name = None
             if p.startswith("name"):
-                if v not in plist["alternateName"]:
-                    plist["alternateName"].append( v )
+                name = v
+            elif p.startswith("propertyName"):
+                name = v
+            if name and name not in plist["alternateName"]:
+                plist["alternateName"].append( name )
 
         return plist
 
@@ -748,9 +756,40 @@ def task_importJsonld(args):
             logging.info(json4debug([idx, x[idx],y[idx]]) )
             break
 
+def task_convert(args):
+    logging.info( "called task_graphviz" )
+    filename = "../schema/cns_thing_18q3.jsonld"
+    filename = file2abspath(filename, __file__)
+    cnsSchema = CnsSchema()
+    cnsSchema.importJsonLd(filename)
+
+    filename = args["input_file"]
+    jsondata = file2json(filename)
+    report = cnsSchema.initReport()
+    for idx, item in enumerate(jsondata):
+        types = [item["mainType"], "Thing"]
+        primaryKeys = [idx]
+        cnsItem = cnsSchema.cnsConvert(item, types, primaryKeys, report)
+        logging.info(json4debug(cnsItem))
+        cnsSchema.cnsValidate(cnsItem, report)
+    logging.info(json4debug(report))
+
+
+def task_validate(args):
+    logging.info( "called task_graphviz" )
+    filename = "../schema/cns_thing_18q3.jsonld"
+    filename = file2abspath(filename, __file__)
+    cnsSchema = CnsSchema()
+    cnsSchema.importJsonLd(filename)
+
+    filename = args["input_file"]
+    jsondata = file2json(filename)
+    report = cnsSchema.initReport()
+    cnsSchema.cnsValidateRecursive(jsondata, report)
+    logging.info(json4debug(report))
 
 def task_graphviz(args):
-    logging.info( "called task_excel2jsonld" )
+    logging.info( "called task_graphviz" )
     filename = args["input_file"]
     cnsSchema = CnsSchema()
     cnsSchema.importJsonLd(filename)
@@ -780,8 +819,11 @@ if __name__ == "__main__":
     python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
 
     # task 2: convert
+    python kgtool/cns_schema.py task_convert --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
     # task 3: validate
+    python kgtool/cns_schema.py task_validate --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
     # task 4: graphviz
     python kgtool/cns_schema.py task_graphviz --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/

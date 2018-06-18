@@ -3,6 +3,7 @@
 # Path hack
 import os
 import sys
+sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
 try:
@@ -11,7 +12,7 @@ except ImportError:
     import unittest
 
 from kgtool.core import *  # noqa
-from kgtool.cns_schema import *  # noqa
+from cns.cns_schema import *  # noqa
 
 
 class CoreTestCase(unittest.TestCase):
