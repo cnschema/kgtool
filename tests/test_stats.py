@@ -11,7 +11,7 @@ except ImportError:
     import unittest
 
 from kgtool.core import *  # noqa
-from kgtool.stat import *  # noqa
+from kgtool.stats import *  # noqa
 
 
 class CoreTestCase(unittest.TestCase):
@@ -19,7 +19,7 @@ class CoreTestCase(unittest.TestCase):
         pass
 
     def test_statJsonld(self):
-        tin = "test_stat_kg1.jsonld"
+        tin = "test_stats_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
@@ -29,7 +29,7 @@ class CoreTestCase(unittest.TestCase):
             assert ret[u"tag_抒情"] == 1
 
     def test_stat_jsonld(self):
-        tin = "test_stat_kg1.jsonld"
+        tin = "test_stats_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
@@ -39,7 +39,7 @@ class CoreTestCase(unittest.TestCase):
             assert ret[u"tag_抒情"] == 1
 
     def stat_sample(self):
-        tin = "test_stat_kg1.jsonld"
+        tin = "test_stats_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
@@ -53,7 +53,7 @@ class CoreTestCase(unittest.TestCase):
         ret = stat_table(table,[u"名称", u"年龄"],[u"名称", u"年龄"])
 
     def test_stat_kg_pattern(self):
-        tin = "test_stat_kg1.jsonld"
+        tin = "test_stats_kg1.jsonld"
         tout = file2abspath(tin, __file__)
         with open(tout) as f:
             data = json.load(f)
