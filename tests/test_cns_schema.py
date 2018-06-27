@@ -17,7 +17,7 @@ from cns.cns_schema import *  # noqa
 
 class CoreTestCase(unittest.TestCase):
     def setUp(self):
-        filenameSchema = "../schema/cns_thing_18q3.jsonld"
+        filenameSchema = "../schema/cns_top.jsonld"
         self.filenameSchema = file2abspath(filenameSchema)
         self.cnsSchema = CnsSchema()
         self.cnsSchema.importJsonLd(self.filenameSchema)
@@ -71,12 +71,12 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(cnsItem))
             self.cnsSchema.cnsValidate(cnsItem, report)
 
-        if len(report["bugs"]) != 10:
+        if len(report["bugs"]) != 9:
             logging.info(json4debug(report))
             assert False, len(report["bugs"])
 
     def test_cnsValidateRecursive(self):
-        tin = "../schema/cns_thing_18q3.jsonld"
+        tin = "../schema/cns_top.jsonld"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 

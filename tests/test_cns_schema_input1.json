@@ -3,8 +3,7 @@
   "mainType": "MusicRecording",
   "byArtist":[],
   "名称":"暧昧",
-  "keywords":["抒情"],
-  "tags":[{"name":"抒情"},{"name":"愉快"}],
+  "tag":[{"name":"抒情"},{"name":"愉快"}],
   "image":{"should be": "text"}
 },
 {
