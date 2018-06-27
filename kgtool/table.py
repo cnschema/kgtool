@@ -17,6 +17,84 @@ import collections
 
 import xlwt
 import xlrd
+"""
+json for excel table
+
+DataTable2017
+ {  "data": {
+        "sheet1":[
+            {"name":"john","age":30},
+            {"name":"bob","age":20}
+        ],
+        "sheet2":[
+            {"color":"red"},
+            {"color":"blue"}
+        ]
+    },
+    "fields": {
+        "sheet1": ["name","age"],
+        "sheet2": ["color"]
+    }
+}
+
+DataTable2018
+[
+    {
+        "sheetname": "sheet1",
+        "columns": ["name","age"],
+        "rows": [
+            {"name":"john","age":30},
+            {"name":"bob","age":20}
+        ]
+    },
+    {
+        "sheetname": "sheet2",
+        "columns": ["color"],
+        "rows": [
+            {"color":"red"},
+            {"color":"blue"}
+        ]
+    }
+]
+
+
+"""
+
+def _writeHeader(ws, rowindex, columns):
+    for colindex, key in enumerate(columns):
+        ws.write(rowindex, colindex, key)
+
+def _writeCell(ws, rowindex, columns, item):
+    for colindex, colName in enumerate(columns):
+        v = item.get(colName, "")
+        if type(v) == list:
+            v = ','.join(v)
+        if type(v) == set:
+            v = ','.join(v)
+        ws.write(rowindex, colindex, v)
+
+
+def json2excelMultiple(dataTable2018, filename, flagWriteHeader=True):
+    wb = xlwt.Workbook()
+
+    for dataTable in dataTable2018:
+        sheetname = dataTable["sheetname"]
+        columns = dataTable["columns"]
+        rows = dataTable["rows"]
+        if len(columns) == 0 and len(rows) >0:
+            columns = sorted(rows[0].keys())
+
+        ws = wb.add_sheet(sheetname)
+
+        if flagWriteHeader:
+            _writeHeader(ws, 0, columns)
+
+        for idx, row in enumerate(rows):
+            rowindex = idx + 1 if flagWriteHeader else idx
+            _writeCell(ws, rowindex, columns, row)
+
+    logging.debug(filename)
+    wb.save(filename)
 
 
 def json2excel(items, keys, filename, page_size=60000):
@@ -30,23 +108,9 @@ def json2excel(items, keys, filename, page_size=60000):
             sheetname = "%02d" % sheetindex
             ws = wb.add_sheet(sheetname)
             rowindex = 0
-            sheetindex += 1
 
-            colindex = 0
-            for key in keys:
-                ws.write(rowindex, colindex, key)
-                colindex += 1
-            rowindex += 1
+        _writeCell(ws, rowindex, keys, item)
 
-        colindex = 0
-        for key in keys:
-            v = item.get(key, "")
-            if type(v) == list:
-                v = ','.join(v)
-            if type(v) == set:
-                v = ','.join(v)
-            ws.write(rowindex, colindex, v)
-            colindex += 1
         rowindex += 1
 
     logging.debug(filename)
