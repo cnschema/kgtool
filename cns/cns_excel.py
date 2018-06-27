@@ -47,7 +47,9 @@ MAP_NAME_URLPATTERN = {
 
 SCHEMA_EXCEL_HEADER = {
 	"class": {
-		"COPY": ["nameZh",
+		"COPY": [
+            "name",
+            "nameZh",
             "version",
             "category",
 			"descriptionZh",
@@ -59,6 +61,7 @@ SCHEMA_EXCEL_HEADER = {
 	},
 	"property": {
 		"COPY": [
+            "name",
 			"nameZh",
             "version",
             "category",
@@ -71,16 +74,23 @@ SCHEMA_EXCEL_HEADER = {
 	},
 	"template": {
 		"COPY": [
+            "version",
             "minCardinality",
             "maxCardinality",
-            "className",
-            "propertyName",
+            "refClass",
+            "refProperty",
             "propertyNameZh",
-            "propertyAlternateName",],
+            "propertyAlternateName",
+            "propertyRange",
+            "propertySchema"],
 		"SKIP": []
 	},
 	"changelog": {
-		"COPY": ["datePublished", "name", "text"],
+		"COPY": ["version", "datePublished", "name", "text"],
+		"SKIP": []
+	},
+	"metadata": {
+		"COPY": ["version", "proeprty", "value"],
 		"SKIP": []
 	}
 }
@@ -96,6 +106,104 @@ SCHEMA_EXCEL_HEADER_SKIP = {
 }
 
 
+def initCnsExcel():
+    listSheetname = []
+    mapDataTable = {}
+
+    sheetname = "class"
+    listSheetname.append(sheetname)
+    mapDataTable[sheetname] = {
+        "sheetname": sheetname,
+        "rows":[],
+        "columns": [ "version",
+            "category",
+            "name",
+            "super",
+            "supersededBy",
+            "schemaorgName",
+            "wikidataName",
+            "wikipediaName",
+            "cnschemaName",
+            "nameZh",
+            "alternateName",
+            "descriptionZh",
+            "descriptionZhSource",
+            "description",
+            "descriptionSource",
+            ]
+    }
+
+    sheetname = "property"
+    listSheetname.append(sheetname)
+    mapDataTable[sheetname] = {
+        "sheetname": sheetname,
+        "rows":[],
+        "columns": ["version",
+            "category",
+            "name",
+            "super",
+            "supersededBy",
+            "schemaorgName",
+            "wikidataName",
+            "wikipediaName",
+            "cnschemaName",
+            "nameZh",
+            "alternateName",
+            "descriptionZh",
+            "descriptionZhSource",
+            "description",
+            "descriptionSource",
+            "domain",
+            "range"
+            ]
+    }
+
+
+    sheetname = "template"
+    listSheetname.append(sheetname)
+    mapDataTable[sheetname] = {
+        "sheetname": sheetname,
+        "rows":[],
+        "columns":[
+            "version",
+            "category",
+            "minCardinality",
+            "maxCardinality",
+            "refClass",
+            "refProperty",
+            "propertyNameZh",
+            "propertyAlternateName",
+            "propertyRange",
+            "propertySchema"
+        ]
+    }
+
+    sheetname = "changelog"
+    listSheetname.append(sheetname)
+    mapDataTable[sheetname] = {
+        "sheetname": sheetname,
+        "rows":[],
+        "columns":[
+            "version",
+            "name",
+            "datePublished",
+            "text"
+        ]
+    }
+
+    sheetname = "metadata"
+    listSheetname.append(sheetname)
+    mapDataTable[sheetname] = {
+        "sheetname": sheetname,
+        "rows":[],
+        "columns":[
+            "version",
+            "property",
+            "value"
+        ]
+    }
+
+    return listSheetname, mapDataTable
 
 
 class CnsExcel():
@@ -121,6 +229,8 @@ class CnsExcel():
                 pass
             elif self._loadSheetChangelog(sheet_name, items):
                 pass
+            elif self._loadSheetMetadata(sheet_name, items):
+                pass
             else:
                 msg = u"skip sheet {}".format( sheet_name)
                 self.report["info"].append(msg)
@@ -132,6 +242,24 @@ class CnsExcel():
         # all valid definition has version number starting with "v"
         if not item[u"version"].startswith("v"):
             return False
+
+        return True
+
+
+    def _loadSheetMetadata(self,  sheet_name, items):
+        xlabel = "metadata"
+
+        cnsItemList = []
+        for item in items:
+            if not self._isValidRow(item):
+                continue
+
+            property = item["property"]
+            value = item["value"]
+            assert property
+            assert value
+
+            self.schema.addMetadata( property, value )
 
         return True
 
@@ -164,7 +292,26 @@ class CnsExcel():
 
         return True
 
+    def _cardinality2definition(self, cnsItem):
+        if cnsItem["propertySchema"] == "":
+            name = cnsItem["refProperty"]
+            xid = "http://cnschema.org/{}".format(name)
+            cnsItemDefinition = {
+                "@id": xid,
+                "@type": ["rdf:Property", "CnsDefinition","CnsMetadata", "Thing"],
+                "name": name,
+                "category": "property-template",
+                "nameZh": cnsItem["propertyNameZh"],
+                "alternateName": cnsItem["propertyAlternateName"],
+                "rdfs:domain": cnsItem["refClass"],
+                "rdfs:range": cnsItem["propertyRange"],
+            }
+
+            self.schema.addDefinition( cnsItemDefinition )
+
     def _loadSheetCardinality(self,  sheet_name, items):
+
+
         xlabel = "template"
         if sheet_name == xlabel:
             xtype = ["CnsTemplate", "CnsMetadata", "Thing"]
@@ -176,8 +323,8 @@ class CnsExcel():
                 continue
 
             name = "{}_{}".format(
-                item["className"],
-                item["propertyName"]
+                item["refClass"],
+                item["refProperty"]
             )
 
             xid = "http://meta.cnschema.org/template/{}".format( name )
@@ -191,6 +338,8 @@ class CnsExcel():
 
             self.schema.addMetadata( "template", cnsItem )
 
+            self._cardinality2definition(cnsItem)
+
         return True
 
     def _copy_values(self, cnsItem, p, v, sheet_name):
@@ -199,10 +348,10 @@ class CnsExcel():
         elif p in SCHEMA_EXCEL_HEADER[sheet_name]["SKIP"]:
             pass
         else:
-            msg = u"todo sheet {} column {}".format( sheet_name, p)
+            msg = u"warn: column {} not in COPY/SKIP in sheet {}".format( p, sheet_name)
             self.report["warn"].append(msg)
-            logging.warn( msg )
-            logging.warn( json4debug( cnsItem ) )
+            #logging.warn( msg )
+            #logging.warn( json4debug( cnsItem ) )
 
     def _loadSheetDefinition(self, sheet_name, items, xlabel ):
         if not sheet_name == xlabel:
@@ -272,8 +421,20 @@ def task_excel2jsonld(args):
     cnsExcel = CnsExcel()
     filename = args["input_file"]
     cnsExcel.loadExcelSchema(filename)
+    if len(cnsExcel.report["warn"])>0:
+        logging.info(json4debug(cnsExcel.report["warn"]))
+        assert False
+
     filename_output = args["output_file"]
     cnsExcel.schema.exportJsonLd(filename_output)
+
+    jsondata = file2json(filename_output)
+    report = cnsExcel.schema.initReport()
+    cnsExcel.schema.cnsValidateRecursive(jsondata, report)
+    if len(report["bugs"])>2:
+        logging.info(json4debug(report))
+        assert False
+
 
     xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
     filename_debug = xdebug_file+u".debug"
@@ -309,8 +470,14 @@ if __name__ == "__main__":
 
 """
     excel2jsonld  and n-quad
-    mv ~/Downloads/cns_thing_18q3.xlsx ~/haizhi/git/kgtool/local/
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_thing_18q3.xlsx --output_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
+
+    mv ~/Downloads/cns_top.xlsx ~/haizhi/git/kgtool/local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/
+
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+
+    mv ~/Downloads/cns_organization.xlsx ~/haizhi/git/kgtool/local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_organization.xlsx --output_file=schema/cns_organization.jsonld --debug_dir=local/
 
 
 """

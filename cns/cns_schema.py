@@ -257,7 +257,7 @@ class CnsSchema:
         validated_property = set()
         for xtype in cnsItem["@type"]:
             for template in self.indexValidateTemplate[xtype]:
-                p = template["propertyName"]
+                p = template["refProperty"]
                 if p in validated_property:
                     continue
                 else:
@@ -266,6 +266,9 @@ class CnsSchema:
                 cardAcual = len(json_get_list(cnsItem, p))
 
                 if cardAcual < template["minCardinality"]:
+                    # logging.info(json4debug(template))
+                    # logging.info(json4debug(cnsItem))
+                    # assert False
                     bug = {
                         "category": "warn_validate_template",
                         "text": "minCardinality",
@@ -340,8 +343,28 @@ class CnsSchema:
         self.definition[item["@id"]]  = item
 
     def build(self):
-        schemaList = [self]
+        def _buildImportedSchema(schema):
+            #handle import
+            name = schema.metadata["name"]
+            importedCnsSchema = []
+            importedSchemaName = []
+            if name != "cns_top":
+                importedSchemaName.append( "cns_top" )
+            importedSchemaName.extend( json_get_list(schema.metadata,"import") )
+
+            for schemaName in importedSchemaName:
+                filename = u"../schema/{}.jsonld".format(schemaName)
+                filename = file2abspath(filename)
+                cnsSchema = CnsSchema()
+                cnsSchema.importJsonLd(filename)
+                importedCnsSchema.append(cnsSchema)
+                logging.info("importing {}".format(schemaName))
+            return importedCnsSchema
+
+        schemaList = []
         #schemaList.extend( self.importSchema )
+        schemaList.extend(_buildImportedSchema(self))
+        schemaList.append(self)
 
         self._buildindexPropertyAlias(schemaList)
         self._buildindexDefinitionAlias(schemaList)
@@ -349,21 +372,22 @@ class CnsSchema:
         self._buildIndexTemplate(schemaList)
         self._buildIndexDomain(schemaList)
 
+        logging.info([x.metadata["name"] for x in schemaList])
         self._validateSchema()
 
         return self._stat()
 
     def _validateSchema(self):
         for template in self.metadata["template"]:
-            cls = self.indexDefinitionAlias.get( template["className"] )
+            cls = self.indexDefinitionAlias.get( template["refClass"] )
             #logging.info(json4debug(sorted(self.indexDefinitionAlias.keys())))
             assert cls, json4debug(template)
-            assert cls["name"] == template["className"]
+            assert cls["name"] == template["refClass"]
             assert cls["@type"][0] == "rdfs:Class"
 
-            prop = self.indexDefinitionAlias.get( template["propertyName"] )
-            assert prop, json4debug(template)
-            assert prop["name"] == template["propertyName"]
+            prop = self.indexDefinitionAlias.get( template["refProperty"] )
+            assert prop, template
+            assert prop["name"] == template["refProperty"]
             assert prop["@type"][0] == "rdf:Property"
 
     def _stat(self):
@@ -376,7 +400,7 @@ class CnsSchema:
 
         stat["cntTemplate"] += len(self.metadata["template"])
 
-        stat["cntTemplateGroup"] += len(set([x["className"] for x in self.metadata["template"]]))
+        stat["cntTemplateGroup"] += len(set([x["refClass"] for x in self.metadata["template"]]))
 
         ret = {
             "name" : self.metadata["name"],
@@ -405,7 +429,8 @@ class CnsSchema:
                 if cnsItem["name"] in ["@id", "@type"]:
                     assert False, json4debug(cnsItem)
 
-                if "rdf:Property" in cnsItem["@type"]:
+                if "rdf:Property" in cnsItem["@type"] and "rdfs:range" in cnsItem:
+                    logging.info(json4debug(cnsItem))
                     p = cnsItem["name"]
                     r = cnsItem["rdfs:range"]
                     #assert type(r) == list
@@ -444,7 +469,7 @@ class CnsSchema:
                     assert False, json4debug(cnsItem)
 
                 # regular properties only
-                if "rdf:Property" in cnsItem["@type"]:
+                if "rdf:Property" in cnsItem["@type"] and "rdfs:domain" in cnsItem:
                     p = cnsItem["name"]
                     d = cnsItem["rdfs:domain"]
                     #assert type(r) == list
@@ -466,9 +491,14 @@ class CnsSchema:
         #build
         for schema in schemaList:
             for template in schema.metadata["template"]:
-                d = template["className"]
-                template["minCardinality"] = int(template["minCardinality"])
-                assert template["minCardinality"] in [0,1], template
+                d = template["refClass"]
+
+                p = "minCardinality"
+                if template[p] == "":
+                    template[p] = 0
+                else:
+                    template[p] = int(template[p])
+                assert template[p] in [0,1], template
 
                 p = "maxCardinality"
                 if p not in template:
@@ -501,8 +531,8 @@ class CnsSchema:
 
         #validate
         for alias, v in mapNameAlias.items():
-            temp = json4debug(list(v))
-            assert len(v) == 1, temp
+#            logging.info(alias)
+            assert len(v) == 1, (alias, list(v))
             self.indexPropertyAlias[alias] = list(v)[0]
 
     def _buildindexDefinitionAlias(self, schemaList):
@@ -510,14 +540,21 @@ class CnsSchema:
 
         mapNameItem = collections.defaultdict(list)
 
-        #collect alias
+        #collect alias from definition
         for schema in schemaList:
             for cnsItem in schema.definition.values():
+                if "cns_schemaorg" == schema.metadata["name"]:
+                    if cnsItem["@id"] in schemaList[0].definition:
+                        # if definition is defined in cns_top, then
+                        # skip schemaorg's defintion
+                        continue
+
                 plist = self._extractPlist( cnsItem )
                 names = [ plist["name"] ]
                 names.extend( plist["alternateName"] )
                 for alias in set(names):
                     mapNameItem[alias].append( cnsItem )
+
 
         #validate
         for alias, v in mapNameItem.items():
@@ -544,7 +581,7 @@ class CnsSchema:
         #else:
         #    assert False, cnsItem
 
-        plist_meta = [ {"name":"name", "alternateName":["propertyName"]},
+        plist_meta = [ {"name":"name", "alternateName":["refProperty"]},
                        {"name":"alternateName", "alternateName":["propertyAlternateName"]}]
         plist = json_dict_copy(cnsItem, plist_meta)
         assert plist["name"], cnsItem
@@ -572,6 +609,8 @@ class CnsSchema:
     def addMetadata(self, group, item):
         if group in ["version", "template"]:
             self.metadata[group].append(item)
+        elif group in [ "import"]:
+            self.metadata[group].extend(item)
         else:
             self.metadata[group] = item
 
@@ -586,102 +625,210 @@ class CnsSchema:
 
         return output
 
+
     def cnsGraphviz(self, name):
         def _getName(definition):
             return u"{}（{}）".format(definition["name"], definition["nameZh"])
 
         def _addNode(definition, nodeMap):
+            if definition is None:
+                logging.warn("empty definition")
+                return
+
+            #logging.info(definition)
             if "rdf:Property" in definition["@type"]:
                 p = "property"
+            elif "CnsLink" in definition.get("rdfs:subClassOf",[]):
+                p = "link"
             else:
                 p = "class"
             nodeMap[p].add(_getName(definition))
 
         def _addLink(link, linkList, nodeMap):
+            #logging.info(json4debug(link))
             linkList.append(link)
             _addNode(link["from"], nodeMap)
             _addNode(link["to"], nodeMap)
-            if link["type"] == "domain_range":
+            if link["type"].endswith("domain_range") :
                 _addNode(link["relation"], nodeMap)
+            elif link["type"] == "template_link":
+                _addNode(link["relation"], nodeMap)
+            elif link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
+                pass
+            else:
+                logging.info(json4debug(link))
+                assert False
+
+        def _addDomainRange(definition, linkList):
+            #domain range relation
+            if "rdf:Property" in definition["@type"]:
+                if definition.get("rdfs:range") and definition.get("rdfs:domain"):
+                    rangeClass = self.indexDefinitionAlias.get( definition["rdfs:range"] )
+                    domainClass = self.indexDefinitionAlias.get( definition["rdfs:domain"] )
+                    if domainClass and rangeClass:
+                        link = {
+                            "from": domainClass,
+                            "to": rangeClass,
+                            "relation": definition,
+                            "type": "property_domain_range"
+                        }
+                        _addLink(link, linkList, nodeMap)
+
+        def _addSuperClassProperty(definition, linkList):
+            #super class/property relation
+            for p in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
+                superList = definition.get(p,[])
+                for super in superList:
+                    superDefinition = self.indexDefinitionAlias.get(super)
+                    if superDefinition:
+                        link = {
+                            "from": definition,
+                            "to": superDefinition,
+                            "type": p,
+                        }
+                        _addLink(link, linkList, nodeMap)
+
+        def _addTemplateDomainRange(template, linkList, linkInOutMap):
+            #logging.info(json4debug(template))
+            #assert False
+
+
+            if not template.get("refClass"):
+                return
+            if not template.get("refProperty"):
+                return
+
+            domainClass = self.indexDefinitionAlias.get( template["refClass"])
+            if not domainClass:
+                return
+
+            propertyDefinition = self.indexDefinitionAlias.get(template["refProperty"])
+            if not propertyDefinition:
+                return
+
+
+            if template.get("propertyRange"):
+                rangeClass = self.indexDefinitionAlias.get( template["propertyRange"] )
+            else:
+                rangeClass = self.indexDefinitionAlias.get( propertyDefinition["rdfs:range"] )
+
+            # special processing on  [in, out], system property for property graph
+            assert rangeClass, template
+
+            linkName = domainClass["name"]
+            if template["refProperty"] in ["in"]:
+                linkInOutMap[linkName]["from"] = rangeClass
+                linkInOutMap[linkName]["relation"] = domainClass
+                linkInOutMap[linkName]["type"] = "template_link"
+            elif template["refProperty"] in ["out"]:
+                linkInOutMap[linkName]["to"] = rangeClass
+            else:
+                link = {
+                    "from": domainClass,
+                    "to": rangeClass,
+                    "relation": propertyDefinition,
+                    "type": "template_domain_range"
+                }
+                _addLink(link, linkList, nodeMap)
+
+        def _filterCompact(nodeMap, linkList):
+            skipLinkType = []
+            nodeMapNew = collections.defaultdict(set)
+            linkListNew = []
+            for link in linkList:
+                if link["to"]["category"] == "class-datatype":
+                    continue
+                #logging.info(json4debug(link))
+                linkListNew.append(link)
+                nodeMapNew["class"].add(_getName(link["from"]))
+                nodeMapNew["class"].add(_getName(link["to"]))
+
+                if link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
+                    pass
+                elif link["type"] in ["property_domain_range"]:
+                    pass
+                elif link["type"] in ["template_link"]:
+                    nodeMapNew["link"].add(_getName(link["relation"]))
+                else:
+                    nodeMapNew["property"].add(_getName(link["relation"]))
+
+            nodeMapNew["class"] = nodeMapNew["class"].difference( nodeMapNew["link"] )
+            return nodeMapNew, linkListNew
+
+        def _renderDotFormat(nodeMap, linkList):
+            # generate graph
+            lines = []
+            lines.append(u"digraph {} ".format(name))
+            lines.append("{")
+            line = "\t# dot -Tpng local/{}_full.dot -olocal/{}_full.png".format(name, name)
+            lines.append(line)
+            line = "\t# dot -Tpng local/{}_compact.dot -olocal/{}.png".format(name, name)
+            lines.append(line)
+            logging.info(line)
+            lines.append('\trankdir = "LR"')
+            #nodes
+            lines.append('\n\tnode [shape=oval]')
+            lines.extend(sorted(list(nodeMap["class"])))
+            lines.append("")
+
+            lines.append('\n\tnode [shape=octagon]')
+            lines.extend(sorted(list(nodeMap["link"])))
+            lines.append("")
+
+            lines.append('\n\tnode [shape=rect]')
+            lines.extend(sorted(list(nodeMap["property"])))
+            lines.append("")
+
+            #links
+            for link in linkList:
+                if link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
+                    line = u'\t{} -> {}\t [style=dotted]'.format(
+                        _getName(link["from"]),
+                        _getName(link["to"]) )
+                    if line not in lines:
+                        lines.append(line)
+                else:
+                    line = u'\t{} -> {}\t '.format(
+                        _getName(link["from"]),
+                        _getName(link["relation"]))
+                    if line not in lines:
+                        lines.append(line)
+
+                    line = u'\t{} -> {}\t '.format(
+                        _getName(link["relation"]),
+                        _getName(link["to"]))
+                    if line not in lines:
+                        lines.append(line)
+            lines.append(u"}")
+
+            ret = u'\n'.join(lines)
+            return ret
 
         # preprare data
         linkList = []
         nodeMap = collections.defaultdict(set)
 
-        for definition in self.definition.values():
-            #domain range relation
-            if "rdf:Property" in definition["@type"]:
-                rangeClass = self.indexDefinitionAlias.get( definition["rdfs:range"] )
-                domainClass = self.indexDefinitionAlias.get( definition["rdfs:domain"] )
-                if domainClass and rangeClass:
-                    link = {
-                        "from": domainClass,
-                        "to": rangeClass,
-                        "relation": definition,
-                        "type": "domain_range"
-                    }
-                    _addLink(link, linkList, nodeMap)
+        for definition in sorted(self.definition.values(),key=lambda x:x["@id"]):
+            # domain range relation
+            _addDomainRange(definition, linkList)
 
-            #super class relation
-            p = "rdfs:subClassOf"
-            superList = definition.get(p,[])
-            for super in superList:
-                superClass = self.indexDefinitionAlias.get(super)
-                link = {
-                    "from": definition,
-                    "to": superClass,
-                    "type": p,
-                }
-                _addLink(link, linkList, nodeMap)
+            _addSuperClassProperty(definition, linkList)
+            pass
 
-            #super property relation
-            p = "rdfs:subPropertyOf"
-            superList = definition.get(p,[])
-            for super in superList:
-                superProperty = self.indexDefinitionAlias.get(super)
-                link = {
-                    "from": definition,
-                    "to": superProperty,
-                    "type": p,
-                }
-                _addLink(link, linkList, nodeMap)
+        linkInOutMap = collections.defaultdict(dict)
+        for template in self.metadata["template"]:
+            _addTemplateDomainRange(template, linkList, linkInOutMap)
 
-        # generate graph
-        lines = []
-        lines.append(u"digraph {} ".format(name))
-        lines.append("{")
-        lines.append("\t# dot -Tpng {}.dot -o{}.png".format(name, name))
-        lines.append('\trankdir = "LR"')
-        #nodes
-        lines.append('\n\tnode [shape=oval]')
-        lines.extend(sorted(list(nodeMap["class"])))
-        lines.append("")
+        for key in sorted(linkInOutMap):
+            link = linkInOutMap[key]
+            _addLink(link, linkList, nodeMap)
 
-        lines.append('\n\tnode [shape=rect]')
-        lines.extend(sorted(list(nodeMap["property"])))
-        lines.append("")
-
-        #links
-        for link in linkList:
-            if link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
-                line = u'\t{} -> {}\t [style=dotted]'.format(
-                    _getName(link["from"]),
-                    _getName(link["to"]) )
-                lines.append(line)
-            else:
-                line = u'\t{} -> {}\t '.format(
-                    _getName(link["from"]),
-                    _getName(link["relation"]))
-                lines.append(line)
-
-                line = u'\t{} -> {}\t '.format(
-                    _getName(link["relation"]),
-                    _getName(link["to"]))
-                lines.append(line)
-        lines.append(u"}")
-
-        ret = u'\n'.join(lines)
-        logging.info(ret)
+        ret = {
+            "full": _renderDotFormat(nodeMap, linkList),
+        }
+        nodeMapNew, linkListNew = _filterCompact(nodeMap, linkList)
+        ret["compact"] = _renderDotFormat(nodeMapNew, linkListNew)
+        #logging.info(ret)
         return ret
 
     def exportJsonLd(self, filename=None):
@@ -689,6 +836,8 @@ class CnsSchema:
 
         # assign values
         jsonld = {  "@context": {
+                        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+                        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
                         "@vocab": "http://cnschema.org/"
                     },
                     "@id": xid,
@@ -699,15 +848,18 @@ class CnsSchema:
         for p in self.metadata:
             if p in ["changelog", "template"]:
                 jsonld[p] = self.metadata[p]
+            elif p in ["name"]:
+                pass
             else:
-                assert p in ["name"], p
+                jsonld[p] = self.metadata[p]
 
         #sort, achieve cannonical representation (sorted)
         for p,v in jsonld.items():
-            if p in ["@id","@type"]:
+            if p in ["@id","@type","import"]:
                 continue
 
             if type(v) == list:
+                # logging.info(json4debug(v))
                 jsonld[p] = sorted(v, key=lambda x: [x.get("@id",""), x.get("name","")] )
 
         #save to file
@@ -722,12 +874,16 @@ class CnsSchema:
         #load
         jsonld = file2json(filename)
         assert jsonld["@context"]["@vocab"] == "http://cnschema.org/"
-        for p in ["name"]:
-            self.addMetadata(p, jsonld[p])
 
-        for p in ["template", "changelog"]:
-            for v in jsonld[p]:
-                self.addMetadata(p, v)
+        for p in jsonld:
+            if p.startswith("@"):
+                pass
+            elif p in ["template", "changelog"]:
+                for v in jsonld[p]:
+                    self.addMetadata(p, v)
+            else:
+                self.addMetadata(p, jsonld[p])
+
 
 
         for definition in jsonld["@graph"]:
@@ -758,7 +914,7 @@ def task_importJsonld(args):
 
 def task_convert(args):
     logging.info( "called task_graphviz" )
-    filename = "../schema/cns_thing_18q3.jsonld"
+    filename = "../schema/cns_top.jsonld"
     filename = file2abspath(filename, __file__)
     cnsSchema = CnsSchema()
     cnsSchema.importJsonLd(filename)
@@ -777,7 +933,7 @@ def task_convert(args):
 
 def task_validate(args):
     logging.info( "called task_graphviz" )
-    filename = "../schema/cns_thing_18q3.jsonld"
+    filename = "../schema/cns_top.jsonld"
     filename = file2abspath(filename, __file__)
     cnsSchema = CnsSchema()
     cnsSchema.importJsonLd(filename)
@@ -799,9 +955,10 @@ def task_graphviz(args):
 
     name = os.path.basename(args["input_file"]).split(u".")[0]
     name = re.sub(ur"-","_", name)
-    xdebug_file = os.path.join(args["debug_dir"], name+u".dot")
     ret = cnsSchema.cnsGraphviz(name)
-    lines2file([ret], xdebug_file)
+    for key, lines in ret.items():
+        xdebug_file = os.path.join(args["debug_dir"], name+"_"+key+u".dot")
+        lines2file([lines], xdebug_file)
 
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
@@ -816,16 +973,21 @@ if __name__ == "__main__":
 
 """
     # task 1: import jsonld (and is loaded completely)
-    python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_importJsonld --input_file=schema/cns_top.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_importJsonld --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_importJsonld --input_file=schema/cns_organization.jsonld --debug_dir=local/
 
     # task 2: convert
-    python kgtool/cns_schema.py task_convert --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+    python cns/cns_schema.py task_convert --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
     # task 3: validate
-    python kgtool/cns_schema.py task_validate --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
-    python kgtool/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+    python cns/cns_schema.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
     # task 4: graphviz
-    python kgtool/cns_schema.py task_graphviz --input_file=schema/cns_thing_18q3.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_graphviz --input_file=schema/cns_top.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_graphviz --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python cns/cns_schema.py task_graphviz --input_file=schema/cns_organization.jsonld --debug_dir=local/
 
 """

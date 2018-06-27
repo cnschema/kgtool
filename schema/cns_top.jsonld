@@ -1,25 +1,10 @@
 {
     "@context": {
-        "@vocab": "http://cnschema.org/"
+        "@vocab": "http://cnschema.org/", 
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
     }, 
     "@graph": [
-        {
-            "@id": "http://cnschema.org/AggregateRating", 
-            "@type": [
-                "rdfs:Class", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "class-data", 
-            "name": "AggregateRating", 
-            "nameZh": "综合评价", 
-            "rdfs:subClassOf": [
-                "CnsDataStructure"
-            ], 
-            "schemaorgUrl": "http://schema.org/AggregateRating", 
-            "version": "v17q2so"
-        }, 
         {
             "@id": "http://cnschema.org/Boolean", 
             "@type": [
@@ -28,7 +13,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "descriptionZh": "只允许如下值：\"是\"，“否”，“True”， “False”", 
             "name": "Boolean", 
             "nameZh": "真假值", 
@@ -36,7 +21,7 @@
                 "Text"
             ], 
             "schemaorgUrl": "http://schema.org/Boolean", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/CnsChangelog", 
@@ -52,7 +37,7 @@
             "rdfs:subClassOf": [
                 "CnsMetadata"
             ], 
-            "version": "v18q3"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/CnsDataStructure", 
@@ -85,7 +70,7 @@
             "rdfs:subClassOf": [
                 "CnsMetadata"
             ], 
-            "version": "v18q3"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/CnsLink", 
@@ -118,7 +103,7 @@
             "rdfs:subClassOf": [
                 "Thing"
             ], 
-            "version": "v18q3"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/CnsOntology", 
@@ -134,7 +119,7 @@
             "rdfs:subClassOf": [
                 "CnsMetadata"
             ], 
-            "version": "v18q3"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/CnsTag", 
@@ -144,9 +129,10 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-entity", 
+            "category": "class-meta", 
+            "descriptionZh": "该实体的分类标签，在不进一步扩展分类树的前提下支持facted search ,细化分类", 
             "name": "CnsTag", 
-            "nameZh": "标签", 
+            "nameZh": "分类标签", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
@@ -166,24 +152,7 @@
             "rdfs:subClassOf": [
                 "CnsMetadata"
             ], 
-            "version": "v18q3"
-        }, 
-        {
-            "@id": "http://cnschema.org/Comment", 
-            "@type": [
-                "rdfs:Class", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "class-data", 
-            "name": "Comment", 
-            "nameZh": "评论", 
-            "rdfs:subClassOf": [
-                "CnsDataStructure"
-            ], 
-            "schemaorgUrl": "http://schema.org/Comment", 
-            "version": "v17q2so"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/CreativeWork", 
@@ -200,7 +169,7 @@
                 "Thing"
             ], 
             "schemaorgUrl": "http://schema.org/CreativeWork", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/DataType", 
@@ -210,11 +179,11 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-meta", 
+            "category": "class-datatype", 
             "name": "DataType", 
             "nameZh": "简单数据结构", 
             "schemaorgUrl": "http://schema.org/DataType", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Date", 
@@ -224,14 +193,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "Date", 
             "nameZh": "日期", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
             "schemaorgUrl": "http://schema.org/Date", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/DateTime", 
@@ -241,14 +210,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "DateTime", 
             "nameZh": "时间", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
             "schemaorgUrl": "http://schema.org/DateTime", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Float", 
@@ -258,14 +227,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "Float", 
             "nameZh": "浮点数", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
             "schemaorgUrl": "http://schema.org/Float", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Integer", 
@@ -275,31 +244,31 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "Integer", 
             "nameZh": "整数", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
             "schemaorgUrl": "http://schema.org/Integer", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
-            "@id": "http://cnschema.org/InteractionCounter", 
+            "@id": "http://cnschema.org/MonetaryAmount", 
             "@type": [
                 "rdfs:Class", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
-            "name": "InteractionCounter", 
-            "nameZh": "交互统计", 
+            "category": "class-entity", 
+            "name": "MonetaryAmount", 
+            "nameZh": "金额", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
-            "schemaorgUrl": "http://schema.org/InteractionCounter", 
-            "version": "v17q2so"
+            "schemaorgUrl": "http://schema.org/MonetaryAmount", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/Number", 
@@ -309,14 +278,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "Number", 
             "nameZh": "数字", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
             "schemaorgUrl": "http://schema.org/Number", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Organization", 
@@ -327,8 +296,7 @@
                 "Thing"
             ], 
             "alternateName": [
-                "组织", 
-                "机构"
+                "组织"
             ], 
             "category": "class-entity", 
             "name": "Organization", 
@@ -337,7 +305,7 @@
                 "Thing"
             ], 
             "schemaorgUrl": "http://schema.org/Organization", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Person", 
@@ -354,7 +322,7 @@
                 "Thing"
             ], 
             "schemaorgUrl": "http://schema.org/Person", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Place", 
@@ -371,7 +339,7 @@
                 "Thing"
             ], 
             "schemaorgUrl": "http://schema.org/Place", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Product", 
@@ -388,7 +356,7 @@
                 "Thing"
             ], 
             "schemaorgUrl": "http://schema.org/Product", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/QuantitativeValue", 
@@ -398,14 +366,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-entity", 
             "name": "QuantitativeValue", 
             "nameZh": "键值对", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
             "schemaorgUrl": "http://schema.org/QuantitativeValue", 
-            "version": "v17q2so"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/Text", 
@@ -415,14 +383,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "Text", 
             "nameZh": "文本", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
             "schemaorgUrl": "http://schema.org/Text", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/Thing", 
@@ -436,7 +404,7 @@
             "name": "Thing", 
             "nameZh": "事物", 
             "schemaorgUrl": "http://schema.org/Thing", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/URL", 
@@ -446,14 +414,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-data", 
+            "category": "class-datatype", 
             "name": "URL", 
             "nameZh": "链接", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
             "schemaorgUrl": "http://schema.org/URL", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/about", 
@@ -463,45 +431,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，实体描述的相关实体", 
             "name": "about", 
             "nameZh": "关于", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Thing", 
             "schemaorgUrl": "http://schema.org/about", 
-            "version": "vnext"
-        }, 
-        {
-            "@id": "http://cnschema.org/aggregateRating", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "aggregateRating", 
-            "nameZh": "相关综合评价", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "AggregateRating", 
-            "schemaorgUrl": "http://schema.org/aggregateRating", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/aggregateRatingDetail", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "aggregateRatingDetail", 
-            "nameZh": "相关综合评价详情", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "AggregateRating", 
-            "version": "v17q2so"
+            "version": "v17q3"
         }, 
         {
             "@id": "http://cnschema.org/alternateName", 
@@ -511,14 +448,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "系统保留字，实体的别名，Wikidata的alias。", 
             "name": "alternateName", 
             "nameZh": "别名", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/alternateName", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/alternateNameEn", 
@@ -528,7 +465,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "英文别名", 
             "name": "alternateNameEn", 
             "nameZh": "英文的别名", 
@@ -546,10 +483,9 @@
             ], 
             "alternateName": [
                 "alternateNameForHuman", 
-                "alternateNameRaw", 
-                "原始的别名"
+                "alternateNameRaw"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "展示用，原始的实体别名，没有自动扩展过。 alternateName系统占用。", 
             "name": "alternateNameRaw", 
             "nameZh": "原始的别名", 
@@ -565,29 +501,13 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "中文别名", 
             "name": "alternateNameZh", 
             "nameZh": "中文的别名", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "version": "v17q3"
-        }, 
-        {
-            "@id": "http://cnschema.org/bestRating", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "bestRating", 
-            "nameZh": "评价上限", 
-            "rdfs:domain": "AggregateRating", 
-            "rdfs:range": "Number", 
-            "schemaorgUrl": "http://schema.org/bestRating", 
-            "version": "v17q2so"
         }, 
         {
             "@id": "http://cnschema.org/broader", 
@@ -597,13 +517,13 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "语义更宽泛的标签", 
             "name": "broader", 
             "nameZh": "上级标签", 
             "rdfs:domain": "CnsTag", 
             "rdfs:range": "CnsTag", 
-            "version": "vnext"
+            "version": "v17q3"
         }, 
         {
             "@id": "http://cnschema.org/category", 
@@ -613,14 +533,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "实体的分组", 
             "name": "category", 
             "nameZh": "分组", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/category", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/changelog", 
@@ -653,38 +573,6 @@
             "version": "v18q3"
         }, 
         {
-            "@id": "http://cnschema.org/comment", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "comment", 
-            "nameZh": "相关评论", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Comment", 
-            "schemaorgUrl": "http://schema.org/comment", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/commentCount", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "commentCount", 
-            "nameZh": "相关评论总数", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Integer", 
-            "schemaorgUrl": "http://schema.org/commentCount", 
-            "version": "v17q2so"
-        }, 
-        {
             "@id": "http://cnschema.org/confidence", 
             "@type": [
                 "rdf:Property", 
@@ -692,7 +580,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "置信度，0到1之间的浮点数", 
             "name": "confidence", 
             "nameZh": "置信度", 
@@ -708,13 +596,44 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "语义冲突的标签", 
             "name": "conflict", 
             "nameZh": "冲突的标签", 
             "rdfs:domain": "CnsTag", 
             "rdfs:range": "CnsTag", 
-            "version": "vnext"
+            "version": "v17q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/currency", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "currency", 
+            "nameZh": "币种", 
+            "rdfs:domain": "MonetaryAmount", 
+            "rdfs:range": "Text", 
+            "version": "v17q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/date", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-info", 
+            "descriptionZh": "发生的具体日期", 
+            "name": "date", 
+            "nameZh": "发生日期", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Date", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/dateCreated", 
@@ -724,30 +643,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-storage", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，溯源，实体数据创建时间，ISO8601 with Timezone", 
             "name": "dateCreated", 
-            "nameZh": "创建时间", 
+            "nameZh": "创建日期", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/dateCreated", 
-            "version": "vnext"
-        }, 
-        {
-            "@id": "http://cnschema.org/dateDeleted", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-storage", 
-            "descriptionZh": "系统保留字，溯源，实体数据删除时间，标记删除", 
-            "name": "dateDeleted", 
-            "nameZh": "删除时间", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "DateTime", 
-            "version": "vnext"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/dateModified", 
@@ -757,14 +660,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-storage", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，溯源，实体数据更新时间", 
             "name": "dateModified", 
-            "nameZh": "更新时间", 
+            "nameZh": "更新日期", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/dateModified", 
-            "version": "vnext"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/datePublished", 
@@ -774,14 +677,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "发布时间", 
             "name": "datePublished", 
             "nameZh": "发布时间", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/datePublished", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/description", 
@@ -792,17 +695,16 @@
                 "Thing"
             ], 
             "alternateName": [
-                "描述", 
-                "简介"
+                "描述"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "系统保留字，实体的描述，Wikidata的description。", 
             "name": "description", 
             "nameZh": "简介", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/description", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/descriptionEn", 
@@ -812,7 +714,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "英文简介", 
             "name": "descriptionEn", 
             "nameZh": "英文的简介", 
@@ -830,16 +732,30 @@
             ], 
             "alternateName": [
                 "longDescription", 
-                "descriptionLong", 
-                "原始的简介"
+                "descriptionLong"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "展示用，原始的实体描述，人物百科保存较长的人物描述", 
             "name": "descriptionRaw", 
             "nameZh": "原始的简介", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "version": "v17q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/descriptionSource", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-info", 
+            "name": "descriptionSource", 
+            "nameZh": "英文的简介的来源", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/descriptionZh", 
@@ -849,7 +765,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "中文简介", 
             "name": "descriptionZh", 
             "nameZh": "中文的简介", 
@@ -858,20 +774,19 @@
             "version": "v17q3"
         }, 
         {
-            "@id": "http://cnschema.org/downvoteCount", 
+            "@id": "http://cnschema.org/descriptionZhSource", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
-            "name": "downvoteCount", 
-            "nameZh": "差评数", 
-            "rdfs:domain": "Comment", 
-            "rdfs:range": "Integer", 
-            "schemaorgUrl": "http://schema.org/downvoteCount", 
-            "version": "v17q2so"
+            "category": "property-info", 
+            "name": "descriptionZhSource", 
+            "nameZh": "中文的简介的来源", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/endDate", 
@@ -881,12 +796,12 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
-            "descriptionZh": "结束时间", 
+            "category": "property-info", 
+            "descriptionZh": "结束的具体日期", 
             "name": "endDate", 
-            "nameZh": "结束时间", 
+            "nameZh": "结束日期", 
             "rdfs:domain": "Thing", 
-            "rdfs:range": "DateTime", 
+            "rdfs:range": "Date", 
             "schemaorgUrl": "http://schema.org/endDate", 
             "version": "v18q2"
         }, 
@@ -898,45 +813,13 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-sys", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体", 
             "name": "entityScore", 
             "nameZh": "全局评分", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Integer", 
             "version": "v17q3"
-        }, 
-        {
-            "@id": "http://cnschema.org/graphId", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-sys", 
-            "descriptionZh": "系统保留字，溯源，实体目前所处的图谱的标识，HASH，建议使用SHA256", 
-            "name": "graphId", 
-            "nameZh": "所在图谱编号", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Text", 
-            "version": "vnext"
-        }, 
-        {
-            "@id": "http://cnschema.org/graphScore", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-sys", 
-            "descriptionZh": "系统保留字，实体在对应图谱中的重要性，在图谱中哪个实体最具有代表性。浮点数，目前采用PageRank计算，亦可以考虑SwoogleRank", 
-            "name": "graphScore", 
-            "nameZh": "图谱内评分", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Float", 
-            "version": "vnext"
         }, 
         {
             "@id": "http://cnschema.org/identifier", 
@@ -946,7 +829,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-sys", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，溯源，实体在数据源对应的ID", 
             "name": "identifier", 
             "nameZh": "标识", 
@@ -964,17 +847,31 @@
                 "Thing"
             ], 
             "alternateName": [
-                "头像", 
-                "图片"
+                "头像"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "一个实体可以有多个image", 
             "name": "image", 
             "nameZh": "图片", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "URL", 
             "schemaorgUrl": "http://schema.org/image", 
-            "version": "v17q2so"
+            "version": "v17q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/import", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ontology", 
+            "name": "import", 
+            "nameZh": "依赖的cnSchema", 
+            "rdfs:domain": "CnsOntology", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/in", 
@@ -984,7 +881,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "被描述的主体", 
             "name": "in", 
             "nameZh": "入点", 
@@ -993,69 +890,20 @@
             "version": "v18q2"
         }, 
         {
-            "@id": "http://cnschema.org/interactionStatistic", 
+            "@id": "http://cnschema.org/link", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
-            "name": "interactionStatistic", 
-            "nameZh": "相关交互统计", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "InteractionCounter", 
-            "schemaorgUrl": "http://schema.org/interactionStatistic", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/interactionType", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "interactionType", 
-            "nameZh": "交互方式", 
-            "rdfs:domain": "InteractionCounter", 
-            "rdfs:range": "Text", 
-            "schemaorgUrl": "http://schema.org/interactionType", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/keywords", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-semantics", 
-            "descriptionZh": "关键词", 
-            "name": "keywords", 
-            "nameZh": "关键词", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Text", 
-            "schemaorgUrl": "http://schema.org/keywords", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/links", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "标准关系，通用二元关系关联实体，对应propertyGraph的边", 
-            "name": "links", 
-            "nameZh": "相关链接", 
+            "name": "link", 
+            "nameZh": "相关二元关系", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "CnsLink", 
-            "version": "vnext"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/maxCardinality", 
@@ -1080,7 +928,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-sys", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，实体融合来源", 
             "name": "mergedFrom", 
             "nameZh": "融合来源", 
@@ -1112,17 +960,16 @@
                 "Thing"
             ], 
             "alternateName": [
-                "姓名", 
-                "名称"
+                "姓名"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "系统保留字，实体的名称，Wikidata的label。", 
             "name": "name", 
             "nameZh": "名称", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/name", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/nameEn", 
@@ -1133,10 +980,9 @@
                 "Thing"
             ], 
             "alternateName": [
-                "英文名", 
-                "英文的名称"
+                "英文名"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "概念的英文名称", 
             "name": "nameEn", 
             "nameZh": "英文的名称", 
@@ -1153,10 +999,9 @@
                 "Thing"
             ], 
             "alternateName": [
-                "originalName", 
-                "原始的名称"
+                "originalName"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "展示用，原始的实体名称", 
             "name": "nameRaw", 
             "nameZh": "原始的名称", 
@@ -1173,10 +1018,9 @@
                 "Thing"
             ], 
             "alternateName": [
-                "中文名", 
-                "中文的名称"
+                "中文名"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "descriptionZh": "概念的中文名称", 
             "name": "nameZh", 
             "nameZh": "中文的名称", 
@@ -1192,7 +1036,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "被链接的客体", 
             "name": "out", 
             "nameZh": "出点", 
@@ -1246,6 +1090,37 @@
             "version": "v18q3"
         }, 
         {
+            "@id": "http://cnschema.org/propertyRange", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ontology", 
+            "name": "propertyRange", 
+            "nameZh": "属性在模版中的属性值限制", 
+            "rdfs:domain": "CnsTemplate", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/propertySchema", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ontology", 
+            "descriptionZh": "缺省为空，说明该属性仅限于本模版使用。如果设定，说明该属性在对应的Schema中（含本Schema）的property页被定义。", 
+            "name": "propertySchema", 
+            "nameZh": "属性所在的Schema", 
+            "rdfs:domain": "CnsTemplate", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/proportion", 
             "@type": [
                 "rdf:Property", 
@@ -1253,7 +1128,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-ext", 
             "name": "proportion", 
             "nameZh": "比率", 
             "rdfs:domain": "QuantitativeValue", 
@@ -1262,36 +1137,34 @@
             "wikidataUrl": "https://www.wikidata.org/wiki/P1107"
         }, 
         {
-            "@id": "http://cnschema.org/ratingCount", 
+            "@id": "http://cnschema.org/refClass", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
-            "name": "ratingCount", 
-            "nameZh": "评价数", 
-            "rdfs:domain": "AggregateRating", 
-            "rdfs:range": "Integer", 
-            "schemaorgUrl": "http://schema.org/ratingCount", 
-            "version": "v17q2so"
+            "category": "property-ontology", 
+            "name": "refClass", 
+            "nameZh": "对应的实体分类", 
+            "rdfs:domain": "CnsTemplate", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
         }, 
         {
-            "@id": "http://cnschema.org/ratingValue", 
+            "@id": "http://cnschema.org/refProperty", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
-            "name": "ratingValue", 
-            "nameZh": "评价值", 
-            "rdfs:domain": "AggregateRating", 
-            "rdfs:range": "Number", 
-            "schemaorgUrl": "http://schema.org/ratingValue", 
-            "version": "v17q2so"
+            "category": "property-ontology", 
+            "name": "refProperty", 
+            "nameZh": "对应的属性", 
+            "rdfs:domain": "CnsTemplate", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/referenceUrl", 
@@ -1301,7 +1174,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-sys", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，溯源，实体描述来自哪个网页", 
             "name": "referenceUrl", 
             "nameZh": "来源网址", 
@@ -1326,22 +1199,6 @@
             "version": "v18q3"
         }, 
         {
-            "@id": "http://cnschema.org/seeAlso", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-semantics", 
-            "descriptionZh": "系统保留字，更多的实体信息", 
-            "name": "seeAlso", 
-            "nameZh": "相关实体", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Thing", 
-            "version": "vnext"
-        }, 
-        {
             "@id": "http://cnschema.org/startDate", 
             "@type": [
                 "rdf:Property", 
@@ -1349,12 +1206,12 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
-            "descriptionZh": "开始时间", 
+            "category": "property-info", 
+            "descriptionZh": "开始的具体日期", 
             "name": "startDate", 
-            "nameZh": "开始时间", 
+            "nameZh": "开始日期", 
             "rdfs:domain": "Thing", 
-            "rdfs:range": "DateTime", 
+            "rdfs:range": "Date", 
             "schemaorgUrl": "http://schema.org/startDate", 
             "version": "v18q2"
         }, 
@@ -1366,7 +1223,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-sys", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，溯源，实体来自哪个数据源", 
             "name": "statedIn", 
             "nameZh": "载于", 
@@ -1376,16 +1233,16 @@
             "wikidataUrl": "https://www.wikidata.org/wiki/P248"
         }, 
         {
-            "@id": "http://cnschema.org/tags", 
+            "@id": "http://cnschema.org/tag", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-sys", 
             "descriptionZh": "简化关系，直接对接实体，没有任何附加属性。通过标签承载实体与标签的更多关系", 
-            "name": "tags", 
+            "name": "tag", 
             "nameZh": "相关标签", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "CnsTag", 
@@ -1415,66 +1272,16 @@
                 "Thing"
             ], 
             "alternateName": [
-                "原文", 
-                "正文", 
-                "内容"
+                "原文"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "系统保留字，溯源，实体对应的原文", 
             "name": "text", 
             "nameZh": "内容", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/text", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/uSource", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-storage", 
-            "descriptionZh": "存储系统专用，每条信息所属的图谱。信息只能从属于一个图谱。数据融合时，需要复制，不可引用，确保每个图谱自己是自洽的。", 
-            "name": "uSource", 
-            "nameZh": "所属图谱编号", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Text", 
-            "version": "vnext"
-        }, 
-        {
-            "@id": "http://cnschema.org/uSysId", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-storage", 
-            "descriptionZh": "存储系统专用，每条存储的信息都有全系统唯一的编码。两条有相同@id的信息，语义上从不同侧面描述了同一个实体。", 
-            "name": "uSysId", 
-            "nameZh": "系统存储编号", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Text", 
-            "version": "vnext"
-        }, 
-        {
-            "@id": "http://cnschema.org/uTrackingIds", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-core-storage", 
-            "descriptionZh": "系统保留字，溯源，实体内容mergedFrom，递归上溯，所有来源的@id", 
-            "name": "uTrackingIds", 
-            "nameZh": "融合来源编号列表", 
-            "rdfs:domain": "Thing", 
-            "rdfs:range": "Text", 
-            "version": "vnext"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/unitText", 
@@ -1484,29 +1291,13 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-info", 
             "name": "unitText", 
             "nameZh": "单位", 
             "rdfs:domain": "QuantitativeValue", 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/unitText", 
-            "version": "v17q3"
-        }, 
-        {
-            "@id": "http://cnschema.org/upvoteCount", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "upvoteCount", 
-            "nameZh": "好评数", 
-            "rdfs:domain": "Comment", 
-            "rdfs:range": "Integer", 
-            "schemaorgUrl": "http://schema.org/upvoteCount", 
-            "version": "v17q2so"
+            "version": "v18q2"
         }, 
         {
             "@id": "http://cnschema.org/url", 
@@ -1516,30 +1307,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-semantics", 
+            "category": "property-info", 
             "descriptionZh": "实体对应的网页链接", 
             "name": "url", 
             "nameZh": "网页链接", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "URL", 
             "schemaorgUrl": "http://schema.org/url", 
-            "version": "v17q2so"
-        }, 
-        {
-            "@id": "http://cnschema.org/userInteractionCount", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-ext-semantics", 
-            "name": "userInteractionCount", 
-            "nameZh": "交互数", 
-            "rdfs:domain": "InteractionCounter", 
-            "rdfs:range": "Integer", 
-            "schemaorgUrl": "http://schema.org/userInteractionCount", 
-            "version": "v17q2so"
+            "version": "v17q2"
         }, 
         {
             "@id": "http://cnschema.org/value", 
@@ -1549,7 +1324,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ext-semantics", 
+            "category": "property-ext", 
             "name": "value", 
             "nameZh": "数值", 
             "rdfs:domain": "QuantitativeValue", 
@@ -1565,13 +1340,13 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-core-sys", 
+            "category": "property-sys", 
             "descriptionZh": "系统保留字，实体的版本号", 
             "name": "version", 
             "nameZh": "版本", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
-            "version": "vnext"
+            "version": "v17q3"
         }, 
         {
             "@id": "http://cnschema.org/wikidataUrl", 
@@ -1604,7 +1379,7 @@
             "version": "v18q3"
         }
     ], 
-    "@id": "http://cnschema.org/schema/cns_thing_18q3", 
+    "@id": "http://cnschema.org/schema/cns_top", 
     "@type": [
         "CnsOntology", 
         "Thing"
@@ -1618,68 +1393,29 @@
         ], 
         "datePublished": "2018-06-20", 
         "name": "vnext", 
-        "text": "候选的更新"
+        "text": "候选的更新", 
+        "version": "vnext"
     }, 
-    "name": "cns_thing_18q3", 
+    "dateModified": "2018-06-22", 
+    "name": "cns_top", 
     "template": [
         {
-            "@id": "http://meta.cnschema.org/template/AggregateRating_aggregateRatingDetail", 
+            "@id": "http://meta.cnschema.org/template/CnsDefinition_category", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "AggregateRating", 
-            "minCardinality": 0, 
-            "name": "AggregateRating_aggregateRatingDetail", 
-            "propertyAlternateName": "", 
-            "propertyName": "aggregateRatingDetail", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/AggregateRating_bestRating", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "AggregateRating", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "AggregateRating_bestRating", 
-            "propertyAlternateName": "", 
-            "propertyName": "bestRating", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/AggregateRating_ratingCount", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "AggregateRating", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
-            "name": "AggregateRating_ratingCount", 
+            "name": "CnsDefinition_category", 
             "propertyAlternateName": "", 
-            "propertyName": "ratingCount", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/AggregateRating_ratingValue", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "AggregateRating", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "AggregateRating_ratingValue", 
-            "propertyAlternateName": "", 
-            "propertyName": "ratingValue", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "category", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsDefinition_name", 
@@ -1688,13 +1424,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsDefinition", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsDefinition_name", 
             "propertyAlternateName": "", 
-            "propertyName": "name", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "name", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsDefinition_nameZh", 
@@ -1703,13 +1442,34 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsDefinition", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsDefinition_nameZh", 
             "propertyAlternateName": "", 
-            "propertyName": "nameZh", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "nameZh", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsLink_date", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsLink_date", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "date", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsLink_endDate", 
@@ -1718,13 +1478,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsLink", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "CnsLink_endDate", 
             "propertyAlternateName": "", 
-            "propertyName": "endDate", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "endDate", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsLink_in", 
@@ -1733,13 +1496,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsLink", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsLink_in", 
             "propertyAlternateName": "", 
-            "propertyName": "in", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "in", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsLink_name", 
@@ -1748,13 +1514,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsLink", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "CnsLink_name", 
             "propertyAlternateName": "", 
-            "propertyName": "name", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "name", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsLink_out", 
@@ -1763,13 +1532,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsLink", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsLink_out", 
             "propertyAlternateName": "", 
-            "propertyName": "out", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "out", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsLink_startDate", 
@@ -1778,27 +1550,87 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsLink", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "CnsLink_startDate", 
             "propertyAlternateName": "", 
-            "propertyName": "startDate", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "startDate", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/CnsLink_tags", 
+            "@id": "http://meta.cnschema.org/template/CnsLink_tag", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsLink", 
             "minCardinality": 0, 
-            "name": "CnsLink_tags", 
+            "name": "CnsLink_tag", 
             "propertyAlternateName": "", 
-            "propertyName": "tags", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "tag", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTag_broader", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsTag_broader", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTag", 
+            "refProperty": "broader", 
+            "version": "v17q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTag_category", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsTag_category", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTag", 
+            "refProperty": "category", 
+            "version": "v17q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTag_conflict", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsTag_conflict", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTag", 
+            "refProperty": "conflict", 
+            "version": "v17q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsTag_name", 
@@ -1807,28 +1639,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsTag", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsTag_name", 
             "propertyAlternateName": "", 
-            "propertyName": "name", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/CnsTemplate_className", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "CnsTemplate", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CnsTemplate_className", 
-            "propertyAlternateName": "", 
-            "propertyName": "className", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTag", 
+            "refProperty": "name", 
+            "version": "v17q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsTemplate_maxCardinality", 
@@ -1837,13 +1657,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsTemplate", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "CnsTemplate_maxCardinality", 
             "propertyAlternateName": "", 
-            "propertyName": "maxCardinality", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "maxCardinality", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsTemplate_minCardinality", 
@@ -1852,13 +1675,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsTemplate", 
             "maxCardinality": 1, 
-            "minCardinality": 1, 
+            "minCardinality": 0, 
             "name": "CnsTemplate_minCardinality", 
             "propertyAlternateName": "", 
-            "propertyName": "minCardinality", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "minCardinality", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsTemplate_name", 
@@ -1867,28 +1693,33 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsTemplate", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsTemplate_name", 
             "propertyAlternateName": "", 
-            "propertyName": "name", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "name", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/CnsTemplate_propertyName", 
+            "@id": "http://meta.cnschema.org/template/CnsTemplate_propertyAlternateName", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsTemplate", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CnsTemplate_propertyName", 
+            "minCardinality": 0, 
+            "name": "CnsTemplate_propertyAlternateName", 
             "propertyAlternateName": "", 
-            "propertyName": "propertyName", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "propertyAlternateName", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsTemplate_propertyNameZh", 
@@ -1897,103 +1728,137 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "CnsTemplate", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CnsTemplate_propertyNameZh", 
             "propertyAlternateName": "", 
-            "propertyName": "propertyNameZh", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "propertyNameZh", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Comment_datePublished", 
+            "@id": "http://meta.cnschema.org/template/CnsTemplate_propertyRange", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Comment", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "Comment_datePublished", 
-            "propertyAlternateName": "", 
-            "propertyName": "datePublished", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Comment_downvoteCount", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "Comment", 
-            "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "Comment_downvoteCount", 
+            "name": "CnsTemplate_propertyRange", 
             "propertyAlternateName": "", 
-            "propertyName": "downvoteCount", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "propertyRange", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Comment_text", 
+            "@id": "http://meta.cnschema.org/template/CnsTemplate_propertySchema", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Comment", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "Comment_text", 
-            "propertyAlternateName": "", 
-            "propertyName": "text", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Comment_upvoteCount", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "Comment", 
-            "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "Comment_upvoteCount", 
+            "name": "CnsTemplate_propertySchema", 
             "propertyAlternateName": "", 
-            "propertyName": "upvoteCount", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "propertySchema", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/InteractionCounter_interactionType", 
+            "@id": "http://meta.cnschema.org/template/CnsTemplate_refClass", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "InteractionCounter", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
-            "name": "InteractionCounter_interactionType", 
+            "name": "CnsTemplate_refClass", 
             "propertyAlternateName": "", 
-            "propertyName": "interactionType", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "refClass", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/InteractionCounter_userInteractionCount", 
+            "@id": "http://meta.cnschema.org/template/CnsTemplate_refProperty", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "InteractionCounter", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
-            "name": "InteractionCounter_userInteractionCount", 
+            "name": "CnsTemplate_refProperty", 
             "propertyAlternateName": "", 
-            "propertyName": "userInteractionCount", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsTemplate", 
+            "refProperty": "refProperty", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/MonetaryAmount_currency", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "MonetaryAmount_currency", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "币种", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "MonetaryAmount", 
+            "refProperty": "currency", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/MonetaryAmount_text", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "MonetaryAmount_text", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "原文", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "MonetaryAmount", 
+            "refProperty": "text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/MonetaryAmount_value", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "MonetaryAmount_value", 
+            "propertyAlternateName": "", 
+            "propertyNameZh": "总量", 
+            "propertyRange": "Number", 
+            "propertySchema": "cns_top", 
+            "refClass": "MonetaryAmount", 
+            "refProperty": "value", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/QuantitativeValue_datePublished", 
@@ -2002,13 +1867,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "QuantitativeValue", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "QuantitativeValue_datePublished", 
             "propertyAlternateName": "", 
-            "propertyName": "datePublished", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "QuantitativeValue", 
+            "refProperty": "datePublished", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/QuantitativeValue_statedIn", 
@@ -2017,13 +1885,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "QuantitativeValue", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "QuantitativeValue_statedIn", 
             "propertyAlternateName": "", 
-            "propertyName": "statedIn", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "QuantitativeValue", 
+            "refProperty": "statedIn", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/QuantitativeValue_value", 
@@ -2032,13 +1903,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "QuantitativeValue", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "QuantitativeValue_value", 
             "propertyAlternateName": "", 
-            "propertyName": "value", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "QuantitativeValue", 
+            "refProperty": "value", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_alternateName", 
@@ -2047,12 +1921,15 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "minCardinality": 0, 
             "name": "Thing_alternateName", 
             "propertyAlternateName": "", 
-            "propertyName": "alternateName", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "alternateName", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_description", 
@@ -2061,13 +1938,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Thing_description", 
             "propertyAlternateName": "", 
-            "propertyName": "description", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "description", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_identifier", 
@@ -2076,13 +1956,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Thing_identifier", 
             "propertyAlternateName": "", 
-            "propertyName": "identifier", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "identifier", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_image", 
@@ -2091,40 +1974,32 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "minCardinality": 0, 
             "name": "Thing_image", 
             "propertyAlternateName": "", 
-            "propertyName": "image", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "image", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Thing_keywords", 
+            "@id": "http://meta.cnschema.org/template/Thing_link", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "minCardinality": 0, 
-            "name": "Thing_keywords", 
+            "name": "Thing_link", 
             "propertyAlternateName": "", 
-            "propertyName": "keywords", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Thing_links", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "Thing", 
-            "minCardinality": 0, 
-            "name": "Thing_links", 
-            "propertyAlternateName": "", 
-            "propertyName": "links", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "link", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_mergedFrom", 
@@ -2133,12 +2008,15 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "minCardinality": 0, 
             "name": "Thing_mergedFrom", 
             "propertyAlternateName": "", 
-            "propertyName": "mergedFrom", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "mergedFrom", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_name", 
@@ -2147,27 +2025,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "Thing_name", 
             "propertyAlternateName": "", 
-            "propertyName": "name", 
-            "propertyNameZh": ""
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Thing_seeAlso", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "className": "Thing", 
-            "minCardinality": 0, 
-            "name": "Thing_seeAlso", 
-            "propertyAlternateName": "", 
-            "propertyName": "seeAlso", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "name", 
+            "version": "v18q2"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_statedIn", 
@@ -2176,27 +2043,33 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Thing_statedIn", 
             "propertyAlternateName": "", 
-            "propertyName": "statedIn", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "statedIn", 
+            "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Thing_tags", 
+            "@id": "http://meta.cnschema.org/template/Thing_tag", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "className": "Thing", 
             "minCardinality": 0, 
-            "name": "Thing_tags", 
+            "name": "Thing_tag", 
             "propertyAlternateName": "", 
-            "propertyName": "tags", 
-            "propertyNameZh": ""
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "tag", 
+            "version": "v18q3"
         }
     ]
 }
