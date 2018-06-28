@@ -350,8 +350,13 @@ class CnsSchema:
             importedSchemaName = []
             if name != "cns_top":
                 importedSchemaName.append( "cns_top" )
-            importedSchemaName.extend( json_get_list(schema.metadata,"import") )
 
+            #logging.info(json4debug(schema.metadata))
+            importedSchemaName.extend( json_get_list(schema.metadata, "import") )
+            #logging.info(json4debug(schema.metadata["import"]))
+            #assert False
+
+            #logging.info(json4debug(importedSchemaName))
             for schemaName in importedSchemaName:
                 filename = u"../schema/{}.jsonld".format(schemaName)
                 filename = file2abspath(filename)
@@ -365,6 +370,13 @@ class CnsSchema:
         #schemaList.extend( self.importSchema )
         schemaList.extend(_buildImportedSchema(self))
         schemaList.append(self)
+        #logging.info(schemaList[0].metadata["name"])
+        #assert False
+
+        #if self.metadata['name'] == "cns_fund_public":
+        #    logging.info(self.metadata['name'] )
+        #    logging.info([x.metadata["name"] for x in schemaList])
+        #    assert False
 
         self._buildindexPropertyAlias(schemaList)
         self._buildindexDefinitionAlias(schemaList)
@@ -381,7 +393,7 @@ class CnsSchema:
         for template in self.metadata["template"]:
             cls = self.indexDefinitionAlias.get( template["refClass"] )
             #logging.info(json4debug(sorted(self.indexDefinitionAlias.keys())))
-            assert cls, json4debug(template)
+            assert cls, template
             assert cls["name"] == template["refClass"]
             assert cls["@type"][0] == "rdfs:Class"
 
@@ -430,7 +442,7 @@ class CnsSchema:
                     assert False, json4debug(cnsItem)
 
                 if "rdf:Property" in cnsItem["@type"] and "rdfs:range" in cnsItem:
-                    logging.info(json4debug(cnsItem))
+                    #logging.info(json4debug(cnsItem))
                     p = cnsItem["name"]
                     r = cnsItem["rdfs:range"]
                     #assert type(r) == list
@@ -565,6 +577,10 @@ class CnsSchema:
                 #assert len(v) == 1, alias
             self.indexDefinitionAlias[alias] = v[0]
 
+        #if self.metadata['name'] == "cns_fund_public":
+        #    logging.info([x.metadata["name"] for x in schemaList])
+        #    assert "Company" in self.indexDefinitionAlias
+
         #add system
         self.indexDefinitionAlias["rdf:Property"] = {"name":"Property"}
         self.indexDefinitionAlias["rdfs:Class"] = {"name":"Class"}
@@ -610,7 +626,10 @@ class CnsSchema:
         if group in ["version", "template"]:
             self.metadata[group].append(item)
         elif group in [ "import"]:
-            self.metadata[group].extend(item)
+            if type(item) == list:
+                self.metadata[group].extend(item)
+            else:
+                self.metadata[group].append(item)
         else:
             self.metadata[group] = item
 
@@ -737,6 +756,8 @@ class CnsSchema:
             linkListNew = []
             for link in linkList:
                 if link["to"]["category"] == "class-datatype":
+                    continue
+                if link["to"]["category"] == "class-datastructure":
                     continue
                 #logging.info(json4debug(link))
                 linkListNew.append(link)

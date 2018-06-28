@@ -82,7 +82,11 @@ SCHEMA_EXCEL_HEADER = {
             "propertyNameZh",
             "propertyAlternateName",
             "propertyRange",
-            "propertySchema"],
+            "propertySchema",
+            "propertyDefinition",
+            "propertyDefinitionSource",
+            "propertyDefinitionZh",
+            "propertyDefinitionZhSource"],
 		"SKIP": []
 	},
 	"changelog": {
@@ -174,7 +178,11 @@ def initCnsExcel():
             "propertyNameZh",
             "propertyAlternateName",
             "propertyRange",
-            "propertySchema"
+            "propertySchema",
+            "propertyDefinition",
+            "propertyDefinitionSource",
+            "propertyDefinitionZh",
+            "propertyDefinitionZhSource"
         ]
     }
 
@@ -248,6 +256,11 @@ class CnsExcel():
 
     def _loadSheetMetadata(self,  sheet_name, items):
         xlabel = "metadata"
+
+        if sheet_name == xlabel:
+            pass
+        else:
+            return False
 
         cnsItemList = []
         for item in items:
@@ -346,6 +359,8 @@ class CnsExcel():
         if p in SCHEMA_EXCEL_HEADER[sheet_name]["COPY"]:
             cnsItem[p] = v
         elif p in SCHEMA_EXCEL_HEADER[sheet_name]["SKIP"]:
+            pass
+        elif p == "":
             pass
         else:
             msg = u"warn: column {} not in COPY/SKIP in sheet {}".format( p, sheet_name)
