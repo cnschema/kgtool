@@ -792,11 +792,11 @@ class CnsSchema:
             lines.extend(sorted(list(nodeMap["class"])))
             lines.append("")
 
-            lines.append('\n\tnode [shape=octagon]')
+            lines.append('\n\tnode [shape=doubleoctagon]')
             lines.extend(sorted(list(nodeMap["link"])))
             lines.append("")
 
-            lines.append('\n\tnode [shape=rect]')
+            lines.append('\n\tnode [shape=octagon]')
             lines.extend(sorted(list(nodeMap["property"])))
             lines.append("")
 
