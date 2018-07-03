@@ -45,7 +45,7 @@ class CoreTestCase(unittest.TestCase):
         input = file2json(tin)
 
         report = self.cnsSchema.initReport()
-        for item in input:
+        for idx, item in enumerate(input):
             types = [ item["mainType"], "Thing" ]
             primaryKeys = [ item.get("name", item.get(u"名称")) ]
             cnsItem = self.cnsSchema.cnsConvert(item, types, primaryKeys, report)
@@ -53,6 +53,11 @@ class CoreTestCase(unittest.TestCase):
 
             assert "name" in cnsItem
             assert "alternateName" in cnsItem
+
+            if idx == 0:
+                # test sha256
+                assert cnsItem["@id"] == "2a943ed124ead6a1cd87f8130bbbe247c76ddc7d502d8dd1e1c562bc13b74824"
+
         #assert False
         if len(report["bugs"]) != 4:
             logging.info(json4debug(report))

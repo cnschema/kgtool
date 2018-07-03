@@ -4,11 +4,14 @@ install
 -------------
   pip install kgtool
 
+## kgtool
 
 core.py
 * file utilities
 * json data access
 * data conversion
 
-kg.py
-* stat_kg
+stats.py
+
+## cns
+* cns_schema

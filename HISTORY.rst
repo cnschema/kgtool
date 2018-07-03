@@ -3,11 +3,13 @@
 History
 -------
 
+0.0.4 (2018-07-03)
 ++++++++++++++++++
-* change  stat  add "_value_" in stat entry
+* change stat  add "_value_" in stat entry
 * add core.parseListValue
 * add cns_excel, cns_schema for process excel based CnSchema
-* cns_excel::task_excel2jsonld  convert excel-based schema to JSON-LD version
+* cns_excel.task_excel2jsonld  convert excel-based schema to JSON-LD version
+* cns_schema with three main function cnsConvert, cnsValidate, cnsGraphviz
 
 0.0.3 (2018-04-14)
 ++++++++++++++++++

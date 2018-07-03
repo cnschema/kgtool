@@ -315,7 +315,7 @@ class CnsSchema:
 
         cnsItem = {
             "@type": types,
-            "@id" : item.get("@id", any2sha1( primaryKeys ))
+            "@id" : item.get("@id", any2sha256( primaryKeys ))
         }
 
         for p,v in item.items():

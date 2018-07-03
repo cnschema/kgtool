@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='kgtool',
-      version='0.0.3',
+      version='0.0.4',
       description='simple knowledge graph tools with minimal dependency',
       long_description=readme(),
       classifiers=[
@@ -24,6 +24,7 @@ setup(name='kgtool',
       install_requires=[
         'xlrd', 'xlwt'
       ],
+      package_data = {'': ['schema/*.jsonld']},
       test_suite='nose.collector',
       tests_require=['nose'],
       zip_safe=False)
