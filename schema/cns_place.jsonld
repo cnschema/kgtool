@@ -1,0 +1,267 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/", 
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }, 
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/AdministrativeRegion", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "AdministrativeRegion", 
+            "nameZh": "行政区", 
+            "rdfs:subClassOf": [
+                "Place"
+            ], 
+            "schemaorgUrl": "http://schema.org/AdministrativeRegion", 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/City", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "descriptionZh": "省和自治区之下通常被划分为地级市（包括副省级城市）、地区、自治州、盟等地级行政区", 
+            "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
+            "name": "City", 
+            "nameZh": "地市", 
+            "rdfs:subClassOf": [
+                "AdministrativeRegion"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/Country", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "Country", 
+            "nameZh": "国家", 
+            "rdfs:subClassOf": [
+                "AdministrativeRegion"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/District", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "descriptionZh": "直辖市和较大的市分为区、县。自治州分为县、自治县、市。", 
+            "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
+            "name": "District", 
+            "nameZh": "区县", 
+            "rdfs:subClassOf": [
+                "AdministrativeRegion"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/Province", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "descriptionZh": "作为一级行政区的省级行政区包括省、自治区、直辖市、特别行政区四类，自1999年12月20日之后共有34个一级行政区，即23省（其中台湾省从未实际管治）、4直辖市、5自治区和2特别行政区。", 
+            "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
+            "name": "Province", 
+            "nameZh": "省", 
+            "rdfs:subClassOf": [
+                "AdministrativeRegion"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/Street", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "Street", 
+            "nameZh": "道路", 
+            "rdfs:subClassOf": [
+                "Place"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/Township", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "descriptionZh": "县、自治县分为乡、民族乡、镇。", 
+            "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
+            "name": "Township", 
+            "nameZh": "乡镇街道", 
+            "rdfs:subClassOf": [
+                "AdministrativeRegion"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/Village", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "Village", 
+            "nameZh": "村", 
+            "rdfs:subClassOf": [
+                "AdministrativeRegion"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/city", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "city", 
+            "nameZh": "所在地市", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "City", 
+            "rdfs:subPropertyOf": [
+                "containedInPlace"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/containedInPlace", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "containedInPlace", 
+            "nameZh": "位于", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "AdministrativeRegion", 
+            "schemaorgUrl": "http://schema.org/containedInPlace", 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/district", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "district", 
+            "nameZh": "所在区县", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "District", 
+            "rdfs:subPropertyOf": [
+                "containedInPlace"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/province", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "province", 
+            "nameZh": "所在省", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Province", 
+            "rdfs:subPropertyOf": [
+                "containedInPlace"
+            ], 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/street", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "street", 
+            "nameZh": "所在道路", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Street", 
+            "version": "v20180709"
+        }, 
+        {
+            "@id": "http://cnschema.org/workLocation", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "workLocation", 
+            "nameZh": "办公地址", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Place", 
+            "schemaorgUrl": "http://schema.org/workLocation", 
+            "version": "v20180709"
+        }
+    ], 
+    "@id": "http://cnschema.org/schema/cns_place", 
+    "@type": [
+        "CnsOntology", 
+        "Thing"
+    ], 
+    "changelog": {
+        "@id": "http://meta.cnschema.org/changelog/v20180709", 
+        "@type": [
+            "CnsChangelog", 
+            "CnsMetadata", 
+            "Thing"
+        ], 
+        "datePublished": "2018-07-09", 
+        "name": "v20180709", 
+        "text": "更新Schema", 
+        "version": "v20180709"
+    }, 
+    "dateModified": "2018-07-09", 
+    "name": "cns_place", 
+    "template": []
+}

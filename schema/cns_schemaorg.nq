@@ -10643,7 +10643,7 @@
 <http://cnschema.org/event> <http://cnschema.org/description> "Upcoming or past event associated with this place, organization, or action." <http://cnschema.org/schema/cns_schemaorg> .
 <http://cnschema.org/event> <http://cnschema.org/descriptionZh> "即将发生或已经过去且与这个地方或机构相关的事件。" <http://cnschema.org/schema/cns_schemaorg> .
 <http://cnschema.org/event> <http://cnschema.org/name> "event" <http://cnschema.org/schema/cns_schemaorg> .
-<http://cnschema.org/event> <http://cnschema.org/nameZh> "事件" <http://cnschema.org/schema/cns_schemaorg> .
+<http://cnschema.org/event> <http://cnschema.org/nameZh> "相关事件" <http://cnschema.org/schema/cns_schemaorg> .
 <http://cnschema.org/event> <http://cnschema.org/schemaorgUrl> "http://schema.org/event" <http://cnschema.org/schema/cns_schemaorg> .
 <http://cnschema.org/event> <http://cnschema.org/version> "vso3.2" <http://cnschema.org/schema/cns_schemaorg> .
 <http://cnschema.org/event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_schemaorg> .

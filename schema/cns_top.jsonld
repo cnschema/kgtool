@@ -220,6 +220,23 @@
             "version": "v17q2"
         }, 
         {
+            "@id": "http://cnschema.org/Event", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-entity", 
+            "name": "Event", 
+            "nameZh": "事件", 
+            "rdfs:subClassOf": [
+                "Thing"
+            ], 
+            "schemaorgUrl": "http://schema.org/Event", 
+            "version": "v17q2"
+        }, 
+        {
             "@id": "http://cnschema.org/Float", 
             "@type": [
                 "rdfs:Class", 
@@ -791,6 +808,21 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://cnschema.org/email", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "email", 
+            "nameZh": "电子邮件地址", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/endDate", 
             "@type": [
                 "rdf:Property", 
@@ -803,7 +835,7 @@
             "name": "endDate", 
             "nameZh": "结束日期", 
             "rdfs:domain": "Thing", 
-            "rdfs:range": "Date", 
+            "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/endDate", 
             "version": "v18q2"
         }, 
@@ -1062,6 +1094,22 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://cnschema.org/pageRankValue", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-sys", 
+            "descriptionZh": "系统保留字，实体的版本号", 
+            "name": "pageRankValue", 
+            "nameZh": "图谱pagerank评分", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Float", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/propertyAlternateName", 
             "@type": [
                 "rdf:Property", 
@@ -1272,7 +1320,7 @@
             "name": "startDate", 
             "nameZh": "开始日期", 
             "rdfs:domain": "Thing", 
-            "rdfs:range": "Date", 
+            "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/startDate", 
             "version": "v18q2"
         }, 
@@ -1289,7 +1337,7 @@
             "name": "statedIn", 
             "nameZh": "载于", 
             "rdfs:domain": "Thing", 
-            "rdfs:range": "Thing", 
+            "rdfs:range": "CreativeWork", 
             "version": "v17q3", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P248"
         }, 
@@ -1308,6 +1356,21 @@
             "rdfs:domain": "Thing", 
             "rdfs:range": "CnsTag", 
             "version": "v17q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/telephone", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "telephone", 
+            "nameZh": "电话号码", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/template", 
@@ -1408,6 +1471,21 @@
             "rdfs:domain": "Thing", 
             "rdfs:range": "Text", 
             "version": "v17q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/website", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "website", 
+            "nameZh": "网页地址", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/wikidataUrl", 
@@ -1678,6 +1756,28 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "startDate", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsLink_statedIn", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsLink_statedIn", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsLink", 
+            "refProperty": "statedIn", 
             "version": "v18q2"
         }, 
         {
@@ -2069,6 +2169,94 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/Event_date", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Event_date", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Event", 
+            "refProperty": "date", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Event_endDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Event_endDate", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Event", 
+            "refProperty": "endDate", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Event_name", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Event_name", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Event", 
+            "refProperty": "name", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Event_startDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Event_startDate", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Event", 
+            "refProperty": "startDate", 
+            "version": "v18q2"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/MonetaryAmount_currency", 
             "@type": [
                 "CnsTemplate", 
@@ -2263,6 +2451,72 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/Thing_category", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_category", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "category", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_date", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_date", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "date", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_datePublished", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_datePublished", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "datePublished", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/Thing_description", 
             "@type": [
                 "CnsTemplate", 
@@ -2390,6 +2644,50 @@
             "refClass": "Thing", 
             "refProperty": "name", 
             "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_nameEn", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_nameEn", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "nameEn", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_nameZh", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_nameZh", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "nameZh", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_statedIn", 

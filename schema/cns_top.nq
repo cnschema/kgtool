@@ -123,6 +123,16 @@
 <http://cnschema.org/DateTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/DateTime> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/DateTime> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://cnschema.org/category> "class-entity" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://cnschema.org/name> "Event" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://cnschema.org/nameZh> "事件" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://cnschema.org/schemaorgUrl> "http://schema.org/Event" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://cnschema.org/version> "v17q2" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/Event> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/Float> <http://cnschema.org/category> "class-datatype" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/Float> <http://cnschema.org/name> "Float" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/Float> <http://cnschema.org/nameZh> "浮点数" <http://cnschema.org/schema/cns_top> .
@@ -492,6 +502,16 @@
 <http://cnschema.org/descriptionZhSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/descriptionZhSource> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/descriptionZhSource> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://cnschema.org/name> "email" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://cnschema.org/nameZh> "电子邮件地址" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://cnschema.org/version> "v18q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/descriptionZh> "结束的具体日期" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/name> "endDate" <http://cnschema.org/schema/cns_top> .
@@ -503,7 +523,7 @@
 <http://cnschema.org/endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/endDate> <http://www.w3.org/2000/01/rdf-schema#range> "Date" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/endDate> <http://www.w3.org/2000/01/rdf-schema#range> "DateTime" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/entityScore> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/entityScore> <http://cnschema.org/descriptionZh> "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/entityScore> <http://cnschema.org/name> "entityScore" <http://cnschema.org/schema/cns_top> .
@@ -673,6 +693,17 @@
 <http://cnschema.org/out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/out> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsLink" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/out> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://cnschema.org/descriptionZh> "系统保留字，实体的版本号" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://cnschema.org/name> "pageRankValue" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://cnschema.org/nameZh> "图谱pagerank评分" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://cnschema.org/version> "v18q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/pageRankValue> <http://www.w3.org/2000/01/rdf-schema#range> "Float" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://cnschema.org/name> "propertyAlternateName" <http://cnschema.org/schema/cns_top> .
@@ -809,6 +840,7 @@
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_name> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_out> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_startDate> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_statedIn> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_tag> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsTag_broader> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsTag_category> .
@@ -827,6 +859,10 @@
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsTemplate_propertySchema> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsTemplate_refClass> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsTemplate_refProperty> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Event_date> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Event_endDate> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Event_name> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Event_startDate> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/MonetaryAmount_currency> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/MonetaryAmount_text> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/MonetaryAmount_value> .
@@ -836,12 +872,17 @@
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/QuantitativeValue_datePublished> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/QuantitativeValue_value> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_alternateName> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_category> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_date> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_datePublished> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_description> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_identifier> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_image> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_link> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_mergedFrom> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_name> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_nameEn> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_nameZh> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_statedIn> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_tag> .
 <http://cnschema.org/schema/cns_top> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsOntology> .
@@ -867,7 +908,7 @@
 <http://cnschema.org/startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/startDate> <http://www.w3.org/2000/01/rdf-schema#range> "Date" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/startDate> <http://www.w3.org/2000/01/rdf-schema#range> "DateTime" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://cnschema.org/descriptionZh> "系统保留字，溯源，实体来自哪个数据源" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://cnschema.org/name> "statedIn" <http://cnschema.org/schema/cns_top> .
@@ -879,7 +920,7 @@
 <http://cnschema.org/statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/statedIn> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/statedIn> <http://www.w3.org/2000/01/rdf-schema#range> "CreativeWork" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://cnschema.org/descriptionZh> "简化关系，直接对接实体，没有任何附加属性。通过标签承载实体与标签的更多关系" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://cnschema.org/name> "tag" <http://cnschema.org/schema/cns_top> .
@@ -891,6 +932,16 @@
 <http://cnschema.org/tag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://www.w3.org/2000/01/rdf-schema#range> "CnsTag" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://cnschema.org/name> "telephone" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://cnschema.org/nameZh> "电话号码" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://cnschema.org/version> "v18q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/template> <http://cnschema.org/category> "property-ontology" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/template> <http://cnschema.org/name> "template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/template> <http://cnschema.org/nameZh> "本体的相关概念模版" <http://cnschema.org/schema/cns_top> .
@@ -959,6 +1010,16 @@
 <http://cnschema.org/version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/version> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/version> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://cnschema.org/name> "website" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://cnschema.org/nameZh> "网页地址" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://cnschema.org/version> "v18q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/wikidataUrl> <http://cnschema.org/category> "property-ontology" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/wikidataUrl> <http://cnschema.org/name> "wikidataUrl" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/wikidataUrl> <http://cnschema.org/nameZh> "wikidata概念链接" <http://cnschema.org/schema/cns_top> .
@@ -1156,6 +1217,23 @@
 <http://meta.cnschema.org/template/CnsLink_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/CnsLink_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/CnsLink_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/name> "CnsLink_statedIn" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/refClass> "CnsLink" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/refProperty> "statedIn" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://cnschema.org/version> "v18q2" .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/CnsLink_statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/CnsLink_tag> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/CnsLink_tag> <http://cnschema.org/name> "CnsLink_tag" .
 <http://meta.cnschema.org/template/CnsLink_tag> <http://cnschema.org/propertyAlternateName> "" .
@@ -1454,6 +1532,74 @@
 <http://meta.cnschema.org/template/CnsTemplate_refProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/CnsTemplate_refProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/CnsTemplate_refProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/name> "Event_date" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/refClass> "Event" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/refProperty> "date" .
+<http://meta.cnschema.org/template/Event_date> <http://cnschema.org/version> "v18q2" .
+<http://meta.cnschema.org/template/Event_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Event_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Event_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/name> "Event_endDate" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/refClass> "Event" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/refProperty> "endDate" .
+<http://meta.cnschema.org/template/Event_endDate> <http://cnschema.org/version> "v18q2" .
+<http://meta.cnschema.org/template/Event_endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Event_endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Event_endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/name> "Event_name" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/refClass> "Event" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/refProperty> "name" .
+<http://meta.cnschema.org/template/Event_name> <http://cnschema.org/version> "v18q2" .
+<http://meta.cnschema.org/template/Event_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Event_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Event_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/name> "Event_startDate" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/refClass> "Event" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/refProperty> "startDate" .
+<http://meta.cnschema.org/template/Event_startDate> <http://cnschema.org/version> "v18q2" .
+<http://meta.cnschema.org/template/Event_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Event_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Event_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/MonetaryAmount_currency> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/MonetaryAmount_currency> <http://cnschema.org/name> "MonetaryAmount_currency" .
 <http://meta.cnschema.org/template/MonetaryAmount_currency> <http://cnschema.org/propertyAlternateName> "" .
@@ -1603,6 +1749,57 @@
 <http://meta.cnschema.org/template/Thing_alternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Thing_alternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Thing_alternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/name> "Thing_category" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/refClass> "Thing" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/refProperty> "category" .
+<http://meta.cnschema.org/template/Thing_category> <http://cnschema.org/version> "v18q3" .
+<http://meta.cnschema.org/template/Thing_category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Thing_category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Thing_category> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/name> "Thing_date" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/refClass> "Thing" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/refProperty> "date" .
+<http://meta.cnschema.org/template/Thing_date> <http://cnschema.org/version> "v18q3" .
+<http://meta.cnschema.org/template/Thing_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Thing_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Thing_date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/name> "Thing_datePublished" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/refClass> "Thing" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/refProperty> "datePublished" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://cnschema.org/version> "v18q3" .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Thing_datePublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Thing_description> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Thing_description> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Thing_description> <http://cnschema.org/name> "Thing_description" .
@@ -1702,6 +1899,40 @@
 <http://meta.cnschema.org/template/Thing_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Thing_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Thing_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/name> "Thing_nameEn" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/refClass> "Thing" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/refProperty> "nameEn" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://cnschema.org/version> "v18q3" .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Thing_nameEn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/name> "Thing_nameZh" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/refClass> "Thing" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/refProperty> "nameZh" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://cnschema.org/version> "v18q3" .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Thing_nameZh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Thing_statedIn> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Thing_statedIn> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Thing_statedIn> <http://cnschema.org/name> "Thing_statedIn" .

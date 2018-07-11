@@ -16,12 +16,29 @@
             "alternateName": [
                 "工商注册公司"
             ], 
-            "category": "class-organization", 
+            "category": "class-ext", 
             "descriptionZhSource": "https://en.wikipedia.org/wiki/Company", 
             "name": "Company", 
             "nameZh": "公司", 
             "rdfs:subClassOf": [
                 "Organization"
+            ], 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://cnschema.org/CompanyInfoUpdateEvent", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "descriptionZh": "工商注册信息变更，内容比较杂乱，没有具体格式", 
+            "name": "CompanyInfoUpdateEvent", 
+            "nameZh": "公司信息变更事件", 
+            "rdfs:subClassOf": [
+                "Event"
             ], 
             "version": "v20180412"
         }, 
@@ -33,7 +50,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-organization", 
+            "category": "class-ext", 
             "name": "ManagerRole", 
             "nameZh": "高管关系", 
             "rdfs:subClassOf": [
@@ -49,7 +66,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-organization", 
+            "category": "class-ext", 
             "name": "OrganizationOrPerson", 
             "nameZh": "人或机构", 
             "rdfs:subClassOf": [
@@ -58,16 +75,48 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://cnschema.org/ShareholderChangeEvent", 
+            "@id": "http://cnschema.org/PartnerRole", 
             "@type": [
                 "rdfs:Class", 
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-organization", 
-            "name": "ShareholderChangeEvent", 
-            "nameZh": "股权变更事件", 
+            "category": "class-ext", 
+            "name": "PartnerRole", 
+            "nameZh": "合伙关系", 
+            "rdfs:subClassOf": [
+                "CnsLink"
+            ], 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://cnschema.org/Partnership", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "Partnership", 
+            "nameZh": "合伙企业", 
+            "rdfs:subClassOf": [
+                "Company"
+            ], 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://cnschema.org/ShareholderChangeTransaction", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "ShareholderChangeTransaction", 
+            "nameZh": "公司股权变更事件", 
             "rdfs:subClassOf": [
                 "CnsLink"
             ], 
@@ -81,7 +130,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "class-organization", 
+            "category": "class-ext", 
             "name": "ShareholderRole", 
             "nameZh": "股东关系", 
             "rdfs:subClassOf": [
@@ -101,7 +150,7 @@
             "category": "property-template", 
             "name": "changeRatio", 
             "nameZh": "变更股权比例", 
-            "rdfs:domain": "ShareholderChangeEvent", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
             "rdfs:range": "Number"
         }, 
         {
@@ -116,7 +165,7 @@
             "category": "property-template", 
             "name": "changeTotalPrice", 
             "nameZh": "变更股权总价", 
-            "rdfs:domain": "ShareholderChangeEvent", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
             "rdfs:range": "MonetaryAmount"
         }, 
         {
@@ -131,7 +180,7 @@
             "category": "property-template", 
             "name": "changeTotalShares", 
             "nameZh": "变更股权总量", 
-            "rdfs:domain": "ShareholderChangeEvent", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
             "rdfs:range": "Number"
         }, 
         {
@@ -146,7 +195,7 @@
             "category": "property-template", 
             "name": "changeType", 
             "nameZh": "变更股权方式", 
-            "rdfs:domain": "ShareholderChangeEvent", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
             "rdfs:range": "Text"
         }, 
         {
@@ -161,23 +210,8 @@
             "category": "property-template", 
             "name": "changeUnitPrice", 
             "nameZh": "变更股权单价", 
-            "rdfs:domain": "ShareholderChangeEvent", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
             "rdfs:range": "Number"
-        }, 
-        {
-            "@id": "http://cnschema.org/city", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "alternateName": "", 
-            "category": "property-template", 
-            "name": "city", 
-            "nameZh": "所在城市", 
-            "rdfs:domain": "Company", 
-            "rdfs:range": "Text"
         }, 
         {
             "@id": "http://cnschema.org/companyCode", 
@@ -191,21 +225,6 @@
             "category": "property-template", 
             "name": "companyCode", 
             "nameZh": "企业代码", 
-            "rdfs:domain": "Company", 
-            "rdfs:range": "Text"
-        }, 
-        {
-            "@id": "http://cnschema.org/email", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "alternateName": "", 
-            "category": "property-template", 
-            "name": "email", 
-            "nameZh": "联系邮箱", 
             "rdfs:domain": "Company", 
             "rdfs:range": "Text"
         }, 
@@ -266,36 +285,6 @@
             "category": "property-template", 
             "name": "organizationType", 
             "nameZh": "组织类型", 
-            "rdfs:domain": "Company", 
-            "rdfs:range": "Text"
-        }, 
-        {
-            "@id": "http://cnschema.org/phone", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "alternateName": "", 
-            "category": "property-template", 
-            "name": "phone", 
-            "nameZh": "联系电话", 
-            "rdfs:domain": "Company", 
-            "rdfs:range": "Text"
-        }, 
-        {
-            "@id": "http://cnschema.org/province", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "alternateName": "", 
-            "category": "property-template", 
-            "name": "province", 
-            "nameZh": "所在省", 
             "rdfs:domain": "Company", 
             "rdfs:range": "Text"
         }, 
@@ -386,7 +375,7 @@
             "category": "property-template", 
             "name": "roundOfInvestment", 
             "nameZh": "投资轮次", 
-            "rdfs:domain": "ShareholderChangeEvent", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
             "rdfs:range": "Text"
         }, 
         {
@@ -450,7 +439,7 @@
             "rdfs:range": "Number"
         }, 
         {
-            "@id": "http://cnschema.org/shareshareholderType", 
+            "@id": "http://cnschema.org/shareholderType", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
@@ -459,9 +448,39 @@
             ], 
             "alternateName": "", 
             "category": "property-template", 
-            "name": "shareshareholderType", 
+            "name": "shareholderType", 
             "nameZh": "股东类型", 
             "rdfs:domain": "ShareholderRole", 
+            "rdfs:range": "Text"
+        }, 
+        {
+            "@id": "http://cnschema.org/textAfter", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "", 
+            "category": "property-template", 
+            "name": "textAfter", 
+            "nameZh": "变更后内容", 
+            "rdfs:domain": "CompanyInfoUpdateEvent", 
+            "rdfs:range": "Text"
+        }, 
+        {
+            "@id": "http://cnschema.org/textBefore", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "", 
+            "category": "property-template", 
+            "name": "textBefore", 
+            "nameZh": "变更前内容", 
+            "rdfs:domain": "CompanyInfoUpdateEvent", 
             "rdfs:range": "Text"
         }, 
         {
@@ -472,7 +491,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "unifiedCreditCode", 
             "category": "property-template", 
             "name": "unifiedSocialCreditCode", 
             "nameZh": "统一社会信用代码", 
@@ -508,21 +527,6 @@
             "nameZh": "营业期限至", 
             "rdfs:domain": "Company", 
             "rdfs:range": "Date"
-        }, 
-        {
-            "@id": "http://cnschema.org/website", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "alternateName": "", 
-            "category": "property-template", 
-            "name": "website", 
-            "nameZh": "网址", 
-            "rdfs:domain": "Company", 
-            "rdfs:range": "Text"
         }
     ], 
     "@id": "http://cnschema.org/schema/cns_organization", 
@@ -543,27 +547,119 @@
         "version": "v20180412"
     }, 
     "dateModified": "2018-06-22", 
+    "import": [
+        "cns_place"
+    ], 
     "name": "cns_organization", 
     "template": [
         {
-            "@id": "http://meta.cnschema.org/template/Company_city", 
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_about", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "minCardinality": 0, 
-            "name": "Company_city", 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CompanyInfoUpdateEvent_about", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "所在城市", 
+            "propertyNameZh": "关于", 
+            "propertyRange": "Company", 
+            "propertySchema": "cns_top", 
+            "refClass": "CompanyInfoUpdateEvent", 
+            "refProperty": "about", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_date", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CompanyInfoUpdateEvent_date", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "日期", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_top", 
+            "refClass": "CompanyInfoUpdateEvent", 
+            "refProperty": "date", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_tag", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CompanyInfoUpdateEvent_tag", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更事项", 
+            "propertyRange": "CnsTag", 
+            "propertySchema": "cns_top", 
+            "refClass": "CompanyInfoUpdateEvent", 
+            "refProperty": "tag", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textAfter", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CompanyInfoUpdateEvent_textAfter", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更后内容", 
             "propertyRange": "Text", 
             "propertySchema": "", 
-            "refClass": "Company", 
-            "refProperty": "city", 
+            "refClass": "CompanyInfoUpdateEvent", 
+            "refProperty": "textAfter", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textBefore", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CompanyInfoUpdateEvent_textBefore", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更前内容", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "CompanyInfoUpdateEvent", 
+            "refProperty": "textBefore", 
             "version": "v20180412"
         }, 
         {
@@ -573,6 +669,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_companyCode", 
             "propertyAlternateName": "", 
@@ -588,33 +685,13 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Company_email", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "Company_email", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "联系邮箱", 
-            "propertyRange": "Text", 
-            "propertySchema": "", 
-            "refClass": "Company", 
-            "refProperty": "email", 
-            "version": "v20180412"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/Company_foundingDate", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_foundingDate", 
             "propertyAlternateName": "", 
@@ -636,6 +713,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_legalRepresentative", 
             "propertyAlternateName": "", 
@@ -651,33 +729,13 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Company_name", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "Company_name", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "Company", 
-            "refProperty": "name", 
-            "version": "v20180412"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/Company_organizationCode", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_organizationCode", 
             "propertyAlternateName": "", 
@@ -699,6 +757,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_organizationType", 
             "propertyAlternateName": "", 
@@ -714,54 +773,13 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Company_phone", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "Company_phone", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "联系电话", 
-            "propertyRange": "Text", 
-            "propertySchema": "", 
-            "refClass": "Company", 
-            "refProperty": "phone", 
-            "version": "v20180412"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_province", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "Company_province", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "所在省", 
-            "propertyRange": "Text", 
-            "propertySchema": "", 
-            "refClass": "Company", 
-            "refProperty": "province", 
-            "version": "v20180412"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/Company_registeredCapital", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registeredCapital", 
             "propertyAlternateName": "", 
@@ -783,6 +801,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registeredLocation", 
             "propertyAlternateName": "", 
@@ -804,6 +823,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registeredStatus", 
             "propertyAlternateName": "", 
@@ -825,6 +845,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registrationAgency", 
             "propertyAlternateName": "", 
@@ -846,6 +867,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registrationDate", 
             "propertyAlternateName": "", 
@@ -867,6 +889,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_scopeOfBusiness", 
             "propertyAlternateName": "", 
@@ -888,9 +911,10 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_unifiedSocialCreditCode", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "unifiedCreditCode", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -909,6 +933,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_validFrom", 
             "propertyAlternateName": "", 
@@ -930,6 +955,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_validUntil", 
             "propertyAlternateName": "", 
@@ -945,24 +971,25 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Company_website", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_endDate", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "Company_website", 
+            "name": "ManagerRole_endDate", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "网址", 
-            "propertyRange": "Text", 
-            "propertySchema": "", 
-            "refClass": "Company", 
-            "refProperty": "website", 
+            "propertyNameZh": "结束时间", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_top", 
+            "refClass": "ManagerRole", 
+            "refProperty": "endDate", 
             "version": "v20180412"
         }, 
         {
@@ -1031,133 +1058,114 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_changeRatio", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_startDate", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_changeRatio", 
+            "name": "ManagerRole_startDate", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "变更股权比例", 
-            "propertyRange": "Number", 
-            "propertySchema": "", 
-            "refClass": "ShareholderChangeEvent", 
-            "refProperty": "changeRatio", 
-            "version": "v20180412"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_changeTotalPrice", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_changeTotalPrice", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "变更股权总价", 
-            "propertyRange": "MonetaryAmount", 
-            "propertySchema": "", 
-            "refClass": "ShareholderChangeEvent", 
-            "refProperty": "changeTotalPrice", 
-            "version": "v20180412"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_changeTotalShares", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_changeTotalShares", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "变更股权总量", 
-            "propertyRange": "Number", 
-            "propertySchema": "", 
-            "refClass": "ShareholderChangeEvent", 
-            "refProperty": "changeTotalShares", 
-            "version": "v20180412"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_changeType", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_changeType", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "变更股权方式", 
-            "propertyRange": "Text", 
-            "propertySchema": "", 
-            "refClass": "ShareholderChangeEvent", 
-            "refProperty": "changeType", 
-            "version": "v20180412"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_changeUnitPrice", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_changeUnitPrice", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "变更股权单价", 
-            "propertyRange": "Number", 
-            "propertySchema": "", 
-            "refClass": "ShareholderChangeEvent", 
-            "refProperty": "changeUnitPrice", 
-            "version": "v20180412"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_date", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_date", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "日期", 
+            "propertyNameZh": "开始时间", 
             "propertyRange": "Date", 
             "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeEvent", 
-            "refProperty": "date", 
+            "refClass": "ManagerRole", 
+            "refProperty": "startDate", 
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_in", 
+            "@id": "http://meta.cnschema.org/template/Organization_city", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Organization_city", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "所在城市", 
+            "propertyRange": "City", 
+            "propertySchema": "cns_place", 
+            "refClass": "Organization", 
+            "refProperty": "city", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_province", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Organization_province", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "所在省份", 
+            "propertyRange": "Province", 
+            "propertySchema": "cns_place", 
+            "refClass": "Organization", 
+            "refProperty": "province", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_workLocation", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Organization_workLocation", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "办公地点", 
+            "propertyRange": "Place", 
+            "propertySchema": "cns_place", 
+            "refClass": "Organization", 
+            "refProperty": "workLocation", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/PartnerRole_endDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "PartnerRole_endDate", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "结束时间", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_top", 
+            "refClass": "PartnerRole", 
+            "refProperty": "endDate", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/PartnerRole_in", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
@@ -1165,28 +1173,28 @@
             ], 
             "maxCardinality": 1, 
             "minCardinality": 1, 
-            "name": "ShareholderChangeEvent_in", 
+            "name": "PartnerRole_in", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "被投企业", 
-            "propertyRange": "Company", 
+            "propertyNameZh": "目标企业", 
+            "propertyRange": "Partnership", 
             "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeEvent", 
+            "refClass": "PartnerRole", 
             "refProperty": "in", 
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_name", 
+            "@id": "http://meta.cnschema.org/template/PartnerRole_name", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
             "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_name", 
+            "name": "PartnerRole_name", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
@@ -1195,12 +1203,12 @@
             "propertyNameZh": "名称", 
             "propertyRange": "Text", 
             "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeEvent", 
+            "refClass": "PartnerRole", 
             "refProperty": "name", 
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_out", 
+            "@id": "http://meta.cnschema.org/template/PartnerRole_out", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
@@ -1208,7 +1216,226 @@
             ], 
             "maxCardinality": 1, 
             "minCardinality": 1, 
-            "name": "ShareholderChangeEvent_out", 
+            "name": "PartnerRole_out", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "合伙人", 
+            "propertyRange": "OrganizationOrPerson", 
+            "propertySchema": "cns_top", 
+            "refClass": "PartnerRole", 
+            "refProperty": "out", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/PartnerRole_startDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "PartnerRole_startDate", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "开始时间", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_top", 
+            "refClass": "PartnerRole", 
+            "refProperty": "startDate", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_changeRatio", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更股权比例", 
+            "propertyRange": "Number", 
+            "propertySchema": "", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "changeRatio", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_changeTotalPrice", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更股权总价", 
+            "propertyRange": "MonetaryAmount", 
+            "propertySchema": "", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "changeTotalPrice", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_changeTotalShares", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更股权总量", 
+            "propertyRange": "Number", 
+            "propertySchema": "", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "changeTotalShares", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_changeType", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更股权方式", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "changeType", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_changeUnitPrice", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更股权单价", 
+            "propertyRange": "Number", 
+            "propertySchema": "", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "changeUnitPrice", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_date", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_date", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "日期", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "date", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_in", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "ShareholderChangeTransaction_in", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "被投企业", 
+            "propertyRange": "Company", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "in", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_name", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_name", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "名称", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "name", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_out", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "ShareholderChangeTransaction_out", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
@@ -1217,19 +1444,19 @@
             "propertyNameZh": "投资者", 
             "propertyRange": "OrganizationOrPerson", 
             "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeEvent", 
+            "refClass": "ShareholderChangeTransaction", 
             "refProperty": "out", 
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_roundOfInvestment", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
             "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_roundOfInvestment", 
+            "name": "ShareholderChangeTransaction_roundOfInvestment", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
@@ -1238,19 +1465,19 @@
             "propertyNameZh": "投资轮次", 
             "propertyRange": "Text", 
             "propertySchema": "", 
-            "refClass": "ShareholderChangeEvent", 
+            "refClass": "ShareholderChangeTransaction", 
             "refProperty": "roundOfInvestment", 
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeEvent_tag", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_tag", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
             "minCardinality": 0, 
-            "name": "ShareholderChangeEvent_tag", 
+            "name": "ShareholderChangeTransaction_tag", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
@@ -1259,8 +1486,30 @@
             "propertyNameZh": "标签", 
             "propertyRange": "CnsTag", 
             "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeEvent", 
+            "refClass": "ShareholderChangeTransaction", 
             "refProperty": "tag", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_currency", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderRole_currency", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "币种", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderRole", 
+            "refProperty": "currency", 
             "version": "v20180412"
         }, 
         {
@@ -1270,6 +1519,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_date", 
             "propertyAlternateName": "", 
@@ -1350,12 +1600,35 @@
             "version": "v20180412"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_proportion", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderRole_proportion", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "占比", 
+            "propertyRange": "Float", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderRole", 
+            "refProperty": "proportion", 
+            "version": "v20180412"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquity", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderEquity", 
             "propertyAlternateName": "", 
@@ -1377,6 +1650,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderEquityRatio", 
             "propertyAlternateName": "", 
@@ -1398,6 +1672,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderEquityShares", 
             "propertyAlternateName": "", 
@@ -1413,14 +1688,15 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareshareholderType", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderType", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "ShareholderRole_shareshareholderType", 
+            "name": "ShareholderRole_shareholderType", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
@@ -1430,7 +1706,51 @@
             "propertyRange": "Text", 
             "propertySchema": "", 
             "refClass": "ShareholderRole", 
-            "refProperty": "shareshareholderType", 
+            "refProperty": "shareholderType", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_text", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderRole_text", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "原文", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderRole", 
+            "refProperty": "text", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_value", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderRole_value", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "金额总数", 
+            "propertyRange": "Float", 
+            "propertySchema": "cns_top", 
+            "refClass": "ShareholderRole", 
+            "refProperty": "value", 
             "version": "v20180412"
         }
     ]

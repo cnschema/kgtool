@@ -16457,7 +16457,7 @@
             "description": "Upcoming or past event associated with this place, organization, or action.", 
             "descriptionZh": "即将发生或已经过去且与这个地方或机构相关的事件。", 
             "name": "event", 
-            "nameZh": "事件", 
+            "nameZh": "相关事件", 
             "schemaorgUrl": "http://schema.org/event", 
             "version": "vso3.2"
         }, 

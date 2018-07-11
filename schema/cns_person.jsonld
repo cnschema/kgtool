@@ -1,0 +1,845 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/", 
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }, 
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/academicMajor", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "academicMajor", 
+            "nameZh": "高校专业", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P812"
+        }, 
+        {
+            "@id": "http://cnschema.org/accomplishment", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "accomplishment", 
+            "nameZh": "主要成就", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/affiliation", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "affiliation", 
+            "nameZh": "所属机构", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "schemaorgUrl": "http://schema.org/affiliation", 
+            "version": "v17q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/alumniOf", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "alumniOf", 
+            "nameZh": "毕业院校", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Organization", 
+            "schemaorgUrl": "http://schema.org/alumniOf", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P69"
+        }, 
+        {
+            "@id": "http://cnschema.org/ancestralHome", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "ancestralHome", 
+            "nameZh": "籍贯", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P66"
+        }, 
+        {
+            "@id": "http://cnschema.org/artName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "artName", 
+            "nameZh": "号、自号、别号、又号", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1787"
+        }, 
+        {
+            "@id": "http://cnschema.org/authorOf", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "authorOf", 
+            "nameZh": "作品、代表作", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/award", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "award", 
+            "nameZh": "奖项, 获奖", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "schemaorgUrl": "http://schema.org/award", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P166"
+        }, 
+        {
+            "@id": "http://cnschema.org/birthDate", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "birthDate", 
+            "nameZh": "出生日期", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Date", 
+            "schemaorgUrl": "http://schema.org/birthDate", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P569"
+        }, 
+        {
+            "@id": "http://cnschema.org/birthName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "birthName", 
+            "nameZh": "原名", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1477"
+        }, 
+        {
+            "@id": "http://cnschema.org/birthPlace", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "birthPlace", 
+            "nameZh": "出生地", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Place", 
+            "schemaorgUrl": "http://schema.org/birthPlace", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P19"
+        }, 
+        {
+            "@id": "http://cnschema.org/children", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "children", 
+            "nameZh": "子女", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "schemaorgUrl": "http://schema.org/children", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P40"
+        }, 
+        {
+            "@id": "http://cnschema.org/cnEducationalAttainment", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": [
+                "educationLevel"
+            ], 
+            "category": "property-ext", 
+            "name": "cnEducationalAttainment", 
+            "nameZh": "学历", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikipediaUrl": "https://en.wikipedia.org/wiki/Educational_attainment"
+        }, 
+        {
+            "@id": "http://cnschema.org/cnProfessionalTitle", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "cnProfessionalTitle", 
+            "nameZh": "职称", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/colleague", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "colleague", 
+            "nameZh": "同事，队友、战友", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "schemaorgUrl": "http://schema.org/colleague", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/courtesyName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "courtesyName", 
+            "nameZh": "字、表字", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1782"
+        }, 
+        {
+            "@id": "http://cnschema.org/deathDate", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "deathDate", 
+            "nameZh": "死亡日期", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Date", 
+            "schemaorgUrl": "http://schema.org/deathDate", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P570"
+        }, 
+        {
+            "@id": "http://cnschema.org/deathPlace", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "deathPlace", 
+            "nameZh": "死亡地", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Place", 
+            "schemaorgUrl": "http://schema.org/deathPlace", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P20"
+        }, 
+        {
+            "@id": "http://cnschema.org/dharmaName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "dharmaName", 
+            "nameZh": "法号、法名", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v18q2", 
+            "wikipediaUrl": "https://en.wikipedia.org/wiki/Dharma_name"
+        }, 
+        {
+            "@id": "http://cnschema.org/dynasty", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "dynasty", 
+            "nameZh": "朝代、所在年代、所处时代", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/eraName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "eraName", 
+            "nameZh": "年号", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/ethnicGroup", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "ethnicGroup", 
+            "nameZh": "民族、民族族群", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P172"
+        }, 
+        {
+            "@id": "http://cnschema.org/familyName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "familyName", 
+            "nameZh": "姓氏", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "schemaorgUrl": "http://schema.org/familyName", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P734"
+        }, 
+        {
+            "@id": "http://cnschema.org/father", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "father", 
+            "nameZh": "父亲", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P26"
+        }, 
+        {
+            "@id": "http://cnschema.org/fieldOfWork", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "fieldOfWork", 
+            "nameZh": "领域, 专业", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P101"
+        }, 
+        {
+            "@id": "http://cnschema.org/gender", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "gender", 
+            "nameZh": "性别", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "schemaorgUrl": "http://schema.org/gender", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P21"
+        }, 
+        {
+            "@id": "http://cnschema.org/height", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "height", 
+            "nameZh": "身高", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "QuantitativeValue", 
+            "schemaorgUrl": "http://schema.org/height", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/homeLocation", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "homeLocation", 
+            "nameZh": "家庭地址", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Place", 
+            "schemaorgUrl": "http://schema.org/homeLocation", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/husband", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "husband", 
+            "nameZh": "丈夫", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/Q212878"
+        }, 
+        {
+            "@id": "http://cnschema.org/jobTitle", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "jobTitle", 
+            "nameZh": "工作职务、职位", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "schemaorgUrl": "http://schema.org/jobTitle", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/memberOfPoliticalParty", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "memberOfPoliticalParty", 
+            "nameZh": "政党、党派", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P102"
+        }, 
+        {
+            "@id": "http://cnschema.org/mother", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "mother", 
+            "nameZh": "母亲", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P25"
+        }, 
+        {
+            "@id": "http://cnschema.org/nationality", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "nationality", 
+            "nameZh": "国籍", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Country", 
+            "schemaorgUrl": "http://schema.org/nationality", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P27"
+        }, 
+        {
+            "@id": "http://cnschema.org/nobleFamily", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "nobleFamily", 
+            "nameZh": "家族", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P53"
+        }, 
+        {
+            "@id": "http://cnschema.org/nobleTitle", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "nobleTitle", 
+            "nameZh": "爵位、官爵、封爵、封号", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P97"
+        }, 
+        {
+            "@id": "http://cnschema.org/occupation", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "occupation", 
+            "nameZh": "职业、身份", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P106"
+        }, 
+        {
+            "@id": "http://cnschema.org/parent", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "parent", 
+            "nameZh": "父母", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "schemaorgUrl": "http://schema.org/parent", 
+            "version": "v17q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/placeOfBurial", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "placeOfBurial", 
+            "nameZh": "墓地、安葬地", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Place", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P119"
+        }, 
+        {
+            "@id": "http://cnschema.org/posthumousName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "posthumousName", 
+            "nameZh": "谥号、私谥", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1786"
+        }, 
+        {
+            "@id": "http://cnschema.org/pseudonym", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "pseudonym", 
+            "nameZh": "化名", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P742"
+        }, 
+        {
+            "@id": "http://cnschema.org/religion", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "religion", 
+            "nameZh": "宗教信仰、信仰", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P140"
+        }, 
+        {
+            "@id": "http://cnschema.org/schoolsOfBuddhism", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "schoolsOfBuddhism", 
+            "nameZh": "宗派", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/sibling", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "sibling", 
+            "nameZh": "兄弟姐妹", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "schemaorgUrl": "http://schema.org/sibling", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P3373"
+        }, 
+        {
+            "@id": "http://cnschema.org/spouse", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "spouse", 
+            "nameZh": "配偶、爱人", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "schemaorgUrl": "http://schema.org/spouse", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P26"
+        }, 
+        {
+            "@id": "http://cnschema.org/student", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "student", 
+            "nameZh": "学生、弟子、徒弟、门徒", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P802"
+        }, 
+        {
+            "@id": "http://cnschema.org/studentOf", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "studentOf", 
+            "nameZh": "老师、师傅、导师", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1066"
+        }, 
+        {
+            "@id": "http://cnschema.org/templeName", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "templeName", 
+            "nameZh": "庙号", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1785"
+        }, 
+        {
+            "@id": "http://cnschema.org/unmarriedPartner", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "unmarriedPartner", 
+            "nameZh": "情侣", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v18q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P451"
+        }, 
+        {
+            "@id": "http://cnschema.org/weight", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "weight", 
+            "nameZh": "体重", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "QuantitativeValue", 
+            "schemaorgUrl": "http://schema.org/weight", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/wife", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "wife", 
+            "nameZh": "妻子", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Person", 
+            "version": "v17q2", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/Q188830"
+        }, 
+        {
+            "@id": "http://cnschema.org/worksFor", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "worksFor", 
+            "nameZh": "工作单位", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Organization", 
+            "schemaorgUrl": "http://schema.org/worksFor", 
+            "version": "v18q2"
+        }
+    ], 
+    "@id": "http://cnschema.org/schema/cns_person", 
+    "@type": [
+        "CnsOntology", 
+        "Thing"
+    ], 
+    "dateModified": "2018-07-09", 
+    "import": [
+        "cns_place"
+    ], 
+    "name": "cns_person", 
+    "template": []
+}

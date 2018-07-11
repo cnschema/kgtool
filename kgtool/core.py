@@ -337,7 +337,7 @@ def parseListValue(value, regex=ur"[，,、；;／/]"):
     else:
         assert False
 
-    return [ x for x in ret if x != u'' ]
+    return [ x.strip() for x in ret if x != u'' ]
 
 
 ####################################

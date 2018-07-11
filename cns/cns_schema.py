@@ -370,6 +370,8 @@ class CnsSchema:
         #schemaList.extend( self.importSchema )
         schemaList.extend(_buildImportedSchema(self))
         schemaList.append(self)
+
+        self.allSchemaList = schemaList
         #logging.info(schemaList[0].metadata["name"])
         #assert False
 
@@ -393,12 +395,12 @@ class CnsSchema:
         for template in self.metadata["template"]:
             cls = self.indexDefinitionAlias.get( template["refClass"] )
             #logging.info(json4debug(sorted(self.indexDefinitionAlias.keys())))
-            assert cls, template
+            assert cls, template # missing class definition
             assert cls["name"] == template["refClass"]
             assert cls["@type"][0] == "rdfs:Class"
 
             prop = self.indexDefinitionAlias.get( template["refProperty"] )
-            assert prop, template
+            assert prop, template  #  refProperty not defined
             assert prop["name"] == template["refProperty"]
             assert prop["@type"][0] == "rdf:Property"
 
@@ -649,36 +651,42 @@ class CnsSchema:
         def _getName(definition):
             return u"{}（{}）".format(definition["name"], definition["nameZh"])
 
-        def _addNode(definition, nodeMap):
+        def _addNode(definition, graph):
             if definition is None:
                 logging.warn("empty definition")
                 return
 
             #logging.info(definition)
+            #if definition["name"] == "city":
+            #    logging.info(definition)
+            #    assert False
+
             if "rdf:Property" in definition["@type"]:
                 p = "property"
             elif "CnsLink" in definition.get("rdfs:subClassOf",[]):
                 p = "link"
             else:
                 p = "class"
-            nodeMap[p].add(_getName(definition))
+            graph["nodeMap"][p].add(_getName(definition))
 
-        def _addLink(link, linkList, nodeMap):
+        def _addLink(link, graph):
             #logging.info(json4debug(link))
-            linkList.append(link)
-            _addNode(link["from"], nodeMap)
-            _addNode(link["to"], nodeMap)
+            if link["from"]["name"] == "CnsLink" and link.get("relation",{}).get("name") == "Thing":
+                logging.info(json4debug(link))
+            graph["linkList"].append(link)
+            _addNode(link["from"], graph)
+            _addNode(link["to"], graph)
             if link["type"].endswith("domain_range") :
-                _addNode(link["relation"], nodeMap)
+                _addNode(link["relation"], graph)
             elif link["type"] == "template_link":
-                _addNode(link["relation"], nodeMap)
+                _addNode(link["relation"], graph)
             elif link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
                 pass
             else:
                 logging.info(json4debug(link))
                 assert False
 
-        def _addDomainRange(definition, linkList):
+        def _addDomainRange(definition, graph):
             #domain range relation
             if "rdf:Property" in definition["@type"]:
                 if definition.get("rdfs:range") and definition.get("rdfs:domain"):
@@ -691,9 +699,9 @@ class CnsSchema:
                             "relation": definition,
                             "type": "property_domain_range"
                         }
-                        _addLink(link, linkList, nodeMap)
+                        _addLink(link, graph)
 
-        def _addSuperClassProperty(definition, linkList):
+        def _addSuperClassProperty(definition, graph):
             #super class/property relation
             for p in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
                 superList = definition.get(p,[])
@@ -705,9 +713,9 @@ class CnsSchema:
                             "to": superDefinition,
                             "type": p,
                         }
-                        _addLink(link, linkList, nodeMap)
+                        _addLink(link, graph)
 
-        def _addTemplateDomainRange(template, linkList, linkInOutMap):
+        def _addTemplateDomainRange(template, graph, linkInOutMap):
             #logging.info(json4debug(template))
             #assert False
 
@@ -748,60 +756,73 @@ class CnsSchema:
                     "relation": propertyDefinition,
                     "type": "template_domain_range"
                 }
-                _addLink(link, linkList, nodeMap)
+                _addLink(link, graph)
 
-        def _filterCompact(nodeMap, linkList):
+        def _filterCompact(graph):
             skipLinkType = []
-            nodeMapNew = collections.defaultdict(set)
-            linkListNew = []
-            for link in linkList:
+            graphNew = _graph_create()
+            for link in graph["linkList"]:
                 if link["to"]["category"] == "class-datatype":
                     continue
                 if link["to"]["category"] == "class-datastructure":
                     continue
+
+                if link["to"]["name"] == "CnsLink":
+                    continue #not need to show super class relation for this case
+
                 #logging.info(json4debug(link))
-                linkListNew.append(link)
-                nodeMapNew["class"].add(_getName(link["from"]))
-                nodeMapNew["class"].add(_getName(link["to"]))
+                graphNew["linkList"].append(link)
+                graphNew["nodeMap"]["class"].add(_getName(link["from"]))
+                graphNew["nodeMap"]["class"].add(_getName(link["to"]))
 
                 if link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
                     pass
                 elif link["type"] in ["property_domain_range"]:
+                    graphNew["nodeMap"]["property"].add(_getName(link["relation"]))
                     pass
                 elif link["type"] in ["template_link"]:
-                    nodeMapNew["link"].add(_getName(link["relation"]))
+                    graphNew["nodeMap"]["link"].add(_getName(link["relation"]))
                 else:
-                    nodeMapNew["property"].add(_getName(link["relation"]))
+                    graphNew["nodeMap"]["property"].add(_getName(link["relation"]))
 
-            nodeMapNew["class"] = nodeMapNew["class"].difference( nodeMapNew["link"] )
-            return nodeMapNew, linkListNew
+            graphNew["nodeMap"]["class"] = graphNew["nodeMap"]["class"].difference( graphNew["nodeMap"]["link"] )
+            graphNew["nodeMap"]["class"] = graphNew["nodeMap"]["class"].difference( graphNew["nodeMap"]["property"] )
+            return graphNew
 
-        def _renderDotFormat(nodeMap, linkList):
+        def _renderDotFormat(graph, key, subgraph_name=None):
             # generate graph
             lines = []
-            lines.append(u"digraph {} ".format(name))
+            if subgraph_name == None:
+                lines.append(u"digraph {} ".format(name))
+            else:
+                lines.append(u"subgraph cluster_{} ".format(subgraph_name))
+
             lines.append("{")
-            line = "\t# dot -Tpng local/{}_full.dot -olocal/{}_full.png".format(name, name)
-            lines.append(line)
-            line = "\t# dot -Tpng local/{}_compact.dot -olocal/{}.png".format(name, name)
+            line = "\t# dot -Tpng local/{}_full.dot -olocal/{}_{}.png".format(name, name, key)
             lines.append(line)
             logging.info(line)
-            lines.append('\trankdir = "LR"')
+
+            if not subgraph_name is None:
+                line = "\tlabel={}".format(subgraph_name)
+                lines.append(line)
+                #lines.append('\trankdir = "TD"')
+            else:
+                lines.append('\trankdir = "LR"')
             #nodes
             lines.append('\n\tnode [shape=oval]')
-            lines.extend(sorted(list(nodeMap["class"])))
+            lines.extend(sorted(list(graph["nodeMap"]["class"])))
             lines.append("")
 
             lines.append('\n\tnode [shape=doubleoctagon]')
-            lines.extend(sorted(list(nodeMap["link"])))
+            lines.extend(sorted(list(graph["nodeMap"]["link"])))
             lines.append("")
 
             lines.append('\n\tnode [shape=octagon]')
-            lines.extend(sorted(list(nodeMap["property"])))
+            lines.extend(sorted(list(graph["nodeMap"]["property"])))
             lines.append("")
 
             #links
-            for link in linkList:
+            for link in graph["linkList"]:
                 if link["type"] in ["rdfs:subClassOf", "rdfs:subPropertyOf"]:
                     line = u'\t{} -> {}\t [style=dotted]'.format(
                         _getName(link["from"]),
@@ -825,30 +846,61 @@ class CnsSchema:
             ret = u'\n'.join(lines)
             return ret
 
-        # preprare data
-        linkList = []
-        nodeMap = collections.defaultdict(set)
+        def _graph_create():
+            return {
+                "linkList":[],
+                "nodeMap":collections.defaultdict(set),
+            }
 
-        for definition in sorted(self.definition.values(),key=lambda x:x["@id"]):
-            # domain range relation
-            _addDomainRange(definition, linkList)
+        def _graph_update(schema, graph):
+            # preprare data
 
-            _addSuperClassProperty(definition, linkList)
-            pass
+            for definition in sorted(schema.definition.values(), key=lambda x:x["@id"]):
+                # domain range relation
+                _addDomainRange(definition, graph)
 
-        linkInOutMap = collections.defaultdict(dict)
-        for template in self.metadata["template"]:
-            _addTemplateDomainRange(template, linkList, linkInOutMap)
+                _addSuperClassProperty(definition, graph)
+                pass
 
-        for key in sorted(linkInOutMap):
-            link = linkInOutMap[key]
-            _addLink(link, linkList, nodeMap)
+            linkInOutMap = collections.defaultdict(dict)
+            for template in schema.metadata["template"]:
+                _addTemplateDomainRange(template, graph, linkInOutMap)
 
-        ret = {
-            "full": _renderDotFormat(nodeMap, linkList),
-        }
-        nodeMapNew, linkListNew = _filterCompact(nodeMap, linkList)
-        ret["compact"] = _renderDotFormat(nodeMapNew, linkListNew)
+            for key in sorted(linkInOutMap):
+                link = linkInOutMap[key]
+                _addLink(link, graph)
+            return graph
+
+
+        ret = {}
+
+        key = "full"
+        graph = _graph_create()
+        _graph_update(self, graph)
+        ret[key] = _renderDotFormat(graph, key)
+
+        key = "compact"
+        graphNew = _filterCompact(graph)
+        ret[key] = _renderDotFormat(graphNew, key)
+
+        key = "import"
+        subgraphs = []
+        lines = []
+        line = "digraph import_%s {" % (self.metadata["name"])
+        lines.append(line)
+        lines.append('\trankdir = "LR"')
+
+        for schema in self.allSchemaList:
+            graph = _graph_create()
+            if schema.metadata["name"] == "cns_top":
+                continue
+            _graph_update(schema, graph)
+            graphNew = _filterCompact(graph,)
+            subgraph = _renderDotFormat(graphNew,key, schema.metadata["name"])
+            lines.append(subgraph)
+        line = "}"
+        lines.append(line)
+        ret[key] = u'\n'.join(lines)
         #logging.info(ret)
         return ret
 
@@ -913,7 +965,7 @@ class CnsSchema:
         self.build()
 
 def task_importJsonld(args):
-    logging.info( "called task_excel2jsonld" )
+    logging.info( "called task_importJsonld" )
     filename = args["input_file"]
     cnsSchema = CnsSchema()
     cnsSchema.importJsonLd(filename)
@@ -934,7 +986,7 @@ def task_importJsonld(args):
             break
 
 def task_convert(args):
-    logging.info( "called task_graphviz" )
+    logging.info( "called task_convert" )
     filename = "../schema/cns_top.jsonld"
     filename = file2abspath(filename, __file__)
     cnsSchema = CnsSchema()
@@ -951,9 +1003,8 @@ def task_convert(args):
         cnsSchema.cnsValidate(cnsItem, report)
     logging.info(json4debug(report))
 
-
 def task_validate(args):
-    logging.info( "called task_graphviz" )
+    logging.info( "called task_validate" )
     filename = "../schema/cns_top.jsonld"
     filename = file2abspath(filename, __file__)
     cnsSchema = CnsSchema()
@@ -987,6 +1038,7 @@ if __name__ == "__main__":
 
     optional_params = {
         '--input_file': 'input file',
+        '--input_schema': 'input schema',
         '--output_file': 'output file',
         '--debug_dir': 'debug directory',
     }
@@ -1000,6 +1052,8 @@ if __name__ == "__main__":
 
     # task 2: convert
     python cns/cns_schema.py task_convert --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+
+    python cns/cns_schema.py task_convert_excel --input_file=tests/test_cns_schema_input1.json --input_schema=schema/cns_top.jsonld --debug_dir=local/
 
     # task 3: validate
     python cns/cns_schema.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/
