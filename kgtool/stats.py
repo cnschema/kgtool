@@ -24,36 +24,40 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 from core import *  # noqa
 
 
-def stat_table(items, unique_fields, value_fields=[], printCounter=True):
+def stat_table(items, unique_fields, value_fields=[], printCounter=True, MAX_UNIQUE = 100, REPORT_GAP = 10000):
     counter = collections.Counter()
     unique_counter = collections.defaultdict(list)
 
-    for item in items:
+    for idx, item in enumerate(items):
+        if idx % REPORT_GAP == 0:
+            logging.info(u"{} {}".format(idx, json4debug(item) ))
+
         counter["all"] += 1
+        # add no more than MAX_UNIQUE unique value
         for field in unique_fields:
-            if item.get(field):
-                unique_counter[field].append(item[field])
+            v = item.get(field)
+            if v is not None:
+                if v not in unique_counter[field]:
+                    if len(unique_counter[field]) < MAX_UNIQUE:
+                        unique_counter[field].append(v)
+        # count
         for field in value_fields:
             value = item.get(field)
             value = normalize_value(value)
-#            if value is None:
-#                continue
-#            elif type(value) in [ float, int ]:
-#                vx = "%1.0d" % value
-#            else:
-#                vx = value
             if value is not None:
-                counter[u"{}_{}".format(field, value)] += 1
+                counter[u"all_{}_nonempty".format(field)] += 1
+                if value in unique_counter[field]:
+                    counter[u"pv_{}_{}".format(field, value)] += 1
+
+        # count unique value
         for field in unique_fields:
-            counter[u"{}_unique".format(field)] = len(set(unique_counter[field]))
-            counter[u"{}_nonempty".format(field)] = len(unique_counter[field])
+            counter[u"all_{}_unique".format(field)] = len(unique_counter[field])
 
     if printCounter:
         logging.info(json.dumps(counter, ensure_ascii=False,
                                 indent=4, sort_keys=True))
 
     return counter
-
 
 def stat_sample(items):
     ret = {"stat": collections.Counter() }
