@@ -19,6 +19,24 @@
 <http://cnschema.org/CompanyInfoUpdateEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/CompanyInfoUpdateEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/CompanyInfoUpdateEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "Event" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://cnschema.org/category> "class-ext" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://cnschema.org/name> "LegalRepresentativeRole" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://cnschema.org/nameZh> "法人代表关系" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://cnschema.org/version> "v20180412" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/LegalRepresentativeRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "CnsLink" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://cnschema.org/category> "class-ext" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://cnschema.org/name> "ManagementRole" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://cnschema.org/nameZh> "公司之间管理关系" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://cnschema.org/version> "v20180412" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ManagementRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "CnsLink" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ManagerRole> <http://cnschema.org/category> "class-ext" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ManagerRole> <http://cnschema.org/name> "ManagerRole" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ManagerRole> <http://cnschema.org/nameZh> "高管关系" <http://cnschema.org/schema/cns_organization> .
@@ -57,7 +75,7 @@
 <http://cnschema.org/Partnership> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "Company" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ShareholderChangeTransaction> <http://cnschema.org/category> "class-ext" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ShareholderChangeTransaction> <http://cnschema.org/name> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/ShareholderChangeTransaction> <http://cnschema.org/nameZh> "公司股权变更事件" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/ShareholderChangeTransaction> <http://cnschema.org/nameZh> "公司股权变更交易" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ShareholderChangeTransaction> <http://cnschema.org/version> "v20180412" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ShareholderChangeTransaction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/ShareholderChangeTransaction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
@@ -93,16 +111,16 @@
 <http://cnschema.org/changeTotalPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://www.w3.org/2000/01/rdf-schema#range> "MonetaryAmount" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://cnschema.org/name> "changeTotalShares" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://cnschema.org/nameZh> "变更股权总量" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShares> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://cnschema.org/name> "changeTotalShare" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://cnschema.org/nameZh> "变更股权总量" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeType> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeType> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeType> <http://cnschema.org/name> "changeType" <http://cnschema.org/schema/cns_organization> .
@@ -143,16 +161,6 @@
 <http://cnschema.org/foundingDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/foundingDate> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/foundingDate> <http://www.w3.org/2000/01/rdf-schema#range> "Date" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://cnschema.org/name> "legalRepresentative" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://cnschema.org/nameZh> "法人代表" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/legalRepresentative> <http://www.w3.org/2000/01/rdf-schema#range> "Person" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/organizationCode> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/organizationCode> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/organizationCode> <http://cnschema.org/name> "organizationCode" <http://cnschema.org/schema/cns_organization> .
@@ -173,36 +181,6 @@
 <http://cnschema.org/organizationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/organizationType> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/organizationType> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://cnschema.org/name> "registeredCapital" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://cnschema.org/nameZh> "注册资本" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredCapital> <http://www.w3.org/2000/01/rdf-schema#range> "MonetaryAmount" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://cnschema.org/name> "registeredLocation" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://cnschema.org/nameZh> "注册地址" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredLocation> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://cnschema.org/name> "registeredStatus" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://cnschema.org/nameZh> "登记状态" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/registeredStatus> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationAgency> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationAgency> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationAgency> <http://cnschema.org/name> "registrationAgency" <http://cnschema.org/schema/cns_organization> .
@@ -213,6 +191,16 @@
 <http://cnschema.org/registrationAgency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationAgency> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationAgency> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://cnschema.org/name> "registrationCapital" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://cnschema.org/nameZh> "注册资本" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationCapital> <http://www.w3.org/2000/01/rdf-schema#range> "MonetaryAmount" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationDate> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationDate> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationDate> <http://cnschema.org/name> "registrationDate" <http://cnschema.org/schema/cns_organization> .
@@ -223,6 +211,46 @@
 <http://cnschema.org/registrationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationDate> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationDate> <http://www.w3.org/2000/01/rdf-schema#range> "Date" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://cnschema.org/name> "registrationLocation" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://cnschema.org/nameZh> "注册地址" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationLocation> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://cnschema.org/name> "registrationStatus" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://cnschema.org/nameZh> "登记状态" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/registrationStatus> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://cnschema.org/name> "resultRatio" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://cnschema.org/nameZh> "变更后股权比例" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://cnschema.org/name> "resultTotalShare" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://cnschema.org/nameZh> "变更后股权总量" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/roundOfInvestment> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/roundOfInvestment> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/roundOfInvestment> <http://cnschema.org/name> "roundOfInvestment" <http://cnschema.org/schema/cns_organization> .
@@ -244,18 +272,23 @@
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textBefore> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_companyCode> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_foundingDate> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_legalRepresentative> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_name> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_organizationCode> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_organizationType> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registeredCapital> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registeredLocation> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registeredStatus> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registrationAgency> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registrationCapital> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registrationDate> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registrationLocation> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_registrationStatus> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_scopeOfBusiness> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_unifiedSocialCreditCode> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_validFrom> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/Company_validUntil> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/LegalRepresentativeRole_in> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/LegalRepresentativeRole_out> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ManagementRole_in> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ManagementRole_name> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ManagementRole_out> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ManagerRole_endDate> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ManagerRole_in> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ManagerRole_name> .
@@ -271,27 +304,26 @@
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/PartnerRole_startDate> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_in> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_name> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_out> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_tag> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_currency> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_date> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_in> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_name> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_out> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_proportion> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_shareholderEquity> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_shareholderEquityRatio> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_shareholderType> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_text> .
-<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_value> .
 <http://cnschema.org/schema/cns_organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsOntology> .
 <http://cnschema.org/schema/cns_organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://cnschema.org/scopeOfBusiness> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
@@ -324,16 +356,16 @@
 <http://cnschema.org/shareholderEquityRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderEquityRatio> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderRole" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderEquityRatio> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://cnschema.org/name> "shareholderEquityShares" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://cnschema.org/nameZh> "持股总量" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderRole" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderEquityShares> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://cnschema.org/name> "shareholderEquityShare" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://cnschema.org/nameZh> "持股总量" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderRole" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderEquityShare> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderType> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderType> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderType> <http://cnschema.org/name> "shareholderType" <http://cnschema.org/schema/cns_organization> .
@@ -520,23 +552,23 @@
 <http://meta.cnschema.org/template/Company_foundingDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Company_foundingDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Company_foundingDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/name> "Company_legalRepresentative" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyNameZh> "法人代表" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertyRange> "Person" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/propertySchema> "" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/refClass> "Company" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/refProperty> "legalRepresentative" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/Company_legalRepresentative> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/name> "Company_name" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyNameZh> "名称" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertyRange> "Text" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/refClass> "Company" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/refProperty> "name" .
+<http://meta.cnschema.org/template/Company_name> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/Company_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Company_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Company_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Company_organizationCode> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_organizationCode> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_organizationCode> <http://cnschema.org/name> "Company_organizationCode" .
@@ -571,57 +603,6 @@
 <http://meta.cnschema.org/template/Company_organizationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Company_organizationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Company_organizationType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/name> "Company_registeredCapital" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyNameZh> "注册资本" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertyRange> "MonetaryAmount" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/propertySchema> "" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/refClass> "Company" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/refProperty> "registeredCapital" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/Company_registeredCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/name> "Company_registeredLocation" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyNameZh> "注册地址" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertyRange> "Text" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/propertySchema> "" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/refClass> "Company" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/refProperty> "registeredLocation" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/Company_registeredLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/name> "Company_registeredStatus" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyNameZh> "登记状态" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertyRange> "Text" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/propertySchema> "" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/refClass> "Company" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/refProperty> "registeredStatus" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/Company_registeredStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Company_registrationAgency> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_registrationAgency> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_registrationAgency> <http://cnschema.org/name> "Company_registrationAgency" .
@@ -639,6 +620,23 @@
 <http://meta.cnschema.org/template/Company_registrationAgency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Company_registrationAgency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Company_registrationAgency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/name> "Company_registrationCapital" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyNameZh> "注册资本" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertyRange> "MonetaryAmount" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/refClass> "Company" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/refProperty> "registrationCapital" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Company_registrationCapital> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Company_registrationDate> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_registrationDate> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_registrationDate> <http://cnschema.org/name> "Company_registrationDate" .
@@ -656,6 +654,40 @@
 <http://meta.cnschema.org/template/Company_registrationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Company_registrationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Company_registrationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/name> "Company_registrationLocation" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyNameZh> "注册地址" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertyRange> "Text" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/refClass> "Company" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/refProperty> "registrationLocation" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Company_registrationLocation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/name> "Company_registrationStatus" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyNameZh> "登记状态" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertyRange> "Text" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/refClass> "Company" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/refProperty> "registrationStatus" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Company_registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/name> "Company_scopeOfBusiness" .
@@ -724,6 +756,91 @@
 <http://meta.cnschema.org/template/Company_validUntil> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Company_validUntil> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Company_validUntil> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/name> "LegalRepresentativeRole_in" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyNameZh> "被管理企业" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertyRange> "Company" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/refClass> "LegalRepresentativeRole" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/refProperty> "in" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/name> "LegalRepresentativeRole_out" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyNameZh> "法人代表" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertyRange> "Person" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/refClass> "LegalRepresentativeRole" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/refProperty> "out" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/LegalRepresentativeRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/name> "ManagementRole_in" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyNameZh> "被管理企业" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertyRange> "Company" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/refClass> "ManagementRole" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/refProperty> "in" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ManagementRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/name> "ManagementRole_name" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyNameZh> "名称" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertyRange> "Text" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/refClass> "ManagementRole" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/refProperty> "name" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ManagementRole_name> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/name> "ManagementRole_out" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyNameZh> "管理公司" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertyRange> "Company" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/refClass> "ManagementRole" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/refProperty> "out" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ManagementRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ManagerRole_endDate> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ManagerRole_endDate> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ManagerRole_endDate> <http://cnschema.org/name> "ManagerRole_endDate" .
@@ -758,6 +875,7 @@
 <http://meta.cnschema.org/template/ManagerRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ManagerRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ManagerRole_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ManagerRole_name> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ManagerRole_name> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ManagerRole_name> <http://cnschema.org/name> "ManagerRole_name" .
 <http://meta.cnschema.org/template/ManagerRole_name> <http://cnschema.org/propertyAlternateName> "" .
@@ -974,23 +1092,23 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/name> "ShareholderChangeTransaction_changeTotalShares" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyNameZh> "变更股权总量" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertyRange> "Number" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/propertySchema> "" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/refClass> "ShareholderChangeTransaction" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/refProperty> "changeTotalShares" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/name> "ShareholderChangeTransaction_changeTotalShare" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyNameZh> "变更股权总量" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyRange> "Number" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/refClass> "ShareholderChangeTransaction" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/refProperty> "changeTotalShare" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType> <http://cnschema.org/name> "ShareholderChangeTransaction_changeType" .
@@ -1092,6 +1210,40 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/name> "ShareholderChangeTransaction_resultRatio" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyNameZh> "变更后股权比例" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyRange> "Number" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/refClass> "ShareholderChangeTransaction" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/refProperty> "resultRatio" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/name> "ShareholderChangeTransaction_resultTotalShare" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyNameZh> "变更后股权总量" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyRange> "Number" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/refClass> "ShareholderChangeTransaction" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/refProperty> "resultTotalShare" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment> <http://cnschema.org/name> "ShareholderChangeTransaction_roundOfInvestment" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment> <http://cnschema.org/propertyAlternateName> "" .
@@ -1124,23 +1276,6 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_tag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_tag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_tag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/name> "ShareholderRole_currency" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyNameZh> "币种" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertyRange> "Text" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/propertySchema> "cns_top" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/refClass> "ShareholderRole" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/refProperty> "currency" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/ShareholderRole_currency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ShareholderRole_date> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_date> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_date> <http://cnschema.org/name> "ShareholderRole_date" .
@@ -1208,23 +1343,6 @@
 <http://meta.cnschema.org/template/ShareholderRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ShareholderRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ShareholderRole_out> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/name> "ShareholderRole_proportion" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyNameZh> "占比" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertyRange> "Float" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/propertySchema> "cns_top" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/refClass> "ShareholderRole" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/refProperty> "proportion" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/ShareholderRole_proportion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderEquity> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderEquity> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderEquity> <http://cnschema.org/name> "ShareholderRole_shareholderEquity" .
@@ -1259,23 +1377,23 @@
 <http://meta.cnschema.org/template/ShareholderRole_shareholderEquityRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderEquityRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderEquityRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/name> "ShareholderRole_shareholderEquityShares" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyNameZh> "持股总量" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertyRange> "Number" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/propertySchema> "" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/refClass> "ShareholderRole" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/refProperty> "shareholderEquityShares" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShares> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/name> "ShareholderRole_shareholderEquityShare" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyNameZh> "持股总量" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertyRange> "Number" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/refClass> "ShareholderRole" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/refProperty> "shareholderEquityShare" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/name> "ShareholderRole_shareholderType" .
@@ -1310,21 +1428,4 @@
 <http://meta.cnschema.org/template/ShareholderRole_text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/ShareholderRole_text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/ShareholderRole_text> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/name> "ShareholderRole_value" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyNameZh> "金额总数" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertyRange> "Float" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/propertySchema> "cns_top" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/refClass> "ShareholderRole" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/refProperty> "value" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://cnschema.org/version> "v20180412" .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/ShareholderRole_value> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 

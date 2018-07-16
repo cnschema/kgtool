@@ -734,12 +734,19 @@ class CnsSchema:
                 return
 
 
+            rangeName = ""
             if template.get("propertyRange"):
-                rangeClass = self.indexDefinitionAlias.get( template["propertyRange"] )
+                rangeName = template["propertyRange"]
+                rangeClass = self.indexDefinitionAlias.get( rangeName)
             else:
-                rangeClass = self.indexDefinitionAlias.get( propertyDefinition["rdfs:range"] )
+                rangeName = propertyDefinition["rdfs:range"]
+                rangeClass = self.indexDefinitionAlias.get( rangeName )
 
             # special processing on  [in, out], system property for property graph
+            if rangeClass is None and rangeName.endswith("Enum"):
+                logging.warn("missing definition for ENUM {}".format(rangeName))
+                return
+
             assert rangeClass, template
 
             linkName = domainClass["name"]

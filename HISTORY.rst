@@ -2,6 +2,11 @@
 
 History
 -------
+0.0.5 (2018-07-13)
+++++++++++++++++++
+* change stats.py stat_table, reduce unique_counter's memory cost
+* todo skip validate *Enum class validation
+* change  cns_organization 
 
 0.0.4 (2018-07-03)
 ++++++++++++++++++
