@@ -581,6 +581,17 @@
 <http://cnschema.org/in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/in> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsLink" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/in> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://cnschema.org/name> "keywords" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://cnschema.org/nameZh> "关键词" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://cnschema.org/schemaorgUrl> "http://schema.org/keywords" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://cnschema.org/version> "v17q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/keywords> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://cnschema.org/descriptionZh> "标准关系，通用二元关系关联实体，对应propertyGraph的边" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://cnschema.org/name> "link" <http://cnschema.org/schema/cns_top> .
@@ -878,6 +889,7 @@
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_description> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_identifier> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_image> .
+<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_keywords> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_link> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_mergedFrom> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/Thing_name> .
@@ -1010,6 +1022,7 @@
 <http://cnschema.org/version> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/version> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/version> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://cnschema.org/alternateName> "webSite" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/name> "website" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/nameZh> "网页地址" <http://cnschema.org/schema/cns_top> .
@@ -1850,6 +1863,23 @@
 <http://meta.cnschema.org/template/Thing_image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/Thing_image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/Thing_image> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/name> "Thing_keywords" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyNameZh> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertyRange> "" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/propertySchema> "cns_top" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/refClass> "Thing" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/refProperty> "keywords" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://cnschema.org/version> "v18q3" .
+<http://meta.cnschema.org/template/Thing_keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Thing_keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Thing_keywords> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/Thing_link> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Thing_link> <http://cnschema.org/name> "Thing_link" .
 <http://meta.cnschema.org/template/Thing_link> <http://cnschema.org/propertyAlternateName> "" .

@@ -138,6 +138,7 @@
 <http://cnschema.org/street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/street> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/street> <http://www.w3.org/2000/01/rdf-schema#range> "Street" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/workLocation> <http://cnschema.org/alternateName> "workAddr" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/workLocation> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/workLocation> <http://cnschema.org/name> "workLocation" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/workLocation> <http://cnschema.org/nameZh> "办公地址" <http://cnschema.org/schema/cns_place> .

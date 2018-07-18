@@ -171,6 +171,21 @@
             "version": "v20180412"
         }, 
         {
+            "@id": "http://cnschema.org/changeCategory", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "changeItem", 
+            "category": "property-template", 
+            "name": "changeCategory", 
+            "nameZh": "变更事项", 
+            "rdfs:domain": "CompanyInfoUpdateEvent", 
+            "rdfs:range": "Text"
+        }, 
+        {
             "@id": "http://cnschema.org/changeRatio", 
             "@type": [
                 "rdf:Property", 
@@ -268,7 +283,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "establishDate, establishDat", 
             "category": "property-template", 
             "name": "foundingDate", 
             "nameZh": "成立日期", 
@@ -283,7 +298,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "orgId", 
             "category": "property-template", 
             "name": "organizationCode", 
             "nameZh": "组织机构代码", 
@@ -298,7 +313,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "orgType", 
             "category": "property-template", 
             "name": "organizationType", 
             "nameZh": "组织类型", 
@@ -328,7 +343,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "regCap", 
             "category": "property-template", 
             "name": "registrationCapital", 
             "nameZh": "注册资本", 
@@ -358,7 +373,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "regAddr", 
             "category": "property-template", 
             "name": "registrationLocation", 
             "nameZh": "注册地址", 
@@ -373,7 +388,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "regStatus", 
             "category": "property-template", 
             "name": "registrationStatus", 
             "nameZh": "登记状态", 
@@ -433,7 +448,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "business", 
             "category": "property-template", 
             "name": "scopeOfBusiness", 
             "nameZh": "经营范围", 
@@ -448,7 +463,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "money", 
             "category": "property-template", 
             "name": "shareholderEquity", 
             "nameZh": "认缴出资金额", 
@@ -463,7 +478,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "ratio", 
             "category": "property-template", 
             "name": "shareholderEquityRatio", 
             "nameZh": "持股比例", 
@@ -493,7 +508,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "type", 
             "category": "property-template", 
             "name": "shareholderType", 
             "nameZh": "股东类型", 
@@ -508,7 +523,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "changeAfter", 
             "category": "property-template", 
             "name": "textAfter", 
             "nameZh": "变更后内容", 
@@ -523,7 +538,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "changeBefore", 
             "category": "property-template", 
             "name": "textBefore", 
             "nameZh": "变更前内容", 
@@ -538,7 +553,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "unifiedCreditCode", 
+            "alternateName": "unifiedCreditCode,credId", 
             "category": "property-template", 
             "name": "unifiedSocialCreditCode", 
             "nameZh": "统一社会信用代码", 
@@ -622,6 +637,28 @@
             "version": "v20180412"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_changeCategory", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CompanyInfoUpdateEvent_changeCategory", 
+            "propertyAlternateName": "changeItem", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更事项", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "CompanyInfoUpdateEvent", 
+            "refProperty": "changeCategory", 
+            "version": "v20180412"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_date", 
             "@type": [
                 "CnsTemplate", 
@@ -644,28 +681,6 @@
             "version": "v20180412"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_tag", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CompanyInfoUpdateEvent_tag", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "变更事项", 
-            "propertyRange": "CnsTag", 
-            "propertySchema": "cns_top", 
-            "refClass": "CompanyInfoUpdateEvent", 
-            "refProperty": "tag", 
-            "version": "v20180412"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textAfter", 
             "@type": [
                 "CnsTemplate", 
@@ -675,7 +690,7 @@
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CompanyInfoUpdateEvent_textAfter", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changeAfter", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -697,7 +712,7 @@
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "CompanyInfoUpdateEvent_textBefore", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changeBefore", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -741,7 +756,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_foundingDate", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "establishDate, establishDat", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -785,7 +800,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_organizationCode", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "orgId", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -807,7 +822,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_organizationType", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "orgType", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -851,7 +866,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registrationCapital", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "regCap", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -895,7 +910,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registrationLocation", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "regAddr", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -917,7 +932,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_registrationStatus", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "regStatus", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -939,7 +954,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_scopeOfBusiness", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "business", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -961,7 +976,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_unifiedSocialCreditCode", 
-            "propertyAlternateName": "unifiedCreditCode", 
+            "propertyAlternateName": "unifiedCreditCode,credId", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1789,7 +1804,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderEquity", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "money", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1811,7 +1826,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderEquityRatio", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "ratio", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1855,7 +1870,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderType", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "type", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 

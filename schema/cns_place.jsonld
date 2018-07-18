@@ -235,6 +235,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "alternateName": [
+                "workAddr"
+            ], 
             "category": "property-ext", 
             "name": "workLocation", 
             "nameZh": "办公地址", 

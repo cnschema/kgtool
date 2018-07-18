@@ -45,6 +45,13 @@ It offers the following functions:
    * property range
 * cnsGraphviz: generate a graphviz dot format of a schema
 """
+def lambda_key_csn_link(cns_item):
+    ret = [ cns_item["@type"][0] ]
+    for p in ["in","out","date","startDate", "endDate"]:
+        ret.append( cns_item.get(p,""))
+    #logging.info(ret)
+    return ret
+
 
 def _report(report, bug):
     msg = json.dumps(bug, ensure_ascii=False, sort_keys=True)
@@ -295,27 +302,24 @@ class CnsSchema:
 
 
 
-    def cnsConvert(self, item, types, primaryKeys, report = None):
+    def cnsConvert(self, item, types, primary_keys, report = None, primary_keys_lambda = None):
         """
             property_alias  => property_name
             create @id
             assert @type
         """
-        if report == None:
-            report = self.initReport()
-
         assert types
-        if primaryKeys:
-            assert type(primaryKeys) == list
+        if primary_keys:
+            assert type(primary_keys) == list
 
         if "@id" in item:
             pass
         else:
-            assert primaryKeys
+            assert primary_keys
 
         cnsItem = {
             "@type": types,
-            "@id" : item.get("@id", any2sha256( primaryKeys ))
+            "@id" : item.get("@id", any2sha256( primary_keys ))
         }
 
         for p,v in item.items():
@@ -329,20 +333,24 @@ class CnsSchema:
                     "property": p
                 }
 
-                logging.warn(_report(report, bug))
+                if report is not None:
+                    logging.warn(_report(report, bug))
 
 
         # add alternateName when it is not set
-        p = "alternateName"
-        if not p in cnsItem and "name" in cnsItem:
-            cnsItem[p] = [ cnsItem["name"] ]
+        #p = "alternateName"
+        #if not p in cnsItem and "name" in cnsItem:
+        #    cnsItem[p] = [ cnsItem["name"] ]
+
+        if primary_keys_lambda is not None:
+            cnsItem["@id"] =  any2sha256( primary_keys_lambda(cnsItem) )
 
         return cnsItem
 
     def addDefinition(self, item):
         self.definition[item["@id"]]  = item
 
-    def build(self):
+    def build(self, preloadSchemaList={}):
         def _buildImportedSchema(schema):
             #handle import
             name = schema.metadata["name"]
@@ -358,11 +366,16 @@ class CnsSchema:
 
             #logging.info(json4debug(importedSchemaName))
             for schemaName in importedSchemaName:
-                filename = u"../schema/{}.jsonld".format(schemaName)
-                filename = file2abspath(filename)
-                cnsSchema = CnsSchema()
-                cnsSchema.importJsonLd(filename)
-                importedCnsSchema.append(cnsSchema)
+                schema = preloadSchemaList.get(schemaName)
+                if not schema:
+                    #load schema on demand
+                    filename = u"../schema/{}.jsonld".format(schemaName)
+                    filename = file2abspath(filename)
+                    schema = CnsSchema()
+                    schema.importJsonLd(filename, preloadSchemaList)
+
+                assert schema, schemaName
+                importedCnsSchema.append( schema )
                 logging.info("importing {}".format(schemaName))
             return importedCnsSchema
 
@@ -948,11 +961,13 @@ class CnsSchema:
 
         return jsonld
 
-    def importJsonLd(self, filename=None):
+    def importJsonLd(self, filename=None, preloadSchemaList={}):
         #reset data
-
-        #load
         jsonld = file2json(filename)
+        return self.importJsonLdContent(jsonld, preloadSchemaList)
+
+    def importJsonLdContent(self, jsonld, preloadSchemaList={}):
+        #load
         assert jsonld["@context"]["@vocab"] == "http://cnschema.org/"
 
         for p in jsonld:
@@ -969,7 +984,7 @@ class CnsSchema:
         for definition in jsonld["@graph"]:
             self.addDefinition(definition)
 
-        self.build()
+        self.build(preloadSchemaList)
 
 def task_importJsonld(args):
     logging.info( "called task_importJsonld" )
@@ -1004,8 +1019,8 @@ def task_convert(args):
     report = cnsSchema.initReport()
     for idx, item in enumerate(jsondata):
         types = [item["mainType"], "Thing"]
-        primaryKeys = [idx]
-        cnsItem = cnsSchema.cnsConvert(item, types, primaryKeys, report)
+        primary_keys = [idx]
+        cnsItem = cnsSchema.cnsConvert(item, types, primary_keys, report)
         logging.info(json4debug(cnsItem))
         cnsSchema.cnsValidate(cnsItem, report)
     logging.info(json4debug(report))
@@ -1023,11 +1038,25 @@ def task_validate(args):
     cnsSchema.cnsValidateRecursive(jsondata, report)
     logging.info(json4debug(report))
 
+def preload_schema():
+    schemaNameList = ["cns_top","cns_place","cns_person","cns_organization"]
+    preloadSchemaList = {}
+    for schemaName in schemaNameList:
+        filename = u"../schema/{}.jsonld".format(schemaName)
+        filename = file2abspath(filename)
+        cnsSchema = CnsSchema()
+        cnsSchema.importJsonLd(filename, preloadSchemaList)
+        preloadSchemaList[schemaName] = cnsSchema
+        logging.info("loaded {}".format(schemaName))
+    return preloadSchemaList
+
 def task_graphviz(args):
     logging.info( "called task_graphviz" )
+
     filename = args["input_file"]
     cnsSchema = CnsSchema()
-    cnsSchema.importJsonLd(filename)
+    preloadSchemaList = preload_schema()
+    cnsSchema.importJsonLd(filename, preloadSchemaList)
 
     #validate if we can reproduce the same jsonld based on input
     jsonld_input = file2json(filename)

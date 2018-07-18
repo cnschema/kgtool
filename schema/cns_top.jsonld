@@ -924,6 +924,22 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://cnschema.org/keywords", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-info", 
+            "name": "keywords", 
+            "nameZh": "关键词", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Text", 
+            "schemaorgUrl": "http://schema.org/keywords", 
+            "version": "v17q3"
+        }, 
+        {
             "@id": "http://cnschema.org/link", 
             "@type": [
                 "rdf:Property", 
@@ -1479,6 +1495,9 @@
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
+            ], 
+            "alternateName": [
+                "webSite"
             ], 
             "category": "property-ext", 
             "name": "website", 
@@ -2580,6 +2599,28 @@
             "refClass": "Thing", 
             "refProperty": "image", 
             "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_keywords", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_keywords", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "keywords", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_link", 
