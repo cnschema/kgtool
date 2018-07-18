@@ -45,7 +45,7 @@ It offers the following functions:
    * property range
 * cnsGraphviz: generate a graphviz dot format of a schema
 """
-def lambda_key_csn_link(cns_item):
+def lambda_key_cns_link(cns_item):
     ret = [ cns_item["@type"][0] ]
     for p in ["in","out","date","startDate", "endDate"]:
         ret.append( cns_item.get(p,""))
