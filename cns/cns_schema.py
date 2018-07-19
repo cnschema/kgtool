@@ -312,14 +312,9 @@ class CnsSchema:
         if primary_keys:
             assert type(primary_keys) == list
 
-        if "@id" in item:
-            pass
-        else:
-            assert primary_keys
 
         cnsItem = {
             "@type": types,
-            "@id" : item.get("@id", any2sha256( primary_keys ))
         }
 
         for p,v in item.items():
@@ -336,14 +331,24 @@ class CnsSchema:
                 if report is not None:
                     logging.warn(_report(report, bug))
 
+        if item.get("@id"):
+            cnsItem["@id"] = item["@id"]
+        elif primary_keys:  # non-empty list
+            cnsItem["@id"] = any2sha256( primary_keys )
+        elif primary_keys_lambda is not None:
+            cnsItem["@id"] = any2sha256( primary_keys_lambda(cnsItem) )
+        elif "CnsLink" in cnsItem["@type"]:
+            #link type
+            cnsItem["@id"] = any2sha256( lambda_key_cns_link(cnsItem) )
+        else:
+            assert False, "unexpected primary_keys"
+
 
         # add alternateName when it is not set
         #p = "alternateName"
         #if not p in cnsItem and "name" in cnsItem:
         #    cnsItem[p] = [ cnsItem["name"] ]
 
-        if primary_keys_lambda is not None:
-            cnsItem["@id"] =  any2sha256( primary_keys_lambda(cnsItem) )
 
         return cnsItem
 

@@ -160,8 +160,8 @@ class CoreTestCase(unittest.TestCase):
         item_link['in'] = cns_item_in["@id"]
         item_link['out'] = cns_item_out["@id"]
 
-        primary_keys = [ item_in['name'], item_out["name"] ]
-        cns_item_link = cnsSchema.cnsConvert(item_link, types, primary_keys, report, primary_keys_lambda=lambda_key_cns_link)
+        primary_keys = [ ]
+        cns_item_link = cnsSchema.cnsConvert(item_link, types, primary_keys, report)
         entities.append( cns_item_link )
 
         logging.info(json4debug(entities))
