@@ -79,6 +79,16 @@
 <http://cnschema.org/Village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/Village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/Village> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "AdministrativeRegion" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://cnschema.org/alternateName> "level7" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://cnschema.org/name> "addressDetail" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://cnschema.org/nameZh> "其他地址详情" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://www.w3.org/2000/01/rdf-schema#domain> "Place" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/addressDetail> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/city> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/city> <http://cnschema.org/name> "city" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/city> <http://cnschema.org/nameZh> "所在地市" <http://cnschema.org/schema/cns_place> .
@@ -126,6 +136,13 @@
 <http://cnschema.org/schema/cns_place> <http://cnschema.org/changelog> <http://meta.cnschema.org/changelog/v20180709> .
 <http://cnschema.org/schema/cns_place> <http://cnschema.org/dateModified> "2018-07-09" .
 <http://cnschema.org/schema/cns_place> <http://cnschema.org/name> "cns_place" .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_addressDetail> .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_city> .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_district> .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_province> .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_street> .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_township> .
+<http://cnschema.org/schema/cns_place> <http://cnschema.org/template> <http://meta.cnschema.org/template/Place_village> .
 <http://cnschema.org/schema/cns_place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsOntology> .
 <http://cnschema.org/schema/cns_place> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://cnschema.org/street> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_place> .
@@ -138,6 +155,26 @@
 <http://cnschema.org/street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/street> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/street> <http://www.w3.org/2000/01/rdf-schema#range> "Street" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://cnschema.org/alternateName> "level4" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://cnschema.org/name> "township" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://cnschema.org/nameZh> "所在乡镇" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://www.w3.org/2000/01/rdf-schema#domain> "Place" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/township> <http://www.w3.org/2000/01/rdf-schema#range> "Township" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://cnschema.org/alternateName> "level5" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://cnschema.org/name> "village" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://cnschema.org/nameZh> "所在村" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://www.w3.org/2000/01/rdf-schema#domain> "Place" <http://cnschema.org/schema/cns_place> .
+<http://cnschema.org/village> <http://www.w3.org/2000/01/rdf-schema#range> "Village" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/workLocation> <http://cnschema.org/alternateName> "workAddr" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/workLocation> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_place> .
 <http://cnschema.org/workLocation> <http://cnschema.org/name> "workLocation" <http://cnschema.org/schema/cns_place> .
@@ -157,4 +194,95 @@
 <http://meta.cnschema.org/changelog/v20180709> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsChangelog> .
 <http://meta.cnschema.org/changelog/v20180709> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/changelog/v20180709> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/name> "Place_addressDetail" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/propertyAlternateName> "level7" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/propertyNameZh> "其他地址详情" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/propertyRange> "Text" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/refProperty> "addressDetail" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_addressDetail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/name> "Place_city" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/propertyAlternateName> "level2" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/propertyNameZh> "所在地市" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/propertyRange> "City" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/propertySchema> "cns_place" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/refProperty> "city" .
+<http://meta.cnschema.org/template/Place_city> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_city> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/name> "Place_district" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/propertyAlternateName> "level3" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/propertyNameZh> "所在区县" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/propertyRange> "District" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/propertySchema> "cns_place" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/refProperty> "district" .
+<http://meta.cnschema.org/template/Place_district> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_district> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_district> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_district> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/name> "Place_province" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/propertyAlternateName> "level1" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/propertyNameZh> "所在省" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/propertyRange> "Province" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/propertySchema> "cns_place" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/refProperty> "province" .
+<http://meta.cnschema.org/template/Place_province> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_province> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/name> "Place_street" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/propertyAlternateName> "level6" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/propertyNameZh> "所在道路" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/propertyRange> "Street" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/propertySchema> "cns_place" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/refProperty> "street" .
+<http://meta.cnschema.org/template/Place_street> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_street> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/name> "Place_township" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/propertyAlternateName> "level4" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/propertyNameZh> "所在乡镇" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/propertyRange> "Township" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/refProperty> "township" .
+<http://meta.cnschema.org/template/Place_township> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_township> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/name> "Place_village" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/propertyAlternateName> "level5" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/propertyNameZh> "所在村" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/propertyRange> "Village" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/refClass> "Place" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/refProperty> "village" .
+<http://meta.cnschema.org/template/Place_village> <http://cnschema.org/version> "v20180719" .
+<http://meta.cnschema.org/template/Place_village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/Place_village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/Place_village> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 

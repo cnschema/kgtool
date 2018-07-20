@@ -143,6 +143,21 @@
             "version": "v20180709"
         }, 
         {
+            "@id": "http://cnschema.org/addressDetail", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "level7", 
+            "category": "property-template", 
+            "name": "addressDetail", 
+            "nameZh": "其他地址详情", 
+            "rdfs:domain": "Place", 
+            "rdfs:range": "Text"
+        }, 
+        {
             "@id": "http://cnschema.org/city", 
             "@type": [
                 "rdf:Property", 
@@ -228,6 +243,36 @@
             "version": "v20180709"
         }, 
         {
+            "@id": "http://cnschema.org/township", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "level4", 
+            "category": "property-template", 
+            "name": "township", 
+            "nameZh": "所在乡镇", 
+            "rdfs:domain": "Place", 
+            "rdfs:range": "Township"
+        }, 
+        {
+            "@id": "http://cnschema.org/village", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "level5", 
+            "category": "property-template", 
+            "name": "village", 
+            "nameZh": "所在村", 
+            "rdfs:domain": "Place", 
+            "rdfs:range": "Village"
+        }, 
+        {
             "@id": "http://cnschema.org/workLocation", 
             "@type": [
                 "rdf:Property", 
@@ -266,5 +311,132 @@
     }, 
     "dateModified": "2018-07-09", 
     "name": "cns_place", 
-    "template": []
+    "template": [
+        {
+            "@id": "http://meta.cnschema.org/template/Place_addressDetail", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_addressDetail", 
+            "propertyAlternateName": "level7", 
+            "propertyNameZh": "其他地址详情", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "Place", 
+            "refProperty": "addressDetail", 
+            "version": "v20180719"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Place_city", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_city", 
+            "propertyAlternateName": "level2", 
+            "propertyNameZh": "所在地市", 
+            "propertyRange": "City", 
+            "propertySchema": "cns_place", 
+            "refClass": "Place", 
+            "refProperty": "city", 
+            "version": "v20180719"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Place_district", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_district", 
+            "propertyAlternateName": "level3", 
+            "propertyNameZh": "所在区县", 
+            "propertyRange": "District", 
+            "propertySchema": "cns_place", 
+            "refClass": "Place", 
+            "refProperty": "district", 
+            "version": "v20180719"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Place_province", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_province", 
+            "propertyAlternateName": "level1", 
+            "propertyNameZh": "所在省", 
+            "propertyRange": "Province", 
+            "propertySchema": "cns_place", 
+            "refClass": "Place", 
+            "refProperty": "province", 
+            "version": "v20180719"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Place_street", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_street", 
+            "propertyAlternateName": "level6", 
+            "propertyNameZh": "所在道路", 
+            "propertyRange": "Street", 
+            "propertySchema": "cns_place", 
+            "refClass": "Place", 
+            "refProperty": "street", 
+            "version": "v20180719"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Place_township", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_township", 
+            "propertyAlternateName": "level4", 
+            "propertyNameZh": "所在乡镇", 
+            "propertyRange": "Township", 
+            "propertySchema": "", 
+            "refClass": "Place", 
+            "refProperty": "township", 
+            "version": "v20180719"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Place_village", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Place_village", 
+            "propertyAlternateName": "level5", 
+            "propertyNameZh": "所在村", 
+            "propertyRange": "Village", 
+            "propertySchema": "", 
+            "refClass": "Place", 
+            "refProperty": "village", 
+            "version": "v20180719"
+        }
+    ]
 }

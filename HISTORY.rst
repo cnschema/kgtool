@@ -5,9 +5,10 @@ History
 0.0.5 (2018-07-13)
 ++++++++++++++++++
 * change stats.py stat_table, reduce unique_counter's memory cost
-* todo skip validate *Enum class validation
+* todo skip validate _Enum class validation
 * change  cns_organization change property names
-* change  cns_schema  add primary_keys_lambda for cns_link; skip generate  alternatename same as name
+* change  cns_schema  add lambda_key_cns_link for cns_link;
+* change  cns_schema  skip generate alternateName when it is the same as name
 
 0.0.4 (2018-07-03)
 ++++++++++++++++++

@@ -101,7 +101,17 @@
 <http://cnschema.org/changeCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeCategory> <http://www.w3.org/2000/01/rdf-schema#domain> "CompanyInfoUpdateEvent" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeCategory> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeRatio> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://cnschema.org/alternateName> "changeDirection" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://cnschema.org/name> "changeDirection" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://cnschema.org/nameZh> "变更股权的增减方向" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeDirection> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeRatio> <http://cnschema.org/alternateName> "changeRatio" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeRatio> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeRatio> <http://cnschema.org/name> "changeRatio" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeRatio> <http://cnschema.org/nameZh> "变更股权比例" <http://cnschema.org/schema/cns_organization> .
@@ -111,7 +121,7 @@
 <http://cnschema.org/changeRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeRatio> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeRatio> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalPrice> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalPrice> <http://cnschema.org/alternateName> "changeCash" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://cnschema.org/name> "changeTotalPrice" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://cnschema.org/nameZh> "变更股权总价" <http://cnschema.org/schema/cns_organization> .
@@ -121,7 +131,7 @@
 <http://cnschema.org/changeTotalPrice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalPrice> <http://www.w3.org/2000/01/rdf-schema#range> "MonetaryAmount" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeTotalShare> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeTotalShare> <http://cnschema.org/alternateName> "changeAmount" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalShare> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalShare> <http://cnschema.org/name> "changeTotalShare" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeTotalShare> <http://cnschema.org/nameZh> "变更股权总量" <http://cnschema.org/schema/cns_organization> .
@@ -141,7 +151,7 @@
 <http://cnschema.org/changeType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeType> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeType> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/changeUnitPrice> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/changeUnitPrice> <http://cnschema.org/alternateName> "changePrice" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeUnitPrice> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeUnitPrice> <http://cnschema.org/name> "changeUnitPrice" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/changeUnitPrice> <http://cnschema.org/nameZh> "变更股权单价" <http://cnschema.org/schema/cns_organization> .
@@ -241,7 +251,7 @@
 <http://cnschema.org/registrationStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationStatus> <http://www.w3.org/2000/01/rdf-schema#domain> "Company" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/registrationStatus> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/resultRatio> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultRatio> <http://cnschema.org/alternateName> "endRatio" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultRatio> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultRatio> <http://cnschema.org/name> "resultRatio" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultRatio> <http://cnschema.org/nameZh> "变更后股权比例" <http://cnschema.org/schema/cns_organization> .
@@ -251,7 +261,7 @@
 <http://cnschema.org/resultRatio> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultRatio> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderChangeTransaction" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultRatio> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/resultTotalShare> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/resultTotalShare> <http://cnschema.org/alternateName> "endAmount" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultTotalShare> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultTotalShare> <http://cnschema.org/name> "resultTotalShare" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/resultTotalShare> <http://cnschema.org/nameZh> "变更后股权总量" <http://cnschema.org/schema/cns_organization> .
@@ -312,6 +322,7 @@
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/PartnerRole_name> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/PartnerRole_out> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/PartnerRole_startDate> .
+<http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> .
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> .
@@ -336,7 +347,7 @@
 <http://cnschema.org/schema/cns_organization> <http://cnschema.org/template> <http://meta.cnschema.org/template/ShareholderRole_text> .
 <http://cnschema.org/schema/cns_organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsOntology> .
 <http://cnschema.org/schema/cns_organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://cnschema.org/scopeOfBusiness> <http://cnschema.org/alternateName> "business" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/scopeOfBusiness> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/scopeOfBusiness> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/scopeOfBusiness> <http://cnschema.org/name> "scopeOfBusiness" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/scopeOfBusiness> <http://cnschema.org/nameZh> "经营范围" <http://cnschema.org/schema/cns_organization> .
@@ -376,7 +387,7 @@
 <http://cnschema.org/shareholderEquityShare> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderEquityShare> <http://www.w3.org/2000/01/rdf-schema#domain> "ShareholderRole" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderEquityShare> <http://www.w3.org/2000/01/rdf-schema#range> "Number" <http://cnschema.org/schema/cns_organization> .
-<http://cnschema.org/shareholderType> <http://cnschema.org/alternateName> "type" <http://cnschema.org/schema/cns_organization> .
+<http://cnschema.org/shareholderType> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderType> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderType> <http://cnschema.org/name> "shareholderType" <http://cnschema.org/schema/cns_organization> .
 <http://cnschema.org/shareholderType> <http://cnschema.org/nameZh> "股东类型" <http://cnschema.org/schema/cns_organization> .
@@ -701,7 +712,7 @@
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/name> "Company_scopeOfBusiness" .
-<http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/propertyAlternateName> "business" .
+<http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/propertyAlternateName> "" .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/Company_scopeOfBusiness> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1068,10 +1079,27 @@
 <http://meta.cnschema.org/template/PartnerRole_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/PartnerRole_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/PartnerRole_startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/name> "ShareholderChangeTransaction_changeDirection" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyAlternateName> "changeDirection" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyDefinition> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyDefinitionSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyDefinitionZh> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyDefinitionZhSource> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyNameZh> "变更股权的增减方向" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertyRange> "Text" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/propertySchema> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/refClass> "ShareholderChangeTransaction" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/refProperty> "changeDirection" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://cnschema.org/version> "v20180412" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/name> "ShareholderChangeTransaction_changeRatio" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/propertyAlternateName> "changeRatio" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1088,7 +1116,7 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/name> "ShareholderChangeTransaction_changeTotalPrice" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/propertyAlternateName> "changeCash" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1105,7 +1133,7 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/name> "ShareholderChangeTransaction_changeTotalShare" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyAlternateName> "changeAmount" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1139,7 +1167,7 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/name> "ShareholderChangeTransaction_changeUnitPrice" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/propertyAlternateName> "changePrice" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1156,7 +1184,7 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/name> "ShareholderChangeTransaction_date" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/propertyAlternateName> "changeDate" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_date> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1223,7 +1251,7 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/name> "ShareholderChangeTransaction_resultRatio" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyAlternateName> "endRatio" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1240,7 +1268,7 @@
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/name> "ShareholderChangeTransaction_resultTotalShare" .
-<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyAlternateName> "" .
+<http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyAlternateName> "endAmount" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare> <http://cnschema.org/propertyDefinitionZh> "" .
@@ -1407,7 +1435,7 @@
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/name> "ShareholderRole_shareholderType" .
-<http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/propertyAlternateName> "type" .
+<http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/propertyAlternateName> "" .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/propertyDefinition> "" .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/propertyDefinitionSource> "" .
 <http://meta.cnschema.org/template/ShareholderRole_shareholderType> <http://cnschema.org/propertyDefinitionZh> "" .

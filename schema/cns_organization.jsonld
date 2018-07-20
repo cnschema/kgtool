@@ -186,6 +186,21 @@
             "rdfs:range": "Text"
         }, 
         {
+            "@id": "http://cnschema.org/changeDirection", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": "changeDirection", 
+            "category": "property-template", 
+            "name": "changeDirection", 
+            "nameZh": "变更股权的增减方向", 
+            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:range": "Text"
+        }, 
+        {
             "@id": "http://cnschema.org/changeRatio", 
             "@type": [
                 "rdf:Property", 
@@ -193,7 +208,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "changeRatio", 
             "category": "property-template", 
             "name": "changeRatio", 
             "nameZh": "变更股权比例", 
@@ -208,7 +223,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "changeCash", 
             "category": "property-template", 
             "name": "changeTotalPrice", 
             "nameZh": "变更股权总价", 
@@ -223,7 +238,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "changeAmount", 
             "category": "property-template", 
             "name": "changeTotalShare", 
             "nameZh": "变更股权总量", 
@@ -253,7 +268,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "changePrice", 
             "category": "property-template", 
             "name": "changeUnitPrice", 
             "nameZh": "变更股权单价", 
@@ -403,7 +418,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "endRatio", 
             "category": "property-template", 
             "name": "resultRatio", 
             "nameZh": "变更后股权比例", 
@@ -418,7 +433,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": "endAmount", 
             "category": "property-template", 
             "name": "resultTotalShare", 
             "nameZh": "变更后股权总量", 
@@ -448,7 +463,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "business", 
+            "alternateName": "", 
             "category": "property-template", 
             "name": "scopeOfBusiness", 
             "nameZh": "经营范围", 
@@ -508,7 +523,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "type", 
+            "alternateName": "", 
             "category": "property-template", 
             "name": "shareholderType", 
             "nameZh": "股东类型", 
@@ -954,7 +969,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_scopeOfBusiness", 
-            "propertyAlternateName": "business", 
+            "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1425,6 +1440,28 @@
             "version": "v20180412"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "ShareholderChangeTransaction_changeDirection", 
+            "propertyAlternateName": "changeDirection", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "变更股权的增减方向", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "ShareholderChangeTransaction", 
+            "refProperty": "changeDirection", 
+            "version": "v20180412"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio", 
             "@type": [
                 "CnsTemplate", 
@@ -1434,7 +1471,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_changeRatio", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changeRatio", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1456,7 +1493,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_changeTotalPrice", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changeCash", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1478,7 +1515,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_changeTotalShare", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changeAmount", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1522,7 +1559,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_changeUnitPrice", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changePrice", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1544,7 +1581,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_date", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "changeDate", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1631,7 +1668,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_resultRatio", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "endRatio", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1653,7 +1690,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderChangeTransaction_resultTotalShare", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "endAmount", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1870,7 +1907,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderType", 
-            "propertyAlternateName": "type", 
+            "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 

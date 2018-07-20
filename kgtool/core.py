@@ -296,29 +296,6 @@ def any2sha256(text):
 
     return hashlib.sha256(text).hexdigest()
 
-    counter = collections.Counter()
-    unique_counter = collections.defaultdict(set)
-
-    for item in items:
-        counter["all"] += 1
-        for field in unique_fields:
-            if item.get(field):
-                unique_counter[field].add(item[field])
-                counter[u"{}_nonempty".format(field)] +=1
-        for field in value_fields:
-            value = item.get(field)
-            value = normalize_value(value)
-            if value is not None:
-                counter[u"{}_value_{}".format(field, value)] += 1
-        for field in unique_fields:
-            counter[u"{}_unique".format(field)] = len(unique_counter[field])
-
-    if printCounter:
-        logging.info(json.dumps(counter, ensure_ascii=False,
-                                indent=4, sort_keys=True))
-
-    return counter
-
 
 ####################################
 # string parser
