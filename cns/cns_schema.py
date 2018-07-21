@@ -47,7 +47,7 @@ It offers the following functions:
 """
 def lambda_key_cns_link(cns_item):
     ret = [ cns_item["@type"][0] ]
-    for p in ["in","out","date","startDate", "endDate"]:
+    for p in ["in","out","date","identifier","startDate", "endDate"]:
         ret.append( cns_item.get(p,""))
     #logging.info(ret)
     return ret
@@ -1044,7 +1044,7 @@ def task_validate(args):
     logging.info(json4debug(report))
 
 def preload_schema():
-    schemaNameList = ["cns_top","cns_place","cns_person","cns_organization"]
+    schemaNameList = ["cns_top","cns_creativework","cns_place","cns_person","cns_organization"]
     preloadSchemaList = {}
     for schemaName in schemaNameList:
         filename = u"../schema/{}.jsonld".format(schemaName)

@@ -287,6 +287,17 @@ def any2sha256(text):
         it into canonical json string.
     """
     # canonicalize json object or json array
+    try:
+        assert text
+        #optimize list of text to speedup
+        if type(text) in [list]:
+            if len(text) == 1:
+                text = text[0]
+            else:
+                text = u"___".join(text)
+    except:
+        pass
+
     if type(text) in [dict, list]:
         text = json.dumps(text, sort_keys=True)
 
@@ -320,16 +331,21 @@ def parseListValue(value, regex=ur"[，,、；;／/]"):
 ####################################
 # object processor
 
-def item2sample(item):
+def item2sample(item, counter=None):
+    PCNT = "_cnt_dict"
+
     if type(item) in [list]:
         if len(item) > 0:
-            return [item2sample(item[0])]
+            return [item2sample(item[0], counter)]
         else:
             return []
     elif type(item) in [dict]:
+        if counter is not None:
+            counter[PCNT] += 1 #ince
+
         ret = {}
         for p,v in item.items():
-            ret[p] = item2sample(v)
+            ret[p] = item2sample(v, counter)
         return ret
     else:
         return item
@@ -383,7 +399,7 @@ def item2flatstr(key, item, ret, option="list2sample"):
         if len(item) == 0:
             ret[key] = ""
         else:
-            ret[key] = json.dumps(item, ensure_ascii = False)
+            ret[key] = json.dumps(item, sort_keys=True, ensure_ascii = False)
     else:
         ret[key] = item
 
