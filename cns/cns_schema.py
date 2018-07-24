@@ -23,7 +23,7 @@ sys.path.insert(0, os.path.abspath('..'))
 from kgtool.core import *  # noqa
 
 # global constants
-VERSION = 'v20180519'
+VERSION = 'v20180724'
 CONTEXTS = [os.path.basename(__file__), VERSION]
 
 
@@ -46,12 +46,25 @@ It offers the following functions:
 * cnsGraphviz: generate a graphviz dot format of a schema
 """
 def lambda_key_cns_link(cns_item):
+    assert cns_item["@type"]
+    assert isinstance(cns_item["@type"], list)
+    assert "in" in cns_item
+    assert "out" in cns_item
     ret = [ cns_item["@type"][0] ]
     for p in ["in","out","date","identifier","startDate", "endDate"]:
         ret.append( cns_item.get(p,""))
     #logging.info(ret)
     return ret
 
+def gen_cns_id(cns_item, primary_keys=None):
+    if "@id" in cns_item:
+        return cns_item["@id"]
+    elif primary_keys:
+        return any2sha256(primary_keys)
+    elif "CnsLink" in cns_item["@type"]:
+        return any2sha256(lambda_key_cns_link(cns_item))
+    else:
+        raise Exception("unexpected situation")  # unexpected situation
 
 def _report(report, bug):
     msg = json.dumps(bug, ensure_ascii=False, sort_keys=True)

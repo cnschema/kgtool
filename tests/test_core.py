@@ -73,7 +73,7 @@ class CoreTestCase(unittest.TestCase):
         }
         assert json_get_list(json_data, "name") == ["john"]
         assert json_get_list(json_data, "birthPlace") == ["Beijing"]
-
+            
     def test_json_get_first_item(self):
 
         json_data = {
@@ -169,7 +169,7 @@ class CoreTestCase(unittest.TestCase):
 
         tin = ["hello", "world"]
         tout = any2sha1(tin)
-        assert "238d2b0d23b6b4fb22934792bec13448d12df3cf" == tout, tout
+        assert "2ed0a51bbdbc4f57378e8c64a1c7a0cd4386cc09" == tout, tout
 
         tin = {"hello": "world"}
         tout = any2sha1(tin)

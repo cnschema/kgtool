@@ -56,7 +56,7 @@ class CoreTestCase(unittest.TestCase):
 
             if idx == 0:
                 # test sha256
-                assert cns_item["@id"] == "2a943ed124ead6a1cd87f8130bbbe247c76ddc7d502d8dd1e1c562bc13b74824"
+                assert cns_item["@id"] == "66e830b5690eef238b3fb6eb5662d66b650f17a6980cfd5db11b11d8ea93b136"
 
         #assert False
         if len(report["bugs"]) != 4:
@@ -166,10 +166,59 @@ class CoreTestCase(unittest.TestCase):
 
         logging.info(json4debug(entities))
         logging.info(json4debug(report))
-        assert cns_item_link["@id"] == "fb69f08c76f8ca5f0506a3c24c6fe57b443ab54d4d49fdbff75b76bb11bd37df"
-        assert cns_item_in["@id"] == "5376521713a9d22a50eeebbcc3bb6b3d9dd46ca371b998ac1a22fab20ff40c28"
-        assert cns_item_out["@id"] == "730ef5ad457ed91bcafde8a4d00e53fca87ff994a37dae02a5efe9666cf5bf4c"
+        assert cns_item_link["@id"] == "b11ab8dbd506a271791a4a5813e2684fa592377399fe239a1b21edf304b9f312"
+        assert cns_item_in["@id"] == "b6a7801587af217eba42da036c2659696f6153aff2d7df14e39f74e6f2672fef"
+        assert cns_item_out["@id"] == "09cd7eb1132c9de9cef0bd0c3b534586220f8c7f72186f1db0404da1a725301a"
         #assert False
+
+
+
+    def test_gen_cns_id(self):
+        cns_item = {
+        }
+        try:
+            gen_cns_id(cns_item)
+            assert False
+        except:
+            pass
+
+        cns_item = {
+            "@type": ["CnsLink", "Thing"],
+            "in": "b6a7801587af217eba42da036c2659696f6153aff2d7df14e39f74e6f2672fef" ,
+            "out": "09cd7eb1132c9de9cef0bd0c3b534586220f8c7f72186f1db0404da1a725301a" ,
+        }
+        id_link = gen_cns_id(cns_item)
+        assert id_link == "79841891d32addca19313d0bce462c7fcbb6e6b94e3276ca0402b9213410cf4d", id_link
+
+        cns_item = {
+            "@type": ["CnsLink", "Thing"],
+            "in": "b6a7801587af217eba42da036c2659696f6153aff2d7df14e39f74e6f2672fef" ,
+            "out": "09cd7eb1132c9de9cef0bd0c3b534586220f8c7f72186f1db0404da1a725301a" ,
+            "identifier": "addabc" ,
+        }
+        id_link = gen_cns_id(cns_item)
+        assert id_link == "3ed801c73765e96fb5895069d392245a4fbd340142e96f0ed5bdf195b2259945", id_link
+
+        cns_item = {
+            "@type": ["CnsLink", "Thing"],
+            "in": "b6a7801587af217eba42da036c2659696f6153aff2d7df14e39f74e6f2672fef" ,
+            "out": "09cd7eb1132c9de9cef0bd0c3b534586220f8c7f72186f1db0404da1a725301a" ,
+            "identifier": "addabc" ,
+        }
+        primary_keys = ["123","345"]
+        id_link = gen_cns_id(cns_item, primary_keys)
+        assert id_link == "2a5943be7ec660a256b58b22754d9d8a27303b12c4c1a13456aead0a8c179a11", id_link
+
+        cns_item = {
+            "@type": ["CnsLink", "Thing"],
+            "in": "b6a7801587af217eba42da036c2659696f6153aff2d7df14e39f74e6f2672fef" ,
+            "out": "09cd7eb1132c9de9cef0bd0c3b534586220f8c7f72186f1db0404da1a725301a" ,
+            "identifier": "addabc" ,
+        }
+        primary_keys = {"123":"345"}
+        id_link = gen_cns_id(cns_item, primary_keys)
+        assert id_link == "9841722f1ac4defdef21678550eb4d700a05d2d4b6bd99a93f3656adf6cb1851", id_link
+
 
     def test_cnsValidate(self):
         tin = "test_cns_schema_input1.json"

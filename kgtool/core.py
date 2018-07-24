@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Author: Li Ding
+from __future__ import unicode_literals
 
 # base packages
 import os
@@ -256,8 +257,9 @@ def any2unicode(data):
     elif isinstance(data, unicode):
         return data
     elif type(data) in [str, basestring]:
-        logging.info("convert[{}]".format(data))
-        return data.decode("utf-8")
+        temp = data.decode("utf-8")
+        logging.info("convert[{}]".format(temp))
+        return temp
     elif type(data) in [int, float]:
         return data
     else:
@@ -265,47 +267,44 @@ def any2unicode(data):
         return data
 
 
+def any2text(any):
+    """
+        convert anything to text string (utf-8)
+        make it faster when the input is text, unicode, list of text
+        reduce usage of json.dumps
+    """
+    if isinstance(any, unicode):
+        text = any.encode('utf-8')
+    elif isinstance(any, basestring):
+        text = any
+    elif isinstance(any, list):
+        try:
+            text = u'___'.join( any ).encode("utf-8")
+        except:
+            text = json.dumps(any, sort_keys=True)
+    else:
+        text = json.dumps(any, sort_keys=True)
+
+    return text
+
+
 def any2sha1(text):
     """
         convert a string into sha1hash. For json object/array, first convert
         it into canonical json string.
     """
-    # canonicalize json object or json array
-    if type(text) in [dict, list]:
-        text = json.dumps(text, sort_keys=True)
-
-    # assert question as utf8
-    if isinstance(text, unicode):
-        text = text.encode('utf-8')
-
-    return hashlib.sha1(text).hexdigest()
-
+    assert text
+    temp = any2text(text)
+    return hashlib.sha1(temp).hexdigest()
 
 def any2sha256(text):
     """
         convert a string into sha256hash. For json object/array, first convert
         it into canonical json string.
     """
-    # canonicalize json object or json array
-    try:
-        assert text
-        #optimize list of text to speedup
-        if type(text) in [list]:
-            if len(text) == 1:
-                text = text[0]
-            else:
-                text = u"___".join(text)
-    except:
-        pass
-
-    if type(text) in [dict, list]:
-        text = json.dumps(text, sort_keys=True)
-
-    # assert question as utf8
-    if isinstance(text, unicode):
-        text = text.encode('utf-8')
-
-    return hashlib.sha256(text).hexdigest()
+    assert text
+    temp = any2text(text)
+    return hashlib.sha256(temp).hexdigest()
 
 
 ####################################
