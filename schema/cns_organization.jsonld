@@ -179,7 +179,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeItem", 
+            "alternateName": [
+                "changeItem"
+            ], 
             "category": "property-template", 
             "name": "changeCategory", 
             "nameZh": "变更事项", 
@@ -196,7 +198,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeDirection", 
+            "alternateName": [
+                "changeDirection"
+            ], 
             "category": "property-template", 
             "name": "changeDirection", 
             "nameZh": "变更股权的增减方向", 
@@ -213,7 +217,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeRatio", 
+            "alternateName": [
+                "changeRatio"
+            ], 
             "category": "property-template", 
             "name": "changeRatio", 
             "nameZh": "变更股权比例", 
@@ -230,14 +236,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeCash", 
+            "alternateName": [
+                "changeCash"
+            ], 
             "category": "property-template", 
             "name": "changeTotalPrice", 
             "nameZh": "变更股权总价", 
             "rdfs:domain": [
                 "ShareholderChangeTransaction"
             ], 
-            "rdfs:range": "MonetaryAmount"
+            "rdfs:range": "Text"
         }, 
         {
             "@id": "http://cnschema.org/changeTotalShare", 
@@ -247,7 +255,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeAmount", 
+            "alternateName": [
+                "changeAmount"
+            ], 
             "category": "property-template", 
             "name": "changeTotalShare", 
             "nameZh": "变更股权总量", 
@@ -264,7 +274,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "changeType", 
             "nameZh": "变更股权方式", 
@@ -281,7 +291,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changePrice", 
+            "alternateName": [
+                "changePrice"
+            ], 
             "category": "property-template", 
             "name": "changeUnitPrice", 
             "nameZh": "变更股权单价", 
@@ -298,7 +310,10 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "establishDate, establishDat", 
+            "alternateName": [
+                "establishDate", 
+                "establishDat"
+            ], 
             "category": "property-template", 
             "name": "foundingDate", 
             "nameZh": "成立日期", 
@@ -315,7 +330,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "orgId", 
+            "alternateName": [
+                "orgId"
+            ], 
             "category": "property-template", 
             "name": "organizationCode", 
             "nameZh": "组织机构代码", 
@@ -332,7 +349,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "endRatio", 
+            "alternateName": [
+                "endRatio"
+            ], 
             "category": "property-template", 
             "name": "resultRatio", 
             "nameZh": "变更后股权比例", 
@@ -349,7 +368,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "endAmount", 
+            "alternateName": [
+                "endAmount"
+            ], 
             "category": "property-template", 
             "name": "resultTotalShare", 
             "nameZh": "变更后股权总量", 
@@ -366,7 +387,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "roundOfInvestment", 
             "nameZh": "投资轮次", 
@@ -383,7 +404,11 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "orgType,企业类型，组织类型", 
+            "alternateName": [
+                "orgType", 
+                "企业类型", 
+                "组织类型"
+            ], 
             "category": "property-template", 
             "name": "saicOrganizationType", 
             "nameZh": "工商组织类型", 
@@ -400,7 +425,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "登记机关", 
+            "alternateName": [
+                "登记机关"
+            ], 
             "category": "property-template", 
             "name": "saicRegistrationAgency", 
             "nameZh": "工商登记机关", 
@@ -417,14 +444,17 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "regCap,注册资本", 
+            "alternateName": [
+                "regCap", 
+                "注册资本"
+            ], 
             "category": "property-template", 
             "name": "saicRegistrationCapital", 
             "nameZh": "工商注册资本", 
             "rdfs:domain": [
                 "Company"
             ], 
-            "rdfs:range": "MonetaryAmount"
+            "rdfs:range": "Text"
         }, 
         {
             "@id": "http://cnschema.org/saicRegistrationDate", 
@@ -434,7 +464,10 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "注册时间，核准日期", 
+            "alternateName": [
+                "注册时间", 
+                "核准日期"
+            ], 
             "category": "property-template", 
             "name": "saicRegistrationDate", 
             "nameZh": "工商核准日期", 
@@ -451,7 +484,11 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "regAddr，地址，注册地址", 
+            "alternateName": [
+                "regAddr", 
+                "地址", 
+                "注册地址"
+            ], 
             "category": "property-template", 
             "name": "saicRegistrationLocation", 
             "nameZh": "工商注册地址", 
@@ -468,7 +505,11 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "regStatus，企业状态，登记状态", 
+            "alternateName": [
+                "regStatus", 
+                "企业状态", 
+                "登记状态"
+            ], 
             "category": "property-template", 
             "name": "saicRegistrationStatus", 
             "nameZh": "工商登记状态", 
@@ -485,7 +526,11 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "注册号，companyCode, 企业代码", 
+            "alternateName": [
+                "注册号", 
+                "companyCode", 
+                "企业代码"
+            ], 
             "category": "property-template", 
             "name": "saicRegistrtionCode", 
             "nameZh": "工商注册号", 
@@ -502,7 +547,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "scopeOfBusiness", 
             "nameZh": "经营范围", 
@@ -519,14 +564,16 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "purMoney", 
+            "alternateName": [
+                "purMoney"
+            ], 
             "category": "property-template", 
             "name": "shareholderEquity", 
             "nameZh": "认缴出资金额", 
             "rdfs:domain": [
                 "ShareholderRole"
             ], 
-            "rdfs:range": "MonetaryAmount"
+            "rdfs:range": "Text"
         }, 
         {
             "@id": "http://cnschema.org/shareholderEquityRatio", 
@@ -536,7 +583,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "purRatio", 
+            "alternateName": [
+                "purRatio"
+            ], 
             "category": "property-template", 
             "name": "shareholderEquityRatio", 
             "nameZh": "持股比例", 
@@ -553,7 +602,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "shareholderEquityShare", 
             "nameZh": "持股总量", 
@@ -570,7 +619,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "taxpayersIdentificationNumber", 
             "nameZh": "纳税人识别号", 
@@ -587,7 +636,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeAfter", 
+            "alternateName": [
+                "changeAfter"
+            ], 
             "category": "property-template", 
             "name": "textAfter", 
             "nameZh": "变更后内容", 
@@ -604,7 +655,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "changeBefore", 
+            "alternateName": [
+                "changeBefore"
+            ], 
             "category": "property-template", 
             "name": "textBefore", 
             "nameZh": "变更前内容", 
@@ -621,7 +674,11 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "unifiedCreditCode,credId,统一信用代码", 
+            "alternateName": [
+                "unifiedCreditCode", 
+                "credId", 
+                "统一信用代码"
+            ], 
             "category": "property-template", 
             "name": "unifiedSocialCreditCode", 
             "nameZh": "统一社会信用代码", 
@@ -638,7 +695,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "validFrom", 
             "nameZh": "营业期限自", 
@@ -655,7 +712,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "", 
+            "alternateName": [], 
             "category": "property-template", 
             "name": "validUntil", 
             "nameZh": "营业期限至", 
@@ -924,7 +981,7 @@
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "工商注册资本", 
-            "propertyRange": "MonetaryAmount", 
+            "propertyRange": "Text", 
             "propertySchema": "", 
             "refClass": "Company", 
             "refProperty": "saicRegistrationCapital", 
@@ -1355,6 +1412,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Organization_city", 
             "propertyAlternateName": "", 
@@ -1376,6 +1434,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Organization_province", 
             "propertyAlternateName": "", 
@@ -1397,6 +1456,7 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Organization_workLocation", 
             "propertyAlternateName": "", 
@@ -1471,7 +1531,7 @@
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "变更股权总价", 
-            "propertyRange": "MonetaryAmount", 
+            "propertyRange": "Text", 
             "propertySchema": "", 
             "refClass": "ShareholderChangeTransaction", 
             "refProperty": "changeTotalPrice", 
@@ -1819,7 +1879,7 @@
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "认缴出资金额", 
-            "propertyRange": "MonetaryAmount", 
+            "propertyRange": "Text", 
             "propertySchema": "", 
             "refClass": "ShareholderRole", 
             "refProperty": "shareholderEquity", 

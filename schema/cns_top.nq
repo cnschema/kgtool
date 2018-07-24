@@ -620,7 +620,6 @@
 <http://cnschema.org/link> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://www.w3.org/2000/01/rdf-schema#range> "CnsLink" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/maxCardinality> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://cnschema.org/name> "maxCardinality" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://cnschema.org/nameZh> "模版最大属性值个数限制" <http://cnschema.org/schema/cns_top> .
@@ -663,7 +662,6 @@
 <http://cnschema.org/mergedFromCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFromCount> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFromCount> <http://www.w3.org/2000/01/rdf-schema#range> "Integer" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/minCardinality> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/minCardinality> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/minCardinality> <http://cnschema.org/name> "minCardinality" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/minCardinality> <http://cnschema.org/nameZh> "模版最小属性值个数限制" <http://cnschema.org/schema/cns_top> .
@@ -744,7 +742,6 @@
 <http://cnschema.org/pageRankValue> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/pageRankValue> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/pageRankValue> <http://www.w3.org/2000/01/rdf-schema#range> "Float" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyAlternateName> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://cnschema.org/name> "propertyAlternateName" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://cnschema.org/nameZh> "模版对应属性在模版中的其他别名" <http://cnschema.org/schema/cns_top> .
@@ -754,7 +751,6 @@
 <http://cnschema.org/propertyAlternateName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyAlternateName> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyDefinition> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinition> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinition> <http://cnschema.org/name> "propertyDefinition" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinition> <http://cnschema.org/nameZh> "模版对应属性的定义" <http://cnschema.org/schema/cns_top> .
@@ -764,7 +760,6 @@
 <http://cnschema.org/propertyDefinition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinition> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinition> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyDefinitionSource> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionSource> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionSource> <http://cnschema.org/name> "propertyDefinitionSource" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionSource> <http://cnschema.org/nameZh> "模版对应属性的定义来源" <http://cnschema.org/schema/cns_top> .
@@ -774,7 +769,6 @@
 <http://cnschema.org/propertyDefinitionSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionSource> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionSource> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyDefinitionZh> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZh> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZh> <http://cnschema.org/name> "propertyDefinitionZh" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZh> <http://cnschema.org/nameZh> "模版对应属性的中文定义" <http://cnschema.org/schema/cns_top> .
@@ -784,7 +778,6 @@
 <http://cnschema.org/propertyDefinitionZh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZh> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZh> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyDefinitionZhSource> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZhSource> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZhSource> <http://cnschema.org/name> "propertyDefinitionZhSource" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZhSource> <http://cnschema.org/nameZh> "模版对应属性的中文定义来源" <http://cnschema.org/schema/cns_top> .
@@ -794,7 +787,6 @@
 <http://cnschema.org/propertyDefinitionZhSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZhSource> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyDefinitionZhSource> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyNameZh> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyNameZh> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyNameZh> <http://cnschema.org/name> "propertyNameZh" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyNameZh> <http://cnschema.org/nameZh> "模版对应属性在模版显示中的中文名称" <http://cnschema.org/schema/cns_top> .
@@ -804,7 +796,6 @@
 <http://cnschema.org/propertyNameZh> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyNameZh> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyNameZh> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertyRange> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyRange> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyRange> <http://cnschema.org/name> "propertyRange" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyRange> <http://cnschema.org/nameZh> "模版对应属性在模版中的属性值限制" <http://cnschema.org/schema/cns_top> .
@@ -814,7 +805,6 @@
 <http://cnschema.org/propertyRange> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyRange> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertyRange> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/propertySchema> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertySchema> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertySchema> <http://cnschema.org/name> "propertySchema" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/propertySchema> <http://cnschema.org/nameZh> "模版对应属性的所属Schema" <http://cnschema.org/schema/cns_top> .
@@ -835,7 +825,6 @@
 <http://cnschema.org/proportion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/proportion> <http://www.w3.org/2000/01/rdf-schema#domain> "QuantitativeValue" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/proportion> <http://www.w3.org/2000/01/rdf-schema#range> "Float" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/refClass> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refClass> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refClass> <http://cnschema.org/name> "refClass" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refClass> <http://cnschema.org/nameZh> "模版对应实体分类" <http://cnschema.org/schema/cns_top> .
@@ -845,7 +834,6 @@
 <http://cnschema.org/refClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refClass> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refClass> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/refProperty> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refProperty> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refProperty> <http://cnschema.org/name> "refProperty" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refProperty> <http://cnschema.org/nameZh> "模版对应属性" <http://cnschema.org/schema/cns_top> .

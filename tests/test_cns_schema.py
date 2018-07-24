@@ -245,6 +245,11 @@ class CoreTestCase(unittest.TestCase):
         report = self.cnsSchema.initReport()
         self.cnsSchema.cnsValidateRecursive(input, report)
 
+
+        for cns_item in input["@graph"]:
+            assert isinstance(cns_item.get("alternateName",[]), list) , cns_item.get("alternateName")
+
+
         #assert False
         if len(report["bugs_sample"]) != 2:
             logging.info(json4debug(report))

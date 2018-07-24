@@ -316,8 +316,8 @@ class CnsExcel():
                 "name": name,
                 "category": "property-template",
                 "nameZh": cnsItem["propertyNameZh"],
-                "alternateName": cnsItem["propertyAlternateName"],
-                "rdfs:domain": [cnsItem["refClass"]],
+                "alternateName": parseListValue(cnsItem["propertyAlternateName"]),
+                "rdfs:domain": parseListValue(cnsItem["refClass"]),
                 "rdfs:range": cnsItem["propertyRange"],
             }
             cnsItemDefinitionOld = self.schema.getDefinition(xid)

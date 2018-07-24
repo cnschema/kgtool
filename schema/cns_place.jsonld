@@ -150,7 +150,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "level7", 
+            "alternateName": [
+                "level7"
+            ], 
             "category": "property-template", 
             "name": "addressDetail", 
             "nameZh": "其他地址详情", 
@@ -252,7 +254,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "level4", 
+            "alternateName": [
+                "level4"
+            ], 
             "category": "property-template", 
             "name": "township", 
             "nameZh": "所在乡镇", 
@@ -269,7 +273,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "alternateName": "level5", 
+            "alternateName": [
+                "level5"
+            ], 
             "category": "property-template", 
             "name": "village", 
             "nameZh": "所在村", 
