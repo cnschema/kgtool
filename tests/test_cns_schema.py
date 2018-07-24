@@ -59,9 +59,9 @@ class CoreTestCase(unittest.TestCase):
                 assert cns_item["@id"] == "66e830b5690eef238b3fb6eb5662d66b650f17a6980cfd5db11b11d8ea93b136"
 
         #assert False
-        if len(report["bugs"]) != 4:
+        if len(report["bugs_sample"]) != 3:
             logging.info(json4debug(report))
-            assert False, len(report["bugs"])
+            assert False, len(report["bugs_sample"])
 
     def test_cnsConvert2(self):
         filenameSchema = "../schema/cns_organization.jsonld"
@@ -233,9 +233,9 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(cns_item))
             self.cnsSchema.cnsValidate(cns_item, report)
 
-        if len(report["bugs"]) != 8:
+        if len(report["bugs_sample"]) != 4:
             logging.info(json4debug(report))
-            assert False, len(report["bugs"])
+            assert False, len(report["bugs_sample"])
 
     def test_cnsValidateRecursive(self):
         tin = "../schema/cns_top.jsonld"
@@ -246,9 +246,9 @@ class CoreTestCase(unittest.TestCase):
         self.cnsSchema.cnsValidateRecursive(input, report)
 
         #assert False
-        if len(report["bugs"]) != 2:
+        if len(report["bugs_sample"]) != 2:
             logging.info(json4debug(report))
-            assert False, len(report["bugs"])
+            assert False, len(report["bugs_sample"])
 
 
 if __name__ == '__main__':

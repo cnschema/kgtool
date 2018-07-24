@@ -1085,7 +1085,6 @@ def task_validate(args):
         schema_filename = "schema/cns_top.jsonld"
 
     preloadSchemaList = preload_schema()
-
     cnsSchema = CnsSchema()
     cnsSchema.importJsonLd(schema_filename, preloadSchemaList)
 
@@ -1114,10 +1113,15 @@ def preload_schema():
     for schemaName in schemaNameList:
         filename = u"../schema/{}.jsonld".format(schemaName)
         filename = file2abspath(filename)
+        if not os.path.exists(filename):
+            filename = u"../resources/cnschema/{}.jsonld".format(schemaName)
+            filename = file2abspath(filename)
+
         cnsSchema = CnsSchema()
         cnsSchema.importJsonLd(filename, preloadSchemaList)
         preloadSchemaList[schemaName] = cnsSchema
         logging.info("loaded {}".format(schemaName))
+    logging.info(len(preloadSchemaList))
     return preloadSchemaList
 
 def task_graphviz(args):
