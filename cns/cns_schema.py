@@ -252,7 +252,8 @@ class CnsSchema:
                             "text": "range value should be object",
                             "property": p,
                             "expected" : rangeExpect["cnsRange"],
-                            "item" : v,
+                            "actual" : v,
+                            #"item" : v,
                         }
                         _report(report, bug)
 
@@ -402,6 +403,9 @@ class CnsSchema:
     def addDefinition(self, item):
         self.definition[item["@id"]]  = item
 
+    def getDefinition(self, xid):
+        return self.definition.get(xid)
+
     def build(self, preloadSchemaList={}):
         def _buildImportedSchema(schema):
             #handle import
@@ -538,8 +542,8 @@ class CnsSchema:
         self.indexValidateDomain ["@graph"] = ["CnsOntology"]
         self.indexValidateDomain ["rdfs:domain"] = ["rdf:Property"]
         self.indexValidateDomain ["rdfs:range"] = ["rdf:Property"]
-        self.indexValidateDomain["rdfs:subClassOf"] = ["rdfs:Class"]
-        self.indexValidateDomain["rdfs:subPropertyOf"] = ["rdf:Property"]
+        self.indexValidateDomain ["rdfs:subClassOf"] = ["rdfs:Class"]
+        self.indexValidateDomain ["rdfs:subPropertyOf"] = ["rdf:Property"]
 
         #build
         for schema in schemaList:
@@ -553,7 +557,10 @@ class CnsSchema:
                     p = cnsItem["name"]
                     d = cnsItem["rdfs:domain"]
                     #assert type(r) == list
-                    self.indexValidateDomain[p].append(d)
+                    if isinstance(d, list):
+                        self.indexValidateDomain[p].extend(d)
+                    else:
+                        self.indexValidateDomain[p].append(d)
 
                     # special hack
                     if d in ["Top"]:
@@ -757,15 +764,16 @@ class CnsSchema:
             if "rdf:Property" in definition["@type"]:
                 if definition.get("rdfs:range") and definition.get("rdfs:domain"):
                     rangeClass = self.indexDefinitionAlias.get( definition["rdfs:range"] )
-                    domainClass = self.indexDefinitionAlias.get( definition["rdfs:domain"] )
-                    if domainClass and rangeClass:
-                        link = {
-                            "from": domainClass,
-                            "to": rangeClass,
-                            "relation": definition,
-                            "type": "property_domain_range"
-                        }
-                        _addLink(link, graph)
+                    for domain_ref in definition["rdfs:domain"]:
+                        domainClass = self.indexDefinitionAlias.get( domain_ref )
+                        if domainClass and rangeClass:
+                            link = {
+                                "from": domainClass,
+                                "to": rangeClass,
+                                "relation": definition,
+                                "type": "property_domain_range"
+                            }
+                            _addLink(link, graph)
 
         def _addSuperClassProperty(definition, graph):
             #super class/property relation

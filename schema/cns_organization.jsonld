@@ -183,7 +183,9 @@
             "category": "property-template", 
             "name": "changeCategory", 
             "nameZh": "变更事项", 
-            "rdfs:domain": "CompanyInfoUpdateEvent", 
+            "rdfs:domain": [
+                "CompanyInfoUpdateEvent"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -198,7 +200,9 @@
             "category": "property-template", 
             "name": "changeDirection", 
             "nameZh": "变更股权的增减方向", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -213,7 +217,9 @@
             "category": "property-template", 
             "name": "changeRatio", 
             "nameZh": "变更股权比例", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -228,7 +234,9 @@
             "category": "property-template", 
             "name": "changeTotalPrice", 
             "nameZh": "变更股权总价", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "MonetaryAmount"
         }, 
         {
@@ -243,7 +251,9 @@
             "category": "property-template", 
             "name": "changeTotalShare", 
             "nameZh": "变更股权总量", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -258,7 +268,9 @@
             "category": "property-template", 
             "name": "changeType", 
             "nameZh": "变更股权方式", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -273,7 +285,9 @@
             "category": "property-template", 
             "name": "changeUnitPrice", 
             "nameZh": "变更股权单价", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -288,7 +302,9 @@
             "category": "property-template", 
             "name": "foundingDate", 
             "nameZh": "成立日期", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Date"
         }, 
         {
@@ -303,7 +319,9 @@
             "category": "property-template", 
             "name": "organizationCode", 
             "nameZh": "组织机构代码", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -318,7 +336,9 @@
             "category": "property-template", 
             "name": "resultRatio", 
             "nameZh": "变更后股权比例", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -333,7 +353,9 @@
             "category": "property-template", 
             "name": "resultTotalShare", 
             "nameZh": "变更后股权总量", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -348,7 +370,9 @@
             "category": "property-template", 
             "name": "roundOfInvestment", 
             "nameZh": "投资轮次", 
-            "rdfs:domain": "ShareholderChangeTransaction", 
+            "rdfs:domain": [
+                "ShareholderChangeTransaction"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -363,7 +387,9 @@
             "category": "property-template", 
             "name": "saicOrganizationType", 
             "nameZh": "工商组织类型", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -378,7 +404,9 @@
             "category": "property-template", 
             "name": "saicRegistrationAgency", 
             "nameZh": "工商登记机关", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -393,7 +421,9 @@
             "category": "property-template", 
             "name": "saicRegistrationCapital", 
             "nameZh": "工商注册资本", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "MonetaryAmount"
         }, 
         {
@@ -408,7 +438,9 @@
             "category": "property-template", 
             "name": "saicRegistrationDate", 
             "nameZh": "工商核准日期", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Date"
         }, 
         {
@@ -423,7 +455,9 @@
             "category": "property-template", 
             "name": "saicRegistrationLocation", 
             "nameZh": "工商注册地址", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -438,7 +472,9 @@
             "category": "property-template", 
             "name": "saicRegistrationStatus", 
             "nameZh": "工商登记状态", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -453,7 +489,9 @@
             "category": "property-template", 
             "name": "saicRegistrtionCode", 
             "nameZh": "工商注册号", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -468,7 +506,9 @@
             "category": "property-template", 
             "name": "scopeOfBusiness", 
             "nameZh": "经营范围", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -483,7 +523,9 @@
             "category": "property-template", 
             "name": "shareholderEquity", 
             "nameZh": "认缴出资金额", 
-            "rdfs:domain": "ShareholderRole", 
+            "rdfs:domain": [
+                "ShareholderRole"
+            ], 
             "rdfs:range": "MonetaryAmount"
         }, 
         {
@@ -498,7 +540,9 @@
             "category": "property-template", 
             "name": "shareholderEquityRatio", 
             "nameZh": "持股比例", 
-            "rdfs:domain": "ShareholderRole", 
+            "rdfs:domain": [
+                "ShareholderRole"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -513,7 +557,9 @@
             "category": "property-template", 
             "name": "shareholderEquityShare", 
             "nameZh": "持股总量", 
-            "rdfs:domain": "ShareholderRole", 
+            "rdfs:domain": [
+                "ShareholderRole"
+            ], 
             "rdfs:range": "Number"
         }, 
         {
@@ -528,7 +574,9 @@
             "category": "property-template", 
             "name": "taxpayersIdentificationNumber", 
             "nameZh": "纳税人识别号", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -543,7 +591,9 @@
             "category": "property-template", 
             "name": "textAfter", 
             "nameZh": "变更后内容", 
-            "rdfs:domain": "CompanyInfoUpdateEvent", 
+            "rdfs:domain": [
+                "CompanyInfoUpdateEvent"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -558,7 +608,9 @@
             "category": "property-template", 
             "name": "textBefore", 
             "nameZh": "变更前内容", 
-            "rdfs:domain": "CompanyInfoUpdateEvent", 
+            "rdfs:domain": [
+                "CompanyInfoUpdateEvent"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -573,7 +625,9 @@
             "category": "property-template", 
             "name": "unifiedSocialCreditCode", 
             "nameZh": "统一社会信用代码", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -588,7 +642,9 @@
             "category": "property-template", 
             "name": "validFrom", 
             "nameZh": "营业期限自", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Date"
         }, 
         {
@@ -603,7 +659,9 @@
             "category": "property-template", 
             "name": "validUntil", 
             "nameZh": "营业期限至", 
-            "rdfs:domain": "Company", 
+            "rdfs:domain": [
+                "Company"
+            ], 
             "rdfs:range": "Date"
         }
     ], 

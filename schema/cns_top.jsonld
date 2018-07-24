@@ -993,7 +993,9 @@
             "category": "property-template", 
             "name": "maxCardinality", 
             "nameZh": "模版最大属性值个数限制", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Integer"
         }, 
         {
@@ -1056,7 +1058,9 @@
             "category": "property-template", 
             "name": "minCardinality", 
             "nameZh": "模版最小属性值个数限制", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Integer"
         }, 
         {
@@ -1180,7 +1184,9 @@
             "category": "property-template", 
             "name": "propertyAlternateName", 
             "nameZh": "模版对应属性在模版中的其他别名", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1195,7 +1201,9 @@
             "category": "property-template", 
             "name": "propertyDefinition", 
             "nameZh": "模版对应属性的定义", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1210,7 +1218,9 @@
             "category": "property-template", 
             "name": "propertyDefinitionSource", 
             "nameZh": "模版对应属性的定义来源", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1225,7 +1235,9 @@
             "category": "property-template", 
             "name": "propertyDefinitionZh", 
             "nameZh": "模版对应属性的中文定义", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1240,7 +1252,9 @@
             "category": "property-template", 
             "name": "propertyDefinitionZhSource", 
             "nameZh": "模版对应属性的中文定义来源", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1255,7 +1269,9 @@
             "category": "property-template", 
             "name": "propertyNameZh", 
             "nameZh": "模版对应属性在模版显示中的中文名称", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1270,7 +1286,9 @@
             "category": "property-template", 
             "name": "propertyRange", 
             "nameZh": "模版对应属性在模版中的属性值限制", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1285,7 +1303,9 @@
             "category": "property-template", 
             "name": "propertySchema", 
             "nameZh": "模版对应属性的所属Schema", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1316,7 +1336,9 @@
             "category": "property-template", 
             "name": "refClass", 
             "nameZh": "模版对应实体分类", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -1331,7 +1353,9 @@
             "category": "property-template", 
             "name": "refProperty", 
             "nameZh": "模版对应属性", 
-            "rdfs:domain": "CnsTemplate", 
+            "rdfs:domain": [
+                "CnsTemplate"
+            ], 
             "rdfs:range": "Text"
         }, 
         {

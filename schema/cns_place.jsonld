@@ -154,7 +154,9 @@
             "category": "property-template", 
             "name": "addressDetail", 
             "nameZh": "其他地址详情", 
-            "rdfs:domain": "Place", 
+            "rdfs:domain": [
+                "Place"
+            ], 
             "rdfs:range": "Text"
         }, 
         {
@@ -254,7 +256,9 @@
             "category": "property-template", 
             "name": "township", 
             "nameZh": "所在乡镇", 
-            "rdfs:domain": "Place", 
+            "rdfs:domain": [
+                "Place"
+            ], 
             "rdfs:range": "Township"
         }, 
         {
@@ -269,7 +273,9 @@
             "category": "property-template", 
             "name": "village", 
             "nameZh": "所在村", 
-            "rdfs:domain": "Place", 
+            "rdfs:domain": [
+                "Place"
+            ], 
             "rdfs:range": "Village"
         }, 
         {

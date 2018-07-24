@@ -309,6 +309,7 @@ class CnsExcel():
         if cnsItem["propertySchema"] == "":
             name = cnsItem["refProperty"]
             xid = "http://cnschema.org/{}".format(name)
+
             cnsItemDefinition = {
                 "@id": xid,
                 "@type": ["rdf:Property", "CnsDefinition","CnsMetadata", "Thing"],
@@ -316,9 +317,12 @@ class CnsExcel():
                 "category": "property-template",
                 "nameZh": cnsItem["propertyNameZh"],
                 "alternateName": cnsItem["propertyAlternateName"],
-                "rdfs:domain": cnsItem["refClass"],
+                "rdfs:domain": [cnsItem["refClass"]],
                 "rdfs:range": cnsItem["propertyRange"],
             }
+            cnsItemDefinitionOld = self.schema.getDefinition(xid)
+            if cnsItemDefinitionOld:
+                cnsItemDefinition["rdfs:domain"].extend( cnsItemDefinitionOld["rdfs:domain"] )
 
             self.schema.addDefinition( cnsItemDefinition )
 
