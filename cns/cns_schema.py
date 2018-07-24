@@ -522,7 +522,7 @@ class CnsSchema:
 
                     # special hack
                     if d in ["Top"]:
-                        self.indexValidateDomain[p].extend(["Thing",CnsLink, "CnsMetadata", "CnsDataStructure"])
+                        self.indexValidateDomain[p].extend(["Thing","CnsLink", "CnsMetadata", "CnsDataStructure"])
 
 
         # dedup
@@ -1052,10 +1052,19 @@ def task_validate(args):
     cnsSchema.importJsonLd(schema_filename)
 
     filename = args["input_file"]
-    jsondata = file2json(filename)
-    report = cnsSchema.initReport()
-    cnsSchema.cnsValidateRecursive(jsondata, report)
-    logging.info(json4debug(report))
+    if args.get("option") == "jsons":
+        for line in file2iter(filename):
+            report = cnsSchema.initReport()
+            json_data = json.loads(line)
+            cnsSchema.cnsValidateRecursive(json_data, report)
+            logging.info(json4debug(report))
+            if report:
+                break
+    else:
+        jsondata = file2json(filename)
+        report = cnsSchema.initReport()
+        cnsSchema.cnsValidateRecursive(jsondata, report)
+        logging.info(json4debug(report))
 
 def preload_schema():
     schemaNameList = ["cns_top","cns_place","cns_person","cns_organization"]
@@ -1096,6 +1105,7 @@ if __name__ == "__main__":
         '--input_schema': 'input schema',
         '--output_file': 'output file',
         '--debug_dir': 'debug directory',
+        '--option': 'debug directory',
     }
     main_subtask(__name__, optional_params=optional_params)
 
