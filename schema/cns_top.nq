@@ -154,6 +154,7 @@
 <http://cnschema.org/Integer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/Integer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> "DataType" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/MonetaryAmount> <http://cnschema.org/category> "class-datastructure" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/MonetaryAmount> <http://cnschema.org/descriptionZh> "金额的详细描述，通常包括原文text， 数值value，币种currency。例如 text为100万，而value就是数字1000000，币种为人民币。" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/MonetaryAmount> <http://cnschema.org/name> "MonetaryAmount" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/MonetaryAmount> <http://cnschema.org/nameZh> "金额" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/MonetaryAmount> <http://cnschema.org/schemaorgUrl> "http://schema.org/MonetaryAmount" <http://cnschema.org/schema/cns_top> .
@@ -434,6 +435,7 @@
 <http://cnschema.org/datePublished> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/datePublished> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/datePublished> <http://www.w3.org/2000/01/rdf-schema#range> "DateTime" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/description> <http://cnschema.org/alternateName> "定义" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/description> <http://cnschema.org/alternateName> "描述" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/description> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/description> <http://cnschema.org/descriptionZh> "系统保留字，实体的描述，Wikidata的description。" <http://cnschema.org/schema/cns_top> .
@@ -502,6 +504,7 @@
 <http://cnschema.org/descriptionZhSource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/descriptionZhSource> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/descriptionZhSource> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/email> <http://cnschema.org/alternateName> "邮箱" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/email> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/email> <http://cnschema.org/name> "email" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/email> <http://cnschema.org/nameZh> "电子邮件地址" <http://cnschema.org/schema/cns_top> .
@@ -512,10 +515,12 @@
 <http://cnschema.org/email> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/email> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/email> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/endDate> <http://cnschema.org/alternateName> "截至时间" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/endDate> <http://cnschema.org/alternateName> "结束日期" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/descriptionZh> "结束的具体日期" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/name> "endDate" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/endDate> <http://cnschema.org/nameZh> "结束日期" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/endDate> <http://cnschema.org/nameZh> "结束时间" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/schemaorgUrl> "http://schema.org/endDate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://cnschema.org/version> "v18q2" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/endDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
@@ -548,6 +553,7 @@
 <http://cnschema.org/identifier> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/identifier> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/image> <http://cnschema.org/alternateName> "头像" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/image> <http://cnschema.org/alternateName> "照片地址" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/image> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/image> <http://cnschema.org/descriptionZh> "一个实体可以有多个image" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/image> <http://cnschema.org/name> "image" <http://cnschema.org/schema/cns_top> .
@@ -581,6 +587,17 @@
 <http://cnschema.org/in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/in> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsLink" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/in> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://cnschema.org/name> "isPartOf" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://cnschema.org/nameZh> "从属于" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://cnschema.org/schemaorgUrl> "http://schema.org/isPartOf" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://cnschema.org/version> "v18q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/isPartOf> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/keywords> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/keywords> <http://cnschema.org/name> "keywords" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/keywords> <http://cnschema.org/nameZh> "关键词" <http://cnschema.org/schema/cns_top> .
@@ -623,6 +640,17 @@
 <http://cnschema.org/maxCardinality> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://www.w3.org/2000/01/rdf-schema#range> "Integer" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://cnschema.org/name> "mentions" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://cnschema.org/nameZh> "提及" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://cnschema.org/schemaorgUrl> "http://schema.org/mentions" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://cnschema.org/version> "v18q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mentions> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFrom> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFrom> <http://cnschema.org/descriptionZh> "系统保留字，实体融合来源" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFrom> <http://cnschema.org/name> "mergedFrom" <http://cnschema.org/schema/cns_top> .
@@ -634,6 +662,17 @@
 <http://cnschema.org/mergedFrom> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFrom> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/mergedFrom> <http://www.w3.org/2000/01/rdf-schema#range> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://cnschema.org/descriptionZh> "系统保留字，实体融合来源数量统计" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://cnschema.org/name> "mergedFromCount" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://cnschema.org/nameZh> "融合来源数量" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://cnschema.org/version> "v17q3" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/mergedFromCount> <http://www.w3.org/2000/01/rdf-schema#range> "Integer" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/minCardinality> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/minCardinality> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/minCardinality> <http://cnschema.org/name> "minCardinality" <http://cnschema.org/schema/cns_top> .
@@ -826,6 +865,7 @@
 <http://cnschema.org/refProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refProperty> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsTemplate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/refProperty> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/referenceUrl> <http://cnschema.org/alternateName> "sourceUrl" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/referenceUrl> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/referenceUrl> <http://cnschema.org/descriptionZh> "系统保留字，溯源，实体描述来自哪个网页" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/referenceUrl> <http://cnschema.org/name> "referenceUrl" <http://cnschema.org/schema/cns_top> .
@@ -909,10 +949,12 @@
 <http://cnschema.org/schemaorgUrl> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/schemaorgUrl> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsDefinition" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/schemaorgUrl> <http://www.w3.org/2000/01/rdf-schema#range> "URL" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/startDate> <http://cnschema.org/alternateName> "开始日期" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/startDate> <http://cnschema.org/alternateName> "开始时间" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://cnschema.org/category> "property-info" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://cnschema.org/descriptionZh> "开始的具体日期" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://cnschema.org/name> "startDate" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/startDate> <http://cnschema.org/nameZh> "开始日期" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/startDate> <http://cnschema.org/nameZh> "开始时间" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://cnschema.org/schemaorgUrl> "http://schema.org/startDate" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://cnschema.org/version> "v18q2" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/startDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
@@ -944,6 +986,7 @@
 <http://cnschema.org/tag> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://www.w3.org/2000/01/rdf-schema#range> "CnsTag" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/telephone> <http://cnschema.org/alternateName> "电话" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/telephone> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/telephone> <http://cnschema.org/name> "telephone" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/telephone> <http://cnschema.org/nameZh> "电话号码" <http://cnschema.org/schema/cns_top> .
@@ -1023,6 +1066,7 @@
 <http://cnschema.org/version> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/version> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/alternateName> "webSite" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/website> <http://cnschema.org/alternateName> "网址" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/name> "website" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/website> <http://cnschema.org/nameZh> "网页地址" <http://cnschema.org/schema/cns_top> .

@@ -220,6 +220,103 @@ def task_stat_kg_pattern(args):
         # save result to file
         json2file(counter, filename)
 
+def _stat_kg_report_per_item(cnt_item, cns_item_category, stat_counter, flag_count_triple = False, map_entity = {}):
+    stat_counter["_cnt_kg_item_all"] += 1
+    stat_counter["_cnt_kg_item_all_{}".format(cns_item_category)] += 1
+
+    #count triple
+    if flag_count_triple:
+        ret = stat_jsonld(cnt_item)
+        stat_counter["_cnt_kg_triple"] += ret["triple"]
+        stat_counter["_cnt_kg_triple_{}".format(cns_item_category)] += ret["triple"]
+
+    #count data
+    etype = cnt_item["@type"][0]
+    stat_counter[u"_cnt_kg_item_type_{}".format(etype)] += 1
+
+    for k in cnt_item:
+        stat_counter[u"_cnt_{}_template_{}_{}".format(cns_item_category, etype, k)] += 1
+
+    # count domain range
+    if cns_item_category == "relation" and map_entity:
+        rtype = cns_item["@type"][0]
+        in_type = map_entity.get(relation["in"])["@type"][0]
+        out_type = map_entity.get(relation["out"])["@type"][0]
+        stat_coutner[u"_cnt_cnslink_{}_[{}]_{}".format(in_type, rtype, out_type)] += 1
+
+
+def _json_clone(data, keys, flag_deepcopy=False):
+    ret = {}
+    for k,v in data.items():
+        if k in keys:
+            ret[k] = v
+    return ret
+
+def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_map_entity = True, schema_for_validation = None):
+    assert os.path.exists(dirname), dirname
+
+    property_list_tiny = set([ "@type", "name"])
+    property_list_sample = set(["@id", "@type", "name", "alternateName", "statedIn", "identifier"])
+
+    list_conf = [
+        {"cns_item_category": "entity", "cns_item_list": list_entity},
+        {"cns_item_category": "relation", "cns_item_list": list_relation}
+    ]
+
+    map_entity = {}
+    stat_counter = collections.Counter()
+    samples = collections.defaultdict(list)
+
+    for conf in list_conf:
+        for cns_item in conf["cns_item_list"]:
+            cns_item_category = conf["cns_item_category"]
+
+            main_type = cns_item["@type"][0]
+            if "CnsLink" in cns_item["@type"]:
+                assert cns_item_category == "relation"
+            else:
+                assert cns_item_category == "entity"
+
+            _stat_kg_report_per_item(cns_item, cns_item_category, stat_counter)
+
+            if schema_for_validation:
+                report = schema_for_validation.initReport()
+                schema_for_validation.cnsValidate(cns_item, report)
+                for report_item in report:
+                    if "property" in report_item:
+                        key = u"_report_{}_{}".format(report_item["category"], report_item["property"])
+                        stat_counter[key] += 1
+
+            #basic validation
+            for p in ["@id","@type"]:
+                assert p in cns_item, p
+
+            if flag_map_entity and cns_item_category == "entity" :
+                cns_item_tiny = _json_clone( cns_item, property_list_tiny )
+                map_entity[cns_item["@id"]] = cns_item_tiny
+
+            #collect samples
+            key  = u"sample_{}_{}".format(cns_item_category, main_type)
+            cns_item_sample = _json_clone( cns_item, property_list_sample )
+            if len(samples[key]) < max_sample:
+                samples[key].append(cns_item_sample)
+
+            key  = u"all_{}_{}".format(cns_item_category, main_type)
+            samples[key].append(cns_item_sample)
+
+    for key, data in samples.items():
+        filename = u"{}/{}.json".format(dirname, key)
+        #filename = file2abspath(filename, __file__)
+        json2file(data, filename)
+
+
+    filename = u"{}/summary.json".format(dirname)
+    #filename = file2abspath(filename, __file__)
+    ret = {"stats":stat_counter}
+    json2file(ret, filename)
+
+    return report
+
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
     logging.getLogger("requests").setLevel(logging.WARNING)

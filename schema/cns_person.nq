@@ -243,6 +243,17 @@
 <http://cnschema.org/ethnicGroup> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_person> .
 <http://cnschema.org/ethnicGroup> <http://www.w3.org/2000/01/rdf-schema#domain> "Person" <http://cnschema.org/schema/cns_person> .
 <http://cnschema.org/ethnicGroup> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://cnschema.org/alternateName> "专业特长" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://cnschema.org/name> "expertiseDescription" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://cnschema.org/nameZh> "业务特长" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://cnschema.org/version> "v18q2" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://www.w3.org/2000/01/rdf-schema#domain> "Person" <http://cnschema.org/schema/cns_person> .
+<http://cnschema.org/expertiseDescription> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_person> .
 <http://cnschema.org/familyName> <http://cnschema.org/category> "property-ext" <http://cnschema.org/schema/cns_person> .
 <http://cnschema.org/familyName> <http://cnschema.org/name> "familyName" <http://cnschema.org/schema/cns_person> .
 <http://cnschema.org/familyName> <http://cnschema.org/nameZh> "姓氏" <http://cnschema.org/schema/cns_person> .

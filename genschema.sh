@@ -5,7 +5,7 @@ schemaName=$1
 # ./genschema.sh local cns_kg4ai
 
 echo #schemaName
-if [ "$schemaName" = "cns_top" ] || [ "$schemaName" = "cns_place" ] || [ "$schemaName" = "cns_schemaorg" ]  || [ "$schemaName" = "cns_person" ]  || [ "$schemaName" = "cns_organization" ]; then
+if [ "$schemaName" = "cns_top" ] || [ "$schemaName" = "cns_creativework" ] || [ "$schemaName" = "cns_place" ] || [ "$schemaName" = "cns_schemaorg" ]  || [ "$schemaName" = "cns_person" ]  || [ "$schemaName" = "cns_organization" ]; then
   schemaDir=schema
 else
   schemaDir=local

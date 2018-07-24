@@ -279,6 +279,7 @@
                 "Thing"
             ], 
             "category": "class-datastructure", 
+            "descriptionZh": "金额的详细描述，通常包括原文text， 数值value，币种currency。例如 text为100万，而value就是数字1000000，币种为人民币。", 
             "name": "MonetaryAmount", 
             "nameZh": "金额", 
             "rdfs:subClassOf": [
@@ -714,7 +715,8 @@
                 "Thing"
             ], 
             "alternateName": [
-                "描述"
+                "描述", 
+                "定义"
             ], 
             "category": "property-info", 
             "descriptionZh": "系统保留字，实体的描述，Wikidata的description。", 
@@ -815,6 +817,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "alternateName": [
+                "邮箱"
+            ], 
             "category": "property-ext", 
             "name": "email", 
             "nameZh": "电子邮件地址", 
@@ -830,10 +835,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "alternateName": [
+                "截至时间", 
+                "结束日期"
+            ], 
             "category": "property-info", 
             "descriptionZh": "结束的具体日期", 
             "name": "endDate", 
-            "nameZh": "结束日期", 
+            "nameZh": "结束时间", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/endDate", 
@@ -881,7 +890,8 @@
                 "Thing"
             ], 
             "alternateName": [
-                "头像"
+                "头像", 
+                "照片地址"
             ], 
             "category": "property-info", 
             "descriptionZh": "一个实体可以有多个image", 
@@ -922,6 +932,22 @@
             "rdfs:domain": "CnsLink", 
             "rdfs:range": "Thing", 
             "version": "v18q2"
+        }, 
+        {
+            "@id": "http://cnschema.org/isPartOf", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-sys", 
+            "name": "isPartOf", 
+            "nameZh": "从属于", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Thing", 
+            "schemaorgUrl": "http://schema.org/isPartOf", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/keywords", 
@@ -986,6 +1012,22 @@
             "rdfs:range": "Integer"
         }, 
         {
+            "@id": "http://cnschema.org/mentions", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-sys", 
+            "name": "mentions", 
+            "nameZh": "提及", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Thing", 
+            "schemaorgUrl": "http://schema.org/mentions", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/mergedFrom", 
             "@type": [
                 "rdf:Property", 
@@ -999,6 +1041,22 @@
             "nameZh": "融合来源", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "Thing", 
+            "version": "v17q3"
+        }, 
+        {
+            "@id": "http://cnschema.org/mergedFromCount", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-sys", 
+            "descriptionZh": "系统保留字，实体融合来源数量统计", 
+            "name": "mergedFromCount", 
+            "nameZh": "融合来源数量", 
+            "rdfs:domain": "Thing", 
+            "rdfs:range": "Integer", 
             "version": "v17q3"
         }, 
         {
@@ -1299,6 +1357,9 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "alternateName": [
+                "sourceUrl"
+            ], 
             "category": "property-sys", 
             "descriptionZh": "系统保留字，溯源，实体描述来自哪个网页", 
             "name": "referenceUrl", 
@@ -1331,10 +1392,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
+            "alternateName": [
+                "开始时间", 
+                "开始日期"
+            ], 
             "category": "property-info", 
             "descriptionZh": "开始的具体日期", 
             "name": "startDate", 
-            "nameZh": "开始日期", 
+            "nameZh": "开始时间", 
             "rdfs:domain": "Thing", 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/startDate", 
@@ -1380,6 +1445,9 @@
                 "CnsDefinition", 
                 "CnsMetadata", 
                 "Thing"
+            ], 
+            "alternateName": [
+                "电话"
             ], 
             "category": "property-ext", 
             "name": "telephone", 
@@ -1497,7 +1565,8 @@
                 "Thing"
             ], 
             "alternateName": [
-                "webSite"
+                "webSite", 
+                "网址"
             ], 
             "category": "property-ext", 
             "name": "website", 

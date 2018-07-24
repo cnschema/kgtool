@@ -9,6 +9,7 @@ History
 * change  cns_organization change property names
 * change  cns_schema  add lambda_key_cns_link for cns_link;
 * change  cns_schema  skip generate alternateName when it is the same as name
+* add stat_kg_summary summarize list of entity and relation and validate 
 
 0.0.4 (2018-07-03)
 ++++++++++++++++++

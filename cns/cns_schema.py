@@ -1032,10 +1032,11 @@ def task_convert(args):
 
 def task_validate(args):
     logging.info( "called task_validate" )
-    filename = "../schema/cns_top.jsonld"
-    filename = file2abspath(filename, __file__)
+    schema_filename = args.get("input_schema")
+    if not schema_filename:
+        schema_filename = "schema/cns_top.jsonld"
     cnsSchema = CnsSchema()
-    cnsSchema.importJsonLd(filename)
+    cnsSchema.importJsonLd(schema_filename)
 
     filename = args["input_file"]
     jsondata = file2json(filename)
@@ -1044,7 +1045,7 @@ def task_validate(args):
     logging.info(json4debug(report))
 
 def preload_schema():
-    schemaNameList = ["cns_top","cns_creativework","cns_place","cns_person","cns_organization"]
+    schemaNameList = ["cns_top","cns_place","cns_person","cns_organization"]
     preloadSchemaList = {}
     for schemaName in schemaNameList:
         filename = u"../schema/{}.jsonld".format(schemaName)
@@ -1100,6 +1101,9 @@ if __name__ == "__main__":
     python cns/cns_schema.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/
     python cns/cns_schema.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
     python cns/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+
+    python cns/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+
 
     # task 4: graphviz
     python cns/cns_schema.py task_graphviz --input_file=schema/cns_top.jsonld --debug_dir=local/

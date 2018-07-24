@@ -363,6 +363,24 @@
             "wikidataUrl": "https://www.wikidata.org/wiki/P172"
         }, 
         {
+            "@id": "http://cnschema.org/expertiseDescription", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": [
+                "专业特长"
+            ], 
+            "category": "property-ext", 
+            "name": "expertiseDescription", 
+            "nameZh": "业务特长", 
+            "rdfs:domain": "Person", 
+            "rdfs:range": "Text", 
+            "version": "v18q2"
+        }, 
+        {
             "@id": "http://cnschema.org/familyName", 
             "@type": [
                 "rdf:Property", 

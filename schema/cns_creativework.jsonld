@@ -1,0 +1,46 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/", 
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }, 
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/Report", 
+            "@type": [
+                "rdfs:Class", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "class-ext", 
+            "name": "Report", 
+            "nameZh": "报告", 
+            "rdfs:subClassOf": [
+                "CreativeWork"
+            ], 
+            "schemaorgUrl": "http://schema.org/Report", 
+            "version": "v17q2"
+        }
+    ], 
+    "@id": "http://cnschema.org/schema/cns_creativework", 
+    "@type": [
+        "CnsOntology", 
+        "Thing"
+    ], 
+    "changelog": {
+        "@id": "http://meta.cnschema.org/changelog/v18q2", 
+        "@type": [
+            "CnsChangelog", 
+            "CnsMetadata", 
+            "Thing"
+        ], 
+        "datePublished": "2018-06-20", 
+        "name": "v18q2", 
+        "text": "核心概念", 
+        "version": "v18q2"
+    }, 
+    "dateModified": "2018-06-22", 
+    "name": "cns_creativework", 
+    "template": []
+}
