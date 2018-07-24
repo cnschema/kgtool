@@ -982,21 +982,6 @@
             "version": "v18q2"
         }, 
         {
-            "@id": "http://cnschema.org/linkProperty", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-sys", 
-            "name": "linkProperty", 
-            "nameZh": "相关属性", 
-            "rdfs:domain": "CnsLink", 
-            "rdfs:range": "Text", 
-            "version": "v18q2"
-        }, 
-        {
             "@id": "http://cnschema.org/maxCardinality", 
             "@type": [
                 "rdf:Property", 
@@ -1418,7 +1403,7 @@
             "name": "statedIn", 
             "nameZh": "载于", 
             "rdfs:domain": "Thing", 
-            "rdfs:range": "CreativeWork", 
+            "rdfs:range": "Text", 
             "version": "v17q3", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P248"
         }, 
@@ -1759,28 +1744,6 @@
             "version": "v18q2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/CnsLink_linkProperty", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "CnsLink_linkProperty", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
-            "propertySchema": "cns_top", 
-            "refClass": "CnsLink", 
-            "refProperty": "linkProperty", 
-            "version": "v18q2"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/CnsLink_name", 
             "@type": [
                 "CnsTemplate", 
@@ -1788,7 +1751,7 @@
                 "Thing"
             ], 
             "maxCardinality": 1, 
-            "minCardinality": 0, 
+            "minCardinality": 1, 
             "name": "CnsLink_name", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 

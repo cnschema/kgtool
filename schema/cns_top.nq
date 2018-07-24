@@ -620,16 +620,6 @@
 <http://cnschema.org/link> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/link> <http://www.w3.org/2000/01/rdf-schema#range> "CnsLink" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://cnschema.org/name> "linkProperty" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://cnschema.org/nameZh> "相关属性" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://cnschema.org/version> "v18q2" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsDefinition> <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://www.w3.org/2000/01/rdf-schema#domain> "CnsLink" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/linkProperty> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://cnschema.org/alternateName> "" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://cnschema.org/category> "property-template" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/maxCardinality> <http://cnschema.org/name> "maxCardinality" <http://cnschema.org/schema/cns_top> .
@@ -887,7 +877,6 @@
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_date> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_endDate> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_in> .
-<http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_linkProperty> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_name> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_out> .
 <http://cnschema.org/schema/cns_top> <http://cnschema.org/template> <http://meta.cnschema.org/template/CnsLink_startDate> .
@@ -974,7 +963,7 @@
 <http://cnschema.org/statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/statedIn> <http://www.w3.org/2000/01/rdf-schema#domain> "Thing" <http://cnschema.org/schema/cns_top> .
-<http://cnschema.org/statedIn> <http://www.w3.org/2000/01/rdf-schema#range> "CreativeWork" <http://cnschema.org/schema/cns_top> .
+<http://cnschema.org/statedIn> <http://www.w3.org/2000/01/rdf-schema#range> "Text" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://cnschema.org/category> "property-sys" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://cnschema.org/descriptionZh> "简化关系，直接对接实体，没有任何附加属性。通过标签承载实体与标签的更多关系" <http://cnschema.org/schema/cns_top> .
 <http://cnschema.org/tag> <http://cnschema.org/name> "tag" <http://cnschema.org/schema/cns_top> .
@@ -1206,25 +1195,8 @@
 <http://meta.cnschema.org/template/CnsLink_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
 <http://meta.cnschema.org/template/CnsLink_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
 <http://meta.cnschema.org/template/CnsLink_in> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/name> "CnsLink_linkProperty" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyAlternateName> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyDefinition> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyDefinitionSource> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyDefinitionZh> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyDefinitionZhSource> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyNameZh> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertyRange> "" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/propertySchema> "cns_top" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/refClass> "CnsLink" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/refProperty> "linkProperty" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://cnschema.org/version> "v18q2" .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsMetadata> .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/CnsTemplate> .
-<http://meta.cnschema.org/template/CnsLink_linkProperty> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://cnschema.org/Thing> .
 <http://meta.cnschema.org/template/CnsLink_name> <http://cnschema.org/maxCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://meta.cnschema.org/template/CnsLink_name> <http://cnschema.org/minCardinality> "0"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://meta.cnschema.org/template/CnsLink_name> <http://cnschema.org/minCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://meta.cnschema.org/template/CnsLink_name> <http://cnschema.org/name> "CnsLink_name" .
 <http://meta.cnschema.org/template/CnsLink_name> <http://cnschema.org/propertyAlternateName> "" .
 <http://meta.cnschema.org/template/CnsLink_name> <http://cnschema.org/propertyDefinition> "" .

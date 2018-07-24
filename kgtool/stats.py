@@ -220,21 +220,28 @@ def task_stat_kg_pattern(args):
         # save result to file
         json2file(counter, filename)
 
-def _stat_kg_report_per_item(cnt_item, cns_item_category, stat_counter, flag_count_triple = False, map_entity = {}):
+def stat_kg_report_per_item(cns_item, cns_item_category, stat_counter, flag_count_triple = False, map_entity = {}):
+    if cns_item_category == None:
+        if "CnsLink" in cns_item["@type"]:
+            cns_item_category = "relation"
+        else:
+            cns_item_category = "entity"
+
+
     stat_counter["_cnt_kg_item_all"] += 1
     stat_counter["_cnt_kg_item_all_{}".format(cns_item_category)] += 1
 
     #count triple
     if flag_count_triple:
-        ret = stat_jsonld(cnt_item)
+        ret = stat_jsonld(cns_item)
         stat_counter["_cnt_kg_triple"] += ret["triple"]
         stat_counter["_cnt_kg_triple_{}".format(cns_item_category)] += ret["triple"]
 
     #count data
-    etype = cnt_item["@type"][0]
+    etype = cns_item["@type"][0]
     stat_counter[u"_cnt_kg_item_type_{}".format(etype)] += 1
 
-    for k in cnt_item:
+    for k in cns_item:
         stat_counter[u"_cnt_{}_template_{}_{}".format(cns_item_category, etype, k)] += 1
 
     # count domain range
@@ -266,6 +273,10 @@ def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_ma
     map_entity = {}
     stat_counter = collections.Counter()
     samples = collections.defaultdict(list)
+    if schema_for_validation:
+        report = schema_for_validation.initReport()
+    else:
+        report = {}
 
     for conf in list_conf:
         for cns_item in conf["cns_item_list"]:
@@ -277,15 +288,10 @@ def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_ma
             else:
                 assert cns_item_category == "entity"
 
-            _stat_kg_report_per_item(cns_item, cns_item_category, stat_counter)
+            stat_kg_report_per_item(cns_item, cns_item_category, stat_counter)
 
             if schema_for_validation:
-                report = schema_for_validation.initReport()
                 schema_for_validation.cnsValidate(cns_item, report)
-                for report_item in report:
-                    if "property" in report_item:
-                        key = u"_report_{}_{}".format(report_item["category"], report_item["property"])
-                        stat_counter[key] += 1
 
             #basic validation
             for p in ["@id","@type"]:
@@ -312,7 +318,7 @@ def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_ma
 
     filename = u"{}/summary.json".format(dirname)
     #filename = file2abspath(filename, __file__)
-    ret = {"stats":stat_counter}
+    ret = {"stats":stat_counter, "report": report}
     json2file(ret, filename)
 
     return report

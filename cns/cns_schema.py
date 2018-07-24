@@ -16,11 +16,13 @@ import urlparse
 import re
 import collections
 import glob
+import copy
 
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
+from kgtool.stats import stat_kg_report_per_item
 
 # global constants
 VERSION = 'v20180724'
@@ -67,9 +69,15 @@ def gen_cns_id(cns_item, primary_keys=None):
         raise Exception("unexpected situation")  # unexpected situation
 
 def _report(report, bug):
-    msg = json.dumps(bug, ensure_ascii=False, sort_keys=True)
-    report["bugs"].append(bug)
-    return msg
+    key = ur" | ".join([bug["category"], bug["text"], bug.get("class",""), bug.get("property","")])
+    report["stats"][key]+=1
+    if key not in report["bugs_sample"]:
+        report["bugs_sample"][key] = copy.deepcopy(bug)
+
+    if report.get("flag_detail"):
+        msg = json.dumps(bug, ensure_ascii=False, sort_keys=True)
+        report["bugs"].append(bug)
+        logging.info(msg)
 
 
 class CnsSchema:
@@ -102,7 +110,7 @@ class CnsSchema:
         self.indexValidateRange = collections.defaultdict( dict )
 
     def initReport(self):
-        return  {"bugs":[],"stats":collections.Counter()}
+        return  {"bugs":[], "bugs_sample":{},"stats":collections.Counter(), "flag_detail": False}
 
     def cnsValidateRecursive(self, cnsTree, report):
         if type(cnsTree) == list:
@@ -129,6 +137,8 @@ class CnsSchema:
         if not self._validateSystem(cnsItem, report):
             return report
 
+        self._validateClass(cnsItem, report)
+
         self._validateTemplate(cnsItem, report)
 
         self._validateRange(cnsItem, report)
@@ -137,6 +147,29 @@ class CnsSchema:
 
         return report
 
+    def _validateClass(self, cnsItem, report):
+        """
+            if type is defined in schema
+        """
+        for xtype in cnsItem["@type"]:
+            has_type = False
+            for schema in self.allSchemaList:
+                type_definition = schema.indexDefinitionAlias.get(xtype)
+                if type_definition:
+                    has_type =True
+                    break
+
+            if not has_type:
+                bug = {
+                    "category": "info_validate_class",
+                    "text": "class not defined",
+                    "class" : xtype,
+                    #"item": cnsItem
+                }
+                _report(report, bug)
+
+
+
     def _validateSystem(self, cnsItem, report):
         types = cnsItem.get("@type")
         if "@vocab" in cnsItem:
@@ -144,7 +177,7 @@ class CnsSchema:
                 "category": "info_validate_system",
                 "text": "skip validating system @vocab",
             }
-            logging.info(_report(report, bug))
+            _report(report, bug)
             return False
 
         if not types:
@@ -153,8 +186,7 @@ class CnsSchema:
                 "text": "item missing @type",
                 "item": cnsItem
             }
-            logging.warn(_report(report, bug))
-
+            _report(report, bug)
             return False
 
         return True
@@ -171,7 +203,7 @@ class CnsSchema:
                     "text": "skip validating range @vocab",
                     #"item": cnsItem
                 }
-                logging.warn(_report(report, bug))
+                _report(report, bug)
                 continue
 
             rangeExpect = self.indexValidateRange.get(p)
@@ -181,7 +213,7 @@ class CnsSchema:
                     "text": "range not specified in schema",
                     "property": p
                 }
-                logging.warn(_report(report, bug))
+                _report(report, bug)
                 continue
 
             for v in json_get_list(cnsItem, p):
@@ -198,7 +230,7 @@ class CnsSchema:
                             "expected" : rangeExpect["text"],
                             "actual" : str(rangeActual),
                         }
-                        logging.warn(_report(report, bug))
+                        _report(report, bug)
                 else:
                     if type(v)== dict:
                         rangeActual = v.get("@type",[])
@@ -213,7 +245,7 @@ class CnsSchema:
                                 "expected" : rangeExpect["cnsRange"],
                                 "actual" : rangeActual,
                             }
-                            logging.warn(_report(report, bug))
+                            _report(report, bug)
                     else:
                         bug = {
                             "category": "warn_validate_range",
@@ -222,7 +254,7 @@ class CnsSchema:
                             "expected" : rangeExpect["cnsRange"],
                             "item" : v,
                         }
-                        logging.warn(_report(report, bug))
+                        _report(report, bug)
 
 
     def _validateDomain(self, cnsItem, report):
@@ -236,7 +268,7 @@ class CnsSchema:
                     "text": "domain not specified in schema",
                     "property": p
                 }
-                logging.warn(_report(report, bug))
+                _report(report, bug)
                 continue
 
 
@@ -249,7 +281,7 @@ class CnsSchema:
                         "text": "class not defined in schema",
                         "class": domain
                     }
-                    logging.warn(_report(report, bug))
+                    _report(report, bug)
 
             if not domainActual:
                 bug = {
@@ -258,7 +290,7 @@ class CnsSchema:
                     "property": p,
                     "item": cnsItem
                 }
-                logging.warn(_report(report, bug))
+                _report(report, bug)
             elif set(domainExpected).intersection(domainActual):
                 # this case is fine
                 pass
@@ -270,7 +302,7 @@ class CnsSchema:
                     "expected": domainExpected,
                     "actual": domainActual
                 }
-                logging.warn(_report(report, bug))
+                _report(report, bug)
 
     def _validateTemplate(self, cnsItem, report):
         # template validation
@@ -295,9 +327,10 @@ class CnsSchema:
                         "property": p,
                         "expected": template["minCardinality"],
                         "actual": cardAcual,
-                        "item": cnsItem
+                        "item_name": cnsItem.get("name"),
+                        "item_value": cnsItem.get(p),
                     }
-                    logging.warn(_report(report, bug))
+                    _report(report, bug)
 
 
                 if "maxCardinality" in template:
@@ -308,9 +341,10 @@ class CnsSchema:
                             "property": p,
                             "expected": template["maxCardinality"],
                             "actual": cardAcual,
-                            "item": cnsItem
+                            "item_name": cnsItem.get("name"),
+                            "item_value": cnsItem.get(p),
                         }
-                        logging.warn(_report(report, bug))
+                        _report(report, bug)
 
 
 
@@ -342,7 +376,7 @@ class CnsSchema:
                 }
 
                 if report is not None:
-                    logging.warn(_report(report, bug))
+                    _report(report, bug)
 
         if item.get("@id"):
             cnsItem["@id"] = item["@id"]
@@ -389,6 +423,7 @@ class CnsSchema:
                     #load schema on demand
                     filename = u"../schema/{}.jsonld".format(schemaName)
                     filename = file2abspath(filename)
+                    logging.info("import schema "+ filename)
                     schema = CnsSchema()
                     schema.importJsonLd(filename, preloadSchemaList)
 
@@ -417,7 +452,7 @@ class CnsSchema:
         self._buildIndexTemplate(schemaList)
         self._buildIndexDomain(schemaList)
 
-        logging.info([x.metadata["name"] for x in schemaList])
+        #logging.info([x.metadata["name"] for x in schemaList])
         self._validateSchema()
 
         return self._stat()
@@ -451,7 +486,7 @@ class CnsSchema:
             "name" : self.metadata["name"],
             "stat" : stat
         }
-        logging.info(json4debug( ret ))
+        logging.info( ret )
         return ret
 
     def _buildIndexRange(self, schemaList):
@@ -1048,18 +1083,24 @@ def task_validate(args):
     schema_filename = args.get("input_schema")
     if not schema_filename:
         schema_filename = "schema/cns_top.jsonld"
+
+    preloadSchemaList = preload_schema()
+
     cnsSchema = CnsSchema()
-    cnsSchema.importJsonLd(schema_filename)
+    cnsSchema.importJsonLd(schema_filename, preloadSchemaList)
 
     filename = args["input_file"]
     if args.get("option") == "jsons":
-        for line in file2iter(filename):
-            report = cnsSchema.initReport()
+        report = cnsSchema.initReport()
+        for idx, line in enumerate(file2iter(filename)):
+            if idx % 10000 ==0:
+                logging.info(idx)
+                logging.info(json4debug(report))
             json_data = json.loads(line)
             cnsSchema.cnsValidateRecursive(json_data, report)
-            logging.info(json4debug(report))
-            if report:
-                break
+            stat_kg_report_per_item(json_data, None, report["stats"])
+        logging.info(json4debug(report))
+
     else:
         jsondata = file2json(filename)
         report = cnsSchema.initReport()
@@ -1067,7 +1108,8 @@ def task_validate(args):
         logging.info(json4debug(report))
 
 def preload_schema():
-    schemaNameList = ["cns_top","cns_place","cns_person","cns_organization"]
+    logging.info("preload_schema")
+    schemaNameList = ["cns_top","cns_place","cns_person","cns_creativework","cns_organization"]
     preloadSchemaList = {}
     for schemaName in schemaNameList:
         filename = u"../schema/{}.jsonld".format(schemaName)
@@ -1079,7 +1121,7 @@ def preload_schema():
     return preloadSchemaList
 
 def task_graphviz(args):
-    logging.info( "called task_graphviz" )
+    #logging.info( "called task_graphviz" )
 
     filename = args["input_file"]
     cnsSchema = CnsSchema()
