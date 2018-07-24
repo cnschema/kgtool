@@ -350,7 +350,7 @@ class CnsSchema:
 
 
 
-    def cnsConvert(self, item, types, primary_keys, report = None, primary_keys_lambda = None):
+    def cnsConvert(self, item, types, primary_keys, report = None):
         """
             property_alias  => property_name
             create @id
@@ -379,24 +379,12 @@ class CnsSchema:
                 if report is not None:
                     _report(report, bug)
 
+
         if item.get("@id"):
             cnsItem["@id"] = item["@id"]
-        elif primary_keys:  # non-empty list
-            cnsItem["@id"] = any2sha256( primary_keys )
-        elif primary_keys_lambda is not None:
-            cnsItem["@id"] = any2sha256( primary_keys_lambda(cnsItem) )
-        elif "CnsLink" in cnsItem["@type"]:
-            #link type
-            cnsItem["@id"] = any2sha256( lambda_key_cns_link(cnsItem) )
-        else:
-            assert False, "unexpected primary_keys"
 
-
-        # add alternateName when it is not set
-        #p = "alternateName"
-        #if not p in cnsItem and "name" in cnsItem:
-        #    cnsItem[p] = [ cnsItem["name"] ]
-
+        xid = gen_cns_id(cnsItem, primary_keys)
+        cnsItem["@id"] = xid
 
         return cnsItem
 
@@ -611,9 +599,9 @@ class CnsSchema:
             for cnsItem in schema.definition.values():
                 if "rdf:Property" in cnsItem["@type"]:
                     plist = self._extractPlist( cnsItem )
-                    names = [ plist["name"] ]
-                    names.extend( plist["alternateName"] )
-                    for alias in set(names):
+                    alias =  plist["name"]
+                    mapNameAlias[alias].add( plist["name"] )
+                    for alias in plist["alternateName"]:
                         mapNameAlias[alias].add( plist["name"] )
 
         #validate
