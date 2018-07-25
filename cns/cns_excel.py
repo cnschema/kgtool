@@ -22,7 +22,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
 from kgtool.table import *  # noqa
-from cns.cns_schema import *
+from kgtool.cns_schema import *
 
 
 # global constants

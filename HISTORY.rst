@@ -2,14 +2,18 @@
 
 History
 -------
-0.0.5 (2018-07-13)
+0.0.6 (2018-07-25)
+++++++++++++++++++
+* move cns.cns_schema to kgtool.cns_schema to better external access
+
+0.0.5 (2018-07-24)
 ++++++++++++++++++
 * change stats.py stat_table, reduce unique_counter's memory cost
 * todo skip validate _Enum class validation
 * change  cns_organization change property names
 * change  cns_schema  add lambda_key_cns_link for cns_link;
 * change  cns_schema  skip generate alternateName when it is the same as name
-* add stat_kg_summary summarize list of entity and relation and validate 
+* add stat_kg_summary summarize list of entity and relation and validate
 
 0.0.4 (2018-07-03)
 ++++++++++++++++++

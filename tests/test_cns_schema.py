@@ -12,7 +12,7 @@ except ImportError:
     import unittest
 
 from kgtool.core import *  # noqa
-from cns.cns_schema import *  # noqa
+from kgtool.cns_schema import *  # noqa
 
 
 class CoreTestCase(unittest.TestCase):

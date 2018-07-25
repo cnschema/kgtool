@@ -1153,26 +1153,26 @@ if __name__ == "__main__":
 
 """
     # task 1: import jsonld (and is loaded completely)
-    python cns/cns_schema.py task_importJsonld --input_file=schema/cns_top.jsonld --debug_dir=local/
-    python cns/cns_schema.py task_importJsonld --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
-    python cns/cns_schema.py task_importJsonld --input_file=schema/cns_organization.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns_top.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_importJsonld --input_file=schema/cns_organization.jsonld --debug_dir=local/
 
     # task 2: convert
-    python cns/cns_schema.py task_convert --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+    python kgtool/cns_schema.py task_convert --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
-    python cns/cns_schema.py task_convert_excel --input_file=tests/test_cns_schema_input1.json --input_schema=schema/cns_top.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_convert_excel --input_file=tests/test_cns_schema_input1.json --input_schema=schema/cns_top.jsonld --debug_dir=local/
 
     # task 3: validate
-    python cns/cns_schema.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/
-    python cns/cns_schema.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
-    python cns/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+    python kgtool/cns_schema.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
-    python cns/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
+    python kgtool/cns_schema.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/
 
 
     # task 4: graphviz
-    python cns/cns_schema.py task_graphviz --input_file=schema/cns_top.jsonld --debug_dir=local/
-    python cns/cns_schema.py task_graphviz --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
-    python cns/cns_schema.py task_graphviz --input_file=schema/cns_organization.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_graphviz --input_file=schema/cns_top.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_graphviz --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python kgtool/cns_schema.py task_graphviz --input_file=schema/cns_organization.jsonld --debug_dir=local/
 
 """
