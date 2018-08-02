@@ -1,41 +1,51 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # Author: Qiu Minghao
-
-class DirectedGraphNode:
-   def __init__(self, data):
-       self.data = data
-       self.links = []
-
-   def pointsTo(self, node):
-       self.links.append(node)
+import collections
 
 class DirectedGraph:
-   def __init__(self, graph):
-       self.nodes = []
-       self.nodeCount = 0
-       self.relation = {}
-       dct = {}
-       for each in graph:
-           node, link = each[0], each[1]
-           if not dct.has_key(node):
-               dct[node] = self.newNode(node)
-           if not dct.has_key(link):
-               dct[link] = self.newNode(link)
-           dct[node].pointsTo(dct[link])
+    def __init__(self, arc_list):
+        self.nodes = collections.defaultdict(list)
+        node_from_list = set()
+        node_to_list = set()
+        for arc in arc_list:
+           node_from, node_to = arc
+           self.nodes[node_from].append( node_to )
+           self.nodes[node_to].extend( [] )
 
-       for node, link in dct.items():
-           self.relation[node] = list(set(self.getchild(dct[node].data,dct)+[node]))
+           node_from_list.add( node_from )
+           node_to_list.add( node_to )
 
-   def getchild(self,name,dct):
-       if len(dct[name].links)>0:
-           for each in dct[name].links:
-               return [each.data]+self.getchild(each.data,dct)
-       else:
-           return []
+        self.roots = node_from_list.difference( node_to_list )
 
-   def newNode(self, data):
-       node = DirectedGraphNode(data)
-       self.nodes.append(node)
-       self.nodeCount += 1
-       return node
+    def _dfs(self, node, path, subtree):
+        """
+            run depth first search
+        """
+        for element in path:
+            subtree[element].append(node)
+
+        for child in self.nodes[node]:
+            if child in path:
+                continue
+            if child == node:
+                continue
+
+            path_child = [node]
+            path_child.extend(path)
+            self._dfs(child, path_child, subtree)
+
+    def compute_subtree(self, include_self=True):
+        """
+            problem is defined here
+            https://www.geeksforgeeks.org/sub-tree-nodes-tree-using-dfs/
+        """
+        subtree = collections.defaultdict(list)
+        if include_self:
+            for node in self.nodes:
+                subtree[node] = [node]
+
+        for root in self.roots:
+           self._dfs(root, [], subtree)
+
+        return subtree

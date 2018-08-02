@@ -3,6 +3,8 @@
 # Path hack
 import os
 import sys
+import json
+import logging
 sys.path.insert(0, os.path.abspath('..'))
 
 try:
@@ -17,14 +19,16 @@ class CoreTestCase(unittest.TestCase):
     def setUp(self):
         pass
 
-    def test_file2abspath(self):
+    def test_computer_subtree(self):
         dg = DirectedGraph([[0 ,1] ,[1 ,2] ,[3 ,4]])
-        print dg.relation
-        assert dg.relation=={0: [0, 1, 2], 1: [1, 2], 2: [2], 3: [3, 4], 4: [4]}
+        subtree = dg.compute_subtree()
+        logging.info(json.dumps(subtree, indent=4))
+        assert subtree == {0: [0, 1, 2], 1: [1, 2], 2: [2], 3: [3, 4], 4: [4]}
 
         dg =DirectedGraph([[0 ,1] ,[1 ,2] ,[2 ,3] ,[3 ,4]])
-        print dg.relation
-        assert dg.relation=={0: [0, 1, 2, 3, 4], 1: [1, 2, 3, 4], 2: [2, 3, 4], 3: [3, 4], 4: [4]}
+        subtree = dg.compute_subtree()
+        logging.info(json.dumps(subtree, indent=4))
+        assert subtree=={0: [0, 1, 2, 3, 4], 1: [1, 2, 3, 4], 2: [2, 3, 4], 3: [3, 4], 4: [4]}
 
 
 
