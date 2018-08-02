@@ -309,8 +309,10 @@ def any2sha256(text):
 
 ####################################
 # string parser
-
-def parseListValue(value, regex=ur"[，,、；;／/]"):
+def parse_list_value(value, regex=ur"[，,、；;／/]"):
+#    return parseListValue(value, regex)
+#
+#def parseListValue(value, regex=ur"[，,、；;／/]"):
     """
         parse unicode string into a list
         if the input is not unicode or list, raise exception

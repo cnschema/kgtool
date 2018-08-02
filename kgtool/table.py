@@ -60,11 +60,11 @@ DataTable2018
 
 """
 
-def _writeHeader(ws, rowindex, columns):
+def _write_header(ws, rowindex, columns):
     for colindex, key in enumerate(columns):
         ws.write(rowindex, colindex, key)
 
-def _writeCell(ws, rowindex, columns, item):
+def _write_cell(ws, rowindex, columns, item):
     for colindex, colName in enumerate(columns):
         v = item.get(colName, "")
         if type(v) == list:
@@ -74,7 +74,7 @@ def _writeCell(ws, rowindex, columns, item):
         ws.write(rowindex, colindex, v)
 
 
-def json2excelMultiple(dataTable2018, filename, flagWriteHeader=True):
+def json2excel4multiple(dataTable2018, filename, flagWriteHeader=True):
     wb = xlwt.Workbook()
 
     for dataTable in dataTable2018:
@@ -87,11 +87,11 @@ def json2excelMultiple(dataTable2018, filename, flagWriteHeader=True):
         ws = wb.add_sheet(sheetname)
 
         if flagWriteHeader:
-            _writeHeader(ws, 0, columns)
+            _write_header(ws, 0, columns)
 
         for idx, row in enumerate(rows):
             rowindex = idx + 1 if flagWriteHeader else idx
-            _writeCell(ws, rowindex, columns, row)
+            _write_cell(ws, rowindex, columns, row)
 
     logging.debug(filename)
     wb.save(filename)
@@ -109,7 +109,7 @@ def json2excel(items, keys, filename, page_size=60000):
             ws = wb.add_sheet(sheetname)
             rowindex = 0
 
-        _writeCell(ws, rowindex, keys, item)
+        _write_cell(ws, rowindex, keys, item)
 
         rowindex += 1
 

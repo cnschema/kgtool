@@ -83,10 +83,10 @@ SCHEMA_EXCEL_HEADER = {
             "propertyAlternateName",
             "propertyRange",
             "propertySchema",
-            "propertyDefinition",
-            "propertyDefinitionSource",
-            "propertyDefinitionZh",
-            "propertyDefinitionZhSource"],
+            "_property_definition",
+            "_property_definitionSource",
+            "_property_definitionZh",
+            "_property_definitionZhSource"],
 		"SKIP": []
 	},
 	"changelog": {
@@ -110,13 +110,13 @@ SCHEMA_EXCEL_HEADER_SKIP = {
 }
 
 
-def initCnsExcel():
-    listSheetname = []
-    mapDataTable = {}
+def init_cns_excel():
+    list_sheet_name = []
+    map_data_table = {}
 
     sheetname = "class"
-    listSheetname.append(sheetname)
-    mapDataTable[sheetname] = {
+    list_sheet_name.append(sheetname)
+    map_data_table[sheetname] = {
         "sheetname": sheetname,
         "rows":[],
         "columns": [ "version",
@@ -138,8 +138,8 @@ def initCnsExcel():
     }
 
     sheetname = "property"
-    listSheetname.append(sheetname)
-    mapDataTable[sheetname] = {
+    list_sheet_name.append(sheetname)
+    map_data_table[sheetname] = {
         "sheetname": sheetname,
         "rows":[],
         "columns": ["version",
@@ -164,8 +164,8 @@ def initCnsExcel():
 
 
     sheetname = "template"
-    listSheetname.append(sheetname)
-    mapDataTable[sheetname] = {
+    list_sheet_name.append(sheetname)
+    map_data_table[sheetname] = {
         "sheetname": sheetname,
         "rows":[],
         "columns":[
@@ -179,16 +179,16 @@ def initCnsExcel():
             "propertyAlternateName",
             "propertyRange",
             "propertySchema",
-            "propertyDefinition",
-            "propertyDefinitionSource",
-            "propertyDefinitionZh",
-            "propertyDefinitionZhSource"
+            "_property_definition",
+            "_property_definitionSource",
+            "_property_definitionZh",
+            "_property_definitionZhSource"
         ]
     }
 
     sheetname = "changelog"
-    listSheetname.append(sheetname)
-    mapDataTable[sheetname] = {
+    list_sheet_name.append(sheetname)
+    map_data_table[sheetname] = {
         "sheetname": sheetname,
         "rows":[],
         "columns":[
@@ -200,8 +200,8 @@ def initCnsExcel():
     }
 
     sheetname = "metadata"
-    listSheetname.append(sheetname)
-    mapDataTable[sheetname] = {
+    list_sheet_name.append(sheetname)
+    map_data_table[sheetname] = {
         "sheetname": sheetname,
         "rows":[],
         "columns":[
@@ -211,7 +211,7 @@ def initCnsExcel():
         ]
     }
 
-    return listSheetname, mapDataTable
+    return list_sheet_name, map_data_table
 
 
 class CnsExcel():
@@ -223,21 +223,21 @@ class CnsExcel():
         self.schema = CnsSchema()
 
 
-    def loadExcelSchema(self, filename):
-        excelData = excel2json(filename)
+    def load_excel_schema(self, filename):
+        excel_data = excel2json(filename)
         name = os.path.basename(filename).split(".")[0]
-        self.schema.addMetadata("name", name)
+        self.schema.add_metadata("name", name)
 
-        for sheet_name, items in excelData["data"].items():
-            if self._loadSheetDefinition(sheet_name, items, "class"):
+        for sheet_name, items in excel_data["data"].items():
+            if self._load_sheet_definition(sheet_name, items, "class"):
                 pass
-            elif self._loadSheetDefinition(sheet_name, items, "property"):
+            elif self._load_sheet_definition(sheet_name, items, "property"):
                 pass
-            elif self._loadSheetCardinality(sheet_name, items):
+            elif self._load_sheet_cardinality(sheet_name, items):
                 pass
-            elif self._loadSheetChangelog(sheet_name, items):
+            elif self._load_sheet_changlog(sheet_name, items):
                 pass
-            elif self._loadSheetMetadata(sheet_name, items):
+            elif self._load_sheet_metadata(sheet_name, items):
                 pass
             else:
                 msg = u"skip sheet {}".format( sheet_name)
@@ -246,7 +246,7 @@ class CnsExcel():
 
         self.schema.build()
 
-    def _isValidRow(self, item):
+    def _is_valid_row(self, item):
         # all valid definition has version number starting with "v"
         if not item[u"version"].startswith("v"):
             return False
@@ -254,7 +254,7 @@ class CnsExcel():
         return True
 
 
-    def _loadSheetMetadata(self,  sheet_name, items):
+    def _load_sheet_metadata(self,  sheet_name, items):
         xlabel = "metadata"
 
         if sheet_name == xlabel:
@@ -262,9 +262,9 @@ class CnsExcel():
         else:
             return False
 
-        cnsItemList = []
+        cns_item_list = []
         for item in items:
-            if not self._isValidRow(item):
+            if not self._is_valid_row(item):
                 continue
 
             property = item["property"]
@@ -272,11 +272,11 @@ class CnsExcel():
             assert property
             assert value
 
-            self.schema.addMetadata( property, value )
+            self.schema.add_metadata( property, value )
 
         return True
 
-    def _loadSheetChangelog(self,  sheet_name, items):
+    def _load_sheet_changlog(self,  sheet_name, items):
         xlabel = "changelog"
         if sheet_name == xlabel:
             xtype = ["CnsChangelog", "CnsMetadata", "Thing"]
@@ -284,49 +284,49 @@ class CnsExcel():
             return False
 
 
-        cnsItemList = []
+        cns_item_list = []
         for item in items:
-            if not self._isValidRow(item):
+            if not self._is_valid_row(item):
                 continue
 
             name = item["name"]
             assert name
             xid = "http://meta.cnschema.org/changelog/{}".format(name)
 
-            cnsItem = {
+            cns_item = {
                 "@type": xtype,
                 "@id": xid,
                 "name": name,
             }
             for p,v in item.items():
-                self._copy_values(cnsItem, p, v, sheet_name)
+                self._copy_values(cns_item, p, v, sheet_name)
 
-            self.schema.addMetadata( xlabel, cnsItem )
+            self.schema.add_metadata( xlabel, cns_item )
 
         return True
 
-    def _cardinality2definition(self, cnsItem):
-        if cnsItem["propertySchema"] == "":
-            name = cnsItem["refProperty"]
+    def _cardinality2definition(self, cns_item):
+        if cns_item["propertySchema"] == "":
+            name = cns_item["refProperty"]
             xid = "http://cnschema.org/{}".format(name)
 
-            cnsItemDefinition = {
+            cns_item_definition = {
                 "@id": xid,
                 "@type": ["rdf:Property", "CnsDefinition","CnsMetadata", "Thing"],
                 "name": name,
                 "category": "property-template",
-                "nameZh": cnsItem["propertyNameZh"],
-                "alternateName": parseListValue(cnsItem["propertyAlternateName"]),
-                "rdfs:domain": parseListValue(cnsItem["refClass"]),
-                "rdfs:range": cnsItem["propertyRange"],
+                "nameZh": cns_item["propertyNameZh"],
+                "alternateName": parse_list_value(cns_item["propertyAlternateName"]),
+                "rdfs:domain": parse_list_value(cns_item["refClass"]),
+                "rdfs:range": cns_item["propertyRange"],
             }
-            cnsItemDefinitionOld = self.schema.getDefinition(xid)
-            if cnsItemDefinitionOld:
-                cnsItemDefinition["rdfs:domain"].extend( cnsItemDefinitionOld["rdfs:domain"] )
+            cns_item_definition_old = self.schema.get_definition(xid)
+            if cns_item_definition_old:
+                cns_item_definition["rdfs:domain"].extend( cns_item_definition_old["rdfs:domain"] )
 
-            self.schema.addDefinition( cnsItemDefinition )
+            self.schema.set_definition( cns_item_definition )
 
-    def _loadSheetCardinality(self,  sheet_name, items):
+    def _load_sheet_cardinality(self,  sheet_name, items):
 
 
         xlabel = "template"
@@ -336,7 +336,7 @@ class CnsExcel():
             return False
 
         for item in items:
-            if not self._isValidRow(item):
+            if not self._is_valid_row(item):
                 continue
 
             name = "{}_{}".format(
@@ -345,23 +345,23 @@ class CnsExcel():
             )
 
             xid = "http://meta.cnschema.org/template/{}".format( name )
-            cnsItem = {
+            cns_item = {
                 "@type": xtype,
                 "@id": xid,
                 "name": name
             }
             for p,v in item.items():
-                self._copy_values(cnsItem, p, v, sheet_name)
+                self._copy_values(cns_item, p, v, sheet_name)
 
-            self.schema.addMetadata( "template", cnsItem )
+            self.schema.add_metadata( "template", cns_item )
 
-            self._cardinality2definition(cnsItem)
+            self._cardinality2definition(cns_item)
 
         return True
 
-    def _copy_values(self, cnsItem, p, v, sheet_name):
+    def _copy_values(self, cns_item, p, v, sheet_name):
         if p in SCHEMA_EXCEL_HEADER[sheet_name]["COPY"]:
-            cnsItem[p] = v
+            cns_item[p] = v
         elif p in SCHEMA_EXCEL_HEADER[sheet_name]["SKIP"]:
             pass
         elif p == "":
@@ -370,9 +370,9 @@ class CnsExcel():
             msg = u"warn: column {} not in COPY/SKIP in sheet {}".format( p, sheet_name)
             self.report["warn"].append(msg)
             #logging.warn( msg )
-            #logging.warn( json4debug( cnsItem ) )
+            #logging.warn( json4debug( cns_item ) )
 
-    def _loadSheetDefinition(self, sheet_name, items, xlabel ):
+    def _load_sheet_definition(self, sheet_name, items, xlabel ):
         if not sheet_name == xlabel:
             return False
         #logging.info( xlabel )
@@ -385,26 +385,26 @@ class CnsExcel():
             assert False
 
         for item in items:
-            if not self._isValidRow(item):
+            if not self._is_valid_row(item):
                 continue
 
             name = item["name"]
             assert name
             xid = "http://cnschema.org/{}".format(name)
 
-            cnsItem = {
+            cns_item = {
                 "@type": xtype,
                 "@id": xid,
                 "name": name,
             }
             for p,v in item.items():
-                self._convertDefinition(p, v, cnsItem, sheet_name)
+                self._convert_definition(p, v, cns_item, sheet_name)
 
-            self.schema.addDefinition( cnsItem )
+            self.schema.set_definition( cns_item )
 
         return True
 
-    def _convertDefinition(self, p, v, cnsItem, sheet_name):
+    def _convert_definition(self, p, v, cns_item, sheet_name):
         if not v:
             return
 
@@ -415,22 +415,22 @@ class CnsExcel():
                 px = "rdfs:subPropertyOf"
             else:
                 assert False
-            cnsItem[px] =  parseListValue(v)
+            cns_item[px] =  parse_list_value(v)
         elif p  == "domain":
             px = "rdfs:domain"
-            cnsItem[px] = v
+            cns_item[px] = v
         elif p  == "range":
             px = "rdfs:range"
-            cnsItem[px] =  v
+            cns_item[px] =  v
         elif p == "supersededBy":
             pass
         elif p in MAP_NAME_URLPATTERN:
             px = re.sub("Name", "Url", p)
-            cnsItem[px] = MAP_NAME_URLPATTERN[p].format( v )
+            cns_item[px] = MAP_NAME_URLPATTERN[p].format( v )
         elif p in ["alternateName"]:
-            cnsItem[p] =  parseListValue(v)
+            cns_item[p] =  parse_list_value(v)
         else:
-            self._copy_values(cnsItem, p, v, sheet_name)
+            self._copy_values(cns_item, p, v, sheet_name)
 
 
 
@@ -439,17 +439,17 @@ def task_excel2jsonld(args):
     logging.info( "called task_excel2jsonld" )
     cnsExcel = CnsExcel()
     filename = args["input_file"]
-    cnsExcel.loadExcelSchema(filename)
+    cnsExcel.load_excel_schema(filename)
     if len(cnsExcel.report["warn"])>0:
         logging.info(json4debug(cnsExcel.report["warn"]))
         assert False
 
     filename_output = args["output_file"]
-    cnsExcel.schema.exportJsonLd(filename_output)
+    cnsExcel.schema.export_jsonld(filename_output)
 
     jsondata = file2json(filename_output)
-    report = cnsExcel.schema.initReport()
-    cnsExcel.schema.cnsValidateRecursive(jsondata, report)
+    report = init_report()
+    run_validate_recursive(cnsExcel.schema, jsondata, report)
     if len(report["bugs"])>2:
         logging.info(json4debug(report))
         assert False
@@ -457,7 +457,7 @@ def task_excel2jsonld(args):
 
     xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
     filename_debug = xdebug_file+u".debug"
-    cnsExcel.schema.exportDebug(filename_debug)
+    cnsExcel.schema.export_debug(filename_debug)
 
     from pyld import jsonld
     doc = file2json(filename_output)

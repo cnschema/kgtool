@@ -25,7 +25,7 @@ from kgtool.core import *
 from kgtool.table import *
 from kgtool.stats import stat_table
 from cns.schemaorg import Schemaorg
-from cns.cns_excel import initCnsExcel  # noqa
+from cns.cns_excel import init_cns_excel  # noqa
 
 import requests
 import requests_cache
@@ -118,7 +118,7 @@ def task_make_cns_schemaorg(args=None, stats=None):
         {"name":"", "alternateName":[]},
     ]
 
-    listSheetname, mapDataTable = initCnsExcel()
+    list_sheet_name, mapDataTable = init_cns_excel()
 
     for item in final_item_list:
         #skip supersededBy concepts
@@ -193,8 +193,8 @@ def task_make_cns_schemaorg(args=None, stats=None):
     logging.info(json4debug(stats))
     filename_output = "../local/cns_schemaorg.xls"
     filename_output = file2abspath(filename_output, __file__)
-    dataTable = [mapDataTable[x] for x in listSheetname ]
-    json2excelMultiple( dataTable,  filename_output)
+    dataTable = [mapDataTable[x] for x in list_sheet_name ]
+    json2excel4multiple( dataTable,  filename_output)
 
     return dataTable
 

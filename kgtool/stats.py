@@ -274,7 +274,7 @@ def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_ma
     stat_counter = collections.Counter()
     samples = collections.defaultdict(list)
     if schema_for_validation:
-        report = schema_for_validation.initReport()
+        report = schema_for_validation.init_report()
     else:
         report = {}
 
@@ -291,7 +291,7 @@ def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_ma
             stat_kg_report_per_item(cns_item, cns_item_category, stat_counter)
 
             if schema_for_validation:
-                schema_for_validation.cnsValidate(cns_item, report)
+                schema_for_validation.run_validate(cns_item, report)
 
             #basic validation
             for p in ["@id","@type"]:

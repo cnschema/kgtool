@@ -37,7 +37,7 @@ cns/cns_excel
 * load cnSchema schema in excel
 
 cns/schemaorg and cns/cns_schemaorg
-* convert schemaorg to cnsSchema format
+* convert schemaorg to loaded_schema format
 
 
 

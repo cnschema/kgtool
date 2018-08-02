@@ -12,24 +12,26 @@ except ImportError:
     import unittest
 
 from kgtool.core import *  # noqa
-from kgtool.cns_schema import *  # noqa
+from kgtool.cns_convert import *  # noqa
+from kgtool.cns_model import *  # noqa
+from kgtool.cns_validate import *  # noqa
 
 
 class CoreTestCase(unittest.TestCase):
     def setUp(self):
         filenameSchema = "../schema/cns_top.jsonld"
         self.filenameSchema = file2abspath(filenameSchema)
-        self.cnsSchema = CnsSchema()
-        self.cnsSchema.importJsonLd(self.filenameSchema)
+        self.loaded_schema = CnsSchema()
+        self.loaded_schema.import_jsonld(self.filenameSchema)
         pass
 
-    def test_loadJsonld(self):
+    def test_import_jsonld(self):
         logging.info( "called task_excel2jsonld" )
 
         #validate if we can reproduce the same jsonld based on input
         jsonld_input = file2json(self.filenameSchema)
 
-        jsonld_output = self.cnsSchema.exportJsonLd()
+        jsonld_output = self.loaded_schema.export_jsonld()
 
         assert len(jsonld_input) == len(jsonld_output)
         x = json4debug(jsonld_input).split("\n")
@@ -39,16 +41,16 @@ class CoreTestCase(unittest.TestCase):
                 logging.info(json4debug([idx, x[idx],y[idx]]) )
                 break
 
-    def test_cnsConvert(self):
+    def test_run_convert(self):
         tin = "test_cns_schema_input1.json"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
-        report = self.cnsSchema.initReport()
+        report = init_report()
         for idx, item in enumerate(input):
             types = [ item["mainType"], "Thing" ]
             primary_keys = [ item.get("name", item.get(u"名称")) ]
-            cns_item = self.cnsSchema.cnsConvert(item, types, primary_keys, report)
+            cns_item = run_convert(self.loaded_schema, item, types, primary_keys, report)
             logging.info(json4debug(cns_item))
 
             assert "name" in cns_item
@@ -63,11 +65,11 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(report))
             assert False, len(report["bugs_sample"])
 
-    def test_cnsConvert2(self):
+    def test_run_convert2(self):
         filenameSchema = "../schema/cns_organization.jsonld"
         filenameSchema = file2abspath(filenameSchema)
-        cnsSchema = CnsSchema()
-        cnsSchema.importJsonLd(filenameSchema)
+        loaded_schema = CnsSchema()
+        loaded_schema.import_jsonld(filenameSchema)
 
         item = {
             "changeAfter": "深圳金砖城市国开先导基金管理有限公司",
@@ -78,18 +80,18 @@ class CoreTestCase(unittest.TestCase):
         types = ["CompanyInfoUpdateEvent", "Event", "Thing"]
         item['name'] = '{0}_{1}_{2}'.format("aaa", item['date'], item['changeItem'])
         primary_keys = [ item["name"] ]
-        report = cnsSchema.initReport()
-        cns_item = cnsSchema.cnsConvert(item, types, primary_keys, report)
+        report = init_report()
+        cns_item = run_convert(loaded_schema, item, types, primary_keys, report)
         #logging.info(json4debug(cns_item))
         logging.info(json4debug(report))
 
         assert "changeCategory" in cns_item
 
-    def test_cnsConvertCnsLink(self):
+    def test_run_convert_cns_link(self):
         filenameSchema = "../schema/cns_organization.jsonld"
         filenameSchema = file2abspath(filenameSchema)
-        cnsSchema = CnsSchema()
-        cnsSchema.importJsonLd(filenameSchema)
+        loaded_schema = CnsSchema()
+        loaded_schema.import_jsonld(filenameSchema)
 
         item = {
             "business": "房地产开发与经营；室内、外工程装饰装修工程；物业服务；房地产信息咨询服务",
@@ -138,21 +140,21 @@ class CoreTestCase(unittest.TestCase):
         }
         item = any2unicode(item)
 
-        report = cnsSchema.initReport()
+        report = init_report()
 
         entities = []
         types = ["Company", "Thing"]
         item_in = {}
         item_in['name'] = item["cName"]
         primary_keys = [ item_in["name"] ]
-        cns_item_in = cnsSchema.cnsConvert(item_in, types, primary_keys, report)
+        cns_item_in = run_convert(loaded_schema, item_in, types, primary_keys, report)
         entities.append( cns_item_in )
 
         types = ["Person", "Thing"]
         item_out = {}
         item_out['name'] = item["legalPerson"]
         primary_keys = [ item_in['name'], item_out["name"] ]
-        cns_item_out = cnsSchema.cnsConvert(item_out, types, primary_keys, report)
+        cns_item_out = run_convert(loaded_schema, item_out, types, primary_keys, report)
         entities.append( cns_item_out )
 
         types = ["LegalRepresentativeRole", "CnsLink", "Thing"]
@@ -161,7 +163,7 @@ class CoreTestCase(unittest.TestCase):
         item_link['out'] = cns_item_out["@id"]
 
         primary_keys = [ ]
-        cns_item_link = cnsSchema.cnsConvert(item_link, types, primary_keys, report)
+        cns_item_link = run_convert(loaded_schema, item_link, types, primary_keys, report)
         entities.append( cns_item_link )
 
         logging.info(json4debug(entities))
@@ -220,30 +222,30 @@ class CoreTestCase(unittest.TestCase):
         assert id_link == "9841722f1ac4defdef21678550eb4d700a05d2d4b6bd99a93f3656adf6cb1851", id_link
 
 
-    def test_cnsValidate(self):
+    def test_cns_validate(self):
         tin = "test_cns_schema_input1.json"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
-        report = self.cnsSchema.initReport()
+        report = init_report()
         for item in input:
             types = [ item["mainType"], "Thing" ]
             primary_keys = [ item.get("name", item.get(u"名称")) ]
-            cns_item = self.cnsSchema.cnsConvert(item, types, primary_keys)
+            cns_item = run_convert(self.loaded_schema, item, types, primary_keys)
             logging.info(json4debug(cns_item))
-            self.cnsSchema.cnsValidate(cns_item, report)
+            run_validate(self.loaded_schema, cns_item, report)
 
         if len(report["bugs_sample"]) != 4:
             logging.info(json4debug(report))
             assert False, len(report["bugs_sample"])
 
-    def test_cnsValidateRecursive(self):
+    def test_run_validate_recursive(self):
         tin = "../schema/cns_top.jsonld"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
-        report = self.cnsSchema.initReport()
-        self.cnsSchema.cnsValidateRecursive(input, report)
+        report = init_report()
+        run_validate_recursive(self.loaded_schema, input, report)
 
 
         for cns_item in input["@graph"]:

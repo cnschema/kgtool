@@ -5,6 +5,7 @@ History
 0.0.6 (2018-07-25)
 ++++++++++++++++++
 * move cns.cns_schema to kgtool.cns_schema to better external access
+* refactor code, switch back to lowercase&underscore code style, split cns_schema into several files
 
 0.0.5 (2018-07-24)
 ++++++++++++++++++
@@ -21,7 +22,7 @@ History
 * add core.parseListValue
 * add cns_excel, cns_schema for process excel based CnSchema
 * cns_excel.task_excel2jsonld  convert excel-based schema to JSON-LD version
-* cns_schema with three main function cnsConvert, cnsValidate, cnsGraphviz
+* cns_schema with three main function cnsConvert, run_validate, run_graphviz
 
 0.0.3 (2018-04-14)
 ++++++++++++++++++
