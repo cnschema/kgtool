@@ -17,18 +17,18 @@ class DirectedGraph:
            node_to_list.add( node_to )
 
         self.roots = node_from_list.difference( node_to_list )
+        # print (self.roots)
 
     def _dfs(self, node, path, subtree):
         """
             run depth first search
         """
         for element in path:
-            subtree[element].append(node)
+            if node not in subtree[element]:
+                subtree[element].append(node)
 
         for child in self.nodes[node]:
             if child in path:
-                continue
-            if child == node:
                 continue
 
             path_child = [node]
@@ -41,10 +41,12 @@ class DirectedGraph:
             https://www.geeksforgeeks.org/sub-tree-nodes-tree-using-dfs/
         """
         subtree = collections.defaultdict(list)
+        # include self in subtree if required
         if include_self:
             for node in self.nodes:
                 subtree[node] = [node]
 
+        #build subtree
         for root in self.roots:
            self._dfs(root, [], subtree)
 

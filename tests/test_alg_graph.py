@@ -30,6 +30,10 @@ class CoreTestCase(unittest.TestCase):
         logging.info(json.dumps(subtree, indent=4))
         assert subtree=={0: [0, 1, 2, 3, 4], 1: [1, 2, 3, 4], 2: [2, 3, 4], 3: [3, 4], 4: [4]}
 
+        dg =DirectedGraph([[0 ,1] ,[2 ,1] ,[2 ,3] ,[1 ,4]])
+        subtree = dg.compute_subtree()
+        logging.info(json.dumps(subtree, indent=4))
+        assert subtree=={0: [0, 1, 4], 1: [1, 4], 2: [2, 1, 4, 3], 3: [3], 4: [4]}
 
 
 
