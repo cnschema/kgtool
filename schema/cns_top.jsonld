@@ -48,6 +48,7 @@
                 "Thing"
             ], 
             "category": "class-meta", 
+            "descriptionZh": "基础属性包括更新时间，来源，原文", 
             "name": "CnsDataStructure", 
             "nameZh": "复杂数据结构", 
             "rdfs:subClassOf": [
@@ -281,7 +282,7 @@
             "category": "class-datastructure", 
             "descriptionZh": "金额的详细描述，通常包括原文text， 数值value，币种currency。例如 text为100万，而value就是数字1000000，币种为人民币。", 
             "name": "MonetaryAmount", 
-            "nameZh": "金额", 
+            "nameZh": "复杂金额描述", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
@@ -385,8 +386,9 @@
                 "Thing"
             ], 
             "category": "class-datastructure", 
+            "descriptionZh": "更细节的属性值描述，包括进一步的属性名称", 
             "name": "PropertyValue", 
-            "nameZh": "属性值对", 
+            "nameZh": "复杂属性值对", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
@@ -402,8 +404,9 @@
                 "Thing"
             ], 
             "category": "class-datastructure", 
+            "descriptionZh": "针对数值型字段，提供可排序的浮点解析结果，", 
             "name": "QuantitativeValue", 
-            "nameZh": "键值对", 
+            "nameZh": "复杂数值描述", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
@@ -470,7 +473,9 @@
             "descriptionZh": "系统保留字，实体描述的相关实体", 
             "name": "about", 
             "nameZh": "关于", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Thing", 
             "schemaorgUrl": "http://schema.org/about", 
             "version": "v17q3"
@@ -487,7 +492,9 @@
             "descriptionZh": "系统保留字，实体的别名，Wikidata的alias。", 
             "name": "alternateName", 
             "nameZh": "别名", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/alternateName", 
             "version": "v17q2"
@@ -504,7 +511,9 @@
             "descriptionZh": "英文别名", 
             "name": "alternateNameEn", 
             "nameZh": "英文的别名", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -524,7 +533,9 @@
             "descriptionZh": "展示用，原始的实体别名，没有自动扩展过。 alternateName系统占用。", 
             "name": "alternateNameRaw", 
             "nameZh": "原始的别名", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -540,7 +551,9 @@
             "descriptionZh": "中文别名", 
             "name": "alternateNameZh", 
             "nameZh": "中文的别名", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -556,7 +569,9 @@
             "descriptionZh": "语义更宽泛的标签", 
             "name": "broader", 
             "nameZh": "上级标签", 
-            "rdfs:domain": "CnsTag", 
+            "rdfs:domain": [
+                "CnsTag"
+            ], 
             "rdfs:range": "CnsTag", 
             "version": "v17q3"
         }, 
@@ -572,7 +587,9 @@
             "descriptionZh": "实体的分组", 
             "name": "category", 
             "nameZh": "分组", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/category", 
             "version": "v17q2"
@@ -588,7 +605,9 @@
             "category": "property-ontology", 
             "name": "changelog", 
             "nameZh": "本体的相关变更记录", 
-            "rdfs:domain": "CnsOntology", 
+            "rdfs:domain": [
+                "CnsOntology"
+            ], 
             "rdfs:range": "CnsChangelog", 
             "version": "v18q3"
         }, 
@@ -604,7 +623,9 @@
             "descriptionZh": "置信度，0到1之间的浮点数", 
             "name": "confidence", 
             "nameZh": "置信度", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Float", 
             "version": "v18q2"
         }, 
@@ -620,7 +641,9 @@
             "descriptionZh": "语义冲突的标签", 
             "name": "conflict", 
             "nameZh": "冲突的标签", 
-            "rdfs:domain": "CnsTag", 
+            "rdfs:domain": [
+                "CnsTag"
+            ], 
             "rdfs:range": "CnsTag", 
             "version": "v17q3"
         }, 
@@ -633,9 +656,12 @@
                 "Thing"
             ], 
             "category": "property-ext", 
+            "descriptionZh": "使用 ISO 4271 三位文本表示", 
             "name": "currency", 
             "nameZh": "币种", 
-            "rdfs:domain": "MonetaryAmount", 
+            "rdfs:domain": [
+                "CnsDataStructure"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -651,7 +677,9 @@
             "descriptionZh": "发生的具体日期", 
             "name": "date", 
             "nameZh": "发生日期", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Date", 
             "version": "v18q2"
         }, 
@@ -667,7 +695,9 @@
             "descriptionZh": "系统保留字，溯源，实体数据创建时间，ISO8601 with Timezone", 
             "name": "dateCreated", 
             "nameZh": "创建日期", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/dateCreated", 
             "version": "v18q3"
@@ -684,7 +714,9 @@
             "descriptionZh": "系统保留字，溯源，实体数据更新时间", 
             "name": "dateModified", 
             "nameZh": "更新日期", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/dateModified", 
             "version": "v18q3"
@@ -698,10 +730,12 @@
                 "Thing"
             ], 
             "category": "property-info", 
-            "descriptionZh": "发布时间", 
+            "descriptionZh": "系统保留字，实体信息的发布时间", 
             "name": "datePublished", 
             "nameZh": "发布时间", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/datePublished", 
             "version": "v17q2"
@@ -722,7 +756,9 @@
             "descriptionZh": "系统保留字，实体的描述，Wikidata的description。", 
             "name": "description", 
             "nameZh": "简介", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/description", 
             "version": "v17q2"
@@ -739,7 +775,9 @@
             "descriptionZh": "英文简介", 
             "name": "descriptionEn", 
             "nameZh": "英文的简介", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -759,7 +797,9 @@
             "descriptionZh": "展示用，原始的实体描述，人物百科保存较长的人物描述", 
             "name": "descriptionRaw", 
             "nameZh": "原始的简介", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -772,9 +812,12 @@
                 "Thing"
             ], 
             "category": "property-info", 
+            "descriptionZh": "实体英文简介的来源的名称", 
             "name": "descriptionSource", 
             "nameZh": "英文的简介的来源", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -790,7 +833,9 @@
             "descriptionZh": "中文简介", 
             "name": "descriptionZh", 
             "nameZh": "中文的简介", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -803,9 +848,12 @@
                 "Thing"
             ], 
             "category": "property-info", 
+            "descriptionZh": "实体中文简介的来源的名称", 
             "name": "descriptionZhSource", 
             "nameZh": "中文的简介的来源", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -823,7 +871,9 @@
             "category": "property-ext", 
             "name": "email", 
             "nameZh": "电子邮件地址", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q3"
         }, 
@@ -843,7 +893,9 @@
             "descriptionZh": "结束的具体日期", 
             "name": "endDate", 
             "nameZh": "结束时间", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/endDate", 
             "version": "v18q2"
@@ -860,7 +912,9 @@
             "descriptionZh": "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体", 
             "name": "entityScore", 
             "nameZh": "全局评分", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Integer", 
             "version": "v17q3"
         }, 
@@ -876,7 +930,9 @@
             "descriptionZh": "系统保留字，溯源，实体在数据源对应的ID", 
             "name": "identifier", 
             "nameZh": "标识", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/identifier", 
             "version": "v17q3"
@@ -897,7 +953,9 @@
             "descriptionZh": "一个实体可以有多个image", 
             "name": "image", 
             "nameZh": "图片", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "URL", 
             "schemaorgUrl": "http://schema.org/image", 
             "version": "v17q2"
@@ -911,9 +969,12 @@
                 "Thing"
             ], 
             "category": "property-ontology", 
+            "descriptionZh": "模块化schema依赖机制", 
             "name": "import", 
             "nameZh": "本体的依赖schema", 
-            "rdfs:domain": "CnsOntology", 
+            "rdfs:domain": [
+                "CnsOntology"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q3"
         }, 
@@ -929,7 +990,9 @@
             "descriptionZh": "被描述的主体", 
             "name": "in", 
             "nameZh": "入点", 
-            "rdfs:domain": "CnsLink", 
+            "rdfs:domain": [
+                "CnsLink"
+            ], 
             "rdfs:range": "Thing", 
             "version": "v18q2"
         }, 
@@ -942,9 +1005,12 @@
                 "Thing"
             ], 
             "category": "property-sys", 
+            "descriptionZh": "本实体是对应实体的一部分", 
             "name": "isPartOf", 
             "nameZh": "从属于", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Thing", 
             "schemaorgUrl": "http://schema.org/isPartOf", 
             "version": "v18q3"
@@ -958,9 +1024,12 @@
                 "Thing"
             ], 
             "category": "property-info", 
+            "descriptionZh": "一组用逗号分隔的实体相关的关键词", 
             "name": "keywords", 
             "nameZh": "关键词", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/keywords", 
             "version": "v17q3"
@@ -977,7 +1046,9 @@
             "descriptionZh": "标准关系，通用二元关系关联实体，对应propertyGraph的边", 
             "name": "link", 
             "nameZh": "相关二元关系", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "CnsLink", 
             "version": "v18q2"
         }, 
@@ -994,6 +1065,7 @@
             "name": "maxCardinality", 
             "nameZh": "模版最大属性值个数限制", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Integer"
@@ -1007,9 +1079,12 @@
                 "Thing"
             ], 
             "category": "property-sys", 
+            "descriptionZh": "实体描述（description)或原文(text)等相关文本中提到的相关实体。", 
             "name": "mentions", 
             "nameZh": "提及", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Thing", 
             "schemaorgUrl": "http://schema.org/mentions", 
             "version": "v18q3"
@@ -1026,7 +1101,9 @@
             "descriptionZh": "系统保留字，实体融合来源", 
             "name": "mergedFrom", 
             "nameZh": "融合来源", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Thing", 
             "version": "v17q3"
         }, 
@@ -1042,7 +1119,9 @@
             "descriptionZh": "系统保留字，实体融合来源数量统计", 
             "name": "mergedFromCount", 
             "nameZh": "融合来源数量", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Integer", 
             "version": "v17q3"
         }, 
@@ -1059,6 +1138,7 @@
             "name": "minCardinality", 
             "nameZh": "模版最小属性值个数限制", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Integer"
@@ -1078,7 +1158,9 @@
             "descriptionZh": "系统保留字，实体的名称，Wikidata的label。", 
             "name": "name", 
             "nameZh": "名称", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/name", 
             "version": "v17q2"
@@ -1098,7 +1180,9 @@
             "descriptionZh": "概念的英文名称", 
             "name": "nameEn", 
             "nameZh": "英文的名称", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -1117,7 +1201,9 @@
             "descriptionZh": "展示用，原始的实体名称", 
             "name": "nameRaw", 
             "nameZh": "原始的名称", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -1136,7 +1222,9 @@
             "descriptionZh": "概念的中文名称", 
             "name": "nameZh", 
             "nameZh": "中文的名称", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -1152,7 +1240,9 @@
             "descriptionZh": "被链接的客体", 
             "name": "out", 
             "nameZh": "出点", 
-            "rdfs:domain": "CnsLink", 
+            "rdfs:domain": [
+                "CnsLink"
+            ], 
             "rdfs:range": "Thing", 
             "version": "v18q2"
         }, 
@@ -1168,7 +1258,9 @@
             "descriptionZh": "系统保留字，实体的版本号", 
             "name": "pageRankValue", 
             "nameZh": "图谱pagerank评分", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Float", 
             "version": "v18q3"
         }, 
@@ -1185,6 +1277,7 @@
             "name": "propertyAlternateName", 
             "nameZh": "模版对应属性在模版中的其他别名", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1202,6 +1295,7 @@
             "name": "propertyDefinition", 
             "nameZh": "模版对应属性的定义", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1219,6 +1313,7 @@
             "name": "propertyDefinitionSource", 
             "nameZh": "模版对应属性的定义来源", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1236,6 +1331,7 @@
             "name": "propertyDefinitionZh", 
             "nameZh": "模版对应属性的中文定义", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1253,6 +1349,7 @@
             "name": "propertyDefinitionZhSource", 
             "nameZh": "模版对应属性的中文定义来源", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1270,6 +1367,7 @@
             "name": "propertyNameZh", 
             "nameZh": "模版对应属性在模版显示中的中文名称", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1287,6 +1385,7 @@
             "name": "propertyRange", 
             "nameZh": "模版对应属性在模版中的属性值限制", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1304,6 +1403,7 @@
             "name": "propertySchema", 
             "nameZh": "模版对应属性的所属Schema", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1318,8 +1418,10 @@
             ], 
             "category": "property-ext", 
             "name": "proportion", 
-            "nameZh": "比率", 
-            "rdfs:domain": "QuantitativeValue", 
+            "nameZh": "占比", 
+            "rdfs:domain": [
+                "CnsDataStructure"
+            ], 
             "rdfs:range": "Float", 
             "version": "v17q3", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1107"
@@ -1337,6 +1439,7 @@
             "name": "refClass", 
             "nameZh": "模版对应实体分类", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1354,6 +1457,7 @@
             "name": "refProperty", 
             "nameZh": "模版对应属性", 
             "rdfs:domain": [
+                "CnsTemplate", 
                 "CnsTemplate"
             ], 
             "rdfs:range": "Text"
@@ -1373,7 +1477,9 @@
             "descriptionZh": "系统保留字，溯源，实体描述来自哪个网页", 
             "name": "referenceUrl", 
             "nameZh": "来源网址", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "URL", 
             "version": "v17q3", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P854"
@@ -1389,7 +1495,9 @@
             "category": "property-ontology", 
             "name": "schemaorgUrl", 
             "nameZh": "Schemaorg概念链接", 
-            "rdfs:domain": "CnsDefinition", 
+            "rdfs:domain": [
+                "CnsDefinition"
+            ], 
             "rdfs:range": "URL", 
             "version": "v18q3"
         }, 
@@ -1409,7 +1517,9 @@
             "descriptionZh": "开始的具体日期", 
             "name": "startDate", 
             "nameZh": "开始时间", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "DateTime", 
             "schemaorgUrl": "http://schema.org/startDate", 
             "version": "v18q2"
@@ -1426,7 +1536,9 @@
             "descriptionZh": "系统保留字，溯源，实体来自哪个数据源", 
             "name": "statedIn", 
             "nameZh": "载于", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P248"
@@ -1443,7 +1555,9 @@
             "descriptionZh": "简化关系，直接对接实体，没有任何附加属性。通过标签承载实体与标签的更多关系", 
             "name": "tag", 
             "nameZh": "相关标签", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "CnsTag", 
             "version": "v17q3"
         }, 
@@ -1461,7 +1575,9 @@
             "category": "property-ext", 
             "name": "telephone", 
             "nameZh": "电话号码", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q3"
         }, 
@@ -1476,7 +1592,9 @@
             "category": "property-ontology", 
             "name": "template", 
             "nameZh": "本体的相关概念模版", 
-            "rdfs:domain": "CnsOntology", 
+            "rdfs:domain": [
+                "CnsOntology"
+            ], 
             "rdfs:range": "CnsTemplate", 
             "version": "v18q3"
         }, 
@@ -1495,7 +1613,9 @@
             "descriptionZh": "系统保留字，溯源，实体对应的原文", 
             "name": "text", 
             "nameZh": "内容", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/text", 
             "version": "v17q2"
@@ -1511,7 +1631,9 @@
             "category": "property-ext", 
             "name": "unitText", 
             "nameZh": "单位", 
-            "rdfs:domain": "QuantitativeValue", 
+            "rdfs:domain": [
+                "CnsDataStructure"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/unitText", 
             "version": "v18q2"
@@ -1528,7 +1650,9 @@
             "descriptionZh": "实体对应的网页链接", 
             "name": "url", 
             "nameZh": "网页链接", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "URL", 
             "schemaorgUrl": "http://schema.org/url", 
             "version": "v17q2"
@@ -1544,7 +1668,9 @@
             "category": "property-ext", 
             "name": "value", 
             "nameZh": "数值", 
-            "rdfs:domain": "QuantitativeValue", 
+            "rdfs:domain": [
+                "CnsDataStructure"
+            ], 
             "rdfs:range": "Number", 
             "schemaorgUrl": "http://schema.org/value", 
             "version": "v17q3"
@@ -1561,7 +1687,9 @@
             "descriptionZh": "系统保留字，实体的版本号", 
             "name": "version", 
             "nameZh": "版本", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q3"
         }, 
@@ -1580,7 +1708,9 @@
             "category": "property-ext", 
             "name": "website", 
             "nameZh": "网页地址", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q3"
         }, 
@@ -1595,7 +1725,9 @@
             "category": "property-ontology", 
             "name": "wikidataUrl", 
             "nameZh": "wikidata概念链接", 
-            "rdfs:domain": "CnsDefinition", 
+            "rdfs:domain": [
+                "CnsDefinition"
+            ], 
             "rdfs:range": "URL", 
             "version": "v18q3"
         }, 
@@ -1610,7 +1742,9 @@
             "category": "property-ontology", 
             "name": "wikipediaUrl", 
             "nameZh": "wikipedia概念链接", 
-            "rdfs:domain": "CnsDefinition", 
+            "rdfs:domain": [
+                "CnsDefinition"
+            ], 
             "rdfs:range": "URL", 
             "version": "v18q3"
         }
@@ -1635,6 +1769,72 @@
     "dateModified": "2018-06-22", 
     "name": "cns_top", 
     "template": [
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDataStructure_datePublished", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDataStructure_datePublished", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "发布时间", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDataStructure", 
+            "refProperty": "datePublished", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDataStructure_statedIn", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDataStructure_statedIn", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "来源", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDataStructure", 
+            "refProperty": "statedIn", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDataStructure_text", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDataStructure_text", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "原文", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDataStructure", 
+            "refProperty": "text", 
+            "version": "v18q3"
+        }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsDefinition_category", 
             "@type": [
@@ -2345,7 +2545,7 @@
                 "Thing"
             ], 
             "maxCardinality": 1, 
-            "minCardinality": 0, 
+            "minCardinality": 1, 
             "name": "MonetaryAmount_currency", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
@@ -2357,29 +2557,7 @@
             "propertySchema": "cns_top", 
             "refClass": "MonetaryAmount", 
             "refProperty": "currency", 
-            "version": "v18q2"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/MonetaryAmount_text", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "MonetaryAmount_text", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "原文", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "MonetaryAmount", 
-            "refProperty": "text", 
-            "version": "v18q2"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/MonetaryAmount_value", 
@@ -2389,7 +2567,7 @@
                 "Thing"
             ], 
             "maxCardinality": 1, 
-            "minCardinality": 0, 
+            "minCardinality": 1, 
             "name": "MonetaryAmount_value", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
@@ -2397,11 +2575,11 @@
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "总量", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "propertySchema": "cns_top", 
             "refClass": "MonetaryAmount", 
             "refProperty": "value", 
-            "version": "v18q2"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/PropertyValue_name", 
@@ -2418,34 +2596,12 @@
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
+            "propertyNameZh": "属性名", 
+            "propertyRange": "Text", 
             "propertySchema": "cns_top", 
             "refClass": "PropertyValue", 
             "refProperty": "name", 
-            "version": "v18q2"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/PropertyValue_unitText", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "PropertyValue_unitText", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
-            "propertySchema": "cns_top", 
-            "refClass": "PropertyValue", 
-            "refProperty": "unitText", 
-            "version": "v18q2"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/PropertyValue_value", 
@@ -2462,15 +2618,15 @@
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
+            "propertyNameZh": "属性值", 
+            "propertyRange": "Number", 
             "propertySchema": "cns_top", 
             "refClass": "PropertyValue", 
             "refProperty": "value", 
-            "version": "v18q2"
+            "version": "v18q3"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/QuantitativeValue_datePublished", 
+            "@id": "http://meta.cnschema.org/template/QuantitativeValue_proportion", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMetadata", 
@@ -2478,18 +2634,40 @@
             ], 
             "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "QuantitativeValue_datePublished", 
+            "name": "QuantitativeValue_proportion", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
+            "propertyNameZh": "占比", 
+            "propertyRange": "Float", 
             "propertySchema": "cns_top", 
             "refClass": "QuantitativeValue", 
-            "refProperty": "datePublished", 
-            "version": "v18q2"
+            "refProperty": "proportion", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/QuantitativeValue_unitText", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "QuantitativeValue_unitText", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "单位", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "QuantitativeValue", 
+            "refProperty": "unitText", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/QuantitativeValue_value", 
@@ -2506,12 +2684,12 @@
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
+            "propertyNameZh": "数值", 
+            "propertyRange": "Float", 
             "propertySchema": "cns_top", 
             "refClass": "QuantitativeValue", 
             "refProperty": "value", 
-            "version": "v18q2"
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_alternateName", 

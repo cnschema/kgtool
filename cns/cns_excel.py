@@ -324,6 +324,7 @@ class CnsExcel():
             cns_item_definition_old = self.schema.get_definition(xid)
             if cns_item_definition_old:
                 cns_item_definition["rdfs:domain"].extend( cns_item_definition_old["rdfs:domain"] )
+                #cns_item_definition["rdfs:range"].extend( cns_item_definition_old["rdfs:range"] )
 
             self.schema.set_definition( cns_item_definition )
 
@@ -417,7 +418,7 @@ class CnsExcel():
             cns_item[px] =  parse_list_value(v)
         elif p  == "domain":
             px = "rdfs:domain"
-            cns_item[px] = v
+            cns_item[px] = parse_list_value(v)
         elif p  == "range":
             px = "rdfs:range"
             cns_item[px] =  v
@@ -457,8 +458,8 @@ def _export_nquad(args, filename_output):
     normalized = jsonld.normalize(
         doc, {'algorithm': 'URDNA2015', 'format': 'application/n-quads'})
     xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
-    filename_debug = xdebug_file+u".nq"
-    filename_nquad = args["output_file"].replace("jsonld","nq")
+    filename_nquad = xdebug_file+u".nq"
+    #filename_nquad = args["output_file"].replace("jsonld","nq")
     lines2file([normalized], filename_nquad )
 
     # RDF lib does not parse JSON-LD correctly
