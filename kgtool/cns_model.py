@@ -567,7 +567,7 @@ def preload_schema(args=None):
     if schema_name_list is not None:
         schema_name_list = [x.strip() for x in schema_name_list.split(",") if x.strip()]
     else:
-        schema_name_list = ["cns_top","cns_place","cns_person","cns_creativework","cns_organization"]
+        schema_name_list = ["cns_top","cns_place","cns_person","cns_organization"]
 
     preloaded_schema_list = {}
     for schema_name in schema_name_list:

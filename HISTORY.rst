@@ -5,6 +5,7 @@ History
 0.1.0 (2018-08-05)
 ++++++++++++++++++
 * refactor code, switch back to lowercase&underscore code style, split cns_schema into cns_model, cns_validate, cns_convert, cns_graphviz
+* remove cns_creativework
 
 0.0.6 (2018-07-25)
 ++++++++++++++++++
