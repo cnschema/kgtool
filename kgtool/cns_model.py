@@ -23,6 +23,7 @@ sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
+from kgtool.alg_graph import DirectedGraph
 
 # global constants
 VERSION = 'v20180729'
@@ -91,6 +92,35 @@ def gen_plist(cns_item, plist_meta=None):
 
     return plist
 
+def gen_imported_schema_list(schema, preloaded_schema_list):
+    #handle import
+    name = schema.metadata["name"]
+    imported_schema_list = []
+    imported_schema_name = []
+    if name != "cns_top":
+        imported_schema_name.append( "cns_top" )
+
+    #logging.info(json4debug(schema.metadata))
+    imported_schema_name.extend( json_get_list(schema.metadata, "import") )
+    #logging.info(json4debug(schema.metadata["import"]))
+    #assert False
+
+    #logging.info(json4debug(imported_schema_name))
+    for schema_name in imported_schema_name:
+        schema = preloaded_schema_list.get(schema_name)
+        if not schema:
+            #load schema on demand
+            filename = u"../schema/{}.jsonld".format(schema_name)
+            filename = file2abspath(filename)
+            logging.info("import schema "+ filename)
+            schema = CnsSchema()
+            schema.import_jsonld(filename, preloaded_schema_list)
+
+        assert schema, schema_name
+        imported_schema_list.append( schema )
+        logging.info("importing {}".format(schema_name))
+    return imported_schema_list
+
 def init_report():
     return  {"bugs":[], "bugs_sample":{},"stats":collections.Counter(), "flag_detail": False}
 
@@ -120,7 +150,6 @@ class CnsSchema:
         # schema raw data: 引用相关Schema
         self.imported_schema_list = []
 
-
         #index: 属性名称映射表  property alias => property standard name
         self.index_property_alias = {}
 
@@ -136,6 +165,9 @@ class CnsSchema:
         #index: VALIDATION  property =>  range
         self.index_validate_range = collections.defaultdict( dict )
 
+        #index: subclass/subproperty inheritance  class/property to all its super ones
+        self.index_inheritance = collections.defaultdict(dict)
+
 
     def set_definition(self, item):
         assert "@id" in item
@@ -144,39 +176,24 @@ class CnsSchema:
     def get_definition(self, xid):
         return self.definition.get(xid)
 
+
+    def add_metadata(self, group, item):
+        if group in ["version", "template"]:
+            self.metadata[group].append(item)
+        elif group in ["import"]:
+            if type(item) == list:
+                self.metadata[group].extend(item)
+            else:
+                self.metadata[group].append(item)
+        else:
+            self.metadata[group] = item
+
+
     def build(self, preloaded_schema_list={}):
-        def _build_imported_schema_list(schema):
-            #handle import
-            name = schema.metadata["name"]
-            imported_schema_list = []
-            imported_schema_name = []
-            if name != "cns_top":
-                imported_schema_name.append( "cns_top" )
-
-            #logging.info(json4debug(schema.metadata))
-            imported_schema_name.extend( json_get_list(schema.metadata, "import") )
-            #logging.info(json4debug(schema.metadata["import"]))
-            #assert False
-
-            #logging.info(json4debug(imported_schema_name))
-            for schema_name in imported_schema_name:
-                schema = preloaded_schema_list.get(schema_name)
-                if not schema:
-                    #load schema on demand
-                    filename = u"../schema/{}.jsonld".format(schema_name)
-                    filename = file2abspath(filename)
-                    logging.info("import schema "+ filename)
-                    schema = CnsSchema()
-                    schema.import_jsonld(filename, preloaded_schema_list)
-
-                assert schema, schema_name
-                imported_schema_list.append( schema )
-                logging.info("importing {}".format(schema_name))
-            return imported_schema_list
 
         available_schema_list = []
         #available_schema_list.extend( self.imported_schema_list )
-        available_schema_list.extend(_build_imported_schema_list(self))
+        available_schema_list.extend(gen_imported_schema_list(self, preloaded_schema_list))
         available_schema_list.append(self)
 
         self.loaded_schema_list = available_schema_list
@@ -193,7 +210,7 @@ class CnsSchema:
         self._build_index_range(available_schema_list)
         self._build_index_template(available_schema_list)
         self._build_index_domain(available_schema_list)
-        #self._build_index_inheritance(available_schema_list)
+        self._build_index_inheritance(available_schema_list)
 
         #logging.info([x.metadata["name"] for x in available_schema_list])
         self._validate_schema()
@@ -236,20 +253,24 @@ class CnsSchema:
 
     def _build_index_inheritance(self, available_schema_list):
         #list all direct class hierarchy pairs
+        plist = ["rdfs:subClassOf","rdfs:subPropertyOf"]
         direct_sub = collections.defaultdict(list)
         for schema in available_schema_list:
             for cns_item in schema.definition.values():
-                plist = ["rdfs:subClassOf","rdfs:subPropertyOf"]
                 for p in plist:
                     if p in cns_item:
                         for v in cns_item[p]:
                             direct_sub[p].append([cns_item["name"], v])
 
-        logging.info(json4debug(direct_sub))
+        #logging.info(json4debug(direct_sub))
 
         # compute indirect class hierarchy relations
         self.index_inheritance = collections.defaultdict(dict)
+        for p in direct_sub:
+            dg = DirectedGraph(direct_sub[p])
+            self.index_inheritance[p] = dg.compute_subtree()
 
+        #logging.info( json4debug(self.index_inheritance ))
 
 
     def _build_index_range(self, available_schema_list):
@@ -427,16 +448,31 @@ class CnsSchema:
 
 
 
-    def add_metadata(self, group, item):
-        if group in ["version", "template"]:
-            self.metadata[group].append(item)
-        elif group in ["import"]:
-            if type(item) == list:
-                self.metadata[group].extend(item)
+
+    def import_jsonld(self, filename=None, preloaded_schema_list={}):
+        #reset data
+        jsonld = file2json(filename)
+        return self.import_jsonld_content(jsonld, preloaded_schema_list)
+
+    def import_jsonld_content(self, jsonld, preloaded_schema_list={}):
+        #load
+        assert jsonld["@context"]["@vocab"] == "http://cnschema.org/"
+
+        for p in jsonld:
+            if p.startswith("@"):
+                pass
+            elif p in ["template"]:
+                for v in jsonld[p]:
+                    self.add_metadata(p, v)
             else:
-                self.metadata[group].append(item)
-        else:
-            self.metadata[group] = item
+                self.add_metadata(p, jsonld[p])
+
+
+
+        for definition in jsonld["@graph"]:
+            self.set_definition(definition)
+
+        self.build(preloaded_schema_list)
 
 
     def export_jsonld(self, filename=None):
@@ -476,34 +512,14 @@ class CnsSchema:
 
         return jsonld
 
-    def import_jsonld(self, filename=None, preloaded_schema_list={}):
-        #reset data
-        jsonld = file2json(filename)
-        return self.import_jsonld_content(jsonld, preloaded_schema_list)
-
-    def import_jsonld_content(self, jsonld, preloaded_schema_list={}):
-        #load
-        assert jsonld["@context"]["@vocab"] == "http://cnschema.org/"
-
-        for p in jsonld:
-            if p.startswith("@"):
-                pass
-            elif p in ["template"]:
-                for v in jsonld[p]:
-                    self.add_metadata(p, v)
-            else:
-                self.add_metadata(p, jsonld[p])
-
-
-
-        for definition in jsonld["@graph"]:
-            self.set_definition(definition)
-
-        self.build(preloaded_schema_list)
-
     def export_debug(self, filename=None):
         output = {
-            u"index_property_alias_属性别名": self.index_property_alias
+            u"index_property_alias_属性名称映射表": self.index_property_alias,
+            u"index_definition_alias_定义名称映射表": self.index_definition_alias,
+            u"index_validate_template": self.index_validate_template,
+            u"index_validate_domain": self.index_validate_domain,
+            #u"index_validate_range": self.index_validate_range,
+            u"index_inheritance": self.index_inheritance,
         }
 
         #save to file
@@ -511,6 +527,8 @@ class CnsSchema:
             json2file(output,filename)
 
         return output
+
+
 def task_import_schema(args):
     logging.info("enter")
     filename = args["input_file"]
@@ -522,7 +540,7 @@ def task_import_schema(args):
     jsonld_input = file2json(filename)
 
     xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["input_file"]))
-    filename_debug = xdebug_file+u".debug-2"
+    filename_debug = xdebug_file+u".debug-jsonld.json"
     jsonld_output = loaded_schema.export_jsonld(filename_debug)
 
     assert len(jsonld_input) == len(jsonld_output)
@@ -534,6 +552,10 @@ def task_import_schema(args):
         if x[idx] != y[idx]:
             logging.info(json4debug([idx, x[idx],y[idx]]) )
             break
+
+    filename_debug = xdebug_file+u".debug-memory.json"
+    jsonld_output = loaded_schema.export_debug(filename_debug)
+
 
 def preload_schema(args=None):
     logging.info("enter")
@@ -573,10 +595,10 @@ if __name__ == "__main__":
 
 """
     # task 1: import jsonld (and is loaded completely)
-    python kgtool/cns_model.py task_import_schema --input_file=schema/cns_top.jsonld --debug_dir=local/ --dir_schema=schema
-    python kgtool/cns_model.py task_import_schema --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/ --dir_schema=schema
-    python kgtool/cns_model.py task_import_schema --input_file=schema/cns_organization.jsonld --debug_dir=local/ --dir_schema=schema
+    python kgtool/cns_model.py task_import_schema --input_file=schema/cns_top.jsonld --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_model.py task_import_schema --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_model.py task_import_schema --input_file=schema/cns_organization.jsonld --debug_dir=local/debug --dir_schema=schema
 
-    python kgtool/cns_model.py task_import_schema --input_file=local/cns_fund_public.jsonld --debug_dir=local/ --dir_schema=schema
+    python kgtool/cns_model.py task_import_schema --input_file=local/cns_fund_public.jsonld --debug_dir=local/debug --dir_schema=schema
 
 """
