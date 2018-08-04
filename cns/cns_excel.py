@@ -21,8 +21,9 @@ sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
-from kgtool.table import *  # noqa
-from kgtool.cns_schema import *
+from kgtool.table import excel2json, json2excel  # noqa
+from kgtool.cns_model import CnsSchema, init_report
+from kgtool.cns_validate import run_validate_recursive
 
 
 # global constants
@@ -83,10 +84,10 @@ SCHEMA_EXCEL_HEADER = {
             "propertyAlternateName",
             "propertyRange",
             "propertySchema",
-            "_property_definition",
-            "_property_definitionSource",
-            "_property_definitionZh",
-            "_property_definitionZhSource"],
+            "propertyDefinition",
+            "propertyDefinitionSource",
+            "propertyDefinitionZh",
+            "propertyDefinitionZhSource"],
 		"SKIP": []
 	},
 	"changelog": {
@@ -179,10 +180,10 @@ def init_cns_excel():
             "propertyAlternateName",
             "propertyRange",
             "propertySchema",
-            "_property_definition",
-            "_property_definitionSource",
-            "_property_definitionZh",
-            "_property_definitionZhSource"
+            "propertyDefinition",
+            "propertyDefinitionSource",
+            "propertyDefinitionZh",
+            "propertyDefinitionZhSource"
         ]
     }
 
