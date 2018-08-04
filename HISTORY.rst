@@ -2,10 +2,13 @@
 
 History
 -------
+0.1.0 (2018-08-05)
+++++++++++++++++++
+* refactor code, switch back to lowercase&underscore code style, split cns_schema into cns_model, cns_validate, cns_convert, cns_graphviz
+
 0.0.6 (2018-07-25)
 ++++++++++++++++++
 * move cns.cns_schema to kgtool.cns_schema to better external access
-* refactor code, switch back to lowercase&underscore code style, split cns_schema into several files
 
 0.0.5 (2018-07-24)
 ++++++++++++++++++

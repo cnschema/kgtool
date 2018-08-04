@@ -289,7 +289,7 @@ def run_graphviz(loaded_schema, name):
         graph = _graph_create()
         if schema.metadata["name"] == "cns_top":
             continue
-        _graph_update(schema, graph)
+        _graph_update(loaded_schema, schema, graph)
         graph_new = _filter_compact(graph,)
         subgraph = _render_dot_format(graph_new,key, schema.metadata["name"])
         lines.append(subgraph)

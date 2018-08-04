@@ -328,8 +328,6 @@ class CnsExcel():
             self.schema.set_definition( cns_item_definition )
 
     def _load_sheet_cardinality(self,  sheet_name, items):
-
-
         xlabel = "template"
         if sheet_name == xlabel:
             xtype = ["CnsTemplate", "CnsMetadata", "Thing"]
@@ -433,39 +431,35 @@ class CnsExcel():
         else:
             self._copy_values(cns_item, p, v, sheet_name)
 
-
-
-
 def task_excel2jsonld(args):
     logging.info( "called task_excel2jsonld" )
-    cnsExcel = CnsExcel()
+    obj_excel = CnsExcel()
     filename = args["input_file"]
-    cnsExcel.load_excel_schema(filename)
-    if len(cnsExcel.report["warn"])>0:
-        logging.info(json4debug(cnsExcel.report["warn"]))
+    obj_excel.load_excel_schema(filename)
+    if len(obj_excel.report["warn"])>0:
+        logging.info(json4debug(obj_excel.report["warn"]))
         assert False
 
     filename_output = args["output_file"]
-    cnsExcel.schema.export_jsonld(filename_output)
+    obj_excel.schema.export_jsonld(filename_output)
 
     jsondata = file2json(filename_output)
     report = init_report()
-    run_validate_recursive(cnsExcel.schema, jsondata, report)
+    run_validate_recursive(obj_excel.schema, jsondata, report)
     if len(report["bugs"])>2:
         logging.info(json4debug(report))
         assert False
+    _export_nquad(args, filename_output)
 
-
-    xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
-    filename_debug = xdebug_file+u".debug"
-    cnsExcel.schema.export_debug(filename_debug)
-
+def _export_nquad(args, filename_output):
     from pyld import jsonld
     doc = file2json(filename_output)
     normalized = jsonld.normalize(
         doc, {'algorithm': 'URDNA2015', 'format': 'application/n-quads'})
-    filename_ntriples = args["output_file"].replace("jsonld","nq")
-    lines2file([normalized], filename_ntriples )
+    xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
+    filename_debug = xdebug_file+u".nq"
+    filename_nquad = args["output_file"].replace("jsonld","nq")
+    lines2file([normalized], filename_nquad )
 
     # RDF lib does not parse JSON-LD correctly
     #from rdflib import Graph, plugin
@@ -492,12 +486,12 @@ if __name__ == "__main__":
     excel2jsonld  and n-quad
 
     mv ~/Downloads/cns_top.xlsx ~/haizhi/git/kgtool/local/
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/debug/
 
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug/
 
     mv ~/Downloads/cns_organization.xlsx ~/haizhi/git/kgtool/local/
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_organization.xlsx --output_file=schema/cns_organization.jsonld --debug_dir=local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_organization.xlsx --output_file=schema/cns_organization.jsonld --debug_dir=local/debug/
 
 
 """

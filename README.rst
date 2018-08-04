@@ -28,17 +28,16 @@ kgtool/core.py
 kgtool/stats.py
 * table item statistics
 
-cns/cns_schema
-* convert
-* validate
-* graphviz
+kgtool cns
+* cns/cns_model.py    basic cns data model, load/export jsonld
+* cns/cns_convert.py  convert cns item
+* cns/cns_validate.py  validate cns item
+* cns/cns_graphviz.py  visualize cns schema
 
-cns/cns_excel
-* load cnSchema schema in excel
-
-cns/schemaorg and cns/cns_schemaorg
-* convert schemaorg to loaded_schema format
-
+cns
+* cns/cns_excel.py    load cnSchema schema in excel
+* cns/schemaorg.py    update schemaorg
+* cns/cns_schemaorg.py   convert schemaorg to loaded_schema format
 
 
 cnSchema 201806
@@ -75,7 +74,7 @@ https://docs.google.com/spreadsheets/d/1qVaBhsbf0RRkrVhG0kkkn79q_fH4s4bV3oO5isGr
 
 ### cns_person
 源文件
-https://docs.google.com/spreadsheets/d/1qVaBhsbf0RRkrVhG0kkkn79q_fH4s4bV3oO5isGrX8o/edit#gid=659512552
+https://docs.google.com/spreadsheets/d/1b5DubotKUTU5tvT2pGXztwLpP63Xrc1le-VOuGKqbcw/edit
 
 ./genschema.sh cns_person
 
