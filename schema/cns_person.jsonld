@@ -16,7 +16,9 @@
             "category": "property-ext", 
             "name": "academicMajor", 
             "nameZh": "高校专业", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P812"
@@ -32,7 +34,9 @@
             "category": "property-ext", 
             "name": "accomplishment", 
             "nameZh": "主要成就", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -47,7 +51,9 @@
             "category": "property-ext", 
             "name": "affiliation", 
             "nameZh": "所属机构", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "schemaorgUrl": "http://schema.org/affiliation", 
             "version": "v17q2"
@@ -63,7 +69,9 @@
             "category": "property-ext", 
             "name": "alumniOf", 
             "nameZh": "毕业院校", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Organization", 
             "schemaorgUrl": "http://schema.org/alumniOf", 
             "version": "v17q2", 
@@ -80,7 +88,9 @@
             "category": "property-ext", 
             "name": "ancestralHome", 
             "nameZh": "籍贯", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P66"
@@ -96,7 +106,9 @@
             "category": "property-ext", 
             "name": "artName", 
             "nameZh": "号、自号、别号、又号", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1787"
@@ -112,7 +124,9 @@
             "category": "property-ext", 
             "name": "authorOf", 
             "nameZh": "作品、代表作", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -127,7 +141,9 @@
             "category": "property-ext", 
             "name": "award", 
             "nameZh": "奖项, 获奖", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/award", 
             "version": "v18q2", 
@@ -144,7 +160,9 @@
             "category": "property-ext", 
             "name": "birthDate", 
             "nameZh": "出生日期", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Date", 
             "schemaorgUrl": "http://schema.org/birthDate", 
             "version": "v17q2", 
@@ -161,7 +179,9 @@
             "category": "property-ext", 
             "name": "birthName", 
             "nameZh": "原名", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1477"
@@ -177,7 +197,9 @@
             "category": "property-ext", 
             "name": "birthPlace", 
             "nameZh": "出生地", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Place", 
             "schemaorgUrl": "http://schema.org/birthPlace", 
             "version": "v17q2", 
@@ -194,7 +216,9 @@
             "category": "property-ext", 
             "name": "children", 
             "nameZh": "子女", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "schemaorgUrl": "http://schema.org/children", 
             "version": "v17q2", 
@@ -214,7 +238,9 @@
             "category": "property-ext", 
             "name": "cnEducationalAttainment", 
             "nameZh": "学历", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikipediaUrl": "https://en.wikipedia.org/wiki/Educational_attainment"
@@ -230,7 +256,9 @@
             "category": "property-ext", 
             "name": "cnProfessionalTitle", 
             "nameZh": "职称", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -245,7 +273,9 @@
             "category": "property-ext", 
             "name": "colleague", 
             "nameZh": "同事，队友、战友", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "schemaorgUrl": "http://schema.org/colleague", 
             "version": "v18q2"
@@ -261,7 +291,9 @@
             "category": "property-ext", 
             "name": "courtesyName", 
             "nameZh": "字、表字", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1782"
@@ -277,7 +309,9 @@
             "category": "property-ext", 
             "name": "deathDate", 
             "nameZh": "死亡日期", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Date", 
             "schemaorgUrl": "http://schema.org/deathDate", 
             "version": "v17q2", 
@@ -294,7 +328,9 @@
             "category": "property-ext", 
             "name": "deathPlace", 
             "nameZh": "死亡地", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Place", 
             "schemaorgUrl": "http://schema.org/deathPlace", 
             "version": "v17q2", 
@@ -311,7 +347,9 @@
             "category": "property-ext", 
             "name": "dharmaName", 
             "nameZh": "法号、法名", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v18q2", 
             "wikipediaUrl": "https://en.wikipedia.org/wiki/Dharma_name"
@@ -327,7 +365,9 @@
             "category": "property-ext", 
             "name": "dynasty", 
             "nameZh": "朝代、所在年代、所处时代", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -342,7 +382,9 @@
             "category": "property-ext", 
             "name": "eraName", 
             "nameZh": "年号", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -357,7 +399,9 @@
             "category": "property-ext", 
             "name": "ethnicGroup", 
             "nameZh": "民族、民族族群", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P172"
@@ -376,7 +420,9 @@
             "category": "property-ext", 
             "name": "expertiseDescription", 
             "nameZh": "业务特长", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -391,7 +437,9 @@
             "category": "property-ext", 
             "name": "familyName", 
             "nameZh": "姓氏", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/familyName", 
             "version": "v18q2", 
@@ -408,7 +456,9 @@
             "category": "property-ext", 
             "name": "father", 
             "nameZh": "父亲", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P26"
@@ -424,7 +474,9 @@
             "category": "property-ext", 
             "name": "fieldOfWork", 
             "nameZh": "领域, 专业", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P101"
@@ -440,7 +492,9 @@
             "category": "property-ext", 
             "name": "gender", 
             "nameZh": "性别", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/gender", 
             "version": "v17q2", 
@@ -457,7 +511,9 @@
             "category": "property-ext", 
             "name": "height", 
             "nameZh": "身高", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "QuantitativeValue", 
             "schemaorgUrl": "http://schema.org/height", 
             "version": "v18q2"
@@ -473,7 +529,9 @@
             "category": "property-ext", 
             "name": "homeLocation", 
             "nameZh": "家庭地址", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Place", 
             "schemaorgUrl": "http://schema.org/homeLocation", 
             "version": "v18q2"
@@ -489,7 +547,9 @@
             "category": "property-ext", 
             "name": "husband", 
             "nameZh": "丈夫", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/Q212878"
@@ -505,7 +565,9 @@
             "category": "property-ext", 
             "name": "jobTitle", 
             "nameZh": "工作职务、职位", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/jobTitle", 
             "version": "v18q2"
@@ -521,7 +583,9 @@
             "category": "property-ext", 
             "name": "memberOfPoliticalParty", 
             "nameZh": "政党、党派", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P102"
@@ -537,7 +601,9 @@
             "category": "property-ext", 
             "name": "mother", 
             "nameZh": "母亲", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P25"
@@ -553,7 +619,9 @@
             "category": "property-ext", 
             "name": "nationality", 
             "nameZh": "国籍", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Country", 
             "schemaorgUrl": "http://schema.org/nationality", 
             "version": "v17q2", 
@@ -570,7 +638,9 @@
             "category": "property-ext", 
             "name": "nobleFamily", 
             "nameZh": "家族", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P53"
@@ -586,7 +656,9 @@
             "category": "property-ext", 
             "name": "nobleTitle", 
             "nameZh": "爵位、官爵、封爵、封号", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P97"
@@ -602,7 +674,9 @@
             "category": "property-ext", 
             "name": "occupation", 
             "nameZh": "职业、身份", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P106"
@@ -618,7 +692,9 @@
             "category": "property-ext", 
             "name": "parent", 
             "nameZh": "父母", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "schemaorgUrl": "http://schema.org/parent", 
             "version": "v17q2"
@@ -634,7 +710,9 @@
             "category": "property-ext", 
             "name": "placeOfBurial", 
             "nameZh": "墓地、安葬地", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Place", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P119"
@@ -650,7 +728,9 @@
             "category": "property-ext", 
             "name": "posthumousName", 
             "nameZh": "谥号、私谥", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1786"
@@ -666,7 +746,9 @@
             "category": "property-ext", 
             "name": "pseudonym", 
             "nameZh": "化名", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P742"
@@ -682,7 +764,9 @@
             "category": "property-ext", 
             "name": "religion", 
             "nameZh": "宗教信仰、信仰", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P140"
@@ -698,7 +782,9 @@
             "category": "property-ext", 
             "name": "schoolsOfBuddhism", 
             "nameZh": "宗派", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2"
         }, 
@@ -713,7 +799,9 @@
             "category": "property-ext", 
             "name": "sibling", 
             "nameZh": "兄弟姐妹", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "schemaorgUrl": "http://schema.org/sibling", 
             "version": "v17q2", 
@@ -730,7 +818,9 @@
             "category": "property-ext", 
             "name": "spouse", 
             "nameZh": "配偶、爱人", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "schemaorgUrl": "http://schema.org/spouse", 
             "version": "v17q2", 
@@ -747,7 +837,9 @@
             "category": "property-ext", 
             "name": "student", 
             "nameZh": "学生、弟子、徒弟、门徒", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P802"
@@ -763,7 +855,9 @@
             "category": "property-ext", 
             "name": "studentOf", 
             "nameZh": "老师、师傅、导师", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1066"
@@ -779,7 +873,9 @@
             "category": "property-ext", 
             "name": "templeName", 
             "nameZh": "庙号", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Text", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1785"
@@ -795,7 +891,9 @@
             "category": "property-ext", 
             "name": "unmarriedPartner", 
             "nameZh": "情侣", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v18q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P451"
@@ -811,7 +909,9 @@
             "category": "property-ext", 
             "name": "weight", 
             "nameZh": "体重", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "QuantitativeValue", 
             "schemaorgUrl": "http://schema.org/weight", 
             "version": "v18q2"
@@ -827,7 +927,9 @@
             "category": "property-ext", 
             "name": "wife", 
             "nameZh": "妻子", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Person", 
             "version": "v17q2", 
             "wikidataUrl": "https://www.wikidata.org/wiki/Q188830"
@@ -843,7 +945,9 @@
             "category": "property-ext", 
             "name": "worksFor", 
             "nameZh": "工作单位", 
-            "rdfs:domain": "Person", 
+            "rdfs:domain": [
+                "Person"
+            ], 
             "rdfs:range": "Organization", 
             "schemaorgUrl": "http://schema.org/worksFor", 
             "version": "v18q2"
@@ -854,6 +958,18 @@
         "CnsOntology", 
         "Thing"
     ], 
+    "changelog": {
+        "@id": "http://meta.cnschema.org/changelog/v18q2", 
+        "@type": [
+            "CnsChangelog", 
+            "CnsMetadata", 
+            "Thing"
+        ], 
+        "datePublished": "2017-08-01", 
+        "name": "v18q2", 
+        "text": "增补人物属性", 
+        "version": "v18q2"
+    }, 
     "dateModified": "2018-07-09", 
     "import": [
         "cns_place"

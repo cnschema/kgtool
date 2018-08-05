@@ -172,7 +172,9 @@
             "category": "property-ext", 
             "name": "city", 
             "nameZh": "所在地市", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "City", 
             "rdfs:subPropertyOf": [
                 "containedInPlace"
@@ -190,7 +192,9 @@
             "category": "property-ext", 
             "name": "containedInPlace", 
             "nameZh": "位于", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "AdministrativeRegion", 
             "schemaorgUrl": "http://schema.org/containedInPlace", 
             "version": "v20180709"
@@ -206,7 +210,9 @@
             "category": "property-ext", 
             "name": "district", 
             "nameZh": "所在区县", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "District", 
             "rdfs:subPropertyOf": [
                 "containedInPlace"
@@ -224,7 +230,9 @@
             "category": "property-ext", 
             "name": "province", 
             "nameZh": "所在省", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Province", 
             "rdfs:subPropertyOf": [
                 "containedInPlace"
@@ -242,7 +250,9 @@
             "category": "property-ext", 
             "name": "street", 
             "nameZh": "所在道路", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Street", 
             "version": "v20180709"
         }, 
@@ -298,7 +308,9 @@
             "category": "property-ext", 
             "name": "workLocation", 
             "nameZh": "办公地址", 
-            "rdfs:domain": "Thing", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
             "rdfs:range": "Place", 
             "schemaorgUrl": "http://schema.org/workLocation", 
             "version": "v20180709"

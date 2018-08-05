@@ -191,7 +191,7 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
         lines.append(u"subgraph cluster_{} ".format(subgraph_name))
 
     lines.append("{")
-    line = "\t# dot -Tpng local/{}_full.dot -olocal/{}_{}.png".format(name, name, key)
+    line = "\t# dot -Tpng local/debug/{}_full.dot -olocal/{}_{}.png".format(name, name, key)
     lines.append(line)
     logging.info(line)
 
@@ -287,11 +287,11 @@ def run_graphviz(loaded_schema, name):
 
     for schema in loaded_schema.loaded_schema_list:
         graph = _graph_create()
-        if schema.metadata["name"] == "cns_top":
-            continue
+#        if schema.metadata["name"] == "cns_top":
+#            continue
         _graph_update(loaded_schema, schema, graph)
-        graph_new = _filter_compact(graph,)
-        subgraph = _render_dot_format(graph_new,key, schema.metadata["name"])
+        graph_new = _filter_compact(graph)
+        subgraph = _render_dot_format(graph_new, None, key, schema.metadata["name"])
         lines.append(subgraph)
     line = "}"
     lines.append(line)
@@ -305,8 +305,8 @@ def task_graphviz(args):
 
     filename = args["input_file"]
     loaded_schema = CnsSchema()
-    preloadSchemaList = preload_schema(args)
-    loaded_schema.import_jsonld(filename, preloadSchemaList)
+    preloaded_schema_list = preload_schema(args)
+    loaded_schema.import_jsonld(filename, preloaded_schema_list)
 
     #validate if we can reproduce the same jsonld based on input
     jsonld_input = file2json(filename)
@@ -335,8 +335,8 @@ if __name__ == "__main__":
 
 
     # task 4: graphviz
-    python kgtool/cns_graphviz.py task_graphviz --input_file=schema/cns_top.jsonld --debug_dir=local/  --dir_schema=schema
-    python kgtool/cns_graphviz.py task_graphviz --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/  --dir_schema=schema
-    python kgtool/cns_graphviz.py task_graphviz --input_file=schema/cns_organization.jsonld --debug_dir=local/  --dir_schema=schema
+    python kgtool/cns_graphviz.py task_graphviz --input_file=schema/cns_top.jsonld --debug_dir=local/debug  --dir_schema=schema
+    python kgtool/cns_graphviz.py task_graphviz --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug  --dir_schema=schema
+    python kgtool/cns_graphviz.py task_graphviz --input_file=schema/cns_organization.jsonld --debug_dir=local/debug  --dir_schema=schema
 
 """

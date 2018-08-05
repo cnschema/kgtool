@@ -16,12 +16,13 @@ import urlparse
 import re
 import collections
 import glob
+import copy
 
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
-from kgtool.table import excel2json, json2excel  # noqa
+from kgtool.table import excel2json, json2excel,json2excel4multiple  # noqa
 from kgtool.cns_model import CnsSchema, init_report
 from kgtool.cns_validate import run_validate_recursive
 
@@ -452,6 +453,86 @@ def task_excel2jsonld(args):
         assert False
     _export_nquad(args, filename_output)
 
+    _export_excel(args, obj_excel.schema)
+
+def _clean_list_value(cns_item):
+    cns_item_out = {}
+    for k,v in cns_item.items():
+        if k in ["@id", "@type"]:
+            continue
+
+        if isinstance(v, list):
+            cns_item_out[k] = u", ".join(v)
+        elif isinstance(v, dict):
+            assert False
+        else:
+            cns_item_out[k] = v
+    return cns_item_out
+
+def _export_excel(args, the_schema):
+    xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
+    filename_excel = xdebug_file+u".import.xls"
+
+    output_rows = collections.defaultdict(list)
+    output_columns = collections.defaultdict(set)
+    for schema in the_schema.loaded_schema_list:
+        sheetname = "class"
+        for name in sorted(schema.definition):
+            cns_item = schema.definition[name]
+            #logging.info(cns_item)
+            cns_item = _clean_list_value(cns_item)
+            cns_item["statedIn"] = schema.metadata["name"]
+            output_rows["definition"].append(cns_item)
+            output_columns[sheetname].update(cns_item.keys())
+
+        sheetname = "template"
+        for cns_item in schema.metadata["template"]:
+            #logging.info(cns_item)
+            cns_item = _clean_list_value(cns_item)
+            cns_item["statedIn"] = schema.metadata["name"]
+            output_rows["template"].append(cns_item)
+            output_columns[sheetname].update(cns_item.keys())
+
+    """
+    [
+        {
+            "sheetname": "sheet1",
+            "columns": ["name","age"],
+            "rows": [
+                {"name":"john","age":30},
+                {"name":"bob","age":20}
+            ]
+        },
+        {
+            "sheetname": "sheet2",
+            "columns": ["color"],
+            "rows": [
+                {"color":"red"},
+                {"color":"blue"}
+            ]
+        }
+    ]
+    """
+    #logging.info(json4debug(output_rows))
+    #assert False
+    dataTable2018 = []
+    for sheetname, rows in output_rows.items():
+        if len(rows) == 0:
+            continue
+
+        columns = sorted(list(output_columns[sheetname]))
+
+        sheet = {
+            "sheetname": sheetname,
+            "columns": columns,
+            "rows": rows,
+        }
+        dataTable2018.append(sheet)
+
+    if dataTable2018:
+        json2excel4multiple(dataTable2018, filename_excel)
+
+
 def _export_nquad(args, filename_output):
     from pyld import jsonld
     doc = file2json(filename_output)
@@ -486,13 +567,13 @@ if __name__ == "__main__":
 """
     excel2jsonld  and n-quad
 
-    mv ~/Downloads/cns_top.xlsx ~/haizhi/git/kgtool/local/
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/debug/
+    mv ~/Downloads/cns_top.xlsx ~/haizhi/git/kgtool/local/debug/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/debug/
 
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug/
 
     mv ~/Downloads/cns_organization.xlsx ~/haizhi/git/kgtool/local/
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_organization.xlsx --output_file=schema/cns_organization.jsonld --debug_dir=local/debug/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_organization.xlsx --output_file=schema/cns_organization.jsonld --debug_dir=local/debug/
 
 
 """

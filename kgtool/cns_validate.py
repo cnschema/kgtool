@@ -50,7 +50,6 @@ def run_validate_recursive(loaded_schema, cnsTree, report):
         pass
 
 
-
 def run_validate(loaded_schema, cns_item, report):
     """
         validate the following
@@ -320,10 +319,10 @@ if __name__ == "__main__":
 
 """
     # task 3: validate
-    python kgtool/cns_validate.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/ --dir_schema=schema
-    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/ --dir_schema=schema
-    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/ --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
 
-    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/ --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
 
 """

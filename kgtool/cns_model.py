@@ -147,8 +147,8 @@ class CnsSchema:
         # Schema raw data: concept definition,  @id => entity
         self.definition = collections.defaultdict(dict)
 
-        # schema raw data: 引用相关Schema
-        self.imported_schema_list = []
+        # all schema module, includion self
+        self.loaded_schema_list = []
 
         #index: 属性名称映射表  property alias => property standard name
         self.index_property_alias = {}
