@@ -33,7 +33,7 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 """
 cnSchema data model (storage and index)
  * definition: defintion of a class, property, or a constant
- * metadata: list of template restriction， changelog
+ * metadata: list of template, changelog
 
 cnSchema data loader
    * load class/property set_definition
@@ -136,6 +136,21 @@ def write_report(report, bug):
         report["bugs"].append(bug)
         logging.info(msg)
 
+def gen_range_validation_config(range_text, schema):
+    temp = {"text": range_text, "python_type_value_list":[], "cns_range_entity":[], "cns_range_datastructure":[]}
+    for r in parse_list_value(range_text):
+        if range_text.lower() in ["text", "date", "datetime", "number", "url"]:
+            temp["python_type_value_list"].extend([basestring,unicode,str])
+        elif range_text.lower() in ["integer"]:
+            temp["python_type_value_list"].append(int)
+        elif range_text.lower() in ["float"]:
+            temp["python_type_value_list"].append(float)
+        elif "CnsDataStructure" in schema.index_inheritance["rdfs:subClassOf"].get(r,[]):
+            temp["cns_range_datastructure"].append( range_text )
+        else:
+            temp["cns_range_entity"].append( range_text )
+
+    return temp
 
 class CnsSchema:
     def __init__(self):
@@ -176,6 +191,8 @@ class CnsSchema:
     def get_definition(self, xid):
         return self.definition.get(xid)
 
+    def get_definition_by_alias(self, alias):
+        return self.index_definition_alias.get(alias)
 
     def add_metadata(self, group, item):
         if group in ["version", "template"]:
@@ -207,10 +224,10 @@ class CnsSchema:
 
         self._build_index_property_alias(available_schema_list)
         self._build_index_definition_alias(available_schema_list)
+        self._build_index_inheritance(available_schema_list)
         self._build_index_range(available_schema_list)
         self._build_index_template(available_schema_list)
         self._build_index_domain(available_schema_list)
-        self._build_index_inheritance(available_schema_list)
 
         #logging.info([x.metadata["name"] for x in available_schema_list])
         self._validate_schema()
@@ -270,6 +287,16 @@ class CnsSchema:
             dg = DirectedGraph(direct_sub[p])
             self.index_inheritance[p] = dg.compute_subtree()
 
+        #complete with all definition
+        for cns_item in schema.definition.values():
+            if "rdf:Property" in cns_item["@type"]:
+                p = "rdfs:subPropertyOf"
+            else:
+                p = "rdfs:subClassOf"
+            n = cns_item["name"]
+            if n not in self.index_inheritance[p]:
+                self.index_inheritance[p][n] = [n]
+
         #logging.info( json4debug(self.index_inheritance ))
 
 
@@ -278,14 +305,14 @@ class CnsSchema:
         self.index_validate_range = {}
 
         #init system property
-        self.index_validate_range["@id"] = {"text": "UUID", "pythonTypeValue":[basestring,unicode,str]}
-        self.index_validate_range["@type"] = {"text": "Text", "pythonTypeValue":[basestring,unicode,str]}
-#        self.index_validate_range ["@context"] = {"text": "SYS", "cnsRange": []}
-        self.index_validate_range ["@graph"] = {"text": "SYS", "cnsRange": ["CnsMetadata"]}
-        self.index_validate_range ["rdfs:domain"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
-        self.index_validate_range ["rdfs:range"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
-        self.index_validate_range["rdfs:subClassOf"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
-        self.index_validate_range["rdfs:subPropertyOf"] = {"text": "SYS", "pythonTypeValue":[basestring,unicode,str]}
+        self.index_validate_range["@id"] = {"text": "UUID", "python_type_value_list":[basestring,unicode,str]}
+        self.index_validate_range["@type"] = {"text": "Text", "python_type_value_list":[basestring,unicode,str]}
+#        self.index_validate_range ["@context"] = {"text": "SYS", "cns_range_list": []}
+        self.index_validate_range["@graph"] = {"text": "SYS", "cns_range_list": ["CnsMetadata"]}
+        self.index_validate_range["rdfs:domain"] = {"text": "SYS", "python_type_value_list":[basestring,unicode,str]}
+        self.index_validate_range["rdfs:range"] = {"text": "SYS", "python_type_value_list":[basestring,unicode,str]}
+        self.index_validate_range["rdfs:subClassOf"] = {"text": "SYS", "python_type_value_list":[basestring,unicode,str]}
+        self.index_validate_range["rdfs:subPropertyOf"] = {"text": "SYS", "python_type_value_list":[basestring,unicode,str]}
 
         #build
         for schema in available_schema_list:
@@ -301,13 +328,13 @@ class CnsSchema:
                     if not p in self.index_validate_range:
                         temp = {"text": r}
                         if r in ["Text","Date", "DateTime", "Number", "URL"]:
-                            temp["pythonTypeValue"] = [basestring,unicode,str]
+                            temp["python_type_value_list"] = [basestring,unicode,str]
                         elif r in ["Integer"]:
-                            temp["pythonTypeValue"] = [int]
+                            temp["python_type_value_list"] = [int]
                         elif r in ["Float"]:
-                            temp["pythonTypeValue"] = [float]
+                            temp["python_type_value_list"] = [float]
                         else:
-                            temp["cnsRange"] = [ r ]
+                            temp["cns_range_list"] = [ r ]
 
                         self.index_validate_range[p] = temp
 
@@ -358,7 +385,7 @@ class CnsSchema:
         #build
         for schema in available_schema_list:
             for template in schema.metadata["template"]:
-                d = template["refClass"]
+                # clean min/max cardinality
 
                 p = "minCardinality"
                 if template[p] == "":
@@ -379,7 +406,53 @@ class CnsSchema:
                 else:
                     assert False, template
 
-                self.index_validate_template[d].append( template )
+                #build index for validation
+                template_validation = copy.deepcopy(template)
+                p = "propertyRange"
+                if template.get(p):
+                    template_validation[p] = gen_range_validation_config( template.get(p) , self )
+                else:
+                    #use range specified in property definition
+                    property_definition = self.get_definition_by_alias(template["refProperty"])
+                    assert property_definition
+                    template_validation[p] = gen_range_validation_config( property_definition["rdfs:range"]  , self)
+
+
+                d = template["refClass"]
+                self.index_validate_template[d].append( template_validation )
+
+                #unfold in/out tempalte for simple CnsLink promoted from relation
+                # if template_validation[p]["cns_range_entity"]:
+                #     refClass = template_validation["refProperty"]
+                #     template_old = None
+                #     for temp self.index_validate_template[refClass]:
+                #         if temp["refProperty"] == "in"
+                #             template_old = temp
+                #             break
+                #
+                #     if template_old:
+                #         template_old["cns_range_entity"].append(d)
+                #     else:
+                #         template_new = {}
+                #         template_new["propertyRange"]= {"text": d, "python_type_value_list":[], "cns_range_entity":[d], "cns_range_datastructure":[]}
+                #         template_new["refProperty"] = "in"
+                #         template_new["refClass"] = refClass
+                #         self.index_validate_template[refClass].append( template_new)
+                #
+                #     template_old = None
+                #     for temp self.index_validate_template[refClass]:
+                #         if temp["refProperty"] == "out"
+                #             template_old = temp
+                #             break
+                #
+                #     if template_old:
+                #         template_old["cns_range_entity"].extend(template_validation["cns_range_entity"])
+                #     else:
+                #         template_new = {}
+                #         template_new["propertyRange"]= template_validation["propertyRange"]
+                #         template_new["refProperty"]="out"
+                #         template_new["refClass"] = refClass
+                #         self.index_validate_template[refClass].append( template_new)
 
     def _build_index_property_alias(self, available_schema_list):
         self.index_property_alias = {}

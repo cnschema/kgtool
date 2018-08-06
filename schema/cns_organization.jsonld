@@ -1414,6 +1414,27 @@
             "version": "v20180412"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/Organization_email", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Organization_email", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "联系邮箱", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "Organization", 
+            "refProperty": "email", 
+            "version": "v20180720"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/Organization_province", 
             "@type": [
                 "CnsTemplate", 
@@ -1434,6 +1455,48 @@
             "refClass": "Organization", 
             "refProperty": "province", 
             "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_telephone", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Organization_telephone", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "联系电话", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "Organization", 
+            "refProperty": "telephone", 
+            "version": "v20180720"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_website", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Organization_website", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "网址", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "Organization", 
+            "refProperty": "website", 
+            "version": "v20180720"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Organization_workLocation", 

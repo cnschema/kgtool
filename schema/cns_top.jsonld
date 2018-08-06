@@ -2614,6 +2614,28 @@
             "version": "v18q3"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/QuantitativeValue_endDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "QuantitativeValue_endDate", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "截至时间", 
+            "propertyRange": "DateTime", 
+            "propertySchema": "cns_top", 
+            "refClass": "QuantitativeValue", 
+            "refProperty": "endDate", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/QuantitativeValue_proportion", 
             "@type": [
                 "CnsTemplate", 
@@ -2903,7 +2925,7 @@
                 "Thing"
             ], 
             "maxCardinality": 1, 
-            "minCardinality": 1, 
+            "minCardinality": 0, 
             "name": "Thing_name", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
@@ -2959,6 +2981,28 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "nameZh", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_referenceUrl", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_referenceUrl", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "referenceUrl", 
             "version": "v18q3"
         }, 
         {

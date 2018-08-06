@@ -140,7 +140,7 @@ def stat_kg_pattern(data, counter=None, level=0, flags=""):
 def stat_kg_pattern_entity(entity, counter, level):
     #validate
     if type(entity) != dict:
-        key = u"error_entity_is_not_dict_{}".format(batch)
+        key = u"ErrorEntityIsNotDict_{}".format(batch)
         counter[key]+=1
         return
 
@@ -149,25 +149,27 @@ def stat_kg_pattern_entity(entity, counter, level):
     entity_domain = json_get_first_item(entity, "@type", "WarnNoType")
 
     # @type range
-    if not entity.get("@type") in [list]:
-        key = u"warn_type_not_list_{}".format(entity_domain)
+    if isinstance(entity.get("@type"), list ):
+        key = u"Warn@TypeIsNotList_{}".format(entity_domain)
         #print (json4debug(counter))
         counter[key]+=1
 
     # @type
-    key = u"type_all_{}".format(entity_domain)
+    key = u"typeAll_{}".format(entity_domain)
     counter[key]+=1
 
     # root level entity
     if level == 0:
-        key = u"type_level{}_{}".format(level,entity_domain)
+        key = u"typeLevel{}_{}".format(level,entity_domain)
         counter[key] += 1
 
 
-    for p in entity:
+    for p, values in entity.items():
         # domain
-        key = u"domain_{}_{}".format(entity_domain, p)
+        key = u"template_{}_{}".format(entity_domain, p)
         counter[key] += 1
+
+        assert values is not None
 
         # range
         # do not proceed if p is mergedFrom
@@ -213,6 +215,8 @@ def task_stat_kg_pattern(args):
 
     # print result
     logging.info(json4debug(counter))
+
+
 
     #write to output
     filename = args.get("output")
@@ -336,7 +340,7 @@ if __name__ == "__main__":
 """
     generate sample data and statistics
 
-    python kgtool/stat.py task_stat_kg_pattern --filepath=tests/*.jsons --output=local/test_kg_stat.json
+    python kgtool/stats.py task_stat_kg_pattern --filepath=local/jsons/*.jsons --output=local/output/test_kg_stat.json
 
 
 """
