@@ -81,7 +81,7 @@ def _validate_system(loaded_schema, cns_item, report):
     #     write_report(report, bug)
     #     return False
 
-    types = cns_item.get("@type")
+    types = json_get_list(cns_item,"@type")
     if not types:
         bug = {
             "category": "warn_validate_system",
@@ -91,6 +91,14 @@ def _validate_system(loaded_schema, cns_item, report):
         write_report(report, bug)
         return False
 
+    if not isinstance(cns_item["@type"], list):
+        bug = {
+            "category": "warn_validate_system",
+            "text": "item @type is not a list",
+            "item": cns_item
+        }
+        write_report(report, bug)
+        #return False
 
     if "Thing" in types:
         if not "@id" in cns_item:
@@ -111,7 +119,7 @@ def _validate_definition(loaded_schema, cns_item, report):
         if @type and all properties are defined in schema
     """
     #types
-    for xtype in cns_item["@type"]:
+    for xtype in json_get_list(cns_item,"@type"):
         has_definition = False
         for schema in loaded_schema.loaded_schema_list:
             the_definition = schema.get_definition_by_alias(xtype)
@@ -169,8 +177,9 @@ def _validate_template(loaded_schema, cns_item, report):
 
 def _validate_template_special(loaded_schema, cns_item, report, xtemplate, validated_property):
     #special case
-    if "CnsLink" in cns_item["@type"] and re.search(r"^[a-z]",cns_item["@type"][0]):
-        types_domain = cns_item["in"]["@type"]
+    types = json_get_list(cns_item,"@type")
+    if "CnsLink" in types and re.search(r"^[a-z]", types[0]):
+        types_domain = json_get_list(cns_item["in"], "@type")
         for xtype in types_domain:
             template_list = loaded_schema.index_validate_template.get(xtype)
             if template_list is None or len(template_list)==0:
@@ -178,7 +187,7 @@ def _validate_template_special(loaded_schema, cns_item, report, xtemplate, valid
 
             for template in template_list:
                 p = template["refProperty"]
-                if cns_item["@type"][0] != p:
+                if types[0] != p:
                     continue
 
                 v = cns_item["out"]
@@ -191,7 +200,8 @@ def _validate_template_special(loaded_schema, cns_item, report, xtemplate, valid
 
 def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property):
     #regular validation
-    for idx, xtype in enumerate(cns_item["@type"]):
+    types = json_get_list(cns_item,"@type")
+    for idx, xtype in enumerate(types):
         # only count main type's  template
         if idx == 0:
             key_c = u"type_{}".format(xtype)
@@ -287,7 +297,7 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
     all_property = set(cns_item.keys())
     all_property = all_property.difference(get_system_property())
     all_property = all_property.difference(validated_property)
-    c = cns_item["@type"][0]
+    c = types[0]
     for p in all_property:
         bug = {
             "category": "warn_validate_template_range",
@@ -300,7 +310,7 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
 
 
 def _validate_datastructure(c, p, v, range_actual, range_config, report):
-    xtype = v.get("@type")
+    xtype = json_get_list(v, "@type")
     if not xtype:
         bug = {
             "category": "warn_validate_template_range",
@@ -328,7 +338,7 @@ def _validate_datastructure(c, p, v, range_actual, range_config, report):
         write_report(report, bug)
 
 def _validate_entity(c, p, v, range_actual, range_config, report):
-    xtype = v.get("@type")
+    xtype = json_get_list(v, "@type")
     if not xtype:
         bug = {
             "category": "warn_validate_template_range",
@@ -502,23 +512,28 @@ def task_validate(args):
     loaded_schema = CnsSchema()
     loaded_schema.import_jsonld(schema_filename, preloadSchemaList)
 
-    filename = args["input_file"]
-    if args.get("option") == "jsons":
-        report = init_report()
-        for idx, line in enumerate(file2iter(filename)):
-            if idx % 10000 ==0:
-                logging.info(idx)
-                logging.info(json4debug(report))
-            json_data = json.loads(line)
-            run_validate_recursive(loaded_schema, json_data, report)
-            stat_kg_report_per_item(json_data, None, report["stats"])
-        logging.info(json4debug(report))
+    filepath = args["input_file"]
+    filename_list = glob.glob(filepath)
+    report = init_report()
+    for filename in filename_list:
+        logging.info(filename)
+        if not os.path.exists(filename):
+            continue
 
-    else:
-        jsondata = file2json(filename)
-        report = init_report()
-        run_validate_recursive(loaded_schema, jsondata, report)
-        logging.info(json4debug(report))
+        if args.get("option") == "jsons":
+            for idx, line in enumerate(file2iter(filename)):
+                if idx % 10000 ==0:
+                    logging.info(idx)
+                    logging.info(json4debug(report))
+                json_data = json.loads(line)
+                run_validate_recursive(loaded_schema, json_data, report)
+                stat_kg_report_per_item(json_data, None, report["stats"])
+            logging.info(json4debug(report))
+
+        else:
+            jsondata = file2json(filename)
+            run_validate_recursive(loaded_schema, jsondata, report)
+            logging.info(json4debug(report))
 
 
 if __name__ == "__main__":
@@ -542,5 +557,7 @@ if __name__ == "__main__":
     python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
 
     python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
+
+    python kgtool/cns_validate.py task_validate --input_file=local/kg4ai_cn_1.0.1.jsondl --input_schema=local/schema/cns_kg4ai.jsonld --debug_dir=local/debug --dir_schema=schema
 
 """

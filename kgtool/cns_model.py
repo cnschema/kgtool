@@ -483,6 +483,8 @@ class CnsSchema:
         #collect alias from definition
         for schema in available_schema_list:
             for cns_item in schema.definition.values():
+                #cns_item["statedIn"] = schema.metadata["name"]
+
                 if "cns_schemaorg" == schema.metadata["name"]:
                     if cns_item["@id"] in available_schema_list[0].definition:
                         # if definition is defined in cns_top, then
@@ -501,7 +503,7 @@ class CnsSchema:
             if len(v) > 1:
                 logging.info(alias)
                 logging.info(json4debug(v))
-                assert False
+                assert False   # defined in different schema,  len(v) > 1
                 #assert len(v) == 1, alias
             self.index_definition_alias[alias] = v[0]
 

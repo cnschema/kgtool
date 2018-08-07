@@ -54,7 +54,7 @@
             "rdfs:domain": [
                 "Person"
             ], 
-            "rdfs:range": "Person", 
+            "rdfs:range": "Organzation", 
             "schemaorgUrl": "http://schema.org/affiliation", 
             "version": "v17q2"
         }, 
