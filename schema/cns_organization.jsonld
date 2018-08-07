@@ -289,6 +289,23 @@
             "rdfs:range": "Number"
         }, 
         {
+            "@id": "http://cnschema.org/fax", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": [], 
+            "category": "property-template", 
+            "name": "fax", 
+            "nameZh": "传真号码", 
+            "rdfs:domain": [
+                "Organization"
+            ], 
+            "rdfs:range": "Text"
+        }, 
+        {
             "@id": "http://cnschema.org/foundingDate", 
             "@type": [
                 "rdf:Property", 
@@ -706,6 +723,23 @@
                 "Company"
             ], 
             "rdfs:range": "Date"
+        }, 
+        {
+            "@id": "http://cnschema.org/zipcode", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "alternateName": [], 
+            "category": "property-template", 
+            "name": "zipcode", 
+            "nameZh": "邮政编码", 
+            "rdfs:domain": [
+                "Organization"
+            ], 
+            "rdfs:range": "Text"
         }
     ], 
     "@id": "http://cnschema.org/schema/cns_organization", 
@@ -873,7 +907,7 @@
             "maxCardinality": 1, 
             "minCardinality": 1, 
             "name": "Company_name", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "法定名称", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -883,6 +917,28 @@
             "propertySchema": "cns_top", 
             "refClass": "Company", 
             "refProperty": "name", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Company_nameEn", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Company_nameEn", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "英文名称", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "Company", 
+            "refProperty": "nameEn", 
             "version": "v20180412"
         }, 
         {
@@ -1422,7 +1478,7 @@
             ], 
             "minCardinality": 0, 
             "name": "Organization_email", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "客服邮箱", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1433,6 +1489,28 @@
             "refClass": "Organization", 
             "refProperty": "email", 
             "version": "v20180720"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_fax", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Organization_fax", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "传真号码", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "Organization", 
+            "refProperty": "fax", 
+            "version": "v20180412"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Organization_province", 
@@ -1465,7 +1543,7 @@
             ], 
             "minCardinality": 0, 
             "name": "Organization_telephone", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "电话号码", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1486,13 +1564,13 @@
             ], 
             "minCardinality": 0, 
             "name": "Organization_website", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "网站地址", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "网址", 
-            "propertyRange": "Text", 
+            "propertyRange": "URL", 
             "propertySchema": "cns_top", 
             "refClass": "Organization", 
             "refProperty": "website", 
@@ -1508,7 +1586,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Organization_workLocation", 
-            "propertyAlternateName": "", 
+            "propertyAlternateName": "办公地址", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1518,6 +1596,28 @@
             "propertySchema": "cns_place", 
             "refClass": "Organization", 
             "refProperty": "workLocation", 
+            "version": "v20180412"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_zipcode", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Organization_zipcode", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "邮政编码", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "Organization", 
+            "refProperty": "zipcode", 
             "version": "v20180412"
         }, 
         {

@@ -163,6 +163,12 @@ def stat_kg_pattern_entity(entity, counter, level):
         key = u"typeLevel{}_{}".format(level,entity_domain)
         counter[key] += 1
 
+    if "in" in entity and "out" in entity and isinstance(entity["in"], dict):
+        main_type_in = json_get_list(entity["in"],"@type")[0]
+        main_type_out = json_get_list(entity["out"],"@type")[0]
+        main_type_link = json_get_list(entity,"@type")[0]
+        key = u"cnslink_{}_[{}]_{}".format(main_type_in,main_type_link, main_type_out)
+        counter[key] += 1
 
     for p, values in entity.items():
         # domain

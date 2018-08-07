@@ -38,20 +38,20 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 """
 
 
-def run_validate_recursive(loaded_schema, cns_item_list, report):
+def run_validate_recursive(loaded_schema, cns_item_list, report, parent_item=None):
     if type(cns_item_list) == list:
         for cns_item in cns_item_list:
-            run_validate_recursive(loaded_schema, cns_item, report)
+            run_validate_recursive(loaded_schema, cns_item, report, parent_item)
     elif type(cns_item_list) == dict:
-        run_validate(loaded_schema, cns_item_list, report)
+        run_validate(loaded_schema, cns_item_list, report, parent_item == None)
         next_list = [v for p,v in cns_item_list.items() if p not in ["@context"]]
-        run_validate_recursive(loaded_schema, next_list, report)
+        run_validate_recursive(loaded_schema, next_list, report, cns_item_list)
     else:
         # do not validate
         pass
 
 
-def run_validate(loaded_schema, cns_item, report):
+def run_validate(loaded_schema, cns_item, report, is_top_level_item):
     """
         validate the following
         * template restriction  (class-property binding)
@@ -65,7 +65,7 @@ def run_validate(loaded_schema, cns_item, report):
 
     _validate_definition(loaded_schema, cns_item, report)
 
-    _validate_template(loaded_schema, cns_item, report)
+    _validate_template(loaded_schema, cns_item, report, is_top_level_item)
 
     #_validate_range(loaded_schema, cns_item, report)
 
@@ -161,7 +161,7 @@ def get_system_property():
     return ["@context","@vocab", "@graph", "@id", "@type"]
 
 
-def _validate_template(loaded_schema, cns_item, report):
+def _validate_template(loaded_schema, cns_item, report, is_top_level_item):
     # template validation
     xtemplate = "xtemplate"
     if xtemplate not in report:
@@ -170,10 +170,24 @@ def _validate_template(loaded_schema, cns_item, report):
 
     validated_property = set()
 
+    _count_links(cns_item, report,xtemplate)
+
     if _validate_template_special(loaded_schema, cns_item, report,xtemplate,validated_property):
         return
-    _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property)
+    _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property, is_top_level_item)
 
+
+def _count_links(cns_item, report, xtemplate):
+    types = json_get_list(cns_item,"@type")
+    if "CnsLink" in types:
+        main_type_in = cns_item["in"]["@type"][0]
+        main_type_out = cns_item["out"]["@type"][0]
+
+        key_cnslink = u"cnslink_total"
+        report[xtemplate][key_cnslink] += 1
+
+        key_cnslink = u"cnslink_{}_{}_{}".format(main_type_in, types[0], main_type_out)
+        report[xtemplate][key_cnslink] += 1
 
 
 def _validate_template_special(loaded_schema, cns_item, report, xtemplate, validated_property):
@@ -199,14 +213,16 @@ def _validate_template_special(loaded_schema, cns_item, report, xtemplate, valid
                 return True
 
 
-def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property):
+def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property, is_top_level_item):
     #regular validation
     types = json_get_list(cns_item,"@type")
+    main_type = types[0]
     for idx, xtype in enumerate(types):
         # only count main type's  template
         if idx == 0:
-            key_c = u"type_{}".format(xtype)
-            report[xtemplate][key_c] += 1
+            if is_top_level_item:
+                key_c = u"type_{}".format(xtype)
+                report[xtemplate][key_c] += 1
 
 
         #find templates
@@ -227,10 +243,12 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
             p = template["refProperty"]
 
             # only count main type's  template
-            if idx == 0:
-                key_cp = u"cp_{}_{}".format(xtype, p)
+            if is_top_level_item:
+                key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
                 if p in cns_item:
                     report[xtemplate][key_cp] += 1
+                else:
+                    report[xtemplate][key_cp] += 0
 
             if p in validated_property:
                 # validated, no need to be validated in other templates
@@ -242,6 +260,7 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
             values = json_get_list(cns_item, p)
             card_actual = len(values)
             range_config = template["propertyRange"]
+
 
             if len(range_config["python_type_value_list"])>0 or len(range_config["cns_range_datastructure"])>0:
                 if card_actual < template["minCardinality"]:
@@ -314,6 +333,10 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
         }
         write_report(report, bug)
 
+        # not validated properties for main type
+        key_cp = u"ucp_{}_{}".format(c, p)
+        report[xtemplate][key_cp] += 1
+
 
 def _validate_datastructure(c, p, v, range_actual, range_config, report):
     xtype = json_get_list(v, "@type")
@@ -338,7 +361,7 @@ def _validate_datastructure(c, p, v, range_actual, range_config, report):
             "value": v,
             "class": c,
             "property": p,
-            "expected" : range_config["text"],
+            "expected" : range_config["cns_range_datastructure"],
             "actual" : xtype,
         }
         write_report(report, bug)
@@ -518,9 +541,34 @@ def task_validate(args):
     loaded_schema = CnsSchema()
     loaded_schema.import_jsonld(schema_filename, preloadSchemaList)
 
+
     filepath = args["input_file"]
     filename_list = glob.glob(filepath)
     report = init_report()
+
+    # init xtemplate
+    xtemplate = "xtemplate"
+    report[xtemplate] = collections.Counter()
+    for template in loaded_schema.metadata["template"]:
+        d = template["refClass"]
+        p = template["refProperty"]
+        key_cp = u"cp_{}_{}_{}".format(d, d, p)
+        report[xtemplate][key_cp] += 0
+    logging.info(json4debug(report[xtemplate]))
+
+    # init class path dependency
+    for template in loaded_schema.metadata["template"]:
+        d = template["refClass"]
+        key_cp = u"parent_{}".format(d)
+        report[xtemplate][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
+
+    for definition in loaded_schema.definition.values():
+        if "rdfs:Class" in definition["@type"]:
+            d = definition["name"]
+            key_cp = u"parent_{}".format(d)
+            report[xtemplate][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
+
+    #validate
     for filename in filename_list:
         logging.info(filename)
         if not os.path.exists(filename):
@@ -534,13 +582,50 @@ def task_validate(args):
                 json_data = json.loads(line)
                 run_validate_recursive(loaded_schema, json_data, report)
                 stat_kg_report_per_item(json_data, None, report["stats"])
-            logging.info(json4debug(report))
 
         else:
             jsondata = file2json(filename)
             run_validate_recursive(loaded_schema, jsondata, report)
-            logging.info(json4debug(report))
 
+    #display report
+    logging.info(json4debug(report))
+
+    #write report csv
+    write_csv_report(args, report, loaded_schema, xtemplate)
+
+def write_csv_report(args, report, loaded_schema, xtemplate):
+    # generate output report
+    lines = []
+    fields = ["main_type","super_type","property","main_type_zh","super_type_zh","property_zh","count","coverage"]
+    lines.append(u",".join(fields))
+    for k, cnt in report[xtemplate].items():
+        if k.startswith("cp_"):
+            temp = k.split("_")
+            total = report[xtemplate]["type_{}".format(temp[1])]
+            row = [
+                #"main_type":
+                temp[1],
+                #"super_type":
+                temp[2],
+                #"property":
+                temp[3],
+                #"main_type_zh":
+                loaded_schema.get_definition_by_alias(temp[1])["nameZh"],
+                #"super_type_zh":
+                loaded_schema.get_definition_by_alias(temp[2])["nameZh"],
+                #"property_zh":
+                loaded_schema.get_definition_by_alias(temp[3])["nameZh"],
+                #"count":
+                "%d" % cnt,
+                #"coverage":
+                "%1.2f" % (1.0* cnt/total) if total>0 else "",
+            ]
+
+            lines.append(u",".join(row))
+
+    filename = args["output_file"]
+    logging.info(filename)
+    lines2file(lines, filename)
 
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
