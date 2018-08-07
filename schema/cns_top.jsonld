@@ -602,14 +602,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ontology", 
+            "alternateName": [], 
+            "category": "property-template", 
             "name": "changelog", 
             "nameZh": "本体的相关变更记录", 
             "rdfs:domain": [
                 "CnsOntology"
             ], 
-            "rdfs:range": "CnsChangelog", 
-            "version": "v18q3"
+            "rdfs:range": "CnsChangelog"
         }, 
         {
             "@id": "http://cnschema.org/confidence", 
@@ -968,15 +968,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ontology", 
-            "descriptionZh": "模块化schema依赖机制", 
+            "alternateName": [], 
+            "category": "property-template", 
             "name": "import", 
             "nameZh": "本体的依赖schema", 
             "rdfs:domain": [
                 "CnsOntology"
             ], 
-            "rdfs:range": "Text", 
-            "version": "v18q3"
+            "rdfs:range": "Text"
         }, 
         {
             "@id": "http://cnschema.org/in", 
@@ -1480,14 +1479,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ontology", 
+            "alternateName": [], 
+            "category": "property-template", 
             "name": "schemaorgUrl", 
             "nameZh": "Schemaorg概念链接", 
             "rdfs:domain": [
                 "CnsDefinition"
             ], 
-            "rdfs:range": "URL", 
-            "version": "v18q3"
+            "rdfs:range": "URL"
         }, 
         {
             "@id": "http://cnschema.org/startDate", 
@@ -1577,14 +1576,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ontology", 
+            "alternateName": [], 
+            "category": "property-template", 
             "name": "template", 
             "nameZh": "本体的相关概念模版", 
             "rdfs:domain": [
                 "CnsOntology"
             ], 
-            "rdfs:range": "CnsTemplate", 
-            "version": "v18q3"
+            "rdfs:range": "CnsTemplate"
         }, 
         {
             "@id": "http://cnschema.org/text", 
@@ -1710,14 +1709,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ontology", 
+            "alternateName": [], 
+            "category": "property-template", 
             "name": "wikidataUrl", 
             "nameZh": "wikidata概念链接", 
             "rdfs:domain": [
                 "CnsDefinition"
             ], 
-            "rdfs:range": "URL", 
-            "version": "v18q3"
+            "rdfs:range": "URL"
         }, 
         {
             "@id": "http://cnschema.org/wikipediaUrl", 
@@ -1727,14 +1726,14 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "category": "property-ontology", 
+            "alternateName": [], 
+            "category": "property-template", 
             "name": "wikipediaUrl", 
             "nameZh": "wikipedia概念链接", 
             "rdfs:domain": [
                 "CnsDefinition"
             ], 
-            "rdfs:range": "URL", 
-            "version": "v18q3"
+            "rdfs:range": "URL"
         }
     ], 
     "@id": "http://cnschema.org/schema/cns_top", 
@@ -1846,6 +1845,28 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/CnsDefinition_descriptionZh", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDefinition_descriptionZh", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "descriptionZh", 
+            "version": "v18q2"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/CnsDefinition_name", 
             "@type": [
                 "CnsTemplate", 
@@ -1888,6 +1909,72 @@
             "refClass": "CnsDefinition", 
             "refProperty": "nameZh", 
             "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDefinition_schemaorgUrl", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDefinition_schemaorgUrl", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "Schemaorg概念链接", 
+            "propertyRange": "URL", 
+            "propertySchema": "", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "schemaorgUrl", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDefinition_wikidataUrl", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDefinition_wikidataUrl", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "wikidata概念链接", 
+            "propertyRange": "URL", 
+            "propertySchema": "", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "wikidataUrl", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDefinition_wikipediaUrl", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsDefinition_wikipediaUrl", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "wikipedia概念链接", 
+            "propertyRange": "URL", 
+            "propertySchema": "", 
+            "refClass": "CnsDefinition", 
+            "refProperty": "wikipediaUrl", 
+            "version": "v18q3"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/CnsLink_date", 
@@ -2065,6 +2152,135 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/CnsMetadata_dateModified", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsMetadata_dateModified", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsMetadata", 
+            "refProperty": "dateModified", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsMetadata_text", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsMetadata_text", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsMetadata", 
+            "refProperty": "text", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsMetadata_version", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 1, 
+            "name": "CnsMetadata_version", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsMetadata", 
+            "refProperty": "version", 
+            "version": "v18q2"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsOntology_changelog", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "CnsOntology_changelog", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "本体的相关变更记录", 
+            "propertyRange": "CnsChangelog", 
+            "propertySchema": "", 
+            "refClass": "CnsOntology", 
+            "refProperty": "changelog", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsOntology_import", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "CnsOntology_import", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "本体的依赖schema", 
+            "propertyRange": "Text", 
+            "propertySchema": "", 
+            "refClass": "CnsOntology", 
+            "refProperty": "import", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/CnsOntology_template", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "CnsOntology_template", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "本体的相关概念模版", 
+            "propertyRange": "CnsTemplate", 
+            "propertySchema": "", 
+            "refClass": "CnsOntology", 
+            "refProperty": "template", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/CnsTag_broader", 
             "@type": [
                 "CnsTemplate", 
@@ -2163,7 +2379,7 @@
             "minCardinality": 0, 
             "name": "CnsTemplate_maxCardinality", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "任意属于该实体分类的实体中，应该至多具有X个不同属性值。X=0说明该属性不可以出现，X=1说明该属性最多一个，X>1说明该属性可以为多值。缺省为X>1,无限制。", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
@@ -2185,7 +2401,7 @@
             "minCardinality": 0, 
             "name": "CnsTemplate_minCardinality", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "任意属于该实体分类的实体中，应该至少具有X个不同属性值。X=0说明该属性可以缺失，X=1说明该属性非空，X>1说明该属性必为多值。缺省为X=0，无限制。", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
@@ -2338,7 +2554,7 @@
             "minCardinality": 1, 
             "name": "CnsTemplate_propertyNameZh", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "模版对应属性在模版显示中的中文名称，缺省为该属性定义的中文名称。", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
@@ -2360,7 +2576,7 @@
             "minCardinality": 0, 
             "name": "CnsTemplate_propertyRange", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "理想情况下，该属性的值应该是这个这字段描述的类型。例如，name的值应该文本Text类型， father的值应该是人物Person类型。", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
@@ -2382,7 +2598,7 @@
             "minCardinality": 0, 
             "name": "CnsTemplate_propertySchema", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "如果是引用其他模块的实体属性，需要在这里明确具体对应的模块文件名。", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
@@ -2404,7 +2620,7 @@
             "minCardinality": 1, 
             "name": "CnsTemplate_refClass", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "实体模版所描述的实体分类。", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
@@ -2426,7 +2642,7 @@
             "minCardinality": 1, 
             "name": "CnsTemplate_refProperty", 
             "propertyAlternateName": "", 
-            "propertyDefinition": "", 
+            "propertyDefinition": "实体模版所描述的实体属性", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 

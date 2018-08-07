@@ -235,7 +235,7 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(cns_item))
             run_validate(self.loaded_schema, cns_item, report)
 
-        if len(report["bugs_sample"]) != 4:
+        if len(report["bugs_sample"]) != 3:
             logging.info(json4debug(report))
             assert False, len(report["bugs_sample"])
 

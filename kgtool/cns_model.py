@@ -246,7 +246,7 @@ class CnsSchema:
 
             prop = self.index_definition_alias.get( template["refProperty"] )
             assert prop, template  #  refProperty not defined
-            assert prop["name"] == template["refProperty"]
+            assert prop["name"] == template["refProperty"], template["refProperty"] 
             assert prop["@type"][0] == "rdf:Property"
 
     def _stat(self):

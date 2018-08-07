@@ -44,7 +44,8 @@ def run_validate_recursive(loaded_schema, cns_item_list, report):
             run_validate_recursive(loaded_schema, cns_item, report)
     elif type(cns_item_list) == dict:
         run_validate(loaded_schema, cns_item_list, report)
-        run_validate_recursive(loaded_schema, cns_item_list.values(), report)
+        next_list = [v for p,v in cns_item_list.items() if p not in ["@context"]]
+        run_validate_recursive(loaded_schema, next_list, report)
     else:
         # do not validate
         pass
@@ -286,6 +287,8 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
                     #CnsDataStructure
                     if p in ["in","out"]:
                         type_actual = _validate_entity(xtype, p, v, range_actual, range_config, report)
+                    elif "@id" in v:
+                        type_actual = _validate_entity(xtype, p, v, range_actual, range_config, report)
                     else:
                         type_actual = _validate_datastructure(xtype, p, v, range_actual, range_config, report)
                 elif range_actual in [list]:
@@ -299,6 +302,9 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
     all_property = all_property.difference(validated_property)
     c = types[0]
     for p in all_property:
+        if p.startswith("rdfs:"):
+            continue
+
         bug = {
             "category": "warn_validate_template_range",
             "text": "property not validated by main template",
@@ -314,7 +320,7 @@ def _validate_datastructure(c, p, v, range_actual, range_config, report):
     if not xtype:
         bug = {
             "category": "warn_validate_template_range",
-            "text": "range value type missing",
+            "text": "range value type/datastructure missing",
             "value": v,
             "class": c,
             "property": p,
