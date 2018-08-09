@@ -31,7 +31,7 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 
 
 """
-run_convert: convert non-cnSchema JSON into cnsItem using loaded_schema properties
+run_convert: convert non-cnSchema JSON into cns_item using loaded_schema properties
 """
 
 
@@ -46,14 +46,14 @@ def run_convert(cns_model, item, types, primary_keys, report = None):
     if primary_keys:
         assert type(primary_keys) == list
 
-    cnsItem = {
+    cns_item = {
         "@type": types,
     }
 
     for p,v in item.items():
         px = cns_model.index_property_alias.get(p)
         if px:
-            cnsItem[px] = v
+            cns_item[px] = v
         else:
             bug = {
                 "category": "warn_convert_cns",
@@ -66,13 +66,48 @@ def run_convert(cns_model, item, types, primary_keys, report = None):
 
 
     if item.get("@id"):
-        cnsItem["@id"] = item["@id"]
+        cns_item["@id"] = item["@id"]
 
-    xid = gen_cns_id(cnsItem, primary_keys)
-    cnsItem["@id"] = xid
+    xid = gen_cns_id(cns_item, primary_keys)
+    cns_item["@id"] = xid
 
-    return cnsItem
+    return cns_item
 
+
+REGEX_JSON_STRING = re.compile(ur"^{.+}$")
+
+def run_normalize_item(cns_model, cns_item, wm):
+    """
+        convert an item to norm value
+    """
+    types = cns_item["@type"]
+
+    for p,v in cns_item.items():
+        v_new = run_normalize_value(cns_model, types, p, v, wm)
+        if v_new:
+            cns_item[p] = v_new
+
+    return cns_item
+
+def run_normalize_value(cns_model, types, p, v, wm):
+    """
+        convert value to norm value
+    """
+    if isinstance(v, basestring):
+        #json string
+        if v.startswith("[") and v.endswith("]"):
+            return json.loads(v)
+        elif  v.startswith("{") and v.endswith("}"):
+            return json.loads(v)
+
+    for xtype in types:
+        template = cns_model.index_validate_template.get(xtype,{}).get(p)
+        if template:
+            range_config = template["propertyRange"]
+            if range_config["text"].lower() == "integer":
+                return int(v)
+            elif range_config["text"].lower() == "float":
+                return float(v)
 
 
 def task_convert(args):
@@ -88,9 +123,9 @@ def task_convert(args):
     for idx, item in enumerate(jsondata):
         types = [item["mainType"], "Thing"]
         primary_keys = [idx]
-        cnsItem = run_convert(loaded_schema, item, types, primary_keys, report)
-        logging.info(json4debug(cnsItem))
-        #loaded_schema.run_validate(cnsItem, report)
+        cns_item = run_convert(loaded_schema, item, types, primary_keys, report)
+        logging.info(json4debug(cns_item))
+        #loaded_schema.run_validate(cns_item, report)
     logging.info(json4debug(report))
 
 

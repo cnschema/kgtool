@@ -239,6 +239,54 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(report))
             assert False, len(report["bugs_sample"])
 
+    def test_normalize_value(self):
+        cns_item ={
+            "@type": ["QuantitativeValue","CnsDataStructure"],
+            "value": "1.6",
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["value"], basestring)
+        wm = {}
+        run_normalize_item(self.loaded_schema, cns_item, wm)
+        assert isinstance(cns_item["value"], float)
+
+        cns_item ={
+            "@type": ["QuantitativeValue","CnsDataStructure"],
+            "value": ["1.6"],
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["value"], list)
+        wm = {}
+        try:
+            run_normalize_item(self.loaded_schema, cns_item, wm)
+            assert False
+        except:
+            pass
+
+        cns_item ={
+            "@type": ["QuantitativeValue","CnsDataStructure"],
+            "value": 1,
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["value"], int)
+        wm = {}
+        run_normalize_item(self.loaded_schema, cns_item, wm)
+        assert isinstance(cns_item["value"], float)
+
+
+        cns_item ={
+            "@type": ["QuantitativeValue","CnsDataStructure"],
+            "value": "100万",
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["value"], basestring)
+        wm = {}
+        try:
+            run_normalize_item(self.loaded_schema, cns_item, wm)
+            assert False
+        except:
+            pass
+
     def test_iso8601_parse(self):
         v = 1
         ret = iso8601_date_parse(v)
@@ -264,10 +312,9 @@ class CoreTestCase(unittest.TestCase):
         ret = iso8601_date_parse(v)
         assert ret == None, v
 
-        #这个情况的DateTime也是允许的
         v = "1990-01-02"
         ret = iso8601_datetime_parse(v)
-        assert ret != None, v
+        assert ret == None, v
 
         v = "1990-01-02T00:10:01"
         ret = iso8601_datetime_parse(v)
@@ -275,11 +322,11 @@ class CoreTestCase(unittest.TestCase):
 
         v = "1990-01-02T00:10:01Z"
         ret = iso8601_datetime_parse(v)
-        assert ret != None, v
+        assert ret == None, v
 
         v = "1990-01-02T00:10:01.123456"
         ret = iso8601_datetime_parse(v)
-        assert ret != None, v
+        assert ret == None, v
 
     def test_run_validate_recursive(self):
         tin = "../schema/cns_top.jsonld"

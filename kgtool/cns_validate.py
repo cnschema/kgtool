@@ -204,15 +204,14 @@ def _validate_template_special(loaded_schema, cns_item, report, xtemplate, valid
 
         types_domain = json_get_list(cns_item["in"], "@type")
         for xtype in types_domain:
-            template_list = loaded_schema.index_validate_template.get(xtype)
-            if template_list is None or len(template_list)==0:
+            template_map = loaded_schema.index_validate_template.get(xtype)
+            if template_map is None or len(template_map)==0:
                 continue
 
-            for template in template_list:
-                p = template["refProperty"]
-                if types[0] != p:
-                    continue
+            rp =types[0]
+            template = template_map.get(rp)
 
+            if template:
                 v = cns_item["out"]
                 range_actual = type(v)
                 range_config = template["propertyRange"]
@@ -234,8 +233,8 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
 
 
         #find templates
-        template_list = loaded_schema.index_validate_template.get(xtype)
-        if template_list is None or len(template_list)==0:
+        template_map = loaded_schema.index_validate_template.get(xtype)
+        if template_map is None or len(template_map)==0:
             # bug = {
             #     "category": "warn_validate_template",
             #     "text": "no template found",
@@ -247,7 +246,7 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
 
 
         #validate one by one
-        for template in template_list:
+        for template in template_map.values():
             p = template["refProperty"]
 
             # only count main type's  template
@@ -453,7 +452,7 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
 
 #ISO8601_REGEX_VALIDATE = re.compile(r"^[0-9TZ:\-\.]$")
 ISO8601_REGEX_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
-ISO8601_REGEX_DATETIME = re.compile(r"^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2})?Z?\.?\d*$")
+ISO8601_REGEX_DATETIME = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$")
 def iso8601_date_parse(datestr):
     if isinstance(datestr, basestring):
         return ISO8601_REGEX_DATE.match(datestr)

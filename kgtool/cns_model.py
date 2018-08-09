@@ -246,7 +246,7 @@ class CnsSchema:
 
             prop = self.index_definition_alias.get( template["refProperty"] )
             assert prop, template  #  refProperty not defined
-            assert prop["name"] == template["refProperty"], template["refProperty"] 
+            assert prop["name"] == template["refProperty"], template["refProperty"]
             assert prop["@type"][0] == "rdf:Property"
 
     def _stat(self):
@@ -380,7 +380,7 @@ class CnsSchema:
 
     def _build_index_template(self, available_schema_list):
         #reset
-        self.index_validate_template = collections.defaultdict(list)
+        self.index_validate_template = collections.defaultdict(dict)
 
         #build
         for schema in available_schema_list:
@@ -419,7 +419,8 @@ class CnsSchema:
 
 
                 d = template["refClass"]
-                self.index_validate_template[d].append( template_validation )
+                rp = template["refProperty"]
+                self.index_validate_template[d][rp]= template_validation
 
                 #unfold in/out tempalte for simple CnsLink promoted from relation
                 # if template_validation[p]["cns_range_entity"]:
