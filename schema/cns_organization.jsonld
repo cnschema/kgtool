@@ -315,7 +315,8 @@
             ], 
             "alternateName": [
                 "establishDate", 
-                "establishDat"
+                "establishDat", 
+                "注册时间"
             ], 
             "category": "property-template", 
             "name": "foundingDate", 
@@ -468,7 +469,6 @@
                 "Thing"
             ], 
             "alternateName": [
-                "注册时间", 
                 "核准日期"
             ], 
             "category": "property-template", 
@@ -530,9 +530,7 @@
                 "Thing"
             ], 
             "alternateName": [
-                "注册号", 
-                "companyCode", 
-                "企业代码"
+                "注册号"
             ], 
             "category": "property-template", 
             "name": "saicRegistrtionCode", 
@@ -885,7 +883,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_foundingDate", 
-            "propertyAlternateName": "establishDate, establishDat", 
+            "propertyAlternateName": "establishDate, establishDat，注册时间", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1039,7 +1037,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_saicRegistrationDate", 
-            "propertyAlternateName": "注册时间，核准日期", 
+            "propertyAlternateName": "核准日期", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "", 
@@ -1105,7 +1103,7 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Company_saicRegistrtionCode", 
-            "propertyAlternateName": "注册号，companyCode, 企业代码", 
+            "propertyAlternateName": "注册号", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
             "propertyDefinitionZh": "已经被工商注册号代替，旧版工商注册执照的号码。", 

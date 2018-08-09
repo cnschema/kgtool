@@ -50,7 +50,21 @@ def main_subtask(module_name, method_prefixs=["task_"], optional_params={}):
             # http://stackoverflow.com/questions/17734618/dynamic-method-call-in-python-2-7-using-strings-of-method-names
             the_method = getattr(sys.modules[module_name], args.method_name)
             if the_method:
-                the_method(args=vars(args))
+                if vars(args).get("cprofile"):
+                    import cProfile, pstats, StringIO
+                    pr = cProfile.Profile()
+                    pr.enable()
+
+                    the_method(args=vars(args))
+
+                    pr.disable()
+                    s = StringIO.StringIO()
+                    sortby = 'cumulative'
+                    ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+                    ps.print_stats()
+                    print s.getvalue()
+                else:
+                    the_method(args=vars(args))
 
                 logging.info("done")
                 return

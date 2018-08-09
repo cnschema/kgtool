@@ -24,9 +24,44 @@ class CoreTestCase(unittest.TestCase):
         with open(tout) as f:
             data = json.load(f)
             ret = stat_jsonld(data)
-            print json.dumps(ret)
+            logging.info(json4debug(ret))
             assert ret["triple"] == 29
-            assert ret[u"tag_抒情"] == 1
+            #assert ret[u"tag_抒情"]==1
+
+    def test_stat_json_path(self):
+        tin = "test_stats_kg1.jsonld"
+        tin = file2abspath(tin, __file__)
+
+        wm = {
+            "count":collections.Counter(),
+            "unique":collections.Counter(),
+            "sample": collections.defaultdict(list),
+            "distribution": collections.defaultdict(dict),
+        }
+        with open(tin) as f:
+            data = json.load(f)
+            stat_json_path(data, "", wm)
+        logging.info(json4debug(wm))
+        assert len(wm["count"]) == 25, len(wm["count"])
+        assert len(wm["sample"]) == 20, len(wm["sample"])
+
+
+        tin = "test_stats_kg1.jsons"
+        tin = file2abspath(tin, __file__)
+        wm = {
+            "count":collections.Counter(),
+            "unique":collections.Counter(),
+            "sample": collections.defaultdict(list),
+            "distribution": collections.defaultdict(dict),
+        }
+        with codecs.open(tin,encoding="utf-8") as f:
+            for line in f:
+                data = json.loads(line)
+                stat_json_path(data, "", wm)
+
+        logging.info(json4debug(wm))
+        assert len(wm["count"]) == 37, len(wm["count"])
+        assert len(wm["sample"]) == 35, len(wm["sample"])
 
     def test_stat_jsonld(self):
         tin = "test_stats_kg1.jsonld"
@@ -35,8 +70,7 @@ class CoreTestCase(unittest.TestCase):
             data = json.load(f)
             ret = stat_jsonld(data)
             print json.dumps(ret)
-            assert ret["triple"] == 29
-            assert ret[u"tag_抒情"] == 1
+#            assert ret[u"tag_抒情"] == 1
 
     def stat_sample(self):
         tin = "test_stats_kg1.jsonld"

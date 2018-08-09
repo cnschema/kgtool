@@ -8,6 +8,7 @@ History
 * remove cns_creativework
 * refactor cns_item validation logic and code
 * add run_normalize_item, covert property value by schema template definition
+* add stat_json_path, count json object for jsonpath, values, unique values, samples and value distribution 
 
 0.0.6 (2018-07-25)
 ++++++++++++++++++

@@ -59,6 +59,37 @@ def stat_table(items, unique_fields, value_fields=[], printCounter=True, MAX_UNI
 
     return counter
 
+def stat_json_path(json_data, key, wm):
+    xtype = type(json_data)
+    if xtype  == dict:
+        for k, v in json_data.items():
+            if key:
+                keynew = u"{}.{}".format(key, k)
+            else:
+                keynew = k
+
+            stat_json_path(v, keynew, wm)
+
+    elif xtype == list:
+        for x in json_data:
+            stat_json_path(x, key, wm)
+    else:
+        wm["count"][key] += 1
+
+        if "sample" in wm and json_data!="" and len(wm["sample"][key]) < wm.get("MAX_SAMPLE", 3):
+            wm["sample"][key].append(json_data)
+
+        if "distribution" in wm:
+            v = u"{}".format(json_data)
+            if len(wm["distribution"][key]) >= wm.get("MAX_UNIQUE", 10):
+                pass
+            elif v in wm["distribution"][key]:
+                wm["distribution"][key][v] += 1
+            else:
+                wm["distribution"][key][v] = 1
+                wm["unique"][key] += 1
+
+
 def stat_sample(items):
     ret = {"stat": collections.Counter() }
     if not type(items) == list:
@@ -333,6 +364,61 @@ def stat_kg_summary(list_entity, list_relation, dirname, max_sample = 5, flag_ma
 
     return report
 
+
+def task_stat_json_path(args):
+    logging.info(args)
+    filenames = glob.glob(args["filepath"])
+
+    wm = {
+        "count":collections.Counter(),
+        "unique":collections.Counter(),
+        "sample": collections.defaultdict(list),
+        "distribution": collections.defaultdict(dict),
+    }
+
+    if args.get("option") == "jsons":
+        for filename in filenames:
+            key = "_meta_files"
+            wm["count"][key]+=1
+            for line in file2iter(filename):
+                if not line:
+                    continue
+
+                key = "_items"
+                wm["count"][key]+=1
+                if wm["count"][key] % 10000 == 0:
+                    logging.info(json4debug(wm["count"]))
+
+                try:
+                    item = json.loads(line)
+                    stat_json_path(item, "", wm)
+                except:
+                    wm["count"][u"warn_skip_lines"] += 1
+                    wm["count"][u"warn_skip_lines_{}".format(os.path.basename(filename))] +=1
+    else:
+        for filename in filenames:
+            key = "_meta_files"
+            wm["count"][key]+=1
+
+            item = file2json(filename)
+
+            key = "_items"
+            wm["count"][key]+=1
+            if wm["count"][key] % 10000 == 0:
+                logging.info(json4debug(wm["count"]))
+
+            stat_json_path(item, "", wm)
+
+    # print result
+    ret = collections.defaultdict(dict)
+    for key in wm:
+        if key in "distribution":
+            continue
+        for p,v in wm[key].items():
+            ret[p][key] = v
+
+    logging.info(json4debug(ret))
+
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
     logging.getLogger("requests").setLevel(logging.WARNING)
@@ -340,6 +426,8 @@ if __name__ == "__main__":
     optional_params = {
         '--filepath': 'input filepath',
         '--output': 'output filename',
+        '--option': 'json jsons',
+        '--cprofile': 'cprofile',
     }
     main_subtask(__name__, optional_params=optional_params)
 
@@ -348,5 +436,10 @@ if __name__ == "__main__":
 
     python kgtool/stats.py task_stat_kg_pattern --filepath=local/jsons/*.jsons --output=local/output/test_kg_stat.json
 
+    python kgtool/stats.py task_stat_json_path --filepath=tests/test_stats_kg1.jsons --option=jsons --output=local/output/test_stat_json_path.json
+    python kgtool/stats.py task_stat_json_path --filepath=local/jsons/*.jsons --option=jsons --output=local/output/test_stat_json_path.json
+    python kgtool/stats.py task_stat_json_path --filepath=schema/*.jsonld --option=json --output=local/output/test_stat_json_path.json
+
+    python kgtool/stats.py task_stat_json_path --filepath=local/jsons/*.jsons --option=jsons --output=local/output/test_stat_json_path.json --cprofile=yes
 
 """

@@ -692,7 +692,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，溯源，实体数据创建时间，ISO8601 with Timezone", 
+            "descriptionZh": "存储系统专用，溯源，实体数据创建时间，ISO8601 with Timezone", 
             "name": "dateCreated", 
             "nameZh": "创建日期", 
             "rdfs:domain": [
@@ -711,7 +711,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，溯源，实体数据更新时间", 
+            "descriptionZh": "存储系统专用，溯源，实体数据更新时间", 
             "name": "dateModified", 
             "nameZh": "更新日期", 
             "rdfs:domain": [
@@ -730,7 +730,7 @@
                 "Thing"
             ], 
             "category": "property-info", 
-            "descriptionZh": "系统保留字，实体信息的发布时间", 
+            "descriptionZh": "溯源属性，实体信息的发布时间", 
             "name": "datePublished", 
             "nameZh": "发布时间", 
             "rdfs:domain": [
@@ -919,6 +919,24 @@
             "version": "v17q3"
         }, 
         {
+            "@id": "http://cnschema.org/graphId", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-sys", 
+            "descriptionZh": "系统保留字，溯源，实体目前所处的图谱的标识，HASH，建议使用SHA256", 
+            "name": "graphId", 
+            "nameZh": "所在图谱编号", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/identifier", 
             "@type": [
                 "rdf:Property", 
@@ -927,7 +945,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，溯源，实体在数据源对应的ID", 
+            "descriptionZh": "溯源属性，实体在数据源对应的ID", 
             "name": "identifier", 
             "nameZh": "标识", 
             "rdfs:domain": [
@@ -1096,7 +1114,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，实体融合来源", 
+            "descriptionZh": "溯源属性，实体融合来源实体", 
             "name": "mergedFrom", 
             "nameZh": "融合来源", 
             "rdfs:domain": [
@@ -1114,7 +1132,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，实体融合来源数量统计", 
+            "descriptionZh": "溯源属性，实体融合来源数量统计", 
             "name": "mergedFromCount", 
             "nameZh": "融合来源数量", 
             "rdfs:domain": [
@@ -1244,7 +1262,7 @@
             "version": "v18q2"
         }, 
         {
-            "@id": "http://cnschema.org/pageRankValue", 
+            "@id": "http://cnschema.org/pageRankScore", 
             "@type": [
                 "rdf:Property", 
                 "CnsDefinition", 
@@ -1252,8 +1270,8 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，实体的版本号", 
-            "name": "pageRankValue", 
+            "descriptionZh": "系统保留字，实体在对应图谱中的PageRank值", 
+            "name": "pageRankScore", 
             "nameZh": "图谱pagerank评分", 
             "rdfs:domain": [
                 "Thing"
@@ -1461,7 +1479,7 @@
                 "sourceUrl"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，溯源，实体描述来自哪个网页", 
+            "descriptionZh": "溯源属性，实体描述来自哪个网页", 
             "name": "referenceUrl", 
             "nameZh": "来源网址", 
             "rdfs:domain": [
@@ -1520,7 +1538,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，溯源，实体来自哪个数据源", 
+            "descriptionZh": "溯源属性，实体来自哪个数据源", 
             "name": "statedIn", 
             "nameZh": "载于", 
             "rdfs:domain": [
@@ -1597,7 +1615,7 @@
                 "原文"
             ], 
             "category": "property-info", 
-            "descriptionZh": "系统保留字，溯源，实体对应的原文", 
+            "descriptionZh": "实体对应的原文", 
             "name": "text", 
             "nameZh": "内容", 
             "rdfs:domain": [
@@ -1606,24 +1624,6 @@
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/text", 
             "version": "v17q2"
-        }, 
-        {
-            "@id": "http://cnschema.org/uSource", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "category": "property-sys", 
-            "descriptionZh": "存储系统专用，每条信息所属的图谱。信息只能从属于一个图谱。数据融合时，需要复制，不可引用，确保每个图谱自己是自洽的。", 
-            "name": "uSource", 
-            "nameZh": "所属图谱编号", 
-            "rdfs:domain": [
-                "Thing"
-            ], 
-            "rdfs:range": "Text", 
-            "version": "v18q3"
         }, 
         {
             "@id": "http://cnschema.org/unitText", 
@@ -1689,7 +1689,7 @@
                 "Thing"
             ], 
             "category": "property-sys", 
-            "descriptionZh": "系统保留字，实体的版本号", 
+            "descriptionZh": "溯源属性，实体的版本号", 
             "name": "version", 
             "nameZh": "版本", 
             "rdfs:domain": [
@@ -3067,6 +3067,27 @@
             "version": "v18q2"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/Thing_graphId", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Thing_graphId", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "graphId", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/Thing_identifier", 
             "@type": [
                 "CnsTemplate", 
@@ -3302,27 +3323,6 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "tag", 
-            "version": "v18q3"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Thing_uSource", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "minCardinality": 0, 
-            "name": "Thing_uSource", 
-            "propertyAlternateName": "", 
-            "propertyDefinition": "", 
-            "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
-            "propertyDefinitionZhSource": "", 
-            "propertyNameZh": "", 
-            "propertyRange": "", 
-            "propertySchema": "cns_top", 
-            "refClass": "Thing", 
-            "refProperty": "uSource", 
             "version": "v18q3"
         }
     ]
