@@ -406,9 +406,6 @@ def item2flatstr(key, item, ret, option="list2sample"):
 
     return ret
 
-
-
-
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
     logging.getLogger("requests").setLevel(logging.WARNING)

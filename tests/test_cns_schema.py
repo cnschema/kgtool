@@ -233,11 +233,53 @@ class CoreTestCase(unittest.TestCase):
             primary_keys = [ item.get("name", item.get(u"名称")) ]
             cns_item = run_convert(self.loaded_schema, item, types, primary_keys)
             logging.info(json4debug(cns_item))
-            run_validate(self.loaded_schema, cns_item, report)
+            run_validate(self.loaded_schema, cns_item, report, True)
 
         if len(report["bugs_sample"]) != 3:
             logging.info(json4debug(report))
             assert False, len(report["bugs_sample"])
+
+    def test_iso8601_parse(self):
+        v = 1
+        ret = iso8601_date_parse(v)
+        assert ret == None, v
+
+        v = []
+        ret = iso8601_datetime_parse(v)
+        assert ret == None, v
+
+        v = "至今"
+        ret = iso8601_datetime_parse(v)
+        assert ret == None, v
+
+        v = u"至今"
+        ret = iso8601_datetime_parse(v)
+        assert ret == None, v
+
+        v = "1990-01-02"
+        ret = iso8601_date_parse(v)
+        assert ret != None, v
+
+        v = "1990-01-02T00:10:01"
+        ret = iso8601_date_parse(v)
+        assert ret == None, v
+
+        #这个情况的DateTime也是允许的
+        v = "1990-01-02"
+        ret = iso8601_datetime_parse(v)
+        assert ret != None, v
+
+        v = "1990-01-02T00:10:01"
+        ret = iso8601_datetime_parse(v)
+        assert ret != None, v
+
+        v = "1990-01-02T00:10:01Z"
+        ret = iso8601_datetime_parse(v)
+        assert ret != None, v
+
+        v = "1990-01-02T00:10:01.123456"
+        ret = iso8601_datetime_parse(v)
+        assert ret != None, v
 
     def test_run_validate_recursive(self):
         tin = "../schema/cns_top.jsonld"

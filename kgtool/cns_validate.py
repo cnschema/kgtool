@@ -180,20 +180,28 @@ def _validate_template(loaded_schema, cns_item, report, is_top_level_item):
 def _count_links(cns_item, report, xtemplate):
     types = json_get_list(cns_item,"@type")
     if "CnsLink" in types:
-        main_type_in = cns_item["in"]["@type"][0]
-        main_type_out = cns_item["out"]["@type"][0]
-
         key_cnslink = u"cnslink_total"
         report[xtemplate][key_cnslink] += 1
 
-        key_cnslink = u"cnslink_{}_{}_{}".format(main_type_in, types[0], main_type_out)
-        report[xtemplate][key_cnslink] += 1
+        if not isinstance(cns_item["in"], dict):
+            key_cnslink = u"cnslink_{}".format(types[0])
+            report[xtemplate][key_cnslink] += 1
+
+        else:
+            main_type_in = cns_item["in"]["@type"][0]
+            main_type_out = cns_item["out"]["@type"][0]
+
+            key_cnslink = u"cnslink_{}_{}_{}".format(main_type_in, types[0], main_type_out)
+            report[xtemplate][key_cnslink] += 1
 
 
 def _validate_template_special(loaded_schema, cns_item, report, xtemplate, validated_property):
     #special case
     types = json_get_list(cns_item,"@type")
     if "CnsLink" in types and re.search(r"^[a-z]", types[0]):
+        if not isinstance(cns_item["in"], dict):
+            return
+
         types_domain = json_get_list(cns_item["in"], "@type")
         for xtype in types_domain:
             template_list = loaded_schema.index_validate_template.get(xtype)
@@ -412,6 +420,48 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
         write_report(report, bug)
 
 
+    #logging.info(json4debug(range_config["text"]))
+    if range_config["text"].lower() == "date":
+        ret = iso8601_date_parse(v)
+        if not ret:
+            bug = {
+                "category": "warn_validate_range",
+                "text": "range value is valid Date string",
+                "actualValue": v,
+                "class": c,
+                "property": p,
+                "expected" : range_config["text"],
+                "actual" : str(range_actual),
+            }
+            write_report(report, bug)
+
+        #assert False
+    elif range_config["text"].lower() == "datetime":
+        ret = iso8601_datetime_parse(v)
+        if not ret:
+            bug = {
+                "category": "warn_validate_range",
+                "text": "range value is valid DateTime string",
+                "actualValue": v,
+                "class": c,
+                "property": p,
+                "expected" : range_config["text"],
+                "actual" : str(range_actual),
+            }
+            write_report(report, bug)
+        #assert False
+
+#ISO8601_REGEX_VALIDATE = re.compile(r"^[0-9TZ:\-\.]$")
+ISO8601_REGEX_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+ISO8601_REGEX_DATETIME = re.compile(r"^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2})?Z?\.?\d*$")
+def iso8601_date_parse(datestr):
+    if isinstance(datestr, basestring):
+        return ISO8601_REGEX_DATE.match(datestr)
+
+def iso8601_datetime_parse(datestr):
+    if isinstance(datestr, basestring):
+        return ISO8601_REGEX_DATETIME.match(datestr)
+
 #
 # def _validate_range(loaded_schema, cns_item, report):
 #     #TODO only validate non object range for now
@@ -569,6 +619,8 @@ def task_validate(args):
             report[xtemplate][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
 
     #validate
+    lines = []
+
     for filename in filename_list:
         logging.info(filename)
         if not os.path.exists(filename):
@@ -583,15 +635,34 @@ def task_validate(args):
                 run_validate_recursive(loaded_schema, json_data, report)
                 stat_kg_report_per_item(json_data, None, report["stats"])
 
+                # collection entity listing
+                if "CnsLink" not in json_data["@type"]:
+                    entity_simple = [
+                        json_data["@type"][0],
+                        json_data.get("name",""),
+                         "\""+u",".join(json_data.get("alternateName",[]))+"\""
+                    ]
+                    lines.append(u",".join(entity_simple))
+
         else:
             jsondata = file2json(filename)
             run_validate_recursive(loaded_schema, jsondata, report)
+
+    #out
+    filename = args["output_validate_entity"]
+    logging.info(filename)
+    lines = sorted(lines)
+
+    fields = ["main_type","name","alternateName"]
+    lines.insert(0, u",".join(fields))
+    lines2file(lines, filename)
 
     #display report
     logging.info(json4debug(report))
 
     #write report csv
     write_csv_report(args, report, loaded_schema, xtemplate)
+
 
 def write_csv_report(args, report, loaded_schema, xtemplate):
     # generate output report
@@ -623,7 +694,7 @@ def write_csv_report(args, report, loaded_schema, xtemplate):
 
             lines.append(u",".join(row))
 
-    filename = args["output_file"]
+    filename = args["output_validate_report"]
     logging.info(filename)
     lines2file(lines, filename)
 
@@ -635,7 +706,8 @@ if __name__ == "__main__":
         '--input_file': 'input file',
         '--dir_schema': 'input schema',
         '--input_schema': 'input schema',
-        '--output_file': 'output file',
+        '--output_validate_report': 'output validation report',
+        '--output_validate_entity': 'output validation entity list',
         '--debug_dir': 'debug directory',
         '--option': 'debug directory',
     }

@@ -1608,6 +1608,24 @@
             "version": "v17q2"
         }, 
         {
+            "@id": "http://cnschema.org/uSource", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-sys", 
+            "descriptionZh": "存储系统专用，每条信息所属的图谱。信息只能从属于一个图谱。数据融合时，需要复制，不可引用，确保每个图谱自己是自洽的。", 
+            "name": "uSource", 
+            "nameZh": "所属图谱编号", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
+            "rdfs:range": "Text", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/unitText", 
             "@type": [
                 "rdf:Property", 
@@ -1753,7 +1771,7 @@
         "text": "候选的更新", 
         "version": "vnext"
     }, 
-    "dateModified": "2018-06-22", 
+    "dateModified": "2018-06-22T00:00:00", 
     "name": "cns_top", 
     "template": [
         {
@@ -2983,6 +3001,28 @@
             "version": "v18q3"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/Thing_dateModified", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "Thing_dateModified", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "dateModified", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/Thing_datePublished", 
             "@type": [
                 "CnsTemplate", 
@@ -3262,6 +3302,27 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "tag", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_uSource", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Thing_uSource", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "uSource", 
             "version": "v18q3"
         }
     ]
