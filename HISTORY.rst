@@ -7,6 +7,7 @@ History
 * refactor code, switch back to lowercase&underscore code style, split cns_schema into cns_model, cns_validate, cns_convert, cns_graphviz
 * remove cns_creativework
 * refactor cns_item validation logic and code
+* add run_normalize_item, covert property value by schema template definition
 
 0.0.6 (2018-07-25)
 ++++++++++++++++++

@@ -273,6 +273,16 @@ class CoreTestCase(unittest.TestCase):
         run_normalize_item(self.loaded_schema, cns_item, wm)
         assert isinstance(cns_item["value"], float)
 
+        cns_item ={
+            "@type": ["CnsLink", "QuantitativeValue","CnsDataStructure"],
+            "value": 1,
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["value"], int)
+        wm = {}
+        run_normalize_item(self.loaded_schema, cns_item, wm)
+        assert isinstance(cns_item["value"], float)
+
 
         cns_item ={
             "@type": ["QuantitativeValue","CnsDataStructure"],
@@ -286,6 +296,31 @@ class CoreTestCase(unittest.TestCase):
             assert False
         except:
             pass
+
+        cns_item ={
+            "@type": "[QuantitativeValue, CnsDataStructure]",
+            "value": 1,
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["@type"], basestring)
+        assert isinstance(cns_item["value"], int)
+        wm = {}
+        run_normalize_item(self.loaded_schema, cns_item, wm)
+        assert isinstance(cns_item["value"], float)
+        assert isinstance(cns_item["@type"], list)
+
+        cns_item ={
+            "@type": "QuantitativeValue",
+            "value": 1,
+            "unitText": u"元",
+        }
+        assert isinstance(cns_item["@type"], basestring)
+        assert isinstance(cns_item["value"], int)
+        wm = {}
+        run_normalize_item(self.loaded_schema, cns_item, wm)
+        assert isinstance(cns_item["value"], float)
+        assert isinstance(cns_item["@type"], list)
+
 
     def test_iso8601_parse(self):
         v = 1

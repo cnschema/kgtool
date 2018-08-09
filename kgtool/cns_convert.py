@@ -76,11 +76,25 @@ def run_convert(cns_model, item, types, primary_keys, report = None):
 
 REGEX_JSON_STRING = re.compile(ur"^{.+}$")
 
+def convert_cns_type_string(types):
+    if isinstance(types, list):
+        return types
+    else:
+        if types.startswith("["):
+            return [x.strip() for x in types[1:-1].split(",")]
+        elif isinstance(types, basestring) and not u"," in types:
+            return [ types ]
+        else:
+            assert False
+
+
 def run_normalize_item(cns_model, cns_item, wm):
     """
         convert an item to norm value
     """
     types = cns_item["@type"]
+    types = convert_cns_type_string(types)
+    cns_item["@type"] = types
 
     for p,v in cns_item.items():
         v_new = run_normalize_value(cns_model, types, p, v, wm)
@@ -93,6 +107,9 @@ def run_normalize_value(cns_model, types, p, v, wm):
     """
         convert value to norm value
     """
+    if p in ["@type", "@id"]:
+        return
+
     if isinstance(v, basestring):
         #json string
         if v.startswith("[") and v.endswith("]"):

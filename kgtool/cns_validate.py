@@ -74,15 +74,20 @@ def run_validate(loaded_schema, cns_item, report, is_top_level_item):
     return report
 
 def _validate_system(loaded_schema, cns_item, report):
-    # if "@vocab" in cns_item:
-    #     bug = {
-    #         "category": "info_validate_system",
-    #         "text": "skip validating system @vocab",
-    #     }
-    #     write_report(report, bug)
-    #     return False
+    types = cns_item["@type"]
+    if not isinstance(types, list):
+        bug = {
+            "category": "warn_validate_system",
+            "text": " @type got string value",
+            "item": cns_item
+        }
+        write_report(report, bug)
 
-    types = json_get_list(cns_item,"@type")
+        types = convert_cns_type_string(types)
+        #rewrite type
+        cns_item["@type"] = types
+
+
     if not types:
         bug = {
             "category": "warn_validate_system",
