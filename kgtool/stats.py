@@ -424,6 +424,7 @@ def task_stat_json_path(args):
     if filename:
         json2file(ret, filename)
 
+
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
     logging.getLogger("requests").setLevel(logging.WARNING)

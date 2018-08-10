@@ -675,7 +675,7 @@ def task_validate(args):
                     logging.info(idx)
                     logging.info(json4debug(report))
                 json_data = json.loads(line)
-                run_validate_recursive(loaded_schema, json_data, report)
+                run_validate(loaded_schema, json_data, report)
                 stat_kg_report_per_item(json_data, None, report["stats"])
 
                 # collection entity listing
@@ -689,7 +689,7 @@ def task_validate(args):
 
         else:
             jsondata = file2json(filename)
-            run_validate_recursive(loaded_schema, jsondata, report)
+            run_validate(loaded_schema, jsondata, report)
 
     #out
     filename = args["output_validate_entity"]
@@ -706,6 +706,9 @@ def task_validate(args):
     #write report csv
     write_csv_report(args, report, loaded_schema)
 
+    filename = args["output_validate_report"].replace("csv","json")
+    logging.info(filename)
+    json2file(report, filename)
 
 def write_csv_report(args, report, loaded_schema):
     # generate output report
@@ -714,8 +717,12 @@ def write_csv_report(args, report, loaded_schema):
     lines.append(u",".join(fields))
     for k, cnt in report[XTEMPLATE].items():
         if k.startswith("cp_"):
+            if cnt == 0:
+                #skip link
+                continue
+
             temp = k.split("_")
-            total = report[XTEMPLATE]["type_{}".format(temp[1])]
+            total = report[XTEMPLATE]["type_top_{}".format(temp[1])]
             if temp[1].startswith("rdf"):
                 nameZh1 = ""
             else:
@@ -743,6 +750,7 @@ def write_csv_report(args, report, loaded_schema):
 
     filename = args["output_validate_report"]
     logging.info(filename)
+    lines = sorted(lines)
     lines2file(lines, filename)
 
 if __name__ == "__main__":
