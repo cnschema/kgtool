@@ -82,8 +82,8 @@ def convert_cns_type_string(types):
     else:
         if types.startswith("["):
             return [x.strip() for x in types[1:-1].split(",")]
-        elif isinstance(types, basestring) and not u"," in types:
-            return [ types ]
+        elif isinstance(types, basestring):
+            return types.split(",")
         else:
             assert False
 

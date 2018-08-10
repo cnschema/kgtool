@@ -19,11 +19,8 @@ import glob
 import copy
 from difflib import unified_diff
 
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
-
-from kgtool.core import *  # noqa
-from kgtool.alg_graph import DirectedGraph
+from core import *  # noqa
+from alg_graph import DirectedGraph
 
 # global constants
 VERSION = 'v20180729'

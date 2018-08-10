@@ -233,7 +233,7 @@ class CoreTestCase(unittest.TestCase):
             primary_keys = [ item.get("name", item.get(u"名称")) ]
             cns_item = run_convert(self.loaded_schema, item, types, primary_keys)
             logging.info(json4debug(cns_item))
-            run_validate(self.loaded_schema, cns_item, report, True)
+            run_validate(self.loaded_schema, cns_item, report)
 
         if len(report["bugs_sample"]) != 3:
             logging.info(json4debug(report))

@@ -18,11 +18,9 @@ import collections
 import glob
 import copy
 
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
-
-from kgtool.core import *  # noqa
-from kgtool.stats import stat_kg_report_per_item
+from core import *  # noqa
+from stats import stat_kg_report_per_item
+from cns_convert import convert_cns_type_string
 from cns_model import preload_schema, CnsSchema, init_report,write_report
 
 # global constants
@@ -38,34 +36,52 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 """
 
 
-def run_validate_recursive(loaded_schema, cns_item_list, report, parent_item=None):
+def run_validate_recursive(loaded_schema, cns_item_list, report):
     if type(cns_item_list) == list:
         for cns_item in cns_item_list:
-            run_validate_recursive(loaded_schema, cns_item, report, parent_item)
+            run_validate_recursive(loaded_schema, cns_item, report)
     elif type(cns_item_list) == dict:
-        run_validate(loaded_schema, cns_item_list, report, parent_item == None)
+        run_validate(loaded_schema, cns_item_list, report)
         next_list = [v for p,v in cns_item_list.items() if p not in ["@context"]]
-        run_validate_recursive(loaded_schema, next_list, report, cns_item_list)
+        run_validate_recursive(loaded_schema, next_list, report)
     else:
         # do not validate
         pass
 
 
-def run_validate(loaded_schema, cns_item, report, is_top_level_item):
+XTEMPLATE = "xtemplate"
+
+def run_validate(loaded_schema, cns_item, report):
     """
         validate the following
         * template restriction  (class-property binding)
 
         * range of property
     """
-    report["stats"]["items_validated"] += 1
+    #stats
+    report["stats"]["items_validate"] += 1
 
-    if not _validate_system(loaded_schema, cns_item, report):
+    if XTEMPLATE not in report:
+        report[XTEMPLATE] = collections.Counter()
+
+    #check types
+    types = cns_item.get("@type")
+    if types is None:
+        bug = {
+            "category": "warn_validate",
+            "text": "missing @type and no expected @type",
+            "item": cns_item
+        }
+        write_report(report, bug)
         return report
 
-    _validate_definition(loaded_schema, cns_item, report)
+    _rewrite_item(loaded_schema, cns_item, report)
 
-    _validate_template(loaded_schema, cns_item, report, is_top_level_item)
+    _count_cnslink(loaded_schema, cns_item, report)
+
+    _validate_system_property(loaded_schema, cns_item, report)
+
+    _validate_template(loaded_schema, cns_item, cns_item["@type"], report)
 
     #_validate_range(loaded_schema, cns_item, report)
 
@@ -73,11 +89,20 @@ def run_validate(loaded_schema, cns_item, report, is_top_level_item):
 
     return report
 
-def _validate_system(loaded_schema, cns_item, report):
-    types = cns_item["@type"]
+SYSTEM_PROPERTY_LIST = ["@context","@vocab", "@graph", "@id", "@type"]
+def get_system_property():
+    return SYSTEM_PROPERTY_LIST
+
+def _rewrite_item(loaded_schema, cns_item, report):
+    """
+        fix bugs in item, keep on validation
+    """
+
+    # rewrite type
+    types = cns_item.get("@type")
     if not isinstance(types, list):
         bug = {
-            "category": "warn_validate_system",
+            "category": "warn_rewrite_item",
             "text": " @type got string value",
             "item": cns_item
         }
@@ -87,45 +112,13 @@ def _validate_system(loaded_schema, cns_item, report):
         #rewrite type
         cns_item["@type"] = types
 
+    types = cns_item.get("@type")
+    if types is None:
+        return
 
-    if not types:
-        bug = {
-            "category": "warn_validate_system",
-            "text": "item missing @type",
-            "item": cns_item
-        }
-        write_report(report, bug)
-        return False
-
-    if not isinstance(cns_item["@type"], list):
-        bug = {
-            "category": "warn_validate_system",
-            "text": "item @type is not a list",
-            "item": cns_item
-        }
-        write_report(report, bug)
-        #return False
-
-    if "Thing" in types:
-        if not "@id" in cns_item:
-            bug = {
-                "category": "warn_validate_system",
-                "text": "instance of [Thing] missing @id",
-                "item": cns_item
-            }
-            write_report(report, bug)
-            return False
-
-
-    return True
-
-
-def _validate_definition(loaded_schema, cns_item, report):
-    """
-        if @type and all properties are defined in schema
-    """
-    #types
-    for xtype in json_get_list(cns_item,"@type"):
+    #remove undefined type
+    types_new = []
+    for xtype in types:
         has_definition = False
         for schema in loaded_schema.loaded_schema_list:
             the_definition = schema.get_definition_by_alias(xtype)
@@ -135,13 +128,18 @@ def _validate_definition(loaded_schema, cns_item, report):
 
         if not has_definition:
             bug = {
-                "category": "info_validate_definition",
+                "category": "warn_rewrite_item",
                 "text": "class not defined",
                 "class" : xtype,
                 #"item": cns_item
             }
             write_report(report, bug)
+        else:
+            types_new.append(xtype)
+    cns_item["@type"] = types_new
 
+    #undefined property
+    bad_property_list = []
     for property in cns_item:
         if property in get_system_property():
             continue
@@ -155,57 +153,68 @@ def _validate_definition(loaded_schema, cns_item, report):
 
         if not has_definition:
             bug = {
-                "category": "info_validate_definition",
+                "category": "warn_rewrite_item",
                 "text": "property not defined",
                 "property" : property,
                 #"item": cns_item
             }
             write_report(report, bug)
+            bad_property_list.append(property)
 
-def get_system_property():
-    return ["@context","@vocab", "@graph", "@id", "@type"]
-
-
-def _validate_template(loaded_schema, cns_item, report, is_top_level_item):
-    # template validation
-    xtemplate = "xtemplate"
-    if xtemplate not in report:
-        report[xtemplate] = collections.Counter()
+    for p in bad_property_list:
+        del cns_item[p]
 
 
-    validated_property = set()
+def _validate_system_property(loaded_schema, cns_item, report):
 
-    _count_links(cns_item, report,xtemplate)
+    # system property
+    types = cns_item["@type"]
+    if "Thing" in types:
+        if not "@id" in cns_item:
+            bug = {
+                "category": "warn_validate_system_property",
+                "text": "instance of [Thing] missing @id",
+                "item": cns_item
+            }
+            write_report(report, bug)
 
-    if _validate_template_special(loaded_schema, cns_item, report,xtemplate,validated_property):
-        return
-    _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property, is_top_level_item)
 
-
-def _count_links(cns_item, report, xtemplate):
-    types = json_get_list(cns_item,"@type")
+def _count_cnslink(loaded_schema, cns_item, report):
+    types = cns_item["@type"]
     if "CnsLink" in types:
         key_cnslink = u"cnslink_total"
-        report[xtemplate][key_cnslink] += 1
+        report[XTEMPLATE][key_cnslink] += 1
 
         if not isinstance(cns_item["in"], dict):
             key_cnslink = u"cnslink_{}".format(types[0])
-            report[xtemplate][key_cnslink] += 1
+            report[XTEMPLATE][key_cnslink] += 1
 
         else:
             main_type_in = cns_item["in"]["@type"][0]
             main_type_out = cns_item["out"]["@type"][0]
 
             key_cnslink = u"cnslink_{}_{}_{}".format(main_type_in, types[0], main_type_out)
-            report[xtemplate][key_cnslink] += 1
+            report[XTEMPLATE][key_cnslink] += 1
 
 
-def _validate_template_special(loaded_schema, cns_item, report, xtemplate, validated_property):
+
+def _validate_template(loaded_schema, cns_item, types, report):
+    # template validation
+
+    validated_property = set()
+
+    if _validate_template_special(loaded_schema, cns_item, types, report, validated_property):
+        return
+
+    _validate_template_regular(loaded_schema, cns_item, types, report, validated_property)
+
+
+def _validate_template_special(loaded_schema, cns_item, types, report, validated_property):
     #special case
-    types = json_get_list(cns_item,"@type")
-    if "CnsLink" in types and re.search(r"^[a-z]", types[0]):
+    main_type = types[0]
+    if "CnsLink" in types and re.search(r"^[a-z]", main_type):
         if not isinstance(cns_item["in"], dict):
-            return
+            return False
 
         types_domain = json_get_list(cns_item["in"], "@type")
         for xtype in types_domain:
@@ -213,29 +222,27 @@ def _validate_template_special(loaded_schema, cns_item, report, xtemplate, valid
             if template_map is None or len(template_map)==0:
                 continue
 
-            rp =types[0]
-            template = template_map.get(rp)
+            template = template_map.get(main_type)
 
             if template:
                 v = cns_item["out"]
                 range_actual = type(v)
                 range_config = template["propertyRange"]
-                type_actual = _validate_entity(xtype, p, v, range_actual, range_config, report)
-                validated_property.add(p)
+                type_actual = _validate_entity_ref(xtype, main_type, v, range_actual, range_config, report)
+                validated_property.add(main_type)
                 return True
 
 
-def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, validated_property, is_top_level_item):
+def _validate_template_regular(loaded_schema, cns_item, types, report, validated_property):
     #regular validation
-    types = json_get_list(cns_item,"@type")
     main_type = types[0]
     for idx, xtype in enumerate(types):
         # only count main type's  template
+        key_c = u"type_all_{}".format(xtype)
+        report[XTEMPLATE][key_c] += 1
         if idx == 0:
-            if is_top_level_item:
-                key_c = u"type_{}".format(xtype)
-                report[xtemplate][key_c] += 1
-
+            key_c = u"type_top_{}".format(xtype)
+            report[XTEMPLATE][key_c] += 1
 
         #find templates
         template_map = loaded_schema.index_validate_template.get(xtype)
@@ -255,12 +262,11 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
             p = template["refProperty"]
 
             # only count main type's  template
-            if is_top_level_item:
-                key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
-                if p in cns_item:
-                    report[xtemplate][key_cp] += 1
-                else:
-                    report[xtemplate][key_cp] += 0
+            key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
+            if p in cns_item:
+                report[XTEMPLATE][key_cp] += 1
+            else:
+                report[XTEMPLATE][key_cp] += 0
 
             if p in validated_property:
                 # validated, no need to be validated in other templates
@@ -280,7 +286,7 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
                     # logging.info(json4debug(cns_item))
                     # assert False
                     bug = {
-                        "category": "warn_validate_template",
+                        "category": "warn_validate_template_regular",
                         "text": "minCardinality",
                         "class": xtype,
                         "property": p,
@@ -295,7 +301,7 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
                 if "maxCardinality" in template:
                     if card_actual > template["maxCardinality"]:
                         bug = {
-                            "category": "warn_validate_template",
+                            "category": "warn_validate_template_regular",
                             "text": "maxCardinality",
                             "class": xtype,
                             "property": p,
@@ -317,17 +323,26 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
                 if range_actual in [dict]:
                     #CnsDataStructure
                     if p in ["in","out"]:
-                        type_actual = _validate_entity(xtype, p, v, range_actual, range_config, report)
+                        _validate_entity_ref(xtype, p, v, range_actual, range_config, report)
                     elif "@id" in v:
-                        type_actual = _validate_entity(xtype, p, v, range_actual, range_config, report)
+                        _validate_entity_ref(xtype, p, v, range_actual, range_config, report)
+
+                        v_types = json_get_list(v, "@type")
+                        if v_types:
+                            _validate_template(loaded_schema, v, v_types, report)
                     else:
-                        type_actual = _validate_datastructure(xtype, p, v, range_actual, range_config, report)
+                        v_types = _validate_datastructure(xtype, p, v, range_actual, range_config, report)
+
+                        if v_types:
+                            _validate_template(loaded_schema, v, v_types, report)
+
                 elif range_actual in [list]:
                     assert False #unexpected
                 else:
                     type_actual = _validate_datatype(xtype, p, v, range_actual, range_config, report)
 
     #properties not validate by main template
+
     all_property = set(cns_item.keys())
     all_property = all_property.difference(get_system_property())
     all_property = all_property.difference(validated_property)
@@ -336,26 +351,28 @@ def _validate_template_regular(loaded_schema, cns_item, report, xtemplate, valid
         if p.startswith("rdfs:"):
             continue
 
+
         bug = {
-            "category": "warn_validate_template_range",
+            "category": "warn_validate_template_regular",
             "text": "property not validated by main template",
             "value": cns_item,
             "class": c,
             "property": p,
         }
+        #logging.info(bug)
         write_report(report, bug)
 
         # not validated properties for main type
         key_cp = u"ucp_{}_{}".format(c, p)
-        report[xtemplate][key_cp] += 1
+        report[XTEMPLATE][key_cp] += 1
 
 
 def _validate_datastructure(c, p, v, range_actual, range_config, report):
-    xtype = json_get_list(v, "@type")
-    if not xtype:
+    types = range_config["cns_range_datastructure"]
+    if len(types) == 0:
         bug = {
-            "category": "warn_validate_template_range",
-            "text": "range value type/datastructure missing",
+            "category": "warn_validate_datastructure",
+            "text": "value range not specified as datastructure",
             "value": v,
             "class": c,
             "property": p,
@@ -363,27 +380,41 @@ def _validate_datastructure(c, p, v, range_actual, range_config, report):
             "actual" : None,
         }
         write_report(report, bug)
-        return
+    return types
 
-    xtype_main = xtype[0]
-    if not xtype_main in range_config["cns_range_datastructure"]:
-        bug = {
-            "category": "warn_validate_template_range",
-            "text": "range value type/datastructure mismatch",
-            "value": v,
-            "class": c,
-            "property": p,
-            "expected" : range_config["cns_range_datastructure"],
-            "actual" : xtype,
-        }
-        write_report(report, bug)
+    # xtype = json_get_list(v, "@type")
+    # if not xtype:
+    #     bug = {
+    #         "category": "warn_validate_template_range",
+    #         "text": "range value type/datastructure missing",
+    #         "value": v,
+    #         "class": c,
+    #         "property": p,
+    #         "expected" : range_config["text"],
+    #         "actual" : None,
+    #     }
+    #     write_report(report, bug)
+    #     return
+    #
+    # xtype_main = xtype[0]
+    # if not xtype_main in range_config["cns_range_datastructure"]:
+    #     bug = {
+    #         "category": "warn_validate_template_range",
+    #         "text": "range value type/datastructure mismatch",
+    #         "value": v,
+    #         "class": c,
+    #         "property": p,
+    #         "expected" : range_config["cns_range_datastructure"],
+    #         "actual" : xtype,
+    #     }
+    #     write_report(report, bug)
 
-def _validate_entity(c, p, v, range_actual, range_config, report):
+def _validate_entity_ref(c, p, v, range_actual, range_config, report):
     xtype = json_get_list(v, "@type")
     if not xtype:
         bug = {
-            "category": "warn_validate_template_range",
-            "text": "range value type missing",
+            "category": "warn_validate_entity_ref",
+            "text": "value type missing",
             "value": v,
             "class": c,
             "property": p,
@@ -396,12 +427,12 @@ def _validate_entity(c, p, v, range_actual, range_config, report):
     xtype_main = xtype[0]
     if range_config["cns_range_entity"] and range_config["cns_range_entity"][0] in xtype:
         pass
-    elif  xtype_main in range_config["cns_range_entity"]:
+    elif xtype_main in range_config["cns_range_entity"]:
         pass
     else:
         bug = {
-            "category": "warn_validate_template_range",
-            "text": "range value type/entity mismatch",
+            "category": "warn_validate_entity_ref",
+            "text": "value type/entity mismatch",
             "value": v,
             "class": c,
             "property": p,
@@ -413,7 +444,7 @@ def _validate_entity(c, p, v, range_actual, range_config, report):
 def _validate_datatype(c, p, v, range_actual, range_config, report):
     if not range_actual in range_config["python_type_value_list"]:
         bug = {
-            "category": "warn_validate_range",
+            "category": "warn_validate_datatype",
             "text": "range value datatype mismatch",
             "actualValue": v,
             "class": c,
@@ -429,7 +460,7 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
         ret = iso8601_date_parse(v)
         if not ret:
             bug = {
-                "category": "warn_validate_range",
+                "category": "warn_validate_datatype",
                 "text": "range value is valid Date string",
                 "actualValue": v,
                 "class": c,
@@ -444,7 +475,7 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
         ret = iso8601_datetime_parse(v)
         if not ret:
             bug = {
-                "category": "warn_validate_range",
+                "category": "warn_validate_datatype",
                 "text": "range value is valid DateTime string",
                 "actualValue": v,
                 "class": c,
@@ -601,26 +632,25 @@ def task_validate(args):
     report = init_report()
 
     # init xtemplate
-    xtemplate = "xtemplate"
-    report[xtemplate] = collections.Counter()
+    report[XTEMPLATE] = collections.Counter()
     for template in loaded_schema.metadata["template"]:
         d = template["refClass"]
         p = template["refProperty"]
         key_cp = u"cp_{}_{}_{}".format(d, d, p)
-        report[xtemplate][key_cp] += 0
-    logging.info(json4debug(report[xtemplate]))
+        report[XTEMPLATE][key_cp] += 0
+    logging.info(json4debug(report[XTEMPLATE]))
 
     # init class path dependency
     for template in loaded_schema.metadata["template"]:
         d = template["refClass"]
         key_cp = u"parent_{}".format(d)
-        report[xtemplate][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
+        report[XTEMPLATE][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
 
     for definition in loaded_schema.definition.values():
         if "rdfs:Class" in definition["@type"]:
             d = definition["name"]
             key_cp = u"parent_{}".format(d)
-            report[xtemplate][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
+            report[XTEMPLATE][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
 
     #validate
     lines = []
@@ -665,18 +695,22 @@ def task_validate(args):
     logging.info(json4debug(report))
 
     #write report csv
-    write_csv_report(args, report, loaded_schema, xtemplate)
+    write_csv_report(args, report, loaded_schema)
 
 
-def write_csv_report(args, report, loaded_schema, xtemplate):
+def write_csv_report(args, report, loaded_schema):
     # generate output report
     lines = []
     fields = ["main_type","super_type","property","main_type_zh","super_type_zh","property_zh","count","coverage"]
     lines.append(u",".join(fields))
-    for k, cnt in report[xtemplate].items():
+    for k, cnt in report[XTEMPLATE].items():
         if k.startswith("cp_"):
             temp = k.split("_")
-            total = report[xtemplate]["type_{}".format(temp[1])]
+            total = report[XTEMPLATE]["type_{}".format(temp[1])]
+            if temp[1].startswith("rdf"):
+                nameZh1 = ""
+            else:
+                nameZh1 = loaded_schema.get_definition_by_alias(temp[1])["nameZh"]
             row = [
                 #"main_type":
                 temp[1],
@@ -685,7 +719,7 @@ def write_csv_report(args, report, loaded_schema, xtemplate):
                 #"property":
                 temp[3],
                 #"main_type_zh":
-                loaded_schema.get_definition_by_alias(temp[1])["nameZh"],
+                nameZh1,
                 #"super_type_zh":
                 loaded_schema.get_definition_by_alias(temp[2])["nameZh"],
                 #"property_zh":
@@ -723,8 +757,8 @@ if __name__ == "__main__":
     python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug --dir_schema=schema
     python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
 
-    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld  --debug_dir=local/debug --dir_schema=schema --output_validate_entity=local/temp/entity.csv --output_validate_report=local/temp/report.csv
 
-    python kgtool/cns_validate.py task_validate --input_file=local/kg4ai_cn_1.0.1.jsondl --input_schema=local/schema/cns_kg4ai.jsonld --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=local/kg4ai_cn_1.0.1.jsondl --input_schema=local/schema/cns_kg4ai.jsonld --debug_dir=local/debug --dir_schema=schema --output_validate_entity=local/temp/entity.csv --output_validate_report=local/temp/report.csv
 
 """

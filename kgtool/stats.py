@@ -418,6 +418,11 @@ def task_stat_json_path(args):
             ret[p][key] = v
 
     logging.info(json4debug(ret))
+    logging.info(json4debug(wm["count"]))
+
+    filename = args.get("output")
+    if filename:
+        json2file(ret, filename)
 
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)
