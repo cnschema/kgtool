@@ -2767,7 +2767,7 @@
                 "Thing"
             ], 
             "maxCardinality": 1, 
-            "minCardinality": 1, 
+            "minCardinality": 0, 
             "name": "MonetaryAmount_currency", 
             "propertyAlternateName": "", 
             "propertyDefinition": "", 

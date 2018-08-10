@@ -23,6 +23,12 @@ class CoreTestCase(unittest.TestCase):
         self.filenameSchema = file2abspath(filenameSchema)
         self.loaded_schema = CnsSchema()
         self.loaded_schema.import_jsonld(self.filenameSchema)
+
+        filenameSchema = "../schema/cns_organization.jsonld"
+        filenameSchema = file2abspath(filenameSchema)
+        self.loaded_schema_org = CnsSchema()
+        self.loaded_schema_org.import_jsonld(filenameSchema)
+
         pass
 
     def test_import_jsonld(self):
@@ -363,13 +369,41 @@ class CoreTestCase(unittest.TestCase):
         ret = iso8601_datetime_parse(v)
         assert ret == None, v
 
-    def test_run_validate_recursive(self):
+    def test_run_validate_1(self):
+        input = {   "@id":"111",
+                    "@type": ["Company", "Organization", "Thing"],
+                    "saicRegistrationCapital": {"text":u"1000万", "value":"10000"}}
+        report = init_report()
+        run_validate(self.loaded_schema_org, input, report)
+        logging.info(json4debug(report))
+        assert len(report["stats"])== 3
+        #assert False
+        input = {   "@id":"111",
+                    "@type": ["Company", "Organization", "Thing"],
+                    "saicRegistrationCapital": {"text":u"1000万", "value":"10000", "@type":["MonetaryAmount"]}}
+        report = init_report()
+        run_validate(self.loaded_schema_org, input, report)
+        logging.info(json4debug(report))
+        assert len(report["stats"])== 3
+
+    def test_run_validate_3(self):
+        input = {   "@id":"123",
+                    "@type": ["about", "CnsLink", "Thing"],
+                    "in": "234",
+                    "out": "334"}
+        report = init_report()
+        run_validate(self.loaded_schema_org, input, report)
+        logging.info(json4debug(report))
+        assert len(report["stats"])== 2
+
+
+    def test_run_validate_2(self):
         tin = "../schema/cns_top.jsonld"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
         report = init_report()
-        run_validate_recursive(self.loaded_schema, input, report)
+        run_validate(self.loaded_schema, input, report)
 
 
         for cns_item in input["@graph"]:
@@ -377,7 +411,7 @@ class CoreTestCase(unittest.TestCase):
 
 
         #assert False
-        if len(report["bugs_sample"]) != 2:
+        if len(report["bugs_sample"]) != 1:
             logging.info(json4debug(report))
             assert False, len(report["bugs_sample"])
 

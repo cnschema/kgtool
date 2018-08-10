@@ -36,17 +36,17 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 """
 
 
-def run_validate_recursive(loaded_schema, cns_item_list, report):
-    if type(cns_item_list) == list:
-        for cns_item in cns_item_list:
-            run_validate_recursive(loaded_schema, cns_item, report)
-    elif type(cns_item_list) == dict:
-        run_validate(loaded_schema, cns_item_list, report)
-        next_list = [v for p,v in cns_item_list.items() if p not in ["@context"]]
-        run_validate_recursive(loaded_schema, next_list, report)
-    else:
-        # do not validate
-        pass
+# def run_validate_recursive(loaded_schema, cns_item_list, report):
+#     if type(cns_item_list) == list:
+#         for cns_item in cns_item_list:
+#             run_validate_recursive(loaded_schema, cns_item, report)
+#     elif type(cns_item_list) == dict:
+#         run_validate(loaded_schema, cns_item_list, report)
+#         next_list = [v for p,v in cns_item_list.items() if p not in ["@context"]]
+#         run_validate_recursive(loaded_schema, next_list, report)
+#     else:
+#         # do not validate
+#         pass
 
 
 XTEMPLATE = "xtemplate"
@@ -334,6 +334,9 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
                         v_types = _validate_datastructure(xtype, p, v, range_actual, range_config, report)
 
                         if v_types:
+                            if len(v_types) == 1:
+                                v_types = loaded_schema.index_inheritance["rdfs:subClassOf"].get(v_types[0])
+
                             _validate_template(loaded_schema, v, v_types, report)
 
                 elif range_actual in [list]:
@@ -350,7 +353,8 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
     for p in all_property:
         if p.startswith("rdfs:"):
             continue
-
+        #if p in ["in","out"]:
+        #    continue
 
         bug = {
             "category": "warn_validate_template_regular",
@@ -442,6 +446,11 @@ def _validate_entity_ref(c, p, v, range_actual, range_config, report):
         write_report(report, bug)
 
 def _validate_datatype(c, p, v, range_actual, range_config, report):
+
+    if p in ["in","out"]:
+        # do not validate system property
+        return
+
     if not range_actual in range_config["python_type_value_list"]:
         bug = {
             "category": "warn_validate_datatype",
