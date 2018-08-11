@@ -265,6 +265,14 @@ class CnsSchema:
         logging.info( ret )
         return ret
 
+    def get_all_property(self):
+        ret = []
+        for schema in self.loaded_schema_list:
+            for definition in schema.definition.values():
+                if "rdf:Property" in definition["@type"]:
+                    ret.append(definition["name"])
+        return sorted(list(set(ret)))
+
     def get_main_types(self, types):
         parents = set()
         for xtype in types:
