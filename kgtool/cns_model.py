@@ -265,6 +265,17 @@ class CnsSchema:
         logging.info( ret )
         return ret
 
+    def get_main_types(self, types):
+        parents = set()
+        for xtype in types:
+            ret = self.index_inheritance["rdfs:subClassOf"].get(xtype)
+            if ret:
+                parents.update(ret[1:])
+            else:
+                logging.info(ret)
+        ret = set(types).difference(parents)
+        return ret
+
     def _build_index_inheritance(self, available_schema_list):
         #list all direct class hierarchy pairs
         plist = ["rdfs:subClassOf","rdfs:subPropertyOf"]

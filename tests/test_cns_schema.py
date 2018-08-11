@@ -31,6 +31,18 @@ class CoreTestCase(unittest.TestCase):
 
         pass
 
+    def test_get_get_main_types(self):
+        types = ["Company","Organization", "Thing"]
+        actual = self.loaded_schema_org.get_main_types(types)
+        assert len(actual) == 1
+        assert "Company" in actual
+
+        types = ["Company","Organization", "Thing", "Person"]
+        actual = self.loaded_schema_org.get_main_types(types)
+        assert len(actual) == 2
+        assert "Person" in actual
+        assert "Company" in actual
+
     def test_import_jsonld(self):
         logging.info( "called task_excel2jsonld" )
 
