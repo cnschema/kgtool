@@ -284,6 +284,11 @@ class CnsSchema:
         ret = set(types).difference(parents)
         return ret
 
+    def get_best_template(self, types, p):
+        for xtype in types:
+            template = self.index_validate_template.get(xtype, {}).get(p)
+            return template
+
     def _build_index_inheritance(self, available_schema_list):
         #list all direct class hierarchy pairs
         plist = ["rdfs:subClassOf","rdfs:subPropertyOf"]

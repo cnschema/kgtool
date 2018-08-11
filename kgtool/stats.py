@@ -409,13 +409,19 @@ def task_stat_json_path(args):
 
             stat_json_path(item, "", wm)
 
+    if "distribution" in wm:
+        del wm["sample"]
+    #    cnt = collections.Counter()
+    #    for p,v in wm["distribution"].items():
+    #        cnt[p]=v
+    #    wm["distribution"] = cnt
+
     # print result
     ret = collections.defaultdict(dict)
     for key in wm:
-        if key in "distribution":
-            continue
         for p,v in wm[key].items():
             ret[p][key] = v
+
 
     logging.info(json4debug(ret))
     logging.info(json4debug(wm["count"]))
