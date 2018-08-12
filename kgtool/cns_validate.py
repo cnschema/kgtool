@@ -48,6 +48,19 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 #         # do not validate
 #         pass
 
+def run_validate_recursive(loaded_schema, cns_item, report):
+    if type(cns_item) == list:
+        for v in cns_item:
+            run_validate_recursive(loaded_schema, v, report)
+    elif type(cns_item) == dict:
+        if not "@id" in cns_item:
+            return
+        run_validate(loaded_schema, cns_item, report)
+        for p,v in cns_item.items():
+            if p in ["@context","in","out"]:
+                continue
+            run_validate_recursive(loaded_schema, v, report)
+
 
 XTEMPLATE = "xtemplate"
 

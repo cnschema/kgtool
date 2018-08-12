@@ -571,7 +571,6 @@ class CnsSchema:
 
         self.build(preloaded_schema_list)
 
-
     def export_jsonld(self, filename=None):
         xid = "http://cnschema.org/schema/{}".format(self.metadata["name"] )
 
