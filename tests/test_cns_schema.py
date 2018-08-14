@@ -31,6 +31,11 @@ class CoreTestCase(unittest.TestCase):
 
         pass
 
+    def test_get_best_template(self):
+        ret = self.loaded_schema_org.get_best_template(["Organization","Thing"], "name")
+        logging.info(ret)
+        assert ret != None
+
     def test_get_all_property(self):
         ret = self.loaded_schema.get_all_property()
         logging.info(ret)
