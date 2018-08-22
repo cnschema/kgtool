@@ -1,5 +1,6 @@
 #!/bin/bash
 schemaName=$1
+version=$2
 
 # ./genschema.sh schema cns_top
 # ./genschema.sh local cns_kg4ai

@@ -391,6 +391,7 @@ class CnsSchema:
             self.index_validate_domain[p] = sorted(set(self.index_validate_domain[p]))
 
     def _build_index_template(self, available_schema_list):
+        logging.info("enter")
         # reset
         self.index_validate_template = collections.defaultdict(dict)
 
@@ -403,6 +404,8 @@ class CnsSchema:
                 if template[p] == "":
                     template[p] = 0
                 else:
+                    if isinstance(template[p], basestring):
+                        assert re.search(r"^\d+$", template[p]), any2utf8(template[p])
                     template[p] = int(template[p])
                 assert template[p] in [0, 1], template
 
@@ -410,6 +413,8 @@ class CnsSchema:
                 if p not in template:
                     pass
                 elif type(template[p]) in [float, int]:
+                    if isinstance(template[p], basestring):
+                        assert re.search(r"^\d+$", template[p]), any2utf8(template[p])
                     template[p] = int(template[p])
                     assert template[p] == 1, template
                 elif len(template[p]) == 0:
