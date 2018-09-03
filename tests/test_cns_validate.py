@@ -56,6 +56,11 @@ class CoreTestCase(unittest.TestCase):
         assert report["xtemplate"]["type_all_Person"] == 2
         assert report["xtemplate"]["cp_Thing_Thing_name"] == 1
 
+        # two different main type should not co-exist
+        assert not "cp_Person_Organization_city" in report["xtemplate"]
+        assert "cp_Organization_Organization_city" in report["xtemplate"]
+
+
     def test_validate_null(self):
         input = [{
             "@id": "123",

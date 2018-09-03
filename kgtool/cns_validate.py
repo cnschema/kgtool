@@ -304,7 +304,11 @@ def _validate_one_template(loaded_schema, types, cns_item, xtype, template, vali
     p = template["refProperty"]
 
     # only count main type's  template
-    for main_type in loaded_schema.get_main_types(types):
+    main_type_list = loaded_schema.get_main_types(types)
+    for main_type in main_type_list:
+        if xtype in main_type_list and xtype != main_type:
+            continue
+
         key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
         if p in cns_item:
             report[XTEMPLATE][key_cp] += 1
