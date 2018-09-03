@@ -248,14 +248,13 @@ def _validate_template_special(loaded_schema, cns_item, types, report, validated
 
 def _validate_template_regular(loaded_schema, cns_item, types, report, validated_property):
     #regular validation
-    main_type = types[0]
     for idx, xtype in enumerate(types):
         # only count main type's  template
         key_c = u"type_all_{}".format(xtype)
         report[XTEMPLATE][key_c] += 1
-        if idx == 0:
-            key_c = u"type_top_{}".format(xtype)
-            report[XTEMPLATE][key_c] += 1
+        #if idx == 0:
+        #    key_c = u"type_first_{}".format(xtype)
+        #    report[XTEMPLATE][key_c] += 1
 
         #find templates
         template_map = loaded_schema.index_validate_template.get(xtype)
@@ -272,90 +271,7 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
 
         #validate one by one
         for template in template_map.values():
-            p = template["refProperty"]
-
-            # only count main type's  template
-            key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
-            if p in cns_item:
-                report[XTEMPLATE][key_cp] += 1
-            else:
-                report[XTEMPLATE][key_cp] += 0
-
-            if p in validated_property:
-                # validated, no need to be validated in other templates
-                continue
-            else:
-                validated_property.add(p)
-
-            #validate cardinality
-            values = json_get_list(cns_item, p)
-            card_actual = len(values)
-            range_config = template["propertyRange"]
-
-
-            if len(range_config["python_type_value_list"])>0 or len(range_config["cns_range_datastructure"])>0:
-                if card_actual < template["minCardinality"]:
-                    # logging.info(json4debug(template))
-                    # logging.info(json4debug(cns_item))
-                    # assert False
-                    bug = {
-                        "category": "warn_validate_template_regular",
-                        "text": "minCardinality",
-                        "class": xtype,
-                        "property": p,
-                        "expected": template["minCardinality"],
-                        "actual": card_actual,
-                        "item_name": cns_item.get("name"),
-                        "item_value": cns_item.get(p),
-                    }
-                    write_report(report, bug)
-
-
-                if "maxCardinality" in template:
-                    if card_actual > template["maxCardinality"]:
-                        bug = {
-                            "category": "warn_validate_template_regular",
-                            "text": "maxCardinality",
-                            "class": xtype,
-                            "property": p,
-                            "expected": template["maxCardinality"],
-                            "actual": card_actual,
-                            "item_name": cns_item.get("name"),
-                            "item_value": cns_item.get(p),
-                        }
-                        write_report(report, bug)
-
-            if card_actual == 0:
-                # no further validation on range
-                continue
-
-            #logging.info(template)
-
-            for v in values:
-                range_actual = type(v)
-                if range_actual in [dict]:
-                    #CnsDataStructure
-                    if p in ["in","out"]:
-                        _validate_entity_ref(xtype, p, v, range_actual, range_config, report)
-                    elif "@id" in v:
-                        _validate_entity_ref(xtype, p, v, range_actual, range_config, report)
-
-                        v_types = json_get_list(v, "@type")
-                        if v_types:
-                            _validate_template(loaded_schema, v, v_types, report)
-                    else:
-                        v_types = _validate_datastructure(xtype, p, v, range_actual, range_config, report)
-
-                        if v_types:
-                            if len(v_types) == 1:
-                                v_types = loaded_schema.index_inheritance["rdfs:subClassOf"].get(v_types[0])
-
-                            _validate_template(loaded_schema, v, v_types, report)
-
-                elif range_actual in [list]:
-                    assert False #unexpected
-                else:
-                    type_actual = _validate_datatype(xtype, p, v, range_actual, range_config, report)
+            _validate_one_template(loaded_schema, types, cns_item, xtype, template, validated_property, report)
 
     #properties not validate by main template
 
@@ -382,6 +298,95 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
         # not validated properties for main type
         key_cp = u"ucp_{}_{}".format(c, p)
         report[XTEMPLATE][key_cp] += 1
+
+
+def _validate_one_template(loaded_schema, types, cns_item, xtype, template, validated_property, report):
+    p = template["refProperty"]
+
+    # only count main type's  template
+    for main_type in loaded_schema.get_main_types(types):
+        key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
+        if p in cns_item:
+            report[XTEMPLATE][key_cp] += 1
+        else:
+            report[XTEMPLATE][key_cp] += 0
+
+    if p in validated_property:
+        # validated, no need to be validated in other templates
+        return
+    else:
+        validated_property.add(p)
+
+    #validate cardinality
+    values = json_get_list(cns_item, p)
+    card_actual = len(values)
+    range_config = template["propertyRange"]
+
+
+    if len(range_config["python_type_value_list"])>0 or len(range_config["cns_range_datastructure"])>0:
+        if card_actual < template["minCardinality"]:
+            # logging.info(json4debug(template))
+            # logging.info(json4debug(cns_item))
+            # assert False
+            bug = {
+                "category": "warn_validate_template_regular",
+                "text": "minCardinality",
+                "class": xtype,
+                "property": p,
+                "expected": template["minCardinality"],
+                "actual": card_actual,
+                "item_name": cns_item.get("name"),
+                "item_value": cns_item.get(p),
+            }
+            write_report(report, bug)
+
+
+        if "maxCardinality" in template:
+            if card_actual > template["maxCardinality"]:
+                bug = {
+                    "category": "warn_validate_template_regular",
+                    "text": "maxCardinality",
+                    "class": xtype,
+                    "property": p,
+                    "expected": template["maxCardinality"],
+                    "actual": card_actual,
+                    "item_name": cns_item.get("name"),
+                    "item_value": cns_item.get(p),
+                }
+                write_report(report, bug)
+
+    if card_actual == 0:
+        # no further validation on range
+        return
+
+    #logging.info(template)
+
+    for v in values:
+        range_actual = type(v)
+        if range_actual in [dict]:
+            #CnsDataStructure
+            if p in ["in","out"]:
+                _validate_entity_ref(xtype, p, v, range_actual, range_config, report)
+            elif "@id" in v:
+                _validate_entity_ref(xtype, p, v, range_actual, range_config, report)
+
+                v_types = json_get_list(v, "@type")
+                if v_types:
+                    _validate_template(loaded_schema, v, v_types, report)
+            else:
+                v_types = _validate_datastructure(xtype, p, v, range_actual, range_config, report)
+
+                if v_types:
+                    if len(v_types) == 1:
+                        v_types = loaded_schema.index_inheritance["rdfs:subClassOf"].get(v_types[0])
+
+                    _validate_template(loaded_schema, v, v_types, report)
+
+        elif range_actual in [list]:
+            assert False #unexpected
+        else:
+            type_actual = _validate_datatype(xtype, p, v, range_actual, range_config, report)
+
 
 
 def _validate_datastructure(c, p, v, range_actual, range_config, report):

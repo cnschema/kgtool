@@ -483,6 +483,15 @@ def _export_excel(args, the_schema, flag_import=True):
 
     output_rows = collections.defaultdict(list)
     output_columns = collections.defaultdict(set)
+
+    #init ref
+    map_src_property = {}
+    for schema in the_schema.loaded_schema_list:
+        for name in sorted(schema.definition):
+            cns_item = schema.definition[name]
+            key = u"{}___{}".format(schema.metadata["name"], cns_item["name"])
+            map_src_property[key] = cns_item
+
     for schema in schema_list:
         for name in sorted(schema.definition):
             cns_item = schema.definition[name]
@@ -499,9 +508,24 @@ def _export_excel(args, the_schema, flag_import=True):
         sheetname = "template"
         for cns_item in schema.metadata["template"]:
             #logging.info(cns_item)
+            if cns_item.get("version") == "":
+                assert False
+                continue
+
             cns_item = _clean_list_value(cns_item)
             cns_item["statedIn"] = schema.metadata["name"]
             del cns_item["name"]
+
+            # add imported property's range and nameZh
+            if cns_item.get("propertySchema"):
+                #logging.info(json4debug(cns_item))
+                key = u"{}___{}".format(cns_item["propertySchema"], cns_item["refProperty"])
+                ref_property_definition =  map_src_property.get(key)
+                #logging.info(json4debug(ref_property_definition))
+                cns_item["propertyNameZh"] = ref_property_definition["nameZh"]
+                cns_item["propertyRange"] = ref_property_definition["rdfs:range"]
+                cns_item["propertyDefinitionZh"] = ref_property_definition.get("descriptionZh","")
+
             output_rows[sheetname].append(cns_item)
             output_columns[sheetname].update(cns_item.keys())
 
