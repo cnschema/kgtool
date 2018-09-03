@@ -16,6 +16,7 @@ import argparse
 import urlparse
 import re
 import collections
+import decimal
 
 # global constants
 VERSION = 'v20180305'
@@ -225,8 +226,15 @@ def json_append(obj, p, v):
     else:
         obj[p] = [v]
 
+def decimal_default(obj):
+    # https://stackoverflow.com/questions/16957275/python-to-json-serialization-fails-on-decimal
+
+    if isinstance(obj, decimal.Decimal):
+        return float(obj)
+    raise TypeError
+
 def json4debug(json_data, sort_keys=True):
-    return json.dumps(json_data, ensure_ascii=False, indent=4, sort_keys=sort_keys)
+    return json.dumps(json_data, ensure_ascii=False, indent=4, sort_keys=sort_keys, default=decimal_default)
 
 
 ####################################

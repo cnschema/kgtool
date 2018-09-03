@@ -306,27 +306,6 @@
             "rdfs:range": "Text"
         }, 
         {
-            "@id": "http://cnschema.org/foundingDate", 
-            "@type": [
-                "rdf:Property", 
-                "CnsDefinition", 
-                "CnsMetadata", 
-                "Thing"
-            ], 
-            "alternateName": [
-                "establishDate", 
-                "establishDat", 
-                "注册时间"
-            ], 
-            "category": "property-template", 
-            "name": "foundingDate", 
-            "nameZh": "成立日期", 
-            "rdfs:domain": [
-                "Company"
-            ], 
-            "rdfs:range": "Date"
-        }, 
-        {
             "@id": "http://cnschema.org/organizationCode", 
             "@type": [
                 "rdf:Property", 
@@ -890,7 +869,7 @@
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "成立日期", 
             "propertyRange": "Date", 
-            "propertySchema": "", 
+            "propertySchema": "cns_top", 
             "refClass": "Company", 
             "refProperty": "foundingDate", 
             "version": "v20180412"
@@ -1018,7 +997,7 @@
             "propertyAlternateName": "regCap,注册资本", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
+            "propertyDefinitionZh": "，是指合营企业在登记管理机构登记的资本总额,是合营各方已经缴纳的或合营者承诺一定要缴纳的出资额的总和。", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "工商注册资本", 
             "propertyRange": "MonetaryAmount", 
@@ -1523,7 +1502,7 @@
             "propertyAlternateName": "", 
             "propertyDefinition": "", 
             "propertyDefinitionSource": "", 
-            "propertyDefinitionZh": "", 
+            "propertyDefinitionZh": "组织机构所在的省份（直辖市以及特别行政区）", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "所在省份", 
             "propertyRange": "Province", 

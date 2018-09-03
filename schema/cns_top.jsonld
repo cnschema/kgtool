@@ -919,6 +919,23 @@
             "version": "v17q3"
         }, 
         {
+            "@id": "http://cnschema.org/foundingDate", 
+            "@type": [
+                "rdf:Property", 
+                "CnsDefinition", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "category": "property-ext", 
+            "name": "foundingDate", 
+            "nameZh": "成立日期", 
+            "rdfs:domain": [
+                "Thing"
+            ], 
+            "rdfs:range": "Date", 
+            "version": "v18q3"
+        }, 
+        {
             "@id": "http://cnschema.org/graphId", 
             "@type": [
                 "rdf:Property", 
@@ -948,9 +965,6 @@
             "descriptionZh": "溯源属性，实体在数据源对应的ID", 
             "name": "identifier", 
             "nameZh": "标识", 
-            "rdfs:domain": [
-                "Thing"
-            ], 
             "rdfs:range": "Text", 
             "schemaorgUrl": "http://schema.org/identifier", 
             "version": "v17q3"
@@ -2841,7 +2855,7 @@
             "propertyDefinitionZh": "", 
             "propertyDefinitionZhSource": "", 
             "propertyNameZh": "属性值", 
-            "propertyRange": "Number", 
+            "propertyRange": "Text", 
             "propertySchema": "cns_top", 
             "refClass": "PropertyValue", 
             "refProperty": "value", 
@@ -3137,7 +3151,6 @@
                 "CnsMetadata", 
                 "Thing"
             ], 
-            "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Thing_keywords", 
             "propertyAlternateName": "", 
@@ -3192,6 +3205,27 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "mergedFrom", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_mergedFromCount", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Thing_mergedFromCount", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "mergedFromCount", 
             "version": "v18q3"
         }, 
         {
@@ -3258,6 +3292,27 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "nameZh", 
+            "version": "v18q3"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_pageRankScore", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMetadata", 
+                "Thing"
+            ], 
+            "minCardinality": 0, 
+            "name": "Thing_pageRankScore", 
+            "propertyAlternateName": "", 
+            "propertyDefinition": "", 
+            "propertyDefinitionSource": "", 
+            "propertyDefinitionZh": "", 
+            "propertyDefinitionZhSource": "", 
+            "propertyNameZh": "", 
+            "propertyRange": "", 
+            "propertySchema": "cns_top", 
+            "refClass": "Thing", 
+            "refProperty": "pageRankScore", 
             "version": "v18q3"
         }, 
         {
