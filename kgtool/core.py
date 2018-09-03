@@ -178,7 +178,10 @@ def json_get_list(json_object, p):
     if isinstance(v, list):
         return v
     else:
-        return [v]
+        if v is not None:
+            return [v]
+        else:
+            return []
 
 
 def json_get_first_item(json_object, p, defaultValue=''):

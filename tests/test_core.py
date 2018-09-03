@@ -69,10 +69,13 @@ class CoreTestCase(unittest.TestCase):
 
         json_data = {
             "name": "john",
+            "age": None,
             "birthPlace": ["Beijing"]
         }
         assert json_get_list(json_data, "name") == ["john"]
         assert json_get_list(json_data, "birthPlace") == ["Beijing"]
+        assert json_get_list(json_data, "age") == []
+
 
     def test_json_get_first_item(self):
 
@@ -191,6 +194,7 @@ class CoreTestCase(unittest.TestCase):
     def test_parse_list_value(self):
         ret = parse_list_value(u"原文，正文")
         assert len(ret) == 2
+
 
 
 

@@ -55,3 +55,18 @@ class CoreTestCase(unittest.TestCase):
         assert report["xtemplate"]["cp_Person_Thing_name"] == 2
         assert report["xtemplate"]["type_all_Person"] == 2
         assert report["xtemplate"]["cp_Thing_Thing_name"] == 1
+
+    def test_validate_null(self):
+        input = [{
+            "@id": "123",
+            "name": None,
+            "@type":["CnsTag","Thing"]
+            }
+        ]
+
+        report = init_report()
+        run_validate_recursive(self.loaded_schema_org, input, report)
+        logging.info(json4debug(report))
+        assert len(report["bugs_sample"])==1
+        assert report["stats"]["warn_validate_datatype | range value datatype mismatch | CnsTag | name"]==0
+        assert report["stats"]["warn_validate_template_regular | minCardinality | CnsTag | name"] == 1
