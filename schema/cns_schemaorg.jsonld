@@ -857,7 +857,7 @@
             "nameZh": "汽车配件店", 
             "rdfs:subClassOf": [
                 "AutomotiveBusiness", 
-                " Store"
+                "Store"
             ], 
             "schemaorgUrl": "http://schema.org/AutoPartsStore", 
             "version": "vso3.2", 
@@ -1855,7 +1855,7 @@
             "nameZh": "露营地", 
             "rdfs:subClassOf": [
                 "LodgingBusiness", 
-                " CivicStructure"
+                "CivicStructure"
             ], 
             "schemaorgUrl": "http://schema.org/Campground", 
             "version": "vso3.2", 
@@ -2895,7 +2895,7 @@
             "nameZh": "系列作品", 
             "rdfs:subClassOf": [
                 "Series", 
-                " CreativeWork"
+                "CreativeWork"
             ], 
             "schemaorgUrl": "http://schema.org/CreativeWorkSeries", 
             "version": "vso3.2"
@@ -2915,7 +2915,7 @@
             "nameZh": "信用卡", 
             "rdfs:subClassOf": [
                 "LoanOrCredit", 
-                " PaymentCard"
+                "PaymentCard"
             ], 
             "schemaorgUrl": "http://schema.org/CreditCard", 
             "version": "vso3.2", 
@@ -3343,7 +3343,7 @@
             "nameZh": "牙科诊所", 
             "rdfs:subClassOf": [
                 "MedicalOrganization", 
-                " LocalBusiness"
+                "LocalBusiness"
             ], 
             "schemaorgUrl": "http://schema.org/Dentist", 
             "version": "vso3.2", 
@@ -3403,7 +3403,7 @@
             "nameZh": "存款账户", 
             "rdfs:subClassOf": [
                 "InvestmentOrDeposit", 
-                " BankAccount"
+                "BankAccount"
             ], 
             "schemaorgUrl": "http://schema.org/DepositAccount", 
             "version": "vso3.2", 
@@ -4338,7 +4338,7 @@
             "nameZh": "消防站", 
             "rdfs:subClassOf": [
                 "CivicStructure", 
-                " EmergencyService"
+                "EmergencyService"
             ], 
             "schemaorgUrl": "http://schema.org/FireStation", 
             "version": "vso3.2", 
@@ -5024,7 +5024,7 @@
             "nameZh": "健身俱乐部", 
             "rdfs:subClassOf": [
                 "SportsActivityLocation", 
-                " HealthAndBeautyBusiness"
+                "HealthAndBeautyBusiness"
             ], 
             "schemaorgUrl": "http://schema.org/HealthClub", 
             "version": "vso3.2", 
@@ -5145,8 +5145,8 @@
             "nameZh": "医院", 
             "rdfs:subClassOf": [
                 "EmergencyService", 
-                " MedicalOrganization", 
-                " CivicStructure"
+                "MedicalOrganization", 
+                "CivicStructure"
             ], 
             "schemaorgUrl": "http://schema.org/Hospital", 
             "version": "vso3.2", 
@@ -5293,7 +5293,7 @@
             "nameZh": "步骤的操作说明", 
             "rdfs:subClassOf": [
                 "CreativeWork", 
-                " ListItem"
+                "ListItem"
             ], 
             "schemaorgUrl": "http://schema.org/HowToDirection", 
             "version": "vso3.3"
@@ -5332,8 +5332,8 @@
             "nameZh": "操作步骤组合", 
             "rdfs:subClassOf": [
                 "CreativeWork", 
-                " ItemList", 
-                " ListItem"
+                "ItemList", 
+                "ListItem"
             ], 
             "schemaorgUrl": "http://schema.org/HowToSection", 
             "version": "vso3.3"
@@ -5353,8 +5353,8 @@
             "nameZh": "操作步骤", 
             "rdfs:subClassOf": [
                 "ListItem", 
-                " CreativeWork", 
-                " ItemList"
+                "CreativeWork", 
+                "ItemList"
             ], 
             "schemaorgUrl": "http://schema.org/HowToStep", 
             "version": "vso3.3"
@@ -5393,7 +5393,7 @@
             "nameZh": "步骤的注意事项", 
             "rdfs:subClassOf": [
                 "ListItem", 
-                " CreativeWork"
+                "CreativeWork"
             ], 
             "schemaorgUrl": "http://schema.org/HowToTip", 
             "version": "vso3.3"
@@ -6205,7 +6205,7 @@
             "nameZh": "本地商铺", 
             "rdfs:subClassOf": [
                 "Organization", 
-                " Place"
+                "Place"
             ], 
             "schemaorgUrl": "http://schema.org/LocalBusiness", 
             "version": "vso3.2"
@@ -6855,7 +6855,7 @@
             "nameZh": "电影院", 
             "rdfs:subClassOf": [
                 "EntertainmentBusiness", 
-                " CivicStructure"
+                "CivicStructure"
             ], 
             "schemaorgUrl": "http://schema.org/MovieTheater", 
             "version": "vso3.2", 
@@ -7831,7 +7831,7 @@
             "nameZh": "支付卡片", 
             "rdfs:subClassOf": [
                 "PaymentMethod", 
-                " FinancialProduct"
+                "FinancialProduct"
             ], 
             "schemaorgUrl": "http://schema.org/PaymentCard", 
             "version": "vso3.2", 
@@ -8329,7 +8329,7 @@
             "nameZh": "警察局", 
             "rdfs:subClassOf": [
                 "EmergencyService", 
-                " CivicStructure"
+                "CivicStructure"
             ], 
             "schemaorgUrl": "http://schema.org/PoliceStation", 
             "version": "vso3.2"
@@ -10276,7 +10276,7 @@
             "nameZh": "体育场馆", 
             "rdfs:subClassOf": [
                 "CivicStructure", 
-                " SportsActivityLocation"
+                "SportsActivityLocation"
             ], 
             "schemaorgUrl": "http://schema.org/StadiumOrArena", 
             "version": "vso3.2", 
@@ -10330,7 +10330,7 @@
             ], 
             "alternateName": [
                 "retail store", 
-                " retail"
+                "retail"
             ], 
             "category": "class-so", 
             "description": "A retail good store.", 
@@ -10520,7 +10520,7 @@
             "nameZh": "电视剧的一季", 
             "rdfs:subClassOf": [
                 "CreativeWork", 
-                " CreativeWorkSeason"
+                "CreativeWorkSeason"
             ], 
             "schemaorgUrl": "http://schema.org/TVSeason", 
             "version": "vso3.2"
@@ -10540,7 +10540,7 @@
             "nameZh": "电视系列剧", 
             "rdfs:subClassOf": [
                 "CreativeWork", 
-                " CreativeWorkSeries"
+                "CreativeWorkSeries"
             ], 
             "schemaorgUrl": "http://schema.org/TVSeries", 
             "version": "vso3.2"
@@ -11338,7 +11338,7 @@
             "nameZh": "电子游戏", 
             "rdfs:subClassOf": [
                 "Game", 
-                " SoftwareApplication"
+                "SoftwareApplication"
             ], 
             "schemaorgUrl": "http://schema.org/VideoGame", 
             "version": "vso3.2", 
@@ -16298,7 +16298,7 @@
             "description": "The endTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to end. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to December. Note that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.", 
             "descriptionZh": "事件的结束时间", 
             "name": "endTime", 
-            "nameZh": "结束时间", 
+            "nameZh": "结束时刻", 
             "schemaorgUrl": "http://schema.org/endTime", 
             "version": "vso3.2"
         }, 
@@ -23603,7 +23603,7 @@
             "description": "The startTime of something. For a reserved event or service (e.g. FoodEstablishmentReservation), the time that it is expected to start. For actions that span a period of time, when the action was performed. e.g. John wrote a book from January to December. Note that Event uses startDate/endDate instead of startTime/endTime, even when describing dates with times. This situation may be clarified in future revisions.", 
             "descriptionZh": "某事的预期开始时间。对于跨越一段时间的动作。例如，约翰从１月到１２月写了一本书。注意：事件使用startDate / endDate而不是startTime / endTime，即使用时间描述日期。 今后的修订可能会澄清这种情况。", 
             "name": "startTime", 
-            "nameZh": "开始时间", 
+            "nameZh": "开始时刻", 
             "schemaorgUrl": "http://schema.org/startTime", 
             "version": "vso3.2"
         }, 

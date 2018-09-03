@@ -735,7 +735,7 @@ def write_csv_report(args, report, loaded_schema):
                 continue
 
             temp = k.split("_")
-            total = report[XTEMPLATE]["type_top_{}".format(temp[1])]
+            total = report[XTEMPLATE]["type_all_{}".format(temp[1])]
             if temp[1].startswith("rdf"):
                 nameZh1 = ""
             else:

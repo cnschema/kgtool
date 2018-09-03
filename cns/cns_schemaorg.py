@@ -191,7 +191,7 @@ def task_make_cns_schemaorg(args=None, stats=None):
 
 
     logging.info(json4debug(stats))
-    filename_output = "../local/cns_schemaorg.xls"
+    filename_output = "../local/debug/cns_schemaorg.xls"
     filename_output = file2abspath(filename_output, __file__)
     dataTable = [mapDataTable[x] for x in list_sheet_name ]
     json2excel4multiple( dataTable,  filename_output)
@@ -296,7 +296,7 @@ if __name__ == "__main__":
     mv ~/Downloads/schemaorg_translate.xlsx ~/haizhi/git/kgtool/local/
     # prepare cns_schemaorg
     python cns/cns_schemaorg.py task_make_cns_schemaorg --version=3.4 --url_base=https://raw.githubusercontent.com/schemaorg/schemaorg/v3.4-release
-    python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug/
 
     ~~~~~~~
     # load translate

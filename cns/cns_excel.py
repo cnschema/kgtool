@@ -454,6 +454,7 @@ def task_excel2jsonld(args):
     _export_nquad(args, filename_output)
 
     _export_excel(args, obj_excel.schema)
+    _export_excel(args, obj_excel.schema, flag_import=False)
 
 def _clean_list_value(cns_item):
     cns_item_out = {}
@@ -469,20 +470,30 @@ def _clean_list_value(cns_item):
             cns_item_out[k] = v
     return cns_item_out
 
-def _export_excel(args, the_schema):
+def _export_excel(args, the_schema, flag_import=True):
     xdebug_file = os.path.join(args["debug_dir"],os.path.basename(args["output_file"]))
-    filename_excel = xdebug_file+u".import.xls"
+    xdebug_file = xdebug_file.replace(".jsonld","")
+
+    if flag_import:
+        filename_excel = xdebug_file+u".import.xls"
+        schema_list = the_schema.loaded_schema_list
+    else:
+        filename_excel = xdebug_file+u".clean.xls"
+        schema_list = [the_schema]
 
     output_rows = collections.defaultdict(list)
     output_columns = collections.defaultdict(set)
-    for schema in the_schema.loaded_schema_list:
-        sheetname = "class"
+    for schema in schema_list:
         for name in sorted(schema.definition):
             cns_item = schema.definition[name]
             #logging.info(cns_item)
+            if "rdf:Property" in cns_item[u"@type"]:
+                sheetname = "property"
+            else:
+                sheetname = "class"
             cns_item = _clean_list_value(cns_item)
             cns_item["statedIn"] = schema.metadata["name"]
-            output_rows["definition"].append(cns_item)
+            output_rows[sheetname].append(cns_item)
             output_columns[sheetname].update(cns_item.keys())
 
         sheetname = "template"
@@ -490,7 +501,8 @@ def _export_excel(args, the_schema):
             #logging.info(cns_item)
             cns_item = _clean_list_value(cns_item)
             cns_item["statedIn"] = schema.metadata["name"]
-            output_rows["template"].append(cns_item)
+            del cns_item["name"]
+            output_rows[sheetname].append(cns_item)
             output_columns[sheetname].update(cns_item.keys())
 
     """
@@ -571,6 +583,8 @@ if __name__ == "__main__":
     python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/debug/
 
     python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_schemaorg.xls --output_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug/
+
+    python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_fund_private.xlsx --output_file=schema/cns_fund_private.jsonld --debug_dir=local/debug/
 
     mv ~/Downloads/cns_organization.xlsx ~/haizhi/git/kgtool/local/
     python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/cns_organization.xlsx --output_file=schema/cns_organization.jsonld --debug_dir=local/debug/

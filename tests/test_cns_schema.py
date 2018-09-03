@@ -39,7 +39,7 @@ class CoreTestCase(unittest.TestCase):
     def test_get_all_property(self):
         ret = self.loaded_schema.get_all_property()
         logging.info(ret)
-        assert len(ret) == 69, len(ret)
+        assert len(ret) == 70, len(ret)
 
         ret = self.loaded_schema_org.get_all_property()
         logging.info(ret)
