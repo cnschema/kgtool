@@ -268,8 +268,10 @@ class CnsSchema:
             ret = self.index_inheritance["rdfs:subClassOf"].get(xtype)
             if ret:
                 parents.update(ret[1:])
+            elif xtype.startswith("rdf"):
+                pass
             else:
-                logging.info(ret)
+                logging.warn(xtype)
         ret = set(types).difference(parents)
         return ret
 

@@ -487,6 +487,7 @@ def _export_excel(args, the_schema, flag_import=True):
     #init ref
     map_src_property = {}
     for schema in the_schema.loaded_schema_list:
+        logging.info(schema.metadata["name"])
         for name in sorted(schema.definition):
             cns_item = schema.definition[name]
             key = u"{}___{}".format(schema.metadata["name"], cns_item["name"])

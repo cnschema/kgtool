@@ -29,10 +29,35 @@ CONTEXTS = [os.path.basename(__file__), VERSION]
 
 
 """
-* run_validate: validate integrity constraints imposed by template and property definition
-   * class-property binding
-   * property domain
-   * property range
+given an CNS instance, validate integrity constraints imposed by template and property definition
+
+current validation logic
+1. basic validation
+   * presence of @type
+2. _rewrite_item
+   * @type must be a list of string, not a string`
+   * class not defined in schema or imported schema
+   * property not defined in schema or imported schema
+3. _validate_system_property
+   * if Thing in @type, check if @id present
+4. UCP template definition
+   * undefined class-property binding, unable to find a template for this property based on any classes defined in @type
+5. CP Range  template range
+    5.1 _validate_entity_ref
+       * value type missing
+       * value mismatch
+    5.2 _validate_datatype
+        1. Date(IOS8601)  2018-01-20
+        2. Datetime(IOS8601)   2018-01-20T09:00:00,   2018-01-20,   2018-01-20T09:00:00.234212,   2018-01-20T09:00:00Z
+        3. Int
+        4. Float
+        5. Text
+    5.3 _validate_datastructure
+        value range not specified as datastructure in Schema
+6. CP tempalte cardinality
+    1. minCard    each instance of MutualFund should have at least one fundCode
+    2. maxCard    each instance of MutualFund should have at most one fundCode
+
 """
 
 
@@ -69,7 +94,6 @@ def run_validate(loaded_schema, cns_item, report):
         validate the following
         * template restriction  (class-property binding)
 
-        * range of property
     """
     #stats
     report["stats"]["items_validate"] += 1
@@ -287,7 +311,7 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
 
         bug = {
             "category": "warn_validate_template_regular",
-            "text": "property not validated by main template",
+            "text": "unable to find a template for this property based on classes defined in @type",
             "value": cns_item,
             "class": c,
             "property": p,
