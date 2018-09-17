@@ -50,10 +50,10 @@ MAP_NAME_URLPATTERN = {
 SCHEMA_EXCEL_HEADER = {
 	"class": {
 		"COPY": [
-            "name",
-            "nameZh",
             "version",
             "category",
+            "name",
+            "nameZh",
 			"descriptionZh",
 			"descriptionZhSource",
 			"description",
@@ -63,10 +63,10 @@ SCHEMA_EXCEL_HEADER = {
 	},
 	"property": {
 		"COPY": [
-            "name",
-			"nameZh",
             "version",
             "category",
+            "name",
+			"nameZh",
 			"descriptionZh",
 			"descriptionZhSource",
 			"description",
@@ -81,15 +81,21 @@ SCHEMA_EXCEL_HEADER = {
             "maxCardinality",
             "refClass",
             "refProperty",
+            "category",
             "propertyNameZh",
+            "exampleValueText",
             "propertyAlternateName",
             "propertyRange",
             "propertySchema",
             "propertyDefinition",
             "propertyDefinitionSource",
             "propertyDefinitionZh",
-            "propertyDefinitionZhSource"],
-		"SKIP": []
+            "propertyDefinitionZhSource",
+            #"exampleValue",
+            "exampleValueJson"],
+		"SKIP": [
+            "exampleValue"
+        ]
 	},
 	"changelog": {
 		"COPY": ["version", "datePublished", "name", "text"],
@@ -177,14 +183,18 @@ def init_cns_excel():
             "maxCardinality",
             "refClass",
             "refProperty",
+            "category",
             "propertyNameZh",
+            "exampleValueText",
             "propertyAlternateName",
             "propertyRange",
             "propertySchema",
             "propertyDefinition",
             "propertyDefinitionSource",
             "propertyDefinitionZh",
-            "propertyDefinitionZhSource"
+            "propertyDefinitionZhSource",
+            "exampleValue",
+            "exampleValueJson"
         ]
     }
 
@@ -281,7 +291,7 @@ class CnsExcel():
     def _load_sheet_changlog(self,  sheet_name, items):
         xlabel = "changelog"
         if sheet_name == xlabel:
-            xtype = ["CnsChangelog", "CnsMetadata", "Thing"]
+            xtype = ["CnsOntologyChangelog", "CnsMetadata"]
         else:
             return False
 
@@ -314,7 +324,7 @@ class CnsExcel():
 
             cns_item_definition = {
                 "@id": xid,
-                "@type": ["rdf:Property", "CnsDefinition","CnsMetadata", "Thing"],
+                "@type": ["rdf:Property", "CnsDefinition","CnsMetadata"],
                 "name": name,
                 "category": "property-template",
                 "nameZh": cns_item["propertyNameZh"],
@@ -332,7 +342,7 @@ class CnsExcel():
     def _load_sheet_cardinality(self,  sheet_name, items):
         xlabel = "template"
         if sheet_name == xlabel:
-            xtype = ["CnsTemplate", "CnsMetadata", "Thing"]
+            xtype = ["CnsTemplate", "CnsMetadata"]
         else:
             return False
 
@@ -379,9 +389,9 @@ class CnsExcel():
         #logging.info( xlabel )
 
         if "class" == xlabel:
-            xtype = ["rdfs:Class", "CnsDefinition", "CnsMetadata", "Thing"]
+            xtype = ["rdfs:Class", "CnsClass", "CnsDefinition", "CnsMetadata"]
         elif "property" == xlabel:
-            xtype = ["rdf:Property", "CnsDefinition","CnsMetadata", "Thing"]
+            xtype = ["rdf:Property", "CnsClass", "CnsDefinition","CnsMetadata"]
         else:
             assert False
 
