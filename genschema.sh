@@ -22,8 +22,8 @@ echo $schemaRelease
 # 【指令】移动文件
 mv ~/Downloads/"$schemaName".xlsx local/debug/
 # 【指令】更新Schema正式在线版本(jsonld)
-python cns/cns_excel.py task_excel2jsonld --input_file=local/debug/"$schemaName".xlsx --output_dir="$schemaDir/" --debug_dir=local/debug/
-#python cns/cns_excel.py task_excel2jsonld --input_file=local/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/debug/
+python cns/cns_io.py task_excel2jsonld --input_file=local/debug/"$schemaName".xlsx --schema_dir=schema --output_dir="$schemaDir/" --debug_dir=local/debug/
+#python cns/cns_io.py task_excel2jsonld --input_file=local/cns_top.xlsx --output_file=schema/cns_top.jsonld --debug_dir=local/debug/
 #【指令】生成Schema的DOT文件
 python kgtool/cns_graphviz.py task_graphviz --input_file="$schemaDir/$schemaRelease".jsonld  --schema_dir=schema --debug_dir=local/debug/
 #【指令】DOT文件生成图片

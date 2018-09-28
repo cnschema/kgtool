@@ -25,7 +25,6 @@ from kgtool.core import *
 from kgtool.table import *
 from kgtool.stats import stat_table
 from cns.schemaorg import Schemaorg
-from cns.cns_excel import init_cns_excel  # noqa
 
 import requests
 import requests_cache

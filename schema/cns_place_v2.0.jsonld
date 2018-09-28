@@ -13,12 +13,15 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "AdministrativeRegion", 
             "name": "AdministrativeRegion", 
             "nameZh": "行政区", 
             "rdfs:subClassOf": [
                 "Place"
             ], 
+            "schemaorgName": "AdministrativeRegion", 
             "schemaorgUrl": "http://schema.org/AdministrativeRegion", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -29,6 +32,7 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "City", 
             "descriptionZh": "省和自治区之下通常被划分为地级市（包括副省级城市）、地区、自治州、盟等地级行政区", 
             "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
             "name": "City", 
@@ -36,6 +40,7 @@
             "rdfs:subClassOf": [
                 "AdministrativeRegion"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -46,11 +51,13 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Country", 
             "name": "Country", 
             "nameZh": "国家", 
             "rdfs:subClassOf": [
                 "AdministrativeRegion"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -61,6 +68,7 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "District", 
             "descriptionZh": "直辖市和较大的市分为区、县。自治州分为县、自治县、市。", 
             "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
             "name": "District", 
@@ -68,6 +76,7 @@
             "rdfs:subClassOf": [
                 "AdministrativeRegion"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -78,6 +87,7 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Province", 
             "descriptionZh": "作为一级行政区的省级行政区包括省、自治区、直辖市、特别行政区四类，自1999年12月20日之后共有34个一级行政区，即23省（其中台湾省从未实际管治）、4直辖市、5自治区和2特别行政区。", 
             "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
             "name": "Province", 
@@ -85,6 +95,7 @@
             "rdfs:subClassOf": [
                 "AdministrativeRegion"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -95,11 +106,13 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Street", 
             "name": "Street", 
             "nameZh": "道路", 
             "rdfs:subClassOf": [
                 "Place"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -110,6 +123,7 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Township", 
             "descriptionZh": "县、自治县分为乡、民族乡、镇。", 
             "descriptionZhSource": "http://www.gov.cn/test/2005-06/15/content_18253.htm", 
             "name": "Township", 
@@ -117,6 +131,7 @@
             "rdfs:subClassOf": [
                 "AdministrativeRegion"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -127,11 +142,13 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Village", 
             "name": "Village", 
             "nameZh": "村", 
             "rdfs:subClassOf": [
                 "AdministrativeRegion"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -142,12 +159,14 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "city", 
             "name": "city", 
             "nameZh": "所在地市", 
             "range": "City", 
             "rdfs:subPropertyOf": [
                 "containedInPlace"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -158,10 +177,13 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "containedInPlace", 
             "name": "containedInPlace", 
             "nameZh": "位于", 
             "range": "AdministrativeRegion", 
+            "schemaorgName": "containedInPlace", 
             "schemaorgUrl": "http://schema.org/containedInPlace", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -172,12 +194,14 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "district", 
             "name": "district", 
             "nameZh": "所在区县", 
             "range": "District", 
             "rdfs:subPropertyOf": [
                 "containedInPlace"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -188,12 +212,14 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "province", 
             "name": "province", 
             "nameZh": "所在省", 
             "range": "Province", 
             "rdfs:subPropertyOf": [
                 "containedInPlace"
             ], 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -204,9 +230,11 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "street", 
             "name": "street", 
             "nameZh": "所在道路", 
             "range": "Street", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -220,10 +248,13 @@
                 "workAddr"
             ], 
             "category": "link", 
+            "cnschemaName": "workLocation", 
             "name": "workLocation", 
             "nameZh": "办公地址", 
             "range": "Place", 
+            "schemaorgName": "workLocation", 
             "schemaorgUrl": "http://schema.org/workLocation", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }
     ], 
@@ -250,7 +281,8 @@
             "datePublished": "2018-07-09T00:00:00", 
             "description": "初始化分类", 
             "name": "v1.0_01", 
-            "version": "v2.0"
+            "statedIn": "cns_place", 
+            "version": "v1.0"
         }, 
         {
             "@id": "http://meta.cnschema.org/changelog/v2.0_01", 
@@ -261,6 +293,7 @@
             "datePublished": "2018-09-17T00:00:00", 
             "description": "调整schema格式", 
             "name": "v2.0_01", 
+            "statedIn": "cns_place", 
             "version": "v2.0"
         }
     ], 
@@ -288,6 +321,7 @@
             "propertyRange": "Text", 
             "refClass": "Place", 
             "refProperty": "addressDetail", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -305,6 +339,7 @@
             "propertySchema": "cns_place", 
             "refClass": "Place", 
             "refProperty": "city", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -323,6 +358,7 @@
             "propertySchema": "cns_place", 
             "refClass": "Place", 
             "refProperty": "containedInPlace", 
+            "statedIn": "cns_place", 
             "version": "v2.0"
         }, 
         {
@@ -340,6 +376,7 @@
             "propertySchema": "cns_place", 
             "refClass": "Place", 
             "refProperty": "district", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -357,6 +394,7 @@
             "propertySchema": "cns_place", 
             "refClass": "Place", 
             "refProperty": "province", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -374,6 +412,7 @@
             "propertySchema": "cns_place", 
             "refClass": "Place", 
             "refProperty": "street", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -392,6 +431,7 @@
             "propertyRange": "Township", 
             "refClass": "Place", 
             "refProperty": "township", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }, 
         {
@@ -410,6 +450,7 @@
             "propertyRange": "Village", 
             "refClass": "Place", 
             "refProperty": "village", 
+            "statedIn": "cns_place", 
             "version": "v1.0"
         }
     ], 

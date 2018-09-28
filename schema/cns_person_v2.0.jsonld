@@ -1,0 +1,1901 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/", 
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    }, 
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/academicMajor", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "academicMajor", 
+            "name": "academicMajor", 
+            "nameZh": "高校专业", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P812", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P812"
+        }, 
+        {
+            "@id": "http://cnschema.org/accomplishment", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "accomplishment", 
+            "name": "accomplishment", 
+            "nameZh": "主要成就", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/affiliation", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "affiliation", 
+            "name": "affiliation", 
+            "nameZh": "所属机构", 
+            "range": "Organization", 
+            "schemaorgName": "affiliation", 
+            "schemaorgUrl": "http://schema.org/affiliation", 
+            "statedIn": "cns_person", 
+            "version": "v1.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/alumniOf", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "alumniOf", 
+            "name": "alumniOf", 
+            "nameZh": "毕业院校", 
+            "range": "Organization", 
+            "schemaorgName": "alumniOf", 
+            "schemaorgUrl": "http://schema.org/alumniOf", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P69", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P69"
+        }, 
+        {
+            "@id": "http://cnschema.org/ancestralHome", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "ancestralHome", 
+            "name": "ancestralHome", 
+            "nameZh": "籍贯", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P66", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P66"
+        }, 
+        {
+            "@id": "http://cnschema.org/artName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "artName", 
+            "name": "artName", 
+            "nameZh": "号、自号、别号、又号", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P1787", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1787"
+        }, 
+        {
+            "@id": "http://cnschema.org/authorOf", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "authorOf", 
+            "name": "authorOf", 
+            "nameZh": "作品、代表作", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/award", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "award", 
+            "name": "award", 
+            "nameZh": "奖项, 获奖", 
+            "range": "Text", 
+            "schemaorgName": "award", 
+            "schemaorgUrl": "http://schema.org/award", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P166", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P166"
+        }, 
+        {
+            "@id": "http://cnschema.org/birthDate", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "birthDate", 
+            "name": "birthDate", 
+            "nameZh": "出生日期", 
+            "range": "Date", 
+            "schemaorgName": "birthDate", 
+            "schemaorgUrl": "http://schema.org/birthDate", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P569", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P569"
+        }, 
+        {
+            "@id": "http://cnschema.org/birthName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "birthName", 
+            "name": "birthName", 
+            "nameZh": "原名", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P1477", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1477"
+        }, 
+        {
+            "@id": "http://cnschema.org/birthPlace", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "birthPlace", 
+            "name": "birthPlace", 
+            "nameZh": "出生地", 
+            "range": "Place", 
+            "schemaorgName": "birthPlace", 
+            "schemaorgUrl": "http://schema.org/birthPlace", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P19", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P19"
+        }, 
+        {
+            "@id": "http://cnschema.org/children", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "children", 
+            "name": "children", 
+            "nameZh": "子女", 
+            "range": "Person", 
+            "schemaorgName": "children", 
+            "schemaorgUrl": "http://schema.org/children", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P40", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P40"
+        }, 
+        {
+            "@id": "http://cnschema.org/cnEducationalAttainment", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "alternateName": [
+                "educationLevel"
+            ], 
+            "category": "link", 
+            "cnschemaName": "cnEducationalAttainment", 
+            "name": "cnEducationalAttainment", 
+            "nameZh": "学历", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikipediaUrl": "https://en.wikipedia.org/wiki/Educational_attainment"
+        }, 
+        {
+            "@id": "http://cnschema.org/cnProfessionalTitle", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "cnProfessionalTitle", 
+            "name": "cnProfessionalTitle", 
+            "nameZh": "职称", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/colleague", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "colleague", 
+            "name": "colleague", 
+            "nameZh": "同事，队友、战友", 
+            "range": "Person", 
+            "schemaorgName": "colleague", 
+            "schemaorgUrl": "http://schema.org/colleague", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/courtesyName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "courtesyName", 
+            "name": "courtesyName", 
+            "nameZh": "字、表字", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P1782", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1782"
+        }, 
+        {
+            "@id": "http://cnschema.org/deathDate", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "deathDate", 
+            "name": "deathDate", 
+            "nameZh": "死亡日期", 
+            "range": "Date", 
+            "schemaorgName": "deathDate", 
+            "schemaorgUrl": "http://schema.org/deathDate", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P570", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P570"
+        }, 
+        {
+            "@id": "http://cnschema.org/deathPlace", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "deathPlace", 
+            "name": "deathPlace", 
+            "nameZh": "死亡地", 
+            "range": "Place", 
+            "schemaorgName": "deathPlace", 
+            "schemaorgUrl": "http://schema.org/deathPlace", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P20", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P20"
+        }, 
+        {
+            "@id": "http://cnschema.org/dharmaName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "dharmaName", 
+            "name": "dharmaName", 
+            "nameZh": "法号、法名", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikipediaUrl": "https://en.wikipedia.org/wiki/Dharma_name"
+        }, 
+        {
+            "@id": "http://cnschema.org/dynasty", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "dynasty", 
+            "name": "dynasty", 
+            "nameZh": "朝代、所在年代、所处时代", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/eraName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "eraName", 
+            "name": "eraName", 
+            "nameZh": "年号", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/ethnicGroup", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "ethnicGroup", 
+            "name": "ethnicGroup", 
+            "nameZh": "民族、民族族群", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P172", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P172"
+        }, 
+        {
+            "@id": "http://cnschema.org/expertiseDescription", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "alternateName": [
+                "专业特长"
+            ], 
+            "category": "link", 
+            "cnschemaName": "expertiseDescription", 
+            "name": "expertiseDescription", 
+            "nameZh": "业务特长", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/familyName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "familyName", 
+            "name": "familyName", 
+            "nameZh": "姓氏", 
+            "range": "Text", 
+            "schemaorgName": "familyName", 
+            "schemaorgUrl": "http://schema.org/familyName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P734", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P734"
+        }, 
+        {
+            "@id": "http://cnschema.org/father", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "father", 
+            "name": "father", 
+            "nameZh": "父亲", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P26", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P26"
+        }, 
+        {
+            "@id": "http://cnschema.org/fieldOfWork", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "fieldOfWork", 
+            "name": "fieldOfWork", 
+            "nameZh": "领域, 专业", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P101", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P101"
+        }, 
+        {
+            "@id": "http://cnschema.org/gender", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "gender", 
+            "name": "gender", 
+            "nameZh": "性别", 
+            "range": "Text", 
+            "schemaorgName": "gender", 
+            "schemaorgUrl": "http://schema.org/gender", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P21", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P21"
+        }, 
+        {
+            "@id": "http://cnschema.org/height", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "height", 
+            "name": "height", 
+            "nameZh": "身高", 
+            "range": "QuantitativeValue", 
+            "schemaorgName": "height", 
+            "schemaorgUrl": "http://schema.org/height", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/homeLocation", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "homeLocation", 
+            "name": "homeLocation", 
+            "nameZh": "家庭地址", 
+            "range": "Place", 
+            "schemaorgName": "homeLocation", 
+            "schemaorgUrl": "http://schema.org/homeLocation", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/husband", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "husband", 
+            "name": "husband", 
+            "nameZh": "丈夫", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "Q212878", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/Q212878"
+        }, 
+        {
+            "@id": "http://cnschema.org/jobTitle", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "jobTitle", 
+            "name": "jobTitle", 
+            "nameZh": "工作职务、职位", 
+            "range": "Text", 
+            "schemaorgName": "jobTitle", 
+            "schemaorgUrl": "http://schema.org/jobTitle", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/memberOfPoliticalParty", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "memberOfPoliticalParty", 
+            "name": "memberOfPoliticalParty", 
+            "nameZh": "政党、党派", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P102", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P102"
+        }, 
+        {
+            "@id": "http://cnschema.org/mother", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "mother", 
+            "name": "mother", 
+            "nameZh": "母亲", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P25", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P25"
+        }, 
+        {
+            "@id": "http://cnschema.org/nationality", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "nationality", 
+            "name": "nationality", 
+            "nameZh": "国籍", 
+            "range": "Country", 
+            "schemaorgName": "nationality", 
+            "schemaorgUrl": "http://schema.org/nationality", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P27", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P27"
+        }, 
+        {
+            "@id": "http://cnschema.org/nobleFamily", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "nobleFamily", 
+            "name": "nobleFamily", 
+            "nameZh": "家族", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P53", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P53"
+        }, 
+        {
+            "@id": "http://cnschema.org/nobleTitle", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "nobleTitle", 
+            "name": "nobleTitle", 
+            "nameZh": "爵位、官爵、封爵、封号", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P97", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P97"
+        }, 
+        {
+            "@id": "http://cnschema.org/occupation", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "occupation", 
+            "name": "occupation", 
+            "nameZh": "职业、身份", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P106", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P106"
+        }, 
+        {
+            "@id": "http://cnschema.org/parent", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "parent", 
+            "name": "parent", 
+            "nameZh": "父母", 
+            "range": "Person", 
+            "schemaorgName": "parent", 
+            "schemaorgUrl": "http://schema.org/parent", 
+            "statedIn": "cns_person", 
+            "version": "v1.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/placeOfBurial", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "placeOfBurial", 
+            "name": "placeOfBurial", 
+            "nameZh": "墓地、安葬地", 
+            "range": "Place", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P119", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P119"
+        }, 
+        {
+            "@id": "http://cnschema.org/posthumousName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "posthumousName", 
+            "name": "posthumousName", 
+            "nameZh": "谥号、私谥", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P1786", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1786"
+        }, 
+        {
+            "@id": "http://cnschema.org/pseudonym", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "pseudonym", 
+            "name": "pseudonym", 
+            "nameZh": "化名", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P742", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P742"
+        }, 
+        {
+            "@id": "http://cnschema.org/religion", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "religion", 
+            "name": "religion", 
+            "nameZh": "宗教信仰、信仰", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P140", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P140"
+        }, 
+        {
+            "@id": "http://cnschema.org/schoolsOfBuddhism", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "schoolsOfBuddhism", 
+            "name": "schoolsOfBuddhism", 
+            "nameZh": "宗派", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/sibling", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "sibling", 
+            "name": "sibling", 
+            "nameZh": "兄弟姐妹", 
+            "range": "Person", 
+            "schemaorgName": "sibling", 
+            "schemaorgUrl": "http://schema.org/sibling", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P3373", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P3373"
+        }, 
+        {
+            "@id": "http://cnschema.org/spouse", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "spouse", 
+            "name": "spouse", 
+            "nameZh": "配偶、爱人", 
+            "range": "Person", 
+            "schemaorgName": "spouse", 
+            "schemaorgUrl": "http://schema.org/spouse", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "P26", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P26"
+        }, 
+        {
+            "@id": "http://cnschema.org/student", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "student", 
+            "name": "student", 
+            "nameZh": "学生、弟子、徒弟、门徒", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P802", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P802"
+        }, 
+        {
+            "@id": "http://cnschema.org/studentOf", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "studentOf", 
+            "name": "studentOf", 
+            "nameZh": "老师、师傅、导师", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P1066", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1066"
+        }, 
+        {
+            "@id": "http://cnschema.org/templeName", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "templeName", 
+            "name": "templeName", 
+            "nameZh": "庙号", 
+            "range": "Text", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P1785", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P1785"
+        }, 
+        {
+            "@id": "http://cnschema.org/unmarriedPartner", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "unmarriedPartner", 
+            "name": "unmarriedPartner", 
+            "nameZh": "情侣", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v2.0", 
+            "wikidataName": "P451", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/P451"
+        }, 
+        {
+            "@id": "http://cnschema.org/weight", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "attribute", 
+            "cnschemaName": "weight", 
+            "name": "weight", 
+            "nameZh": "体重", 
+            "range": "QuantitativeValue", 
+            "schemaorgName": "weight", 
+            "schemaorgUrl": "http://schema.org/weight", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/wife", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "wife", 
+            "name": "wife", 
+            "nameZh": "妻子", 
+            "range": "Person", 
+            "statedIn": "cns_person", 
+            "version": "v1.0", 
+            "wikidataName": "Q188830", 
+            "wikidataUrl": "https://www.wikidata.org/wiki/Q188830"
+        }, 
+        {
+            "@id": "http://cnschema.org/worksFor", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "worksFor", 
+            "name": "worksFor", 
+            "nameZh": "工作单位", 
+            "range": "Organization", 
+            "schemaorgName": "worksFor", 
+            "schemaorgUrl": "http://schema.org/worksFor", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }
+    ], 
+    "@id": "http://meta.cnschema.org/ontologyrelease/cns_person_v2.0", 
+    "@type": [
+        "CnsOntologyRelease", 
+        "CnsMeta"
+    ], 
+    "about": {
+        "@id": "http://meta.cnschema.org/ontology/cns_person", 
+        "@type": [
+            "CnsOntology", 
+            "CnsMeta"
+        ], 
+        "name": "cns_person"
+    }, 
+    "changelog": [
+        {
+            "@id": "http://meta.cnschema.org/changelog/v1.0_01", 
+            "@type": [
+                "CnsChangelog", 
+                "CnsMeta"
+            ], 
+            "datePublished": "2017-08-01T00:00:00", 
+            "description": "早期的人物属性", 
+            "name": "v1.0_01", 
+            "statedIn": "cns_person", 
+            "version": "v1.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.0_01", 
+            "@type": [
+                "CnsChangelog", 
+                "CnsMeta"
+            ], 
+            "datePublished": "2018-09-17T00:00:00", 
+            "description": "增补人物属性", 
+            "name": "v2.0_01", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }
+    ], 
+    "datePublished": "2018-09-17T00:00:00", 
+    "description": "cnSchema顶级模块，覆盖地点位置常用概念。", 
+    "identifier": "cns_person_v2.0", 
+    "import": [
+        "cns_top_v2.0", 
+        "cns_place_v2.0"
+    ], 
+    "name": "cns_person", 
+    "template": [
+        {
+            "@id": "http://meta.cnschema.org/template/Person_academicMajor", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"academicMajor\": “法律系法学” ,", 
+            "minCardinality": 0, 
+            "name": "Person_academicMajor", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "高校专业", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "academicMajor", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_accomplishment", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"accomplishment\": \"夺取西川，建立蜀汉\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_accomplishment", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "主要成就", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "accomplishment", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_affiliation", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"affiliation\": [\"北京大学\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_affiliation", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "所属机构", 
+            "propertyRange": "Organization", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "affiliation", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_alumniOf", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"alumniOf\": “南开大学” ,", 
+            "minCardinality": 0, 
+            "name": "Person_alumniOf", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "毕业院校", 
+            "propertyRange": "Organization", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "alumniOf", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_ancestralHome", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"ancestralHome\": “河北枣强” ,", 
+            "minCardinality": 0, 
+            "name": "Person_ancestralHome", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "籍贯", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "ancestralHome", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_artName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"artName\": [\"青莲居士\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_artName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "号、自号、别号、又号", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "artName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_authorOf", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"authorOf\": [\"民权初步\",\"孙文学说\",\"三民主义\",\"实业计划\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_authorOf", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "作品、代表作", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "authorOf", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_award", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"award\": [\"诺贝尔奖\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_award", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "奖项, 获奖", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "award", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_birthDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"birthDate\": \"701年\" ,", 
+            "exampleValueText": "701年", 
+            "minCardinality": 0, 
+            "name": "Person_birthDate", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "出生日期", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "birthDate", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_birthName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"birthName\": “李修缘” ,", 
+            "minCardinality": 0, 
+            "name": "Person_birthName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "原名", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "birthName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_birthPlace", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"birthPlace\": “绵州昌隆（今四川省江油市） ,", 
+            "exampleValueText": "绵州昌隆（今四川省江油市）", 
+            "minCardinality": 0, 
+            "name": "Person_birthPlace", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "出生地", 
+            "propertyRange": "Place", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "birthPlace", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_children", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"children\": [“孙科”] ,", 
+            "minCardinality": 0, 
+            "name": "Person_children", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "子女", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "children", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_cnEducationalAttainment", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"cnEducationalAttainment\": 在职研究生 ,", 
+            "minCardinality": 0, 
+            "name": "Person_cnEducationalAttainment", 
+            "propertyAlternateName": [
+                "educationLevel"
+            ], 
+            "propertyNameZh": "学历", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "cnEducationalAttainment", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_cnProfessionalTitle", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"cnProfessionalTitle\": ”高级经济师“ ,", 
+            "minCardinality": 0, 
+            "name": "Person_cnProfessionalTitle", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "职称", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "cnProfessionalTitle", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_colleague", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"colleague\": [\"罗毅刚\",\"陈宏\",\"余锦豪\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_colleague", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "同事，队友、战友", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "colleague", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_courtesyName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"courtesyName\": \"太白\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_courtesyName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "字、表字", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "courtesyName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_deathDate", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"deathDate\": “762年\" ,", 
+            "exampleValueText": "762年", 
+            "minCardinality": 0, 
+            "name": "Person_deathDate", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "死亡日期", 
+            "propertyRange": "Date", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "deathDate", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_deathPlace", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"deathPlace\": “当涂（今属安徽省马鞍山）” ,", 
+            "exampleValueText": "当涂（今属安徽省马鞍山）", 
+            "minCardinality": 0, 
+            "name": "Person_deathPlace", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "死亡地", 
+            "propertyRange": "Place", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "deathPlace", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_dharmaName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"dharmaName\": \"道济\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_dharmaName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "法号、法名", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "dharmaName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_dynasty", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"dynasty\": \"清朝\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_dynasty", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "朝代、所在年代、所处时代", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "dynasty", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_eraName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"eraName\": \"章武\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_eraName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "年号", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "eraName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_ethnicGroup", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"ethnicGroup\": “汉族” ,", 
+            "minCardinality": 0, 
+            "name": "Person_ethnicGroup", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "民族、民族族群", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "ethnicGroup", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_expertiseDescription", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"expertiseDescription\":  ,", 
+            "minCardinality": 0, 
+            "name": "Person_expertiseDescription", 
+            "propertyAlternateName": [
+                "专业特长"
+            ], 
+            "propertyNameZh": "业务特长", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "expertiseDescription", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_familyName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"familyName\": ”李“ ,", 
+            "minCardinality": 0, 
+            "name": "Person_familyName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "姓氏", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "familyName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_father", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"father\": \"刘备\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_father", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "父亲", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "father", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_fieldOfWork", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"fieldOfWork\": [\"物理学\",'\"化学\",'哲学\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_fieldOfWork", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "领域, 专业", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "fieldOfWork", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_gender", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"gender\": “男” ,", 
+            "minCardinality": 0, 
+            "name": "Person_gender", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "性别", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "gender", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_height", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"height\": ”178厘米“ ,", 
+            "minCardinality": 0, 
+            "name": "Person_height", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "身高", 
+            "propertyRange": "QuantitativeValue", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "height", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_homeLocation", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"homeLocation\":  ,", 
+            "minCardinality": 0, 
+            "name": "Person_homeLocation", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "家庭地址", 
+            "propertyRange": "Place", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "homeLocation", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_husband", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"husband\": [\"卢慕贞\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_husband", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "丈夫", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "husband", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_jobTitle", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"jobTitle\": \"教授\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_jobTitle", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "工作职务、职位", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "jobTitle", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_memberOfPoliticalParty", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"memberOfPoliticalParty\": [“中共”] ,", 
+            "minCardinality": 0, 
+            "name": "Person_memberOfPoliticalParty", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "政党、党派", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "memberOfPoliticalParty", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_mother", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"mother\": \"糜夫人” ,", 
+            "minCardinality": 0, 
+            "name": "Person_mother", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "母亲", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "mother", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_nationality", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"nationality\": [”法国“] ,", 
+            "minCardinality": 0, 
+            "name": "Person_nationality", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "国籍", 
+            "propertyRange": "Country", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "nationality", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_nobleFamily", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"nobleFamily\": “夏侯氏” ,", 
+            "minCardinality": 0, 
+            "name": "Person_nobleFamily", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "家族", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "nobleFamily", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_nobleTitle", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"nobleTitle\": [\"齐王\",\"楚王\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_nobleTitle", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "爵位、官爵、封爵、封号", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "nobleTitle", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_occupation", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"occupation\": [“科学家”] ,", 
+            "minCardinality": 0, 
+            "name": "Person_occupation", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "职业、身份", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "occupation", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_parent", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"parent\": [\"孙达成\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_parent", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "父母", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "parent", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_placeOfBurial", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"placeOfBurial\": “当涂青山” ,", 
+            "minCardinality": 0, 
+            "name": "Person_placeOfBurial", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "墓地、安葬地", 
+            "propertyRange": "Place", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "placeOfBurial", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_posthumousName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"posthumousName\": “昭烈皇帝” ,", 
+            "minCardinality": 0, 
+            "name": "Person_posthumousName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "谥号、私谥", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "posthumousName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_pseudonym", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"pseudonym\": “济公” ,", 
+            "minCardinality": 0, 
+            "name": "Person_pseudonym", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "化名", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "pseudonym", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_religion", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"religion\": \"犹太教\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_religion", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "宗教信仰、信仰", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "religion", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_schoolsOfBuddhism", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"schoolsOfBuddhism\": \"大乘佛教\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_schoolsOfBuddhism", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "宗派", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "schoolsOfBuddhism", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_sibling", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"sibling\": [\"孙眉“] ,", 
+            "minCardinality": 0, 
+            "name": "Person_sibling", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "兄弟姐妹", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "sibling", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_spouse", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"spouse\": [\"卢慕贞\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_spouse", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "配偶、爱人", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "spouse", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_student", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"student\": [\"颜回”,\"子路\",\"子贡“] ,", 
+            "minCardinality": 0, 
+            "name": "Person_student", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "学生、弟子、徒弟、门徒", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "student", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_studentOf", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"studentOf\": [\"孔子“] ,", 
+            "minCardinality": 0, 
+            "name": "Person_studentOf", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "老师、师傅、导师", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "studentOf", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_templeName", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"templeName\": “太祖\" ,", 
+            "minCardinality": 0, 
+            "name": "Person_templeName", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "庙号", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "templeName", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_unmarriedPartner", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"unmarriedPartner\":  ,", 
+            "minCardinality": 0, 
+            "name": "Person_unmarriedPartner", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "情侣", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "unmarriedPartner", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_weight", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"weight\": ”72千克“ ,", 
+            "minCardinality": 0, 
+            "name": "Person_weight", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "体重", 
+            "propertyRange": "QuantitativeValue", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "weight", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_wife", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"wife\": [\"卢慕贞\"] ,", 
+            "minCardinality": 0, 
+            "name": "Person_wife", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "妻子", 
+            "propertyRange": "Person", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "wife", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://meta.cnschema.org/template/Person_worksFor", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"worksFor\":  ,", 
+            "minCardinality": 0, 
+            "name": "Person_worksFor", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "工作单位", 
+            "propertyRange": "Organization", 
+            "propertySchema": "cns_person", 
+            "refClass": "Person", 
+            "refProperty": "worksFor", 
+            "statedIn": "cns_person", 
+            "version": "v2.0"
+        }
+    ], 
+    "version": "v2.0"
+}

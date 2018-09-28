@@ -88,7 +88,7 @@ CNS_SCHEMA_SHEET = [{
             "non_empty_columns": ["refClass", "refProperty"],
             "type_predefined": ["CnsTemplate", "CnsMeta"],
             "name_pattern": "{refClass}_{refProperty}",
-            "id_pattern": "http://meta.cnschema.org/template/{refClass}_{refProperty}"
+            "id_pattern": "http://meta.cnschema.org/template/{refClass}_{refProperty}" #TODO
         },
     	"sheetname": "template",
     	"rows": [],
@@ -118,7 +118,7 @@ CNS_SCHEMA_SHEET = [{
             "non_empty_columns": ["name", "datePublished", "description"],
             "type_predefined": ["CnsChangelog", "CnsMeta"],
             "name_pattern": "{name}",
-            "id_pattern": "http://meta.cnschema.org/changelog/{name}"
+            "id_pattern": "http://meta.cnschema.org/changelog/{name}"  #TODO
         },
     	"sheetname": "changelog",
     	"rows": [],
@@ -163,7 +163,7 @@ def _excel2jsonld_item(cns_item, item):
         if item["category"] in ["class", "datatype", "struct", "meta"]:
             #cns_item["@type"].insert(0,  "rdfs:Class")
             cns_item["@type"].insert(0,  "CnsClass")
-        elif item["category"] in [ "link", "property"]:
+        elif item["category"] in [ "link", "attribute"]:
             #cns_item["@type"].insert(0,  "rdf:Property")
             cns_item["@type"].insert(0,  "CnsProperty")
         else:
@@ -341,7 +341,7 @@ class CnsModelTable():
         self.report = self.schema.report
 
 
-    def table2mem(self, excel_data, preloaded_schema_list=None):
+    def table2mem(self, excel_data):
         #logging.info(json4debug(excel_data))
         self._run_validate_excel_data(excel_data)
         if self.report.has_bug():
@@ -351,7 +351,7 @@ class CnsModelTable():
         if self.report.has_bug():
             return False
 
-        self.schema.build( preloaded_schema_list )
+        self.schema.build( )
         if self.report.has_bug():
             return False
 
@@ -432,7 +432,7 @@ class CnsModelTable():
                 "category": "info_excel_sheet_skip_unsupport",
                 "description": "process excel, skip unsupported sheets [{}]".format(", ".join(sheet_name_diff)),
             }
-            self.report.report_bug(bug)
+            #self.report.report_bug(bug)
 
         #check missing sheets
         sheet_name_diff =  set(CNS_SCHEMA_SHEET_INDEX) - set(excel_data_index)

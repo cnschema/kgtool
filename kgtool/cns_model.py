@@ -27,6 +27,8 @@ cnSchema data loader
 """
 
 
+
+
 def preload_schema(args=None):
     schema_dir = args.get("schema_dir")
     if not schema_dir:
@@ -34,17 +36,16 @@ def preload_schema(args=None):
 
     filename_list = glob.glob(u"{}/*.jsonld".format(schema_dir))
 
-    preloaded_schema_list = {}
     for filename in filename_list:
         loaded_schema = CnsSchema()
-        loaded_schema.jsonld2mem4file(filename, preloaded_schema_list)
+        loaded_schema.jsonld2mem4file(filename)
         schema_identifier = loaded_schema.metadata["identifier"]
         #logging.info(json4debug(loaded_schema.metadata))
-        preloaded_schema_list[schema_identifier] = loaded_schema
+        loaded_schema.preloaded_schema_list[schema_identifier] = loaded_schema
         logging.info("loaded {}".format(schema_identifier))
 
-    logging.info(len(preloaded_schema_list))
-    return preloaded_schema_list
+    logging.info(len(loaded_schema.preloaded_schema_list))
+    return loaded_schema.preloaded_schema_list
 
 
 def _extract_alias_list(cns_item):
@@ -85,7 +86,9 @@ class CnsSchema:
         # all schema module, includion self
         self.imported_schema = []
 
-
+        self.schema_dir = "schema"
+        self.schema_urlprefix = None
+        self.preloaded_schema_list = {}
 
 
         # index: 属性名称映射表  property alias => property standard name
@@ -128,9 +131,21 @@ class CnsSchema:
         else:
             self.metadata[group] = item
 
-    def build(self, preloaded_schema_list=None):
+    def load_jsonld(self, schema_release_identifier ):
+        if self.schema_urlprefix:
+            schema_url = "{}/{}".format(self.schema_urlprefix, schema_release_identifier)
+            response = urllib.urlopen(currURL)
+            text = response.read()
+            return json.loads(text)
+        elif self.schema_dir:
+            filename = "{}/{}.jsonld".format(self.schema_dir, schema_release_identifier)
+            return file2json(filename)
+        else:
+            assert False
 
-        self._complete_imported_schema_list(preloaded_schema_list)
+    def build(self):
+
+        self._complete_imported_schema_list()
 
         self._build_index_definition_alias()
         self._build_index_inheritance()
@@ -148,28 +163,30 @@ class CnsSchema:
 
         self._stat()
 
-
-    def _complete_imported_schema_list(self, preloaded_schema_list):
-        if preloaded_schema_list is None:
-            preloaded_schema_list = {}
+    def _complete_imported_schema_list(self):
 
         self.imported_schema = []
 
         # handle import
         # logging.info(json4debug(imported_schema_identifier))
         for schema_identifier in self.metadata["import"]:
-            schema = preloaded_schema_list.get(schema_identifier)
+            schema = self.preloaded_schema_list.get(schema_identifier)
             if not schema:
                 # load schema on demand
-                filename = u"../schema/{}.jsonld".format(schema_identifier)
-                filename = file2abspath(filename)
-                logging.info("import schema " + filename)
+                jsonld = self.load_jsonld(schema_identifier)
+                #filename = u"../schema/{}.jsonld".format(schema_identifier)
+                #filename = file2abspath(filename)
+                #logging.info("import schema " + filename)
                 schema = CnsSchema()
-                schema.jsonld2mem4file(filename, preloaded_schema_list)
+                schema.preload_schema_list = self.preloaded_schema_list
+
+                schema.jsonld2mem(jsonld)
 
             assert schema, schema_identifier
             self.imported_schema.append(schema)
             logging.info("importing {}".format(schema_identifier))
+
+            self.preloaded_schema_list[schema_identifier] = schema
 
         self.imported_schema.append(self)
 
@@ -516,12 +533,12 @@ class CnsSchema:
         # assert len(self.index_definition_alias)>4
 
 
-    def jsonld2mem4file(self, filename=None, preloaded_schema_list=None):
+    def jsonld2mem4file(self, filename=None):
         # reset data
         jsonld = file2json(filename)
-        return self.jsonld2mem(jsonld, preloaded_schema_list)
+        return self.jsonld2mem(jsonld)
 
-    def jsonld2mem(self, jsonld, preloaded_schema_list=None):
+    def jsonld2mem(self, jsonld):
         # load
         assert jsonld["@context"]["@vocab"] == "http://cnschema.org/"
 
@@ -532,16 +549,13 @@ class CnsSchema:
                 for v in jsonld[p]:
                     self.add_metadata(p, v)
             else:
-                logging.info((p,jsonld[p]))
+                #logging.info((p,jsonld[p]))
                 self.add_metadata(p, jsonld[p])
 
         for definition in jsonld["@graph"]:
             self.set_definition(definition)
 
-        if preloaded_schema_list is None:
-            preloaded_schema_list = {}
-
-        self.build(preloaded_schema_list)
+        self.build()
 
     def mem2jsonld(self, filename=None):
         xid_release = "http://meta.cnschema.org/ontologyrelease/{}".format(self.metadata["identifier"])

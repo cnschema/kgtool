@@ -332,8 +332,8 @@ def task_graphviz(args):
 
     filename = args["input_file"]
     the_schema = CnsSchema()
-    preloaded_schema_list = preload_schema(args)
-    the_schema.jsonld2mem4file(filename, preloaded_schema_list)
+    the_schema.preloaded_schema_list = preload_schema(args)
+    the_schema.jsonld2mem4file(filename)
 
     #validate if we can reproduce the same jsonld based on input
     jsonld_input = file2json(filename)

@@ -13,13 +13,16 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "Boolean", 
             "descriptionZh": "只允许如下值：\"是\"，“否”，“True”， “False”", 
             "name": "Boolean", 
             "nameZh": "真假值类型", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
+            "schemaorgName": "Boolean", 
             "schemaorgUrl": "http://schema.org/Boolean", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -30,9 +33,11 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "CnsAttribute", 
             "descriptionZh": "CnSchema的定义，包括实体分类和属性。实体属性为了支持词汇复用。", 
             "name": "CnsAttribute", 
             "nameZh": "实体描述属性", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -43,12 +48,14 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsChangelog", 
             "descriptionZh": "本体版本中做的一个修改，手工编辑", 
             "name": "CnsChangelog", 
             "nameZh": "CNS本体变更记录", 
             "rdfs:subClassOf": [
                 "CnsMeta"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -59,11 +66,13 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsClass", 
             "name": "CnsClass", 
             "nameZh": "CNS实体分类", 
             "rdfs:subClassOf": [
                 "CnsDefinition"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -74,8 +83,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsDataSource", 
             "name": "CnsDataSource", 
             "nameZh": "CNS数据源", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -86,9 +97,11 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "CnsDataStructure", 
             "descriptionZh": "基础属性包括更新时间，来源，原文", 
             "name": "CnsDataStructure", 
             "nameZh": "复杂数据结构", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -99,8 +112,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsDataset", 
             "name": "CnsDataset", 
             "nameZh": "CNS数据集", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -111,12 +126,14 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsDefinition", 
             "descriptionZh": "CnSchema的定义，包括实体分类和属性。这是实体分类的集合，实体分类可以分为实体分类，简单数据类型，复杂数据类型，实体二元关系。", 
             "name": "CnsDefinition", 
             "nameZh": "CNS概念定义", 
             "rdfs:subClassOf": [
                 "CnsMeta"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -127,8 +144,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsGraph", 
             "name": "CnsGraph", 
             "nameZh": "CNS图谱", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -139,8 +158,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsGraphRelease", 
             "name": "CnsGraphRelease", 
             "nameZh": "CNS图谱版本", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -151,9 +172,11 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "CnsLink", 
             "descriptionZh": "简化的二元关系，附属于某实体，关联到实体对外的链接", 
             "name": "CnsLink", 
             "nameZh": "实体二元关系", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -164,8 +187,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsMeta", 
             "name": "CnsMeta", 
             "nameZh": "CNS元数据", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -176,12 +201,14 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsOntology", 
             "descriptionZh": "一个Schema模块，便于本体模块间的引用。", 
             "name": "CnsOntology", 
             "nameZh": "CNS本体", 
             "rdfs:subClassOf": [
                 "CnsMeta"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -192,12 +219,14 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsOntologyRelease", 
             "descriptionZh": "本体模块的一个具体的版本。本体版本确定在该本体的这个版本中包括哪些实体分类，实体属性，实体模版。", 
             "name": "CnsOntologyRelease", 
             "nameZh": "CNS本体版本", 
             "rdfs:subClassOf": [
                 "CnsMeta"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -208,8 +237,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsProductionConfig", 
             "name": "CnsProductionConfig", 
             "nameZh": "CNS图谱生产配置", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -220,12 +251,14 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsProperty", 
             "descriptionZh": "CnSchema的定义，包括实体分类和属性。实体属性为了支持词汇复用。", 
             "name": "CnsProperty", 
             "nameZh": "CNS实体属性", 
             "rdfs:subClassOf": [
                 "CnsDefinition"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -236,8 +269,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsPublishConfig", 
             "name": "CnsPublishConfig", 
             "nameZh": "CNS图谱发布配置", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -248,8 +283,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsStep", 
             "name": "CnsStep", 
             "nameZh": "CNS图谱生产步骤", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -260,12 +297,14 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "CnsTag", 
             "descriptionZh": "该实体的分类标签，在不进一步扩展分类树的前提下支持facted search ,细化分类", 
             "name": "CnsTag", 
             "nameZh": "分类标签", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -276,8 +315,10 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsTask", 
             "name": "CnsTask", 
             "nameZh": "CNS图谱生产任务", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -288,12 +329,14 @@
                 "CnsMeta"
             ], 
             "category": "meta", 
+            "cnschemaName": "CnsTemplate", 
             "descriptionZh": "实体属性模版包括（实体分类，实体属性）为主码，描述一个实体分类在该属性上应该具备的属性值要求。", 
             "name": "CnsTemplate", 
             "nameZh": "CNS实体属性模版", 
             "rdfs:subClassOf": [
                 "CnsMeta"
             ], 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -304,12 +347,15 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "CreativeWork", 
             "name": "CreativeWork", 
             "nameZh": "创作", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "schemaorgName": "CreativeWork", 
             "schemaorgUrl": "http://schema.org/CreativeWork", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -320,9 +366,12 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "DataType", 
             "name": "DataType", 
             "nameZh": "简单数据结构", 
+            "schemaorgName": "DataType", 
             "schemaorgUrl": "http://schema.org/DataType", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -333,12 +382,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "Date", 
             "name": "Date", 
             "nameZh": "日期类型", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
+            "schemaorgName": "Date", 
             "schemaorgUrl": "http://schema.org/Date", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -349,12 +401,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "DateTime", 
             "name": "DateTime", 
             "nameZh": "时间类型", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
+            "schemaorgName": "DateTime", 
             "schemaorgUrl": "http://schema.org/DateTime", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -365,12 +420,15 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Event", 
             "name": "Event", 
             "nameZh": "事件", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "schemaorgName": "Event", 
             "schemaorgUrl": "http://schema.org/Event", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -381,12 +439,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "Float", 
             "name": "Float", 
             "nameZh": "浮点数类型", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
+            "schemaorgName": "Float", 
             "schemaorgUrl": "http://schema.org/Float", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -397,12 +458,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "Integer", 
             "name": "Integer", 
             "nameZh": "整数类型", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
+            "schemaorgName": "Integer", 
             "schemaorgUrl": "http://schema.org/Integer", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -413,13 +477,16 @@
                 "CnsMeta"
             ], 
             "category": "struct", 
+            "cnschemaName": "MonetaryAmount", 
             "descriptionZh": "金额的详细描述，通常包括原文text， 数值value，币种currency。例如 text为100万，而value就是数字1000000，币种为人民币。", 
             "name": "MonetaryAmount", 
             "nameZh": "复杂金额描述", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
+            "schemaorgName": "MonetaryAmount", 
             "schemaorgUrl": "http://schema.org/MonetaryAmount", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -430,12 +497,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "Number", 
             "name": "Number", 
             "nameZh": "数字类型", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
+            "schemaorgName": "Number", 
             "schemaorgUrl": "http://schema.org/Number", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -449,12 +519,15 @@
                 "组织"
             ], 
             "category": "class", 
+            "cnschemaName": "Organization", 
             "name": "Organization", 
             "nameZh": "机构", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "schemaorgName": "Organization", 
             "schemaorgUrl": "http://schema.org/Organization", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -465,12 +538,15 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Person", 
             "name": "Person", 
             "nameZh": "人物", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "schemaorgName": "Person", 
             "schemaorgUrl": "http://schema.org/Person", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -481,12 +557,15 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Place", 
             "name": "Place", 
             "nameZh": "地点", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "schemaorgName": "Place", 
             "schemaorgUrl": "http://schema.org/Place", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -497,12 +576,15 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Product", 
             "name": "Product", 
             "nameZh": "商品", 
             "rdfs:subClassOf": [
                 "Thing"
             ], 
+            "schemaorgName": "Product", 
             "schemaorgUrl": "http://schema.org/Product", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -513,13 +595,16 @@
                 "CnsMeta"
             ], 
             "category": "struct", 
+            "cnschemaName": "PropertyValue", 
             "descriptionZh": "更细节的属性值描述，包括进一步的属性名称", 
             "name": "PropertyValue", 
             "nameZh": "复杂属性值对", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
+            "schemaorgName": "PropertyValue", 
             "schemaorgUrl": "http://schema.org/PropertyValue", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -530,13 +615,16 @@
                 "CnsMeta"
             ], 
             "category": "struct", 
+            "cnschemaName": "QuantitativeValue", 
             "descriptionZh": "针对数值型字段，提供可排序的浮点解析结果，", 
             "name": "QuantitativeValue", 
             "nameZh": "复杂数值描述", 
             "rdfs:subClassOf": [
                 "CnsDataStructure"
             ], 
+            "schemaorgName": "QuantitativeValue", 
             "schemaorgUrl": "http://schema.org/QuantitativeValue", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -547,12 +635,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "Text", 
             "name": "Text", 
             "nameZh": "文本类型", 
             "rdfs:subClassOf": [
                 "DataType"
             ], 
+            "schemaorgName": "Text", 
             "schemaorgUrl": "http://schema.org/Text", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -563,9 +654,12 @@
                 "CnsMeta"
             ], 
             "category": "class", 
+            "cnschemaName": "Thing", 
             "name": "Thing", 
             "nameZh": "事物", 
+            "schemaorgName": "Thing", 
             "schemaorgUrl": "http://schema.org/Thing", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -576,12 +670,15 @@
                 "CnsMeta"
             ], 
             "category": "datatype", 
+            "cnschemaName": "URL", 
             "name": "URL", 
             "nameZh": "链接类型", 
             "rdfs:subClassOf": [
                 "Text"
             ], 
+            "schemaorgName": "URL", 
             "schemaorgUrl": "http://schema.org/URL", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -592,11 +689,14 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "about", 
             "descriptionZh": "系统保留字，实体描述的相关实体", 
             "name": "about", 
             "nameZh": "关于", 
             "range": "Thing", 
+            "schemaorgName": "about", 
             "schemaorgUrl": "http://schema.org/about", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -606,12 +706,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "alternateName", 
             "descriptionZh": "系统保留字，实体的别名，Wikidata的alias。", 
             "name": "alternateName", 
             "nameZh": "别名", 
             "range": "Text", 
+            "schemaorgName": "alternateName", 
             "schemaorgUrl": "http://schema.org/alternateName", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -625,11 +728,13 @@
                 "alternateNameForHuman", 
                 "alternateNameRaw"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "alternateNameRaw", 
             "descriptionZh": "展示用，原始的实体别名，没有自动扩展过。 alternateName系统占用。", 
             "name": "alternateNameRaw", 
             "nameZh": "原始的别名", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -640,10 +745,12 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "broader", 
             "descriptionZh": "语义更宽泛的标签", 
             "name": "broader", 
             "nameZh": "上级标签", 
             "range": "CnsTag", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -653,12 +760,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "category", 
             "descriptionZh": "实体的分组", 
             "name": "category", 
             "nameZh": "分组", 
             "range": "Text", 
+            "schemaorgName": "category", 
             "schemaorgUrl": "http://schema.org/category", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -668,11 +778,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "confidence", 
             "descriptionZh": "置信度，0到1之间的浮点数", 
             "name": "confidence", 
             "nameZh": "置信度", 
             "range": "Float", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -683,10 +795,12 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "conflict", 
             "descriptionZh": "语义冲突的标签", 
             "name": "conflict", 
             "nameZh": "冲突的标签", 
             "range": "CnsTag", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -696,11 +810,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "currency", 
             "descriptionZh": "使用 ISO 4271 三位文本表示", 
             "name": "currency", 
             "nameZh": "币种", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -710,10 +826,12 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "date", 
             "name": "date", 
             "nameZh": "日期", 
             "range": "Date", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -723,12 +841,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "dateCreated", 
             "descriptionZh": "存储系统专用，溯源，实体数据创建时间，ISO8601 with Timezone", 
             "name": "dateCreated", 
             "nameZh": "创建日期", 
             "range": "DateTime", 
+            "schemaorgName": "dateCreated", 
             "schemaorgUrl": "http://schema.org/dateCreated", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -738,12 +859,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "dateModified", 
             "descriptionZh": "存储系统专用，溯源，实体数据更新时间", 
             "name": "dateModified", 
             "nameZh": "更新日期", 
             "range": "DateTime", 
+            "schemaorgName": "dateModified", 
             "schemaorgUrl": "http://schema.org/dateModified", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -753,12 +877,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "datePublished", 
             "descriptionZh": "溯源属性，实体信息的发布时间", 
             "name": "datePublished", 
             "nameZh": "发布时间", 
             "range": "DateTime", 
+            "schemaorgName": "datePublished", 
             "schemaorgUrl": "http://schema.org/datePublished", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -772,12 +899,15 @@
                 "描述", 
                 "定义"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "description", 
             "descriptionZh": "系统保留字，实体的描述，Wikidata的description。", 
             "name": "description", 
             "nameZh": "简介", 
             "range": "Text", 
+            "schemaorgName": "description", 
             "schemaorgUrl": "http://schema.org/description", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -790,10 +920,12 @@
             "alternateName": [
                 "邮箱"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "email", 
             "name": "email", 
             "nameZh": "电子邮件地址", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -807,12 +939,15 @@
                 "截至时间", 
                 "结束日期"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "endDate", 
             "descriptionZh": "结束的具体日期", 
             "name": "endDate", 
             "nameZh": "结束时间", 
             "range": "DateTime", 
+            "schemaorgName": "endDate", 
             "schemaorgUrl": "http://schema.org/endDate", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -822,11 +957,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "entityScore", 
             "descriptionZh": "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体", 
             "name": "entityScore", 
             "nameZh": "全局评分", 
             "range": "Integer", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -836,10 +973,12 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "foundingDate", 
             "name": "foundingDate", 
             "nameZh": "成立日期", 
             "range": "Date", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -849,11 +988,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "graphId", 
             "descriptionZh": "系统保留字，溯源，实体目前所处的图谱的标识，HASH，建议使用SHA256", 
             "name": "graphId", 
             "nameZh": "所在图谱编号", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -863,12 +1004,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "identifier", 
             "descriptionZh": "溯源属性，实体在数据源对应的ID", 
             "name": "identifier", 
             "nameZh": "标识", 
             "range": "Text", 
+            "schemaorgName": "identifier", 
             "schemaorgUrl": "http://schema.org/identifier", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -882,12 +1026,15 @@
                 "头像", 
                 "照片地址"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "image", 
             "descriptionZh": "一个实体可以有多个image", 
             "name": "image", 
             "nameZh": "图片", 
             "range": "URL", 
+            "schemaorgName": "image", 
             "schemaorgUrl": "http://schema.org/image", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -898,10 +1045,12 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "in", 
             "descriptionZh": "被描述的主体", 
             "name": "in", 
             "nameZh": "入点", 
             "range": "Thing", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -912,11 +1061,14 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "isPartOf", 
             "descriptionZh": "本实体是对应实体的一部分", 
             "name": "isPartOf", 
             "nameZh": "从属于", 
             "range": "Thing", 
+            "schemaorgName": "isPartOf", 
             "schemaorgUrl": "http://schema.org/isPartOf", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -926,12 +1078,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "keywords", 
             "descriptionZh": "一组用逗号分隔的实体相关的关键词", 
             "name": "keywords", 
             "nameZh": "关键词", 
             "range": "Text", 
+            "schemaorgName": "keywords", 
             "schemaorgUrl": "http://schema.org/keywords", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -942,11 +1097,14 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "mentions", 
             "descriptionZh": "实体描述（description)或原文(text)等相关文本中提到的相关实体。", 
             "name": "mentions", 
             "nameZh": "提及", 
             "range": "Thing", 
+            "schemaorgName": "mentions", 
             "schemaorgUrl": "http://schema.org/mentions", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -956,11 +1114,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "mergedFrom", 
             "descriptionZh": "溯源属性，实体融合来源实体", 
             "name": "mergedFrom", 
             "nameZh": "融合来源", 
             "range": "Thing", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -970,11 +1130,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "mergedFromCount", 
             "descriptionZh": "溯源属性，实体融合来源数量统计", 
             "name": "mergedFromCount", 
             "nameZh": "融合来源数量", 
             "range": "Integer", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -987,12 +1149,15 @@
             "alternateName": [
                 "姓名"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "name", 
             "descriptionZh": "系统保留字，实体的名称，Wikidata的label。", 
             "name": "name", 
             "nameZh": "名称", 
             "range": "Text", 
+            "schemaorgName": "name", 
             "schemaorgUrl": "http://schema.org/name", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -1005,11 +1170,13 @@
             "alternateName": [
                 "英文名"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "nameEn", 
             "descriptionZh": "概念的英文名称", 
             "name": "nameEn", 
             "nameZh": "英文的名称", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1022,11 +1189,13 @@
             "alternateName": [
                 "originalName"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "nameRaw", 
             "descriptionZh": "展示用，原始的实体名称", 
             "name": "nameRaw", 
             "nameZh": "原始的名称", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1039,11 +1208,13 @@
             "alternateName": [
                 "中文名"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "nameZh", 
             "descriptionZh": "概念的中文名称", 
             "name": "nameZh", 
             "nameZh": "中文的名称", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1054,10 +1225,12 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "out", 
             "descriptionZh": "被链接的客体", 
             "name": "out", 
             "nameZh": "出点", 
             "range": "Thing", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -1067,11 +1240,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "pageRankScore", 
             "descriptionZh": "系统保留字，实体在对应图谱中的PageRank值", 
             "name": "pageRankScore", 
             "nameZh": "图谱pagerank评分", 
             "range": "Float", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1081,11 +1256,14 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "proportion", 
             "name": "proportion", 
             "nameZh": "占比", 
             "range": "Float", 
+            "statedIn": "cns_top", 
             "version": "v1.1", 
+            "wikidataName": "P1107", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P1107"
         }, 
         {
@@ -1098,12 +1276,15 @@
             "alternateName": [
                 "sourceUrl"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "referenceUrl", 
             "descriptionZh": "溯源属性，实体描述来自哪个网页", 
             "name": "referenceUrl", 
             "nameZh": "来源网址", 
             "range": "URL", 
+            "statedIn": "cns_top", 
             "version": "v1.1", 
+            "wikidataName": "P854", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P854"
         }, 
         {
@@ -1117,12 +1298,15 @@
                 "开始时间", 
                 "开始日期"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "startDate", 
             "descriptionZh": "开始的具体日期", 
             "name": "startDate", 
             "nameZh": "开始日期", 
             "range": "DateTime", 
+            "schemaorgName": "startDate", 
             "schemaorgUrl": "http://schema.org/startDate", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -1132,12 +1316,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "statedIn", 
             "descriptionZh": "溯源属性，实体来自哪个数据源", 
             "name": "statedIn", 
             "nameZh": "载于", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1", 
+            "wikidataName": "P248", 
             "wikidataUrl": "https://www.wikidata.org/wiki/P248"
         }, 
         {
@@ -1148,10 +1335,12 @@
                 "CnsMeta"
             ], 
             "category": "link", 
+            "cnschemaName": "tag", 
             "descriptionZh": "简化关系，直接对接实体，没有任何附加属性。通过标签承载实体与标签的更多关系", 
             "name": "tag", 
             "nameZh": "相关标签", 
             "range": "CnsTag", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1164,10 +1353,12 @@
             "alternateName": [
                 "电话"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "telephone", 
             "name": "telephone", 
             "nameZh": "电话号码", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -1180,12 +1371,15 @@
             "alternateName": [
                 "原文"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "text", 
             "descriptionZh": "实体对应的原文", 
             "name": "text", 
             "nameZh": "内容", 
             "range": "Text", 
+            "schemaorgName": "text", 
             "schemaorgUrl": "http://schema.org/text", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -1195,11 +1389,14 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "unitText", 
             "name": "unitText", 
             "nameZh": "单位", 
             "range": "Text", 
+            "schemaorgName": "unitText", 
             "schemaorgUrl": "http://schema.org/unitText", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1209,12 +1406,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "url", 
             "descriptionZh": "实体对应的网页链接", 
             "name": "url", 
             "nameZh": "网页链接", 
             "range": "URL", 
+            "schemaorgName": "url", 
             "schemaorgUrl": "http://schema.org/url", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -1224,11 +1424,14 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "value", 
             "name": "value", 
             "nameZh": "数值", 
             "range": "Number", 
+            "schemaorgName": "value", 
             "schemaorgUrl": "http://schema.org/value", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1238,11 +1441,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "version", 
             "descriptionZh": "溯源属性，实体的版本号", 
             "name": "version", 
             "nameZh": "版本", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1256,10 +1461,12 @@
                 "webSite", 
                 "网址"
             ], 
-            "category": "property", 
+            "category": "attribute", 
+            "cnschemaName": "website", 
             "name": "website", 
             "nameZh": "网页地址", 
             "range": "Text", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }
     ], 
@@ -1286,6 +1493,7 @@
             "datePublished": "2017-03-01T00:00:00", 
             "description": "最初的核心概念，全部基于schemaorg", 
             "name": "v1.0_01", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -1297,6 +1505,7 @@
             "datePublished": "2017-08-01T00:00:00", 
             "description": "增补概念，Tag替代keywords，以及实体的更多核心属性", 
             "name": "v1.1_01", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -1308,6 +1517,7 @@
             "datePublished": "2018-05-19T00:00:00", 
             "description": "Link替代BinaryRelationOut，修订格式增加cardinality restriction", 
             "name": "v1.2_01", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -1319,6 +1529,7 @@
             "datePublished": "2018-09-17T00:00:00", 
             "description": "增加Ontology，Definition 等本体定义，编程级别支持，修订Schema本体的相关数据结构", 
             "name": "v2.0_01", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }
     ], 
@@ -1341,6 +1552,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsChangelog", 
             "refProperty": "changeColumn", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1356,6 +1568,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsChangelog", 
             "refProperty": "changeOperation", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1371,6 +1584,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsChangelog", 
             "refProperty": "changeRow", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1386,6 +1600,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsChangelog", 
             "refProperty": "changeSheet", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1401,6 +1616,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsChangelog", 
             "refProperty": "contentAfter", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1416,6 +1632,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsChangelog", 
             "refProperty": "contentBefore", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1435,6 +1652,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsChangelog", 
             "refProperty": "datePublished", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1457,6 +1675,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsChangelog", 
             "refProperty": "description", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1478,6 +1697,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsChangelog", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1497,6 +1717,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsChangelog", 
             "refProperty": "version", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1514,6 +1735,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataSource", 
             "refProperty": "category", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1531,6 +1753,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataSource", 
             "refProperty": "identifier", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1550,6 +1773,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataSource", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1569,6 +1793,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataSource", 
             "refProperty": "text", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1586,6 +1811,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataStructure", 
             "refProperty": "datePublished", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1603,6 +1829,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataStructure", 
             "refProperty": "statedIn", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1622,6 +1849,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataStructure", 
             "refProperty": "text", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1639,6 +1867,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataset", 
             "refProperty": "category", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1656,6 +1885,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataset", 
             "refProperty": "identifier", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1675,6 +1905,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataset", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1690,6 +1921,7 @@
             "propertyRange": "CnsDataSource", 
             "refClass": "CnsDataset", 
             "refProperty": "relatedDataSource", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1709,6 +1941,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDataset", 
             "refProperty": "text", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1730,6 +1963,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDefinition", 
             "refProperty": "alternateName", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1749,6 +1983,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDefinition", 
             "refProperty": "category", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1771,6 +2006,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDefinition", 
             "refProperty": "description", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1786,6 +2022,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsDefinition", 
             "refProperty": "descriptionSource", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1803,6 +2040,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsDefinition", 
             "refProperty": "descriptionZh", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1818,6 +2056,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsDefinition", 
             "refProperty": "descriptionZhSource", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1835,6 +2074,7 @@
             "propertyRange": "CnsOntologyRelease", 
             "refClass": "CnsDefinition", 
             "refProperty": "isDefinedBy", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1856,6 +2096,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDefinition", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1877,6 +2118,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDefinition", 
             "refProperty": "nameZh", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1897,6 +2139,7 @@
             "propertyRange": "URL", 
             "refClass": "CnsDefinition", 
             "refProperty": "schemaorgUrl", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1916,6 +2159,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsDefinition", 
             "refProperty": "version", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1933,6 +2177,7 @@
             "propertyRange": "URL", 
             "refClass": "CnsDefinition", 
             "refProperty": "wikidataUrl", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1950,6 +2195,7 @@
             "propertyRange": "URL", 
             "refClass": "CnsDefinition", 
             "refProperty": "wikipediaUrl", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1965,6 +2211,7 @@
             "propertyRange": "CnsGraph", 
             "refClass": "CnsGraphRelease", 
             "refProperty": "about", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -1982,6 +2229,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsGraphRelease", 
             "refProperty": "identifier", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2001,6 +2249,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsGraphRelease", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2016,6 +2265,7 @@
             "propertyRange": "CnsOntologyRelease", 
             "refClass": "CnsGraphRelease", 
             "refProperty": "useOntologyRelease", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2033,6 +2283,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsGraphRelease", 
             "refProperty": "version", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2050,6 +2301,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "date", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2070,6 +2322,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "endDate", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2087,6 +2340,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "in", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2106,6 +2360,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2123,6 +2378,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "out", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2143,6 +2399,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "startDate", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2160,6 +2417,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "statedIn", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2176,6 +2434,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsLink", 
             "refProperty": "tag", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -2191,6 +2450,7 @@
             "propertyRange": "CnsOntology", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "about", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2208,6 +2468,7 @@
             "propertyRange": "CnsChangelog", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "changelog", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2227,6 +2488,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "datePublished", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2247,6 +2509,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "description", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2264,6 +2527,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "identifier", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2281,6 +2545,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "import", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2300,6 +2565,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2317,6 +2583,7 @@
             "propertyRange": "CnsTemplate", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "template", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2336,6 +2603,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsOntologyRelease", 
             "refProperty": "version", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2355,6 +2623,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsOntology", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2370,6 +2639,7 @@
             "propertyRange": "CnsGraphRelease", 
             "refClass": "CnsProductionConfig", 
             "refProperty": "about", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2388,6 +2658,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsProperty", 
             "refProperty": "range", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2403,6 +2674,7 @@
             "propertyRange": "CnsGraphRelease", 
             "refClass": "CnsPublishConfig", 
             "refProperty": "about", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2418,6 +2690,7 @@
             "propertyRange": "Integer", 
             "refClass": "CnsStep", 
             "refProperty": "batchOrder", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2435,6 +2708,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsStep", 
             "refProperty": "category", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2450,6 +2724,7 @@
             "propertyRange": "CnsStep", 
             "refClass": "CnsStep", 
             "refProperty": "depend", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2467,6 +2742,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsStep", 
             "refProperty": "identifier", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2482,6 +2758,7 @@
             "propertyRange": "CnsTask", 
             "refClass": "CnsStep", 
             "refProperty": "isPartOfTask", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2497,6 +2774,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsStep", 
             "refProperty": "lambdaFunction", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2516,6 +2794,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsStep", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2533,6 +2812,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTag", 
             "refProperty": "broader", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -2550,6 +2830,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTag", 
             "refProperty": "category", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -2567,6 +2848,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTag", 
             "refProperty": "conflict", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -2586,6 +2868,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTag", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
         {
@@ -2601,6 +2884,7 @@
             "propertyRange": "Integer", 
             "refClass": "CnsTask", 
             "refProperty": "batchOrder", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2616,6 +2900,7 @@
             "propertyRange": "CnsTask", 
             "refClass": "CnsTask", 
             "refProperty": "depend", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2631,6 +2916,7 @@
             "propertyRange": "CnsProductionConfig", 
             "refClass": "CnsTask", 
             "refProperty": "isPartOfProduction", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2650,6 +2936,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTask", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2667,6 +2954,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "exampleValueJson", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2684,6 +2972,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "exampleValueText", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2701,6 +2990,7 @@
             "propertyRange": "CnsOntologyRelease", 
             "refClass": "CnsTemplate", 
             "refProperty": "isDefinedBy", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2721,6 +3011,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "keywords", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2740,6 +3031,7 @@
             "propertyRange": "Integer", 
             "refClass": "CnsTemplate", 
             "refProperty": "maxCardinality", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2758,6 +3050,7 @@
             "propertyRange": "Integer", 
             "refClass": "CnsTemplate", 
             "refProperty": "minCardinality", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2780,6 +3073,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTemplate", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2799,6 +3093,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyAlternateName", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2816,6 +3111,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyDescription", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2832,6 +3128,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyDescriptionSource", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2848,6 +3145,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyDescriptionZh", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2864,6 +3162,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyDescriptionZhSource", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2882,6 +3181,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyNameZh", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2900,6 +3200,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertyRange", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2918,6 +3219,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "propertySchema", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2936,6 +3238,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "refClass", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2954,6 +3257,7 @@
             "propertyRange": "Text", 
             "refClass": "CnsTemplate", 
             "refProperty": "refProperty", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2973,6 +3277,7 @@
             "propertySchema": "cns_top", 
             "refClass": "CnsTemplate", 
             "refProperty": "version", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -2990,6 +3295,7 @@
             "propertySchema": "cns_top", 
             "refClass": "MonetaryAmount", 
             "refProperty": "currency", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3007,6 +3313,7 @@
             "propertySchema": "cns_top", 
             "refClass": "MonetaryAmount", 
             "refProperty": "value", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3026,6 +3333,7 @@
             "propertySchema": "cns_top", 
             "refClass": "PropertyValue", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3043,6 +3351,7 @@
             "propertySchema": "cns_top", 
             "refClass": "PropertyValue", 
             "refProperty": "value", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3063,6 +3372,7 @@
             "propertySchema": "cns_top", 
             "refClass": "QuantitativeValue", 
             "refProperty": "endDate", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3080,6 +3390,7 @@
             "propertySchema": "cns_top", 
             "refClass": "QuantitativeValue", 
             "refProperty": "proportion", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3097,6 +3408,7 @@
             "propertySchema": "cns_top", 
             "refClass": "QuantitativeValue", 
             "refProperty": "unitText", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3114,6 +3426,7 @@
             "propertySchema": "cns_top", 
             "refClass": "QuantitativeValue", 
             "refProperty": "value", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3131,6 +3444,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "about", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3147,6 +3461,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "alternateName", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3164,6 +3479,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "category", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3181,6 +3497,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "confidence", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3198,6 +3515,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "date", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3215,6 +3533,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "dateCreated", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3232,6 +3551,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "dateModified", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3249,6 +3569,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "datePublished", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3269,6 +3590,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "description", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3287,6 +3609,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "email", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3307,6 +3630,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "endDate", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3324,6 +3648,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "entityScore", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -3340,6 +3665,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "foundingDate", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3357,6 +3683,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "graphId", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3374,6 +3701,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "identifier", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3393,6 +3721,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "image", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3410,6 +3739,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "isPartOf", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3429,6 +3759,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "keywords", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3445,6 +3776,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "mentions", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3461,6 +3793,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "mergedFrom", 
+            "statedIn": "cns_top", 
             "version": "v1.0"
         }, 
         {
@@ -3477,6 +3810,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "mergedFromCount", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3496,6 +3830,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "name", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3515,6 +3850,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "nameEn", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3536,6 +3872,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "nameRaw", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3555,6 +3892,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "nameZh", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3571,6 +3909,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "pageRankScore", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3590,6 +3929,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "referenceUrl", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3610,6 +3950,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "startDate", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3627,6 +3968,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "statedIn", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3643,6 +3985,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "tag", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3661,6 +4004,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "telephone", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
         {
@@ -3680,6 +4024,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "text", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3696,6 +4041,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "url", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3712,6 +4058,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "version", 
+            "statedIn": "cns_top", 
             "version": "v1.2"
         }, 
         {
@@ -3731,6 +4078,7 @@
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
             "refProperty": "website", 
+            "statedIn": "cns_top", 
             "version": "v2.0"
         }
     ], 
