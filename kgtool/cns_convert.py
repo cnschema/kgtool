@@ -23,7 +23,8 @@ sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
 from kgtool.stats import stat_kg_report_per_item
-from cns_model import CnsSchema, init_report,write_report,gen_cns_id
+from cns_model import CnsSchema
+from cns_common import gen_cns_id
 
 # global constants
 VERSION = 'v20180724'

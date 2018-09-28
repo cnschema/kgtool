@@ -234,6 +234,8 @@ def decimal_default(obj):
 
     if isinstance(obj, decimal.Decimal):
         return float(obj)
+    #logging.info(obj)
+    #logging.info(type(obj))
     raise TypeError
 
 def json4debug(json_data, sort_keys=True):
@@ -344,7 +346,7 @@ def parse_list_value(value, regex=ur"[，,、；;／/]"):
     """
     vtype = type(value)
 
-    if vtype in [unicode]:
+    if isinstance(value, basestring):
         ret = re.split(regex, value)
     elif vtype in [list]:
         ret = value
@@ -353,6 +355,14 @@ def parse_list_value(value, regex=ur"[，,、；;／/]"):
 
     return [ x.strip() for x in ret if x != u'' ]
 
+def is_empty_string(text):
+    if text is None:
+        return True
+
+    if isinstance(text, basestring):
+        if text.strip() == "":
+            return True
+    return False
 
 ####################################
 # object processor

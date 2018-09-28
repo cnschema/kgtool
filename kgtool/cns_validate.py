@@ -21,7 +21,7 @@ import copy
 from core import *  # noqa
 from stats import stat_kg_report_per_item
 from cns_convert import convert_cns_type_string
-from cns_model import preload_schema, CnsSchema, init_report,write_report
+from cns_model import preload_schema, CnsSchema
 
 # global constants
 VERSION = 'v20180724'
@@ -61,18 +61,6 @@ current validation logic
 """
 
 
-# def run_validate_recursive(loaded_schema, cns_item_list, report):
-#     if type(cns_item_list) == list:
-#         for cns_item in cns_item_list:
-#             run_validate_recursive(loaded_schema, cns_item, report)
-#     elif type(cns_item_list) == dict:
-#         run_validate(loaded_schema, cns_item_list, report)
-#         next_list = [v for p,v in cns_item_list.items() if p not in ["@context"]]
-#         run_validate_recursive(loaded_schema, next_list, report)
-#     else:
-#         # do not validate
-#         pass
-
 def run_validate_recursive(loaded_schema, cns_item, report):
     if type(cns_item) == list:
         for v in cns_item:
@@ -96,20 +84,17 @@ def run_validate(loaded_schema, cns_item, report):
 
     """
     #stats
-    report["stats"]["items_validate"] += 1
-
-    if XTEMPLATE not in report:
-        report[XTEMPLATE] = collections.Counter()
+    report.data["stats"]["items_validate"] += 1
 
     #check types
     types = cns_item.get("@type")
     if types is None:
         bug = {
             "category": "warn_validate",
-            "text": "missing @type and no expected @type",
+            "description": "missing @type and no expected @type",
             "item": cns_item
         }
-        write_report(report, bug)
+        report.report_bug(bug)
         return report
 
     _rewrite_item(loaded_schema, cns_item, report)
@@ -140,10 +125,10 @@ def _rewrite_item(loaded_schema, cns_item, report):
     if not isinstance(types, list):
         bug = {
             "category": "warn_rewrite_item",
-            "text": " @type got string value",
+            "description": " @type got string value",
             "item": cns_item
         }
-        write_report(report, bug)
+        report.report_bug(bug)
 
         types = convert_cns_type_string(types)
         #rewrite type
@@ -157,7 +142,7 @@ def _rewrite_item(loaded_schema, cns_item, report):
     types_new = []
     for xtype in types:
         has_definition = False
-        for schema in loaded_schema.loaded_schema_list:
+        for schema in loaded_schema.imported_schema:
             the_definition = schema.get_definition_by_alias(xtype)
             if the_definition:
                 has_definition =True
@@ -166,40 +151,40 @@ def _rewrite_item(loaded_schema, cns_item, report):
         if not has_definition:
             bug = {
                 "category": "warn_rewrite_item",
-                "text": "class not defined",
+                "description": "class not defined",
                 "class" : xtype,
                 #"item": cns_item
             }
-            write_report(report, bug)
+            report.report_bug(bug)
         else:
             types_new.append(xtype)
     cns_item["@type"] = types_new
 
     #undefined property
-    bad_property_list = []
-    for property in cns_item:
-        if property in get_system_property():
-            continue
-
-        has_definition = False
-        for schema in loaded_schema.loaded_schema_list:
-            the_definition = schema.get_definition_by_alias(property)
-            if the_definition:
-                has_definition =True
-                break
-
-        if not has_definition:
-            bug = {
-                "category": "warn_rewrite_item",
-                "text": "property not defined",
-                "property" : property,
-                #"item": cns_item
-            }
-            write_report(report, bug)
-            bad_property_list.append(property)
-
-    for p in bad_property_list:
-        del cns_item[p]
+    # bad_property_list = []
+    # for property in cns_item:
+    #     if property in get_system_property():
+    #         continue
+    #
+    #     has_definition = False
+    #     for schema in loaded_schema.imported_schema:
+    #         the_definition = schema.get_definition_by_alias(property)
+    #         if the_definition:
+    #             has_definition =True
+    #             break
+    #
+    #     if not has_definition:
+    #         bug = {
+    #             "category": "warn_rewrite_item",
+    #             "description": "property not defined",
+    #             "property" : property,
+    #             #"item": cns_item
+    #         }
+    #         report.report_bug(bug)
+    #         bad_property_list.append(property)
+    #
+    # for p in bad_property_list:
+    #     del cns_item[p]
 
 
 def _validate_system_property(loaded_schema, cns_item, report):
@@ -210,28 +195,28 @@ def _validate_system_property(loaded_schema, cns_item, report):
         if not "@id" in cns_item:
             bug = {
                 "category": "warn_validate_system_property",
-                "text": "instance of [Thing] missing @id",
+                "description": "instance of [Thing] missing @id",
                 "item": cns_item
             }
-            write_report(report, bug)
+            report.report_bug(bug)
 
 
 def _count_cnslink(loaded_schema, cns_item, report):
     types = cns_item["@type"]
     if "CnsLink" in types:
         key_cnslink = u"cnslink_total"
-        report[XTEMPLATE][key_cnslink] += 1
+        report.data[XTEMPLATE][key_cnslink] += 1
 
         if not isinstance(cns_item["in"], dict):
             key_cnslink = u"cnslink_{}".format(types[0])
-            report[XTEMPLATE][key_cnslink] += 1
+            report.data[XTEMPLATE][key_cnslink] += 1
 
         else:
             main_type_in = cns_item["in"]["@type"][0]
             main_type_out = cns_item["out"]["@type"][0]
 
             key_cnslink = u"cnslink_{}_{}_{}".format(main_type_in, types[0], main_type_out)
-            report[XTEMPLATE][key_cnslink] += 1
+            report.data[XTEMPLATE][key_cnslink] += 1
 
 
 
@@ -275,21 +260,21 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
     for idx, xtype in enumerate(types):
         # only count main type's  template
         key_c = u"type_all_{}".format(xtype)
-        report[XTEMPLATE][key_c] += 1
+        report.data[XTEMPLATE][key_c] += 1
         #if idx == 0:
         #    key_c = u"type_first_{}".format(xtype)
-        #    report[XTEMPLATE][key_c] += 1
+        #    report.data[XTEMPLATE][key_c] += 1
 
         #find templates
         template_map = loaded_schema.index_validate_template.get(xtype)
         if template_map is None or len(template_map)==0:
             # bug = {
             #     "category": "warn_validate_template",
-            #     "text": "no template found",
+            #     "description": "no template found",
             #     "class": xtype,
             #     "item": cns_item,
             # }
-            # write_report(report, bug)
+            # report.report_bug(bug)
             continue
 
 
@@ -311,17 +296,17 @@ def _validate_template_regular(loaded_schema, cns_item, types, report, validated
 
         bug = {
             "category": "warn_validate_template_regular",
-            "text": "unable to find a template for this property based on classes defined in @type",
+            "description": u"unable to find a template for property=[{}] based on classes defined in @type=[{}]".format(p, u", ".join(types)),
             "value": cns_item,
             "class": c,
             "property": p,
         }
         #logging.info(bug)
-        write_report(report, bug)
+        report.report_bug(bug)
 
         # not validated properties for main type
         key_cp = u"ucp_{}_{}".format(c, p)
-        report[XTEMPLATE][key_cp] += 1
+        report.data[XTEMPLATE][key_cp] += 1
 
 
 def _validate_one_template(loaded_schema, types, cns_item, xtype, template, validated_property, report):
@@ -335,9 +320,9 @@ def _validate_one_template(loaded_schema, types, cns_item, xtype, template, vali
 
         key_cp = u"cp_{}_{}_{}".format(main_type, xtype, p)
         if p in cns_item:
-            report[XTEMPLATE][key_cp] += 1
+            report.data[XTEMPLATE][key_cp] += 1
         else:
-            report[XTEMPLATE][key_cp] += 0
+            report.data[XTEMPLATE][key_cp] += 0
 
     if p in validated_property:
         # validated, no need to be validated in other templates
@@ -358,30 +343,32 @@ def _validate_one_template(loaded_schema, types, cns_item, xtype, template, vali
             # assert False
             bug = {
                 "category": "warn_validate_template_regular",
-                "text": "minCardinality",
+                "description": "minCardinality",
                 "class": xtype,
                 "property": p,
                 "expected": template["minCardinality"],
                 "actual": card_actual,
+                "value": cns_item,
                 "item_name": cns_item.get("name"),
                 "item_value": cns_item.get(p),
             }
-            write_report(report, bug)
+            report.report_bug(bug)
 
 
         if "maxCardinality" in template:
             if card_actual > template["maxCardinality"]:
                 bug = {
                     "category": "warn_validate_template_regular",
-                    "text": "maxCardinality",
+                    "description": "maxCardinality",
                     "class": xtype,
                     "property": p,
+                    "value": cns_item,
                     "expected": template["maxCardinality"],
                     "actual": card_actual,
                     "item_name": cns_item.get("name"),
                     "item_value": cns_item.get(p),
                 }
-                write_report(report, bug)
+                report.report_bug(bug)
 
     if card_actual == 0:
         # no further validation on range
@@ -422,56 +409,56 @@ def _validate_datastructure(c, p, v, range_actual, range_config, report):
     if len(types) == 0:
         bug = {
             "category": "warn_validate_datastructure",
-            "text": "value range not specified as datastructure",
+            "description": "value range not specified as datastructure",
             "value": v,
             "class": c,
             "property": p,
             "expected" : range_config["text"],
             "actual" : None,
         }
-        write_report(report, bug)
+        report.report_bug(bug)
     return types
 
     # xtype = json_get_list(v, "@type")
     # if not xtype:
     #     bug = {
     #         "category": "warn_validate_template_range",
-    #         "text": "range value type/datastructure missing",
+    #         "description": "range value type/datastructure missing",
     #         "value": v,
     #         "class": c,
     #         "property": p,
     #         "expected" : range_config["text"],
     #         "actual" : None,
     #     }
-    #     write_report(report, bug)
+    #     report.report_bug(bug)
     #     return
     #
     # xtype_main = xtype[0]
     # if not xtype_main in range_config["cns_range_datastructure"]:
     #     bug = {
     #         "category": "warn_validate_template_range",
-    #         "text": "range value type/datastructure mismatch",
+    #         "description": "range value type/datastructure mismatch",
     #         "value": v,
     #         "class": c,
     #         "property": p,
     #         "expected" : range_config["cns_range_datastructure"],
     #         "actual" : xtype,
     #     }
-    #     write_report(report, bug)
+    #     report.report_bug(bug)
 
 def _validate_entity_ref(c, p, v, range_actual, range_config, report):
     xtype = json_get_list(v, "@type")
     if not xtype:
         bug = {
             "category": "warn_validate_entity_ref",
-            "text": "value type missing",
+            "description": "value type missing",
             "value": v,
             "class": c,
             "property": p,
             "expected" : range_config["text"],
             "actual" : None,
         }
-        write_report(report, bug)
+        report.report_bug(bug)
         return
 
     xtype_main = xtype[0]
@@ -482,14 +469,14 @@ def _validate_entity_ref(c, p, v, range_actual, range_config, report):
     else:
         bug = {
             "category": "warn_validate_entity_ref",
-            "text": "value type/entity mismatch",
+            "description": "value type/entity mismatch",
             "value": v,
             "class": c,
             "property": p,
             "expected" : range_config["cns_range_entity"],
             "actual" : xtype,
         }
-        write_report(report, bug)
+        report.report_bug(bug)
 
 def _validate_datatype(c, p, v, range_actual, range_config, report):
 
@@ -500,14 +487,14 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
     if not range_actual in range_config["python_type_value_list"]:
         bug = {
             "category": "warn_validate_datatype",
-            "text": "range value datatype mismatch",
+            "description": "range value datatype mismatch",
             "actualValue": v,
             "class": c,
             "property": p,
             "expected" : range_config["text"],
             "actual" : str(range_actual),
         }
-        write_report(report, bug)
+        report.report_bug(bug)
 
 
     #logging.info(json4debug(range_config["text"]))
@@ -516,14 +503,14 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
         if not ret:
             bug = {
                 "category": "warn_validate_datatype",
-                "text": "range value is valid Date string",
+                "description": "range value is valid Date string",
                 "actualValue": v,
                 "class": c,
                 "property": p,
                 "expected" : range_config["text"],
                 "actual" : str(range_actual),
             }
-            write_report(report, bug)
+            report.report_bug(bug)
 
         #assert False
     elif range_config["text"].lower() == "datetime":
@@ -531,14 +518,14 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
         if not ret:
             bug = {
                 "category": "warn_validate_datatype",
-                "text": "range value is valid DateTime string",
+                "description": "range value is valid DateTime string",
                 "actualValue": v,
                 "class": c,
                 "property": p,
                 "expected" : range_config["text"],
                 "actual" : str(range_actual),
             }
-            write_report(report, bug)
+            report.report_bug(bug)
         #assert False
 
 #ISO8601_REGEX_VALIDATE = re.compile(r"^[0-9TZ:\-\.]$")
@@ -562,20 +549,20 @@ def iso8601_datetime_parse(datestr):
 #             #skip this range check
 #             bug = {
 #                 "category": "info_validate_range",
-#                 "text": "skip validating range @vocab",
+#                 "description": "skip validating range @vocab",
 #                 #"item": cns_item
 #             }
-#             write_report(report, bug)
+#             report.report_bug(bug)
 #             continue
 #
 #         rangeExpect = loaded_schema.index_validate_range.get(p)
 #         if not rangeExpect:
 #             bug = {
 #                 "category": "warn_validate_range",
-#                 "text": "range not specified in schema",
+#                 "description": "range not specified in schema",
 #                 "property": p
 #             }
-#             write_report(report, bug)
+#             report.report_bug(bug)
 #             continue
 #
 #         for v in json_get_list(cns_item, p):
@@ -587,13 +574,13 @@ def iso8601_datetime_parse(datestr):
 #                 else:
 #                     bug = {
 #                         "category": "warn_validate_range",
-#                         "text": "range value datatype mismatch",
+#                         "description": "range value datatype mismatch",
 #                         "actualValue": v,
 #                         "property": p,
 #                         "expected" : rangeExpect["text"],
 #                         "actual" : str(range_actual),
 #                     }
-#                     write_report(report, bug)
+#                     report.report_bug(bug)
 #             else:
 #                 if type(v)== dict:
 #                     range_actual = v.get("@type",[])
@@ -603,22 +590,22 @@ def iso8601_datetime_parse(datestr):
 #                     else:
 #                         bug = {
 #                             "category": "warn_validate_range",
-#                             "text": "range object missing types",
+#                             "description": "range object missing types",
 #                             "property": p,
 #                             "expected" : rangeExpect["cns_range_list"],
 #                             "actual" : range_actual,
 #                         }
-#                         write_report(report, bug)
+#                         report.report_bug(bug)
 #                 else:
 #                     bug = {
 #                         "category": "warn_validate_range",
-#                         "text": "range value should be object",
+#                         "description": "range value should be object",
 #                         "property": p,
 #                         "expected" : rangeExpect["cns_range_list"],
 #                         "actual" : v,
 #                         #"item" : v,
 #                     }
-#                     write_report(report, bug)
+#                     report.report_bug(bug)
 #
 #
 # def _validate_domain(loaded_schema, cns_item, report):
@@ -629,10 +616,10 @@ def iso8601_datetime_parse(datestr):
 #         if domainExpected == None:
 #             bug = {
 #                 "category": "warn_validate_domain",
-#                 "text": "domain not specified in schema",
+#                 "description": "domain not specified in schema",
 #                 "property": p
 #             }
-#             write_report(report, bug)
+#             report.report_bug(bug)
 #             continue
 #
 #
@@ -642,32 +629,32 @@ def iso8601_datetime_parse(datestr):
 #             if not loaded_schema.index_definition_alias.get(domain):
 #                 bug = {
 #                     "category": "warn_validate_definition",
-#                     "text": "class not defined in schema",
+#                     "description": "class not defined in schema",
 #                     "class": domain
 #                 }
-#                 write_report(report, bug)
+#                 report.report_bug(bug)
 #
 #         if not domainActual:
 #             bug = {
 #                 "category": "warn_validate_domain",
-#                 "text": "domain not specified",
+#                 "description": "domain not specified",
 #                 "property": p,
 #                 "item": cns_item
 #             }
-#             write_report(report, bug)
+#             report.report_bug(bug)
 #         elif set(domainExpected).intersection(domainActual):
 #             # this case is fine
 #             pass
 #         else:
 #             bug = {
 #                 "category": "warn_validate_domain",
-#                 "text": "domain unexpected",
+#                 "description": "domain unexpected",
 #                 "actualValue": cns_item[p],
 #                 "property": p,
 #                 "expected": domainExpected,
 #                 "actual": domainActual
 #             }
-#             write_report(report, bug)
+#             report.report_bug(bug)
 
 
 
@@ -677,9 +664,9 @@ def task_validate(args):
     if not schema_filename:
         schema_filename = "schema/cns_top.jsonld"
 
-    preloadSchemaList = preload_schema(args)
+    preload_schema_list = preload_schema(args)
     loaded_schema = CnsSchema()
-    loaded_schema.import_jsonld(schema_filename, preloadSchemaList)
+    loaded_schema.import_jsonld(schema_filename, preload_schema_list)
 
 
     filepath = args["input_file"]
@@ -687,25 +674,25 @@ def task_validate(args):
     report = init_report()
 
     # init xtemplate
-    report[XTEMPLATE] = collections.Counter()
+    report.data[XTEMPLATE] = collections.Counter()
     for template in loaded_schema.metadata["template"]:
         d = template["refClass"]
         p = template["refProperty"]
         key_cp = u"cp_{}_{}_{}".format(d, d, p)
-        report[XTEMPLATE][key_cp] += 0
-    logging.info(json4debug(report[XTEMPLATE]))
+        report.data[XTEMPLATE][key_cp] += 0
+    logging.info(json4debug(report.data[XTEMPLATE]))
 
     # init class path dependency
     for template in loaded_schema.metadata["template"]:
         d = template["refClass"]
         key_cp = u"parent_{}".format(d)
-        report[XTEMPLATE][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
+        report.data[XTEMPLATE][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
 
     for definition in loaded_schema.definition.values():
         if "rdfs:Class" in definition["@type"]:
             d = definition["name"]
             key_cp = u"parent_{}".format(d)
-            report[XTEMPLATE][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
+            report.data[XTEMPLATE][key_cp] = loaded_schema.index_inheritance["rdfs:subClassOf"].get(d)
 
     #validate
     lines = []
@@ -722,7 +709,7 @@ def task_validate(args):
                     logging.info(json4debug(report))
                 json_data = json.loads(line)
                 run_validate(loaded_schema, json_data, report)
-                stat_kg_report_per_item(json_data, None, report["stats"])
+                stat_kg_report_per_item(json_data, None, report.data["stats"])
 
                 # collection entity listing
                 if "CnsLink" not in json_data["@type"]:
@@ -761,14 +748,14 @@ def write_csv_report(args, report, loaded_schema):
     lines = []
     fields = ["main_type","super_type","property","main_type_zh","super_type_zh","property_zh","count","coverage"]
     lines.append(u",".join(fields))
-    for k, cnt in report[XTEMPLATE].items():
+    for k, cnt in report.data[XTEMPLATE].items():
         if k.startswith("cp_"):
             if cnt == 0:
                 #skip link
                 continue
 
             temp = k.split("_")
-            total = report[XTEMPLATE]["type_all_{}".format(temp[1])]
+            total = report.data[XTEMPLATE]["type_all_{}".format(temp[1])]
             if temp[1].startswith("rdf"):
                 nameZh1 = ""
             else:
@@ -805,7 +792,7 @@ if __name__ == "__main__":
 
     optional_params = {
         '--input_file': 'input file',
-        '--dir_schema': 'input schema',
+        '--schema_dir': 'input schema',
         '--input_schema': 'input schema',
         '--output_validate_report': 'output validation report',
         '--output_validate_entity': 'output validation entity list',
@@ -816,12 +803,12 @@ if __name__ == "__main__":
 
 """
     # task 3: validate
-    python kgtool/cns_validate.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/debug --dir_schema=schema
-    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug --dir_schema=schema
-    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --dir_schema=schema
+    python kgtool/cns_validate.py task_validate --input_file=schema/cns_top.jsonld --debug_dir=local/debug --schema_dir=schema
+    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld --debug_dir=local/debug --schema_dir=schema
+    python kgtool/cns_validate.py task_validate --input_file=tests/test_cns_schema_input1.json --debug_dir=local/debug --schema_dir=schema
 
-    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld  --debug_dir=local/debug --dir_schema=schema --output_validate_entity=local/temp/entity.csv --output_validate_report=local/temp/report.csv
+    python kgtool/cns_validate.py task_validate --input_file=schema/cns_schemaorg.jsonld  --debug_dir=local/debug --schema_dir=schema --output_validate_entity=local/temp/entity.csv --output_validate_report=local/temp/report.csv
 
-    python kgtool/cns_validate.py task_validate --input_file=local/kg4ai_cn_1.0.1.jsondl --input_schema=local/schema/cns_kg4ai.jsonld --debug_dir=local/debug --dir_schema=schema --output_validate_entity=local/temp/entity.csv --output_validate_report=local/temp/report.csv
+    python kgtool/cns_validate.py task_validate --input_file=local/kg4ai_cn_1.0.1.jsondl --input_schema=local/schema/cns_kg4ai.jsonld --debug_dir=local/debug --schema_dir=schema --output_validate_entity=local/temp/entity.csv --output_validate_report=local/temp/report.csv
 
 """

@@ -168,3 +168,67 @@ def excel2json(filename, non_empty_col=-1, file_contents=None):
         logging.info(u"loaded {} {} (non_empty_col={})".format(
             filename, len(ret[name]), non_empty_col))
     return {'data': ret, 'fields': fields}
+
+def excel2json2018(filename, non_empty_col=-1, file_contents=None):
+    """
+        http://www.lexicon.net/sjmachin/xlrd.html
+        non_empty_col is -1 to load all rows, when set to a none-empty value,
+        this function will skip rows having empty cell on that col.
+    """
+
+    if file_contents:
+        workbook = xlrd.open_workbook(file_contents=file_contents)
+    else:
+        workbook = xlrd.open_workbook(filename)
+
+    start_row = 0
+    ret2018 = []
+    for name in workbook.sheet_names():
+        table = {}
+        ret2018.append(table)
+
+        # sheet name
+        sh = workbook.sheet_by_name(name)
+        table["sheetname"] = name
+
+        # sheet headers
+        headers = []
+        for col in range(len(sh.row(start_row))):
+            headers.append(sh.cell(start_row, col).value)
+
+        logging.info(u"loading sheet={} (non_empty_col={})".format(
+            name,
+            non_empty_col))
+
+        #logging.info(json.dumps(headers, ensure_ascii=False))
+        table["columns"] = headers
+
+        # sheet rows
+        table["rows"] = []
+        for row in range(start_row + 1, sh.nrows):
+            item = {}
+            rowdata = sh.row(row)
+            if len(rowdata) < len(headers):
+                msg = "skip mismatched row {}".format(
+                    json.dumps(rowdata, ensure_ascii=False))
+                logging.warning(msg)
+                continue
+
+            for col in range(len(headers)):
+                value = sh.cell(row, col).value
+                if type(value) in [unicode, basestring]:
+                    value = value.strip()
+                item[headers[col]] = value
+
+            if non_empty_col >= 0 and not item[headers[non_empty_col]]:
+                logging.debug("skip empty cell")
+                continue
+
+            table["rows"].append(item)
+
+        # stat
+        logging.info(u"loaded \tcolumns={} \tall_rows={} \tloaded_rows={} ".format(
+            len(headers),
+            sh.nrows,
+            len(table["rows"]) ))
+    return ret2018
