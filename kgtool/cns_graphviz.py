@@ -52,13 +52,9 @@ def _add_graphviz_node(definition, graph):
     #    assert False
 
     if "CnsProperty" in definition["@type"]:
-        p = "property"
-    elif "CnsLink" in definition.get("rdfs:subClassOf",[]):
         p = "link"
-    elif "DataType" in definition["@type"]:
-        p = "attribute"
-    elif "CnsDataStructure" in definition["@type"]:
-        p = "link"
+    elif definition["category"] in ["struct", "datatype"]:
+        p = "meta"
     else:
         p = "class"
     graph["node_map"][p].add(_get_definition_name(definition))
@@ -128,7 +124,6 @@ def _add_template_domain_range(loaded_schema, template, graph, map_link_in_out):
     #logging.info(json4debug(template))
     #assert False
 
-
     if not template.get("refClass"):
         return
     if not template.get("refProperty"):
@@ -156,6 +151,9 @@ def _add_template_domain_range(loaded_schema, template, graph, map_link_in_out):
     if range_class is None and range_name.endswith("Enum"):
         logging.warn("missing definition for ENUM {}".format(range_name))
         return
+
+    #logging.info(template["propertyRange"])
+    #logging.info(range_class)
 
     assert range_class, template
 
@@ -230,14 +228,14 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
     lines.extend(sorted(list(graph["node_map"]["class"])))
     lines.append("")
 
-    lines.append('\n\tnode [shape=diamond]')
-    lines.extend(sorted(list(graph["node_map"]["link"])))
-    lines.extend(sorted(list(graph["node_map"]["property"])))
-    lines.append("")
+    #lines.append('\n\tnode [shape=diamond]')
+    #lines.extend(sorted(list(graph["node_map"]["link"])))
+    #lines.extend(sorted(list(graph["node_map"]["property"])))
+    #lines.append("")
 
-    lines.append('\n\tnode [shape=oval, peripheries=1]')
-    lines.extend(sorted(list(graph["node_map"]["attribute"])))
-    lines.append("")
+    #lines.append('\n\tnode [shape=oval, peripheries=1]')
+    #lines.extend(sorted(list(graph["node_map"]["attribute"])))
+    #lines.append("")
 
     lines.append('\n\tnode [shape=rect, peripheries=2]')
 
@@ -250,17 +248,40 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
             if line not in lines:
                 lines.append(line)
         else:
-            line = u'\t{} -> {}\t '.format(
-                _get_definition_name(link["from"]),
-                _get_definition_name(link["relation"]))
+            from_name = _get_definition_name(link["from"])
+            prop_name = _get_definition_name(link["relation"])
+            to_name = _get_definition_name(link["to"])
+            prop_id = u"{}_{}_{}".format(from_name, prop_name, to_name)
+            to_id = u"{}_{}".format(from_name, to_name)
+
+            #logging.info(json4debug(link["to"]["category"]))
+
+            if link["to"]["category"] in ["attribute","datatype","struct"]:
+                line = u'\t{} -> {}\t -> {}\t'.format(
+                    from_name,
+                    prop_id,
+                    to_id)
+                if line not in lines:
+                    lines.append(line)
+                shape = "oval"
+                #logging.info(json4debug(link["to"]))
+                line = u'\t{} [shape=rect, label={} , style=dotted, peripheries=1]'.format( to_id, to_name)
+                if line not in lines:
+                    lines.append(line)
+
+            else:
+                line = u'\t{} -> {}\t -> {}\t'.format(
+                    from_name,
+                    prop_id,
+                    to_name)
+                if line not in lines:
+                    lines.append(line)
+                shape = "diamond"
+
+            line = u'\t{} [shape={}, label={} , peripheries=1]'.format( prop_id, shape, prop_name)
             if line not in lines:
                 lines.append(line)
 
-            line = u'\t{} -> {}\t '.format(
-                _get_definition_name(link["relation"]),
-                _get_definition_name(link["to"]))
-            if line not in lines:
-                lines.append(line)
     lines.append(u"}")
 
     ret = u'\n'.join(lines)
@@ -310,7 +331,7 @@ def run_graphviz(loaded_schema, name):
     lines = []
     line = "digraph import_%s {" % (loaded_schema.metadata["name"])
     lines.append(line)
-    lines.append('\trankdir = "LR"')
+    lines.append('\trankdir = "LR" ')
 
     for schema in loaded_schema.imported_schema:
         graph = _graph_create()

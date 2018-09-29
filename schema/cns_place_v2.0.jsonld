@@ -333,7 +333,9 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Place_city", 
-            "propertyAlternateName": [], 
+            "propertyAlternateName": [
+                "level2"
+            ], 
             "propertyNameZh": "所在地市", 
             "propertyRange": "City", 
             "propertySchema": "cns_place", 
@@ -370,7 +372,9 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Place_district", 
-            "propertyAlternateName": [], 
+            "propertyAlternateName": [
+                "level3"
+            ], 
             "propertyNameZh": "所在区县", 
             "propertyRange": "District", 
             "propertySchema": "cns_place", 
@@ -388,7 +392,9 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Place_province", 
-            "propertyAlternateName": [], 
+            "propertyAlternateName": [
+                "level1"
+            ], 
             "propertyNameZh": "所在省", 
             "propertyRange": "Province", 
             "propertySchema": "cns_place", 
@@ -406,7 +412,9 @@
             "maxCardinality": 1, 
             "minCardinality": 0, 
             "name": "Place_street", 
-            "propertyAlternateName": [], 
+            "propertyAlternateName": [
+                "level6"
+            ], 
             "propertyNameZh": "所在道路", 
             "propertyRange": "Street", 
             "propertySchema": "cns_place", 

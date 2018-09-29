@@ -97,10 +97,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "自号", 
+                "别号", 
+                "又号"
+            ], 
             "category": "attribute", 
             "cnschemaName": "artName", 
             "name": "artName", 
-            "nameZh": "号、自号、别号、又号", 
+            "nameZh": "号", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -114,10 +119,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "代表作"
+            ], 
             "category": "attribute", 
             "cnschemaName": "authorOf", 
             "name": "authorOf", 
-            "nameZh": "作品、代表作", 
+            "nameZh": "作品", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0"
@@ -129,10 +137,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "获奖"
+            ], 
             "category": "attribute", 
             "cnschemaName": "award", 
             "name": "award", 
-            "nameZh": "奖项, 获奖", 
+            "nameZh": "奖项", 
             "range": "Text", 
             "schemaorgName": "award", 
             "schemaorgUrl": "http://schema.org/award", 
@@ -256,10 +267,14 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "队友", 
+                "战友"
+            ], 
             "category": "link", 
             "cnschemaName": "colleague", 
             "name": "colleague", 
-            "nameZh": "同事，队友、战友", 
+            "nameZh": "同事", 
             "range": "Person", 
             "schemaorgName": "colleague", 
             "schemaorgUrl": "http://schema.org/colleague", 
@@ -273,10 +288,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "表字"
+            ], 
             "category": "attribute", 
             "cnschemaName": "courtesyName", 
             "name": "courtesyName", 
-            "nameZh": "字、表字", 
+            "nameZh": "字", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -328,10 +346,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "法名"
+            ], 
             "category": "link", 
             "cnschemaName": "dharmaName", 
             "name": "dharmaName", 
-            "nameZh": "法号、法名", 
+            "nameZh": "法号", 
             "range": "Person", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -344,10 +365,14 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "所在年代", 
+                "所处时代"
+            ], 
             "category": "attribute", 
             "cnschemaName": "dynasty", 
             "name": "dynasty", 
-            "nameZh": "朝代、所在年代、所处时代", 
+            "nameZh": "朝代", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0"
@@ -374,10 +399,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "民族族群"
+            ], 
             "category": "attribute", 
             "cnschemaName": "ethnicGroup", 
             "name": "ethnicGroup", 
-            "nameZh": "民族、民族族群", 
+            "nameZh": "民族", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v1.0", 
@@ -445,10 +473,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "专业"
+            ], 
             "category": "attribute", 
             "cnschemaName": "fieldOfWork", 
             "name": "fieldOfWork", 
-            "nameZh": "领域, 专业", 
+            "nameZh": "领域", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -532,10 +563,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "职位"
+            ], 
             "category": "attribute", 
             "cnschemaName": "jobTitle", 
             "name": "jobTitle", 
-            "nameZh": "工作职务、职位", 
+            "nameZh": "工作职务", 
             "range": "Text", 
             "schemaorgName": "jobTitle", 
             "schemaorgUrl": "http://schema.org/jobTitle", 
@@ -549,10 +583,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "党派"
+            ], 
             "category": "attribute", 
             "cnschemaName": "memberOfPoliticalParty", 
             "name": "memberOfPoliticalParty", 
-            "nameZh": "政党、党派", 
+            "nameZh": "政党", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v1.0", 
@@ -619,10 +656,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "官爵", 
+                "封爵", 
+                "封号"
+            ], 
             "category": "link", 
             "cnschemaName": "nobleTitle", 
             "name": "nobleTitle", 
-            "nameZh": "爵位、官爵、封爵、封号", 
+            "nameZh": "爵位", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -636,10 +678,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "身份"
+            ], 
             "category": "attribute", 
             "cnschemaName": "occupation", 
             "name": "occupation", 
-            "nameZh": "职业、身份", 
+            "nameZh": "职业", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v1.0", 
@@ -670,10 +715,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "安葬地"
+            ], 
             "category": "link", 
             "cnschemaName": "placeOfBurial", 
             "name": "placeOfBurial", 
-            "nameZh": "墓地、安葬地", 
+            "nameZh": "墓地", 
             "range": "Place", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -687,10 +735,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "私谥"
+            ], 
             "category": "attribute", 
             "cnschemaName": "posthumousName", 
             "name": "posthumousName", 
-            "nameZh": "谥号、私谥", 
+            "nameZh": "谥号", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -721,10 +772,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "信仰"
+            ], 
             "category": "attribute", 
             "cnschemaName": "religion", 
             "name": "religion", 
-            "nameZh": "宗教信仰、信仰", 
+            "nameZh": "宗教信仰", 
             "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v1.0", 
@@ -772,10 +826,13 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "爱人"
+            ], 
             "category": "link", 
             "cnschemaName": "spouse", 
             "name": "spouse", 
-            "nameZh": "配偶、爱人", 
+            "nameZh": "配偶", 
             "range": "Person", 
             "schemaorgName": "spouse", 
             "schemaorgUrl": "http://schema.org/spouse", 
@@ -791,10 +848,15 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "弟子", 
+                "徒弟", 
+                "门徒"
+            ], 
             "category": "link", 
             "cnschemaName": "student", 
             "name": "student", 
-            "nameZh": "学生、弟子、徒弟、门徒", 
+            "nameZh": "学生", 
             "range": "Person", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -808,10 +870,14 @@
                 "CnsDefinition", 
                 "CnsMeta"
             ], 
+            "alternateName": [
+                "师傅", 
+                "导师"
+            ], 
             "category": "link", 
             "cnschemaName": "studentOf", 
             "name": "studentOf", 
-            "nameZh": "老师、师傅、导师", 
+            "nameZh": "老师", 
             "range": "Person", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
@@ -959,6 +1025,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"academicMajor\": “法律系法学” ,", 
+            "exampleValueText": "法律系法学", 
             "minCardinality": 0, 
             "name": "Person_academicMajor", 
             "propertyAlternateName": [], 
@@ -977,6 +1044,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"accomplishment\": \"夺取西川，建立蜀汉\" ,", 
+            "exampleValueText": "夺取西川，建立蜀汉", 
             "minCardinality": 0, 
             "name": "Person_accomplishment", 
             "propertyAlternateName": [], 
@@ -995,6 +1063,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"affiliation\": [\"北京大学\"] ,", 
+            "exampleValueText": "北京大学", 
             "minCardinality": 0, 
             "name": "Person_affiliation", 
             "propertyAlternateName": [], 
@@ -1013,6 +1082,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"alumniOf\": “南开大学” ,", 
+            "exampleValueText": "南开大学", 
             "minCardinality": 0, 
             "name": "Person_alumniOf", 
             "propertyAlternateName": [], 
@@ -1031,6 +1101,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"ancestralHome\": “河北枣强” ,", 
+            "exampleValueText": "河北枣强", 
             "minCardinality": 0, 
             "name": "Person_ancestralHome", 
             "propertyAlternateName": [], 
@@ -1049,10 +1120,15 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"artName\": [\"青莲居士\"] ,", 
+            "exampleValueText": "青莲居士", 
             "minCardinality": 0, 
             "name": "Person_artName", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "号、自号、别号、又号", 
+            "propertyAlternateName": [
+                "自号", 
+                "别号", 
+                "又号"
+            ], 
+            "propertyNameZh": "号", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1067,10 +1143,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"authorOf\": [\"民权初步\",\"孙文学说\",\"三民主义\",\"实业计划\"] ,", 
+            "exampleValueText": "民权初步,孙文学说,三民主义,实业计划", 
             "minCardinality": 0, 
             "name": "Person_authorOf", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "作品、代表作", 
+            "propertyAlternateName": [
+                "代表作"
+            ], 
+            "propertyNameZh": "作品", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1085,10 +1164,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"award\": [\"诺贝尔奖\"] ,", 
+            "exampleValueText": "诺贝尔奖", 
             "minCardinality": 0, 
             "name": "Person_award", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "奖项, 获奖", 
+            "propertyAlternateName": [
+                "获奖"
+            ], 
+            "propertyNameZh": "奖项", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1122,6 +1204,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"birthName\": “李修缘” ,", 
+            "exampleValueText": "李修缘", 
             "minCardinality": 0, 
             "name": "Person_birthName", 
             "propertyAlternateName": [], 
@@ -1159,6 +1242,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"children\": [“孙科”] ,", 
+            "exampleValueText": "孙科", 
             "minCardinality": 0, 
             "name": "Person_children", 
             "propertyAlternateName": [], 
@@ -1177,6 +1261,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"cnEducationalAttainment\": 在职研究生 ,", 
+            "exampleValueText": "在职研究生", 
             "minCardinality": 0, 
             "name": "Person_cnEducationalAttainment", 
             "propertyAlternateName": [
@@ -1197,6 +1282,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"cnProfessionalTitle\": ”高级经济师“ ,", 
+            "exampleValueText": "高级经济师", 
             "minCardinality": 0, 
             "name": "Person_cnProfessionalTitle", 
             "propertyAlternateName": [], 
@@ -1215,10 +1301,14 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"colleague\": [\"罗毅刚\",\"陈宏\",\"余锦豪\"] ,", 
+            "exampleValueText": "罗毅刚,陈宏,余锦豪", 
             "minCardinality": 0, 
             "name": "Person_colleague", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "同事，队友、战友", 
+            "propertyAlternateName": [
+                "队友", 
+                "战友"
+            ], 
+            "propertyNameZh": "同事", 
             "propertyRange": "Person", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1233,10 +1323,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"courtesyName\": \"太白\" ,", 
+            "exampleValueText": "太白", 
             "minCardinality": 0, 
             "name": "Person_courtesyName", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "字、表字", 
+            "propertyAlternateName": [
+                "表字"
+            ], 
+            "propertyNameZh": "字", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1289,10 +1382,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"dharmaName\": \"道济\" ,", 
+            "exampleValueText": "道济", 
             "minCardinality": 0, 
             "name": "Person_dharmaName", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "法号、法名", 
+            "propertyAlternateName": [
+                "法名"
+            ], 
+            "propertyNameZh": "法号", 
             "propertyRange": "Person", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1307,10 +1403,14 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"dynasty\": \"清朝\" ,", 
+            "exampleValueText": "清朝", 
             "minCardinality": 0, 
             "name": "Person_dynasty", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "朝代、所在年代、所处时代", 
+            "propertyAlternateName": [
+                "所在年代", 
+                "所处时代"
+            ], 
+            "propertyNameZh": "朝代", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1325,6 +1425,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"eraName\": \"章武\" ,", 
+            "exampleValueText": "章武", 
             "minCardinality": 0, 
             "name": "Person_eraName", 
             "propertyAlternateName": [], 
@@ -1343,10 +1444,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"ethnicGroup\": “汉族” ,", 
+            "exampleValueText": "汉族", 
             "minCardinality": 0, 
             "name": "Person_ethnicGroup", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "民族、民族族群", 
+            "propertyAlternateName": [
+                "民族族群"
+            ], 
+            "propertyNameZh": "民族", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1381,6 +1485,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"familyName\": ”李“ ,", 
+            "exampleValueText": "李", 
             "minCardinality": 0, 
             "name": "Person_familyName", 
             "propertyAlternateName": [], 
@@ -1399,6 +1504,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"father\": \"刘备\" ,", 
+            "exampleValueText": "刘备", 
             "minCardinality": 0, 
             "name": "Person_father", 
             "propertyAlternateName": [], 
@@ -1416,11 +1522,14 @@
                 "CnsTemplate", 
                 "CnsMeta"
             ], 
-            "exampleValueJson": "\"fieldOfWork\": [\"物理学\",'\"化学\",'哲学\"] ,", 
+            "exampleValueJson": "\"fieldOfWork\": [\"物理学\",\"化学\",\"哲学\"] ,", 
+            "exampleValueText": "物理学,化学,哲学", 
             "minCardinality": 0, 
             "name": "Person_fieldOfWork", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "领域, 专业", 
+            "propertyAlternateName": [
+                "专业"
+            ], 
+            "propertyNameZh": "领域", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1435,6 +1544,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"gender\": “男” ,", 
+            "exampleValueText": "男", 
             "minCardinality": 0, 
             "name": "Person_gender", 
             "propertyAlternateName": [], 
@@ -1453,6 +1563,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"height\": ”178厘米“ ,", 
+            "exampleValueText": "178厘米", 
             "minCardinality": 0, 
             "name": "Person_height", 
             "propertyAlternateName": [], 
@@ -1489,6 +1600,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"husband\": [\"卢慕贞\"] ,", 
+            "exampleValueText": "卢慕贞", 
             "minCardinality": 0, 
             "name": "Person_husband", 
             "propertyAlternateName": [], 
@@ -1507,10 +1619,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"jobTitle\": \"教授\" ,", 
+            "exampleValueText": "教授", 
             "minCardinality": 0, 
             "name": "Person_jobTitle", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "工作职务、职位", 
+            "propertyAlternateName": [
+                "职位"
+            ], 
+            "propertyNameZh": "工作职务", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1525,10 +1640,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"memberOfPoliticalParty\": [“中共”] ,", 
+            "exampleValueText": "中共", 
             "minCardinality": 0, 
             "name": "Person_memberOfPoliticalParty", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "政党、党派", 
+            "propertyAlternateName": [
+                "党派"
+            ], 
+            "propertyNameZh": "政党", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1543,6 +1661,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"mother\": \"糜夫人” ,", 
+            "exampleValueText": "糜夫人", 
             "minCardinality": 0, 
             "name": "Person_mother", 
             "propertyAlternateName": [], 
@@ -1561,6 +1680,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"nationality\": [”法国“] ,", 
+            "exampleValueText": "法国", 
             "minCardinality": 0, 
             "name": "Person_nationality", 
             "propertyAlternateName": [], 
@@ -1579,6 +1699,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"nobleFamily\": “夏侯氏” ,", 
+            "exampleValueText": "夏侯氏", 
             "minCardinality": 0, 
             "name": "Person_nobleFamily", 
             "propertyAlternateName": [], 
@@ -1597,10 +1718,15 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"nobleTitle\": [\"齐王\",\"楚王\"] ,", 
+            "exampleValueText": "齐王,楚王", 
             "minCardinality": 0, 
             "name": "Person_nobleTitle", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "爵位、官爵、封爵、封号", 
+            "propertyAlternateName": [
+                "官爵", 
+                "封爵", 
+                "封号"
+            ], 
+            "propertyNameZh": "爵位", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1615,10 +1741,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"occupation\": [“科学家”] ,", 
+            "exampleValueText": "科学家", 
             "minCardinality": 0, 
             "name": "Person_occupation", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "职业、身份", 
+            "propertyAlternateName": [
+                "身份"
+            ], 
+            "propertyNameZh": "职业", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1633,6 +1762,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"parent\": [\"孙达成\"] ,", 
+            "exampleValueText": "孙达成", 
             "minCardinality": 0, 
             "name": "Person_parent", 
             "propertyAlternateName": [], 
@@ -1651,10 +1781,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"placeOfBurial\": “当涂青山” ,", 
+            "exampleValueText": "当涂青山", 
             "minCardinality": 0, 
             "name": "Person_placeOfBurial", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "墓地、安葬地", 
+            "propertyAlternateName": [
+                "安葬地"
+            ], 
+            "propertyNameZh": "墓地", 
             "propertyRange": "Place", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1669,10 +1802,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"posthumousName\": “昭烈皇帝” ,", 
+            "exampleValueText": "昭烈皇帝", 
             "minCardinality": 0, 
             "name": "Person_posthumousName", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "谥号、私谥", 
+            "propertyAlternateName": [
+                "私谥"
+            ], 
+            "propertyNameZh": "谥号", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1687,6 +1823,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"pseudonym\": “济公” ,", 
+            "exampleValueText": "济公", 
             "minCardinality": 0, 
             "name": "Person_pseudonym", 
             "propertyAlternateName": [], 
@@ -1705,10 +1842,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"religion\": \"犹太教\" ,", 
+            "exampleValueText": "犹太教", 
             "minCardinality": 0, 
             "name": "Person_religion", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "宗教信仰、信仰", 
+            "propertyAlternateName": [
+                "信仰"
+            ], 
+            "propertyNameZh": "宗教信仰", 
             "propertyRange": "Text", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1723,6 +1863,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"schoolsOfBuddhism\": \"大乘佛教\" ,", 
+            "exampleValueText": "大乘佛教", 
             "minCardinality": 0, 
             "name": "Person_schoolsOfBuddhism", 
             "propertyAlternateName": [], 
@@ -1741,6 +1882,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"sibling\": [\"孙眉“] ,", 
+            "exampleValueText": "孙眉", 
             "minCardinality": 0, 
             "name": "Person_sibling", 
             "propertyAlternateName": [], 
@@ -1759,10 +1901,13 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"spouse\": [\"卢慕贞\"] ,", 
+            "exampleValueText": "卢慕贞", 
             "minCardinality": 0, 
             "name": "Person_spouse", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "配偶、爱人", 
+            "propertyAlternateName": [
+                "爱人"
+            ], 
+            "propertyNameZh": "配偶", 
             "propertyRange": "Person", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1777,10 +1922,15 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"student\": [\"颜回”,\"子路\",\"子贡“] ,", 
+            "exampleValueText": "颜回,子路,子贡", 
             "minCardinality": 0, 
             "name": "Person_student", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "学生、弟子、徒弟、门徒", 
+            "propertyAlternateName": [
+                "弟子", 
+                "徒弟", 
+                "门徒"
+            ], 
+            "propertyNameZh": "学生", 
             "propertyRange": "Person", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1795,10 +1945,14 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"studentOf\": [\"孔子“] ,", 
+            "exampleValueText": "孔子", 
             "minCardinality": 0, 
             "name": "Person_studentOf", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "老师、师傅、导师", 
+            "propertyAlternateName": [
+                "师傅", 
+                "导师"
+            ], 
+            "propertyNameZh": "老师", 
             "propertyRange": "Person", 
             "propertySchema": "cns_person", 
             "refClass": "Person", 
@@ -1813,6 +1967,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"templeName\": “太祖\" ,", 
+            "exampleValueText": "太祖", 
             "minCardinality": 0, 
             "name": "Person_templeName", 
             "propertyAlternateName": [], 
@@ -1849,6 +2004,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"weight\": ”72千克“ ,", 
+            "exampleValueText": "72千克", 
             "minCardinality": 0, 
             "name": "Person_weight", 
             "propertyAlternateName": [], 
@@ -1867,6 +2023,7 @@
                 "CnsMeta"
             ], 
             "exampleValueJson": "\"wife\": [\"卢慕贞\"] ,", 
+            "exampleValueText": "卢慕贞", 
             "minCardinality": 0, 
             "name": "Person_wife", 
             "propertyAlternateName": [], 

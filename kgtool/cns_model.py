@@ -414,10 +414,15 @@ class CnsSchema:
                     self.report.report_bug( bug)
                     continue
 
-
-                template["propertyRange"] = property_definition["range"]
-                template["propertyNameZh"] = property_definition["nameZh"]
-                template["propertyAlternateName"] = property_definition.get("alternateName",[])
+                p = "propertyRange"
+                if not template.get(p):
+                    template[p] = property_definition["range"]
+                p = "propertyNameZh"
+                if not template.get(p):
+                    template["propertyNameZh"] = property_definition["nameZh"]
+                p = "propertyAlternateName"
+                if not template.get(p):
+                    template["propertyAlternateName"] = property_definition.get("alternateName",[])
             #   template["category"] = "property-template"
 
 
@@ -437,6 +442,8 @@ class CnsSchema:
                     template[p] = 0
                 elif template[p] in [0, 1, "0","1"]:
                     template[p] = int(template[p])
+                elif isinstance(template[p], float):
+                    template[p] = int(template[p])
                 else:
                     bug = {
                         "category" : "warn_template_unexpected_value",
@@ -451,6 +458,8 @@ class CnsSchema:
                 if p not in template:
                     pass
                 elif template[p] in [1, "1"]:
+                    template[p] = int(template[p])
+                elif isinstance(template[p], float):
                     template[p] = int(template[p])
                 elif template[p] == "":
                     del template[p]
@@ -513,6 +522,7 @@ class CnsSchema:
         for schema in self.imported_schema:
             for cns_item in schema.definition.values():
                 # cns_item["statedIn"] = schema.metadata["name"]
+                cns_item["statedIn"] = schema.metadata["name"]
 
                 if "cns_schemaorg" == schema.metadata["name"]:
                     if cns_item["@id"] in self.imported_schema[0].definition:
@@ -530,7 +540,9 @@ class CnsSchema:
                 bug = {
                     "category": "error_definition_duplicated_name",
                     "description": u"found alias=[{}] associated with more than one definitions [{}]".format(
-                        alias, u", ".join([x["name"] for x in v]))
+                        alias, u", ".join([x["name"] for x in v])),
+                    "value": v
+
                 }
                 self.report.report_bug( bug)
                 # assert len(v) == 1, alias
