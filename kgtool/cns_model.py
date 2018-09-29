@@ -5,6 +5,7 @@
 import copy
 import glob
 from difflib import unified_diff
+import urllib
 
 from core import *  # noqa
 from alg_graph import DirectedGraph
@@ -134,7 +135,7 @@ class CnsSchema:
     def load_jsonld(self, schema_release_identifier ):
         if self.schema_urlprefix:
             schema_url = "{}/{}".format(self.schema_urlprefix, schema_release_identifier)
-            response = urllib.urlopen(currURL)
+            response = urllib.urlopen(schema_url)
             text = response.read()
             return json.loads(text)
         elif self.schema_dir:

@@ -402,11 +402,11 @@ class CoreTestCase(unittest.TestCase):
         report = CnsBugReport()
         run_validate(self.loaded_schema_org, input, report)
         logging.info(json4debug(report.data))
-        assert len(report.data["bugs_sample"])== 1
+        assert len(report.data["bugs_sample"])== 2
         #assert False
         input = {   "@id":"111",
                     "@type": ["Company", "Organization", "Thing"],
-                    "saicRegistrationCapital": {"text":u"1000万", "value":"10000", "@type":["MonetaryAmount"]}}
+                    "saicRegistrationCapital": {"text":u"1000万", "value":10000.0}}
         report = CnsBugReport()
         run_validate(self.loaded_schema_org, input, report)
         logging.info(json4debug(report.data))
@@ -450,6 +450,11 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(report.data))
             assert False, len(report.data["bugs_sample"])
 
+
+    def test_load_json(self):
+        the_schema = CnsSchema()
+        the_schema.schema_urlprefix = "http://kg.dev.ruyi.ai/api/getschema/"
+        the_schema.load_jsonld("cns_top_v2.0")
 
 if __name__ == '__main__':
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)

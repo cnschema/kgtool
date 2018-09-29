@@ -132,7 +132,7 @@ def run_normalize_value(cns_model, types, p, v, wm):
             elif range_config["text"].lower() == "float":
                 return float(v)
             elif range_config["text"].lower() == "number":
-                return float(v)
+                return "{}".format(v)
 
 
 def task_convert(args):
