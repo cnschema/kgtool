@@ -19,15 +19,15 @@ from kgtool.cns_validate import *  # noqa
 
 class CoreTestCase(unittest.TestCase):
     def setUp(self):
-        filenameSchema = "../schema/cns_top.jsonld"
+        filenameSchema = "../schema/cns_top_v2.0.jsonld"
         self.filenameSchema = file2abspath(filenameSchema)
         self.loaded_schema = CnsSchema()
-        self.loaded_schema.import_jsonld(self.filenameSchema)
+        self.loaded_schema.jsonld2mem4file(self.filenameSchema)
 
-        filenameSchema = "../schema/cns_organization.jsonld"
+        filenameSchema = "../schema/cns_organization_v2.0.jsonld"
         filenameSchema = file2abspath(filenameSchema)
         self.loaded_schema_org = CnsSchema()
-        self.loaded_schema_org.import_jsonld(filenameSchema)
+        self.loaded_schema_org.jsonld2mem4file(filenameSchema)
 
         pass
 
@@ -39,11 +39,11 @@ class CoreTestCase(unittest.TestCase):
     def test_get_all_property(self):
         ret = self.loaded_schema.get_all_property()
         logging.info(ret)
-        assert len(ret) == 70, len(ret)
+        assert len(ret) == 44, len(ret)
 
         ret = self.loaded_schema_org.get_all_property()
         logging.info(ret)
-        assert len(ret) == 109, len(ret)
+        assert len(ret) == 55, len(ret)
 
     def test_get_get_main_types(self):
         types = ["Company","Organization", "Thing"]
@@ -57,13 +57,13 @@ class CoreTestCase(unittest.TestCase):
         assert "Person" in actual
         assert "Company" in actual
 
-    def test_import_jsonld(self):
+    def test_jsonld2mem4file(self):
         logging.info( "called task_excel2jsonld" )
 
         #validate if we can reproduce the same jsonld based on input
         jsonld_input = file2json(self.filenameSchema)
 
-        jsonld_output = self.loaded_schema.export_jsonld()
+        jsonld_output = self.loaded_schema.mem2jsonld()
 
         assert len(jsonld_input) == len(jsonld_output)
         x = json4debug(jsonld_input).split("\n")
@@ -78,7 +78,7 @@ class CoreTestCase(unittest.TestCase):
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
-        report = init_report()
+        report = CnsBugReport()
         for idx, item in enumerate(input):
             types = [ item["mainType"], "Thing" ]
             primary_keys = [ item.get("name", item.get(u"名称")) ]
@@ -93,15 +93,15 @@ class CoreTestCase(unittest.TestCase):
                 assert cns_item["@id"] == "66e830b5690eef238b3fb6eb5662d66b650f17a6980cfd5db11b11d8ea93b136"
 
         #assert False
-        if len(report["bugs_sample"]) != 3:
-            logging.info(json4debug(report))
-            assert False, len(report["bugs_sample"])
+        if len(report.data["bugs_sample"]) != 3:
+            logging.info(json4debug(report.data))
+            assert False, len(report.data["bugs_sample"])
 
     def test_run_convert2(self):
-        filenameSchema = "../schema/cns_organization.jsonld"
+        filenameSchema = "../schema/cns_organization_v2.0.jsonld"
         filenameSchema = file2abspath(filenameSchema)
         loaded_schema = CnsSchema()
-        loaded_schema.import_jsonld(filenameSchema)
+        loaded_schema.jsonld2mem4file(filenameSchema)
 
         item = {
             "changeAfter": "深圳金砖城市国开先导基金管理有限公司",
@@ -112,18 +112,18 @@ class CoreTestCase(unittest.TestCase):
         types = ["CompanyInfoUpdateEvent", "Event", "Thing"]
         item['name'] = '{0}_{1}_{2}'.format("aaa", item['date'], item['changeItem'])
         primary_keys = [ item["name"] ]
-        report = init_report()
+        report = CnsBugReport()
         cns_item = run_convert(loaded_schema, item, types, primary_keys, report)
         #logging.info(json4debug(cns_item))
-        logging.info(json4debug(report))
+        logging.info(json4debug(report.data))
 
         assert "changeCategory" in cns_item
 
     def test_run_convert_cns_link(self):
-        filenameSchema = "../schema/cns_organization.jsonld"
+        filenameSchema = "../schema/cns_organization_v2.0.jsonld"
         filenameSchema = file2abspath(filenameSchema)
         loaded_schema = CnsSchema()
-        loaded_schema.import_jsonld(filenameSchema)
+        loaded_schema.jsonld2mem4file(filenameSchema)
 
         item = {
             "business": "房地产开发与经营；室内、外工程装饰装修工程；物业服务；房地产信息咨询服务",
@@ -172,7 +172,7 @@ class CoreTestCase(unittest.TestCase):
         }
         item = any2unicode(item)
 
-        report = init_report()
+        report = CnsBugReport()
 
         entities = []
         types = ["Company", "Thing"]
@@ -199,7 +199,7 @@ class CoreTestCase(unittest.TestCase):
         entities.append( cns_item_link )
 
         logging.info(json4debug(entities))
-        logging.info(json4debug(report))
+        logging.info(json4debug(report.data))
         assert cns_item_link["@id"] == "b11ab8dbd506a271791a4a5813e2684fa592377399fe239a1b21edf304b9f312"
         assert cns_item_in["@id"] == "b6a7801587af217eba42da036c2659696f6153aff2d7df14e39f74e6f2672fef"
         assert cns_item_out["@id"] == "09cd7eb1132c9de9cef0bd0c3b534586220f8c7f72186f1db0404da1a725301a"
@@ -259,7 +259,7 @@ class CoreTestCase(unittest.TestCase):
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
-        report = init_report()
+        report = CnsBugReport()
         for item in input:
             types = [ item["mainType"], "Thing" ]
             primary_keys = [ item.get("name", item.get(u"名称")) ]
@@ -267,9 +267,9 @@ class CoreTestCase(unittest.TestCase):
             logging.info(json4debug(cns_item))
             run_validate(self.loaded_schema, cns_item, report)
 
-        if len(report["bugs_sample"]) != 3:
-            logging.info(json4debug(report))
-            assert False, len(report["bugs_sample"])
+        if len(report.data["bugs_sample"]) != 3:  #类未定义1,  属性值域错误2
+            logging.info(json4debug(report.data))
+            assert False, len(report.data["bugs_sample"])
 
     def test_normalize_value(self):
         cns_item ={
@@ -399,36 +399,45 @@ class CoreTestCase(unittest.TestCase):
         input = {   "@id":"111",
                     "@type": ["Company", "Organization", "Thing"],
                     "saicRegistrationCapital": {"text":u"1000万", "value":"10000"}}
-        report = init_report()
+        report = CnsBugReport()
         run_validate(self.loaded_schema_org, input, report)
-        logging.info(json4debug(report))
-        assert len(report["stats"])== 3
+        logging.info(json4debug(report.data))
+        assert len(report.data["bugs_sample"])== 1
         #assert False
         input = {   "@id":"111",
                     "@type": ["Company", "Organization", "Thing"],
                     "saicRegistrationCapital": {"text":u"1000万", "value":"10000", "@type":["MonetaryAmount"]}}
-        report = init_report()
+        report = CnsBugReport()
         run_validate(self.loaded_schema_org, input, report)
-        logging.info(json4debug(report))
-        assert len(report["stats"])== 3
+        logging.info(json4debug(report.data))
+        assert len(report.data["bugs_sample"])== 1
 
     def test_run_validate_3(self):
         input = {   "@id":"123",
                     "@type": ["about", "CnsLink", "Thing"],
                     "in": "234",
                     "out": "334"}
-        report = init_report()
+        report = CnsBugReport()
         run_validate(self.loaded_schema_org, input, report)
-        logging.info(json4debug(report))
-        assert len(report["stats"])== 2
+        logging.info(json4debug(report.data))
+        assert len(report.data["bugs_sample"])== 1
 
+        input = {   "@id":"123",
+                    "@type": ["about", "CnsLink", "Thing"],
+                    "name": "abc",
+                    "in": "234",
+                    "out": "334"}
+        report = CnsBugReport()
+        run_validate(self.loaded_schema_org, input, report)
+        logging.info(json4debug(report.data))
+        assert len(report.data["bugs_sample"])== 0
 
     def test_run_validate_2(self):
-        tin = "../schema/cns_top.jsonld"
+        tin = "../schema/cns_top_v2.0.jsonld"
         tin = file2abspath(tin, __file__)
         input = file2json(tin)
 
-        report = init_report()
+        report = CnsBugReport()
         run_validate(self.loaded_schema, input, report)
 
 
@@ -437,9 +446,9 @@ class CoreTestCase(unittest.TestCase):
 
 
         #assert False
-        if len(report["bugs_sample"]) != 1:
-            logging.info(json4debug(report))
-            assert False, len(report["bugs_sample"])
+        if len(report.data["bugs_sample"]) > 0:
+            logging.info(json4debug(report.data))
+            assert False, len(report.data["bugs_sample"])
 
 
 if __name__ == '__main__':

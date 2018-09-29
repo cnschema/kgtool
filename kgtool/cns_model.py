@@ -154,7 +154,7 @@ class CnsSchema:
 
         self._build_index_template()
 
-        #self._build_index_property_alias(self.imported_schema)
+        self._build_index_property_alias()
         #self._build_index_range(self.imported_schema)
         #self._build_index_domain(self.imported_schema)
 
@@ -251,6 +251,20 @@ class CnsSchema:
             template = self.index_validate_template.get(xtype, {}).get(p)
             if template:
                 return template
+
+    def get_template_for_property_alias(self, types, alias):
+        template_map = self.index_property_alias.get(alias)
+        if not template_map:
+            return None
+
+        if not types:
+            return template_map.values()[0]
+        else:
+            for template in template_map.values():
+                if template["refClass"] in types:
+                    return template
+
+        return None
 
     def _build_index_inheritance(self):
         # list all direct class hierarchy pairs
@@ -459,33 +473,36 @@ class CnsSchema:
                     rp = template["refProperty"]
                     self.index_validate_template[d][rp] = template_validation
 
-    # def _build_index_property_alias(self):
-    #     self.index_property_alias = {}
-    #
-    #     map_name_alias = collections.defaultdict(set)
-    #
-    #     # build alias
-    #     for schema in self.imported_schema:
-    #         for cns_item in schema.definition.values():
-    #             if "rdf:Property" in cns_item["@type"]:
-    #                 plist = gen_plist(cns_item)
-    #                 alias = plist["name"]
-    #                 map_name_alias[alias].add(plist["name"])
-    #                 for alias in plist["alternateName"]:
-    #                     map_name_alias[alias].add(plist["name"])
-    #
-    #     # validate
-    #     for alias, v in map_name_alias.items():
-    #         #            logging.info(alias)
-    #         if len(v) > 1:
-    #             bug = {
-    #                 "category": "error_definition_duplicated_name",
-    #                 "description": "found alias=[{}] associated with more than one definitions [{}]".format(
-    #                     alias, u", ".join(v))
-    #             }
-    #             self.report.report_bug( bug)
-    #             #assert len(v) == 1, (alias, list(v))
-    #         self.index_property_alias[alias] = list(v)[0]
+    def _build_index_property_alias(self):
+        self.index_property_alias = collections.defaultdict(dict)
+
+        # build alias
+        for schema in self.imported_schema:
+            for template in schema.metadata["template"]:
+                alias_list = []
+                alias_list.extend( json_get_list(template, "propertyAlternateName"))
+                alias = template.get("propertyNameZh")
+                if alias:
+                    alias_list.append( alias )
+                alias = template.get("refProperty")
+                if alias:
+                    alias_list.append( alias )
+
+                for alias in alias_list:
+                    self.index_property_alias[alias][template["name"]] = template
+
+        # validate
+        for alias, v in self.index_property_alias.items():
+            #            logging.info(alias)
+            if len(v) > 1:
+                bug = {
+                    "category": "info_definition_duplicated_name",
+                    "description": u"found alias=[{}] associated with more than one definitions [{}]".format(
+                        alias, u", ".join(v.keys()))
+                }
+                #self.report.report_bug( bug)
+                #assert len(v) == 1, (alias, list(v))
+            #self.index_property_alias[alias] = list(v)[0]
 
     def _build_index_definition_alias(self):
         self.index_definition_alias = {}
@@ -643,7 +660,7 @@ def task_import_schema(args):
 
     xdebug_file = os.path.join(args["debug_dir"], os.path.basename(args["input_file"]))
     filename_debug = xdebug_file + u".debug-jsonld.json"
-    jsonld_output = loaded_schema.export_jsonld(filename_debug)
+    jsonld_output = loaded_schema.mem2jsonld(filename_debug)
 
     assert len(jsonld_input) == len(jsonld_output)
     x = json4debug(jsonld_input).splitlines(1)

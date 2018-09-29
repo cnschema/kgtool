@@ -2438,6 +2438,26 @@
             "version": "v1.2"
         }, 
         {
+            "@id": "http://meta.cnschema.org/template/CnsMeta_statedIn", 
+            "@type": [
+                "CnsTemplate", 
+                "CnsMeta"
+            ], 
+            "exampleValueJson": "\"statedIn\": \"2018-09-17T00:00:00\" ,", 
+            "exampleValueText": "2018-09-17T00:00:00", 
+            "maxCardinality": 1, 
+            "minCardinality": 0, 
+            "name": "CnsMeta_statedIn", 
+            "propertyAlternateName": [], 
+            "propertyNameZh": "载于", 
+            "propertyRange": "Text", 
+            "propertySchema": "cns_top", 
+            "refClass": "CnsMeta", 
+            "refProperty": "statedIn", 
+            "statedIn": "cns_top", 
+            "version": "v2.0"
+        }, 
+        {
             "@id": "http://meta.cnschema.org/template/CnsOntologyRelease_about", 
             "@type": [
                 "CnsTemplate", 

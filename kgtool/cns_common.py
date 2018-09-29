@@ -9,6 +9,7 @@ shared code without external dependency
 
 import collections
 import copy
+from core import *  # noqa
 
 
 def gen_cns_link_default_primary_key(cns_item):

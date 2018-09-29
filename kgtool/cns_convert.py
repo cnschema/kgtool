@@ -44,6 +44,8 @@ def run_convert(cns_model, item, types, primary_keys, report = None):
         assert @type
     """
     assert types
+    #logging.info(json4debug(item))
+
     if primary_keys:
         assert type(primary_keys) == list
 
@@ -52,18 +54,19 @@ def run_convert(cns_model, item, types, primary_keys, report = None):
     }
 
     for p,v in item.items():
-        px = cns_model.index_property_alias.get(p)
-        if px:
+        template = cns_model.get_template_for_property_alias(types, p)
+        if template:
+            px = template["refProperty"]
             cns_item[px] = v
         else:
             bug = {
                 "category": "warn_convert_cns",
-                "text": "property not defined in schema",
+                "description": "property not defined in schema",
                 "property": p
             }
 
             if report is not None:
-                write_report(report, bug)
+                report.report_bug(bug)
 
 
     if item.get("@id"):
@@ -121,30 +124,34 @@ def run_normalize_value(cns_model, types, p, v, wm):
     for xtype in types:
         template = cns_model.index_validate_template.get(xtype,{}).get(p)
         if template:
+            logging.info(json4debug(template))
+
             range_config = template["propertyRange"]
             if range_config["text"].lower() == "integer":
                 return int(v)
             elif range_config["text"].lower() == "float":
                 return float(v)
+            elif range_config["text"].lower() == "number":
+                return float(v)
 
 
 def task_convert(args):
     logging.info( "called task_convert" )
-    filename = "../schema/cns_top.jsonld"
+    filename = "../schema/cns_top_v2.0.jsonld"
     filename = file2abspath(filename, __file__)
     loaded_schema = CnsSchema()
     loaded_schema.import_jsonld(filename)
 
     filename = args["input_file"]
     jsondata = file2json(filename)
-    report = init_report()
+    report = CnsBugReport()
     for idx, item in enumerate(jsondata):
         types = [item["mainType"], "Thing"]
         primary_keys = [idx]
         cns_item = run_convert(loaded_schema, item, types, primary_keys, report)
         logging.info(json4debug(cns_item))
         #loaded_schema.run_validate(cns_item, report)
-    logging.info(json4debug(report))
+    logging.info(json4debug(report.data))
 
 
 if __name__ == "__main__":
