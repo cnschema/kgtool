@@ -299,11 +299,11 @@ def run_graphviz(loaded_schema, name):
     key = "full"
     graph = _graph_create()
     _graph_update(loaded_schema, loaded_schema, graph)
-    ret[key] = _render_dot_format(graph, name, key)
+    ret["dot_"+key] = _render_dot_format(graph, name, key)
 
     key = "compact"
     graph_new = _filter_compact(graph)
-    ret[key] = _render_dot_format(graph_new, name, key)
+    ret["dot_"+key] = _render_dot_format(graph_new, name, key)
 
     key = "import"
     subgraphs = []
@@ -322,7 +322,7 @@ def run_graphviz(loaded_schema, name):
         lines.append(subgraph)
     line = "}"
     lines.append(line)
-    ret[key] = u'\n'.join(lines)
+    ret["dot_"+key] = u'\n'.join(lines)
     #logging.info(ret)
     return ret
 
