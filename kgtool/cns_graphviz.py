@@ -158,21 +158,21 @@ def _add_template_domain_range(loaded_schema, template, graph, map_link_in_out):
     assert range_class, template
 
     link_name = domain_class["name"]
-#    if template["refProperty"] in ["in"]:
-#        map_link_in_out[link_name]["from"] = range_class
-#        map_link_in_out[link_name]["relation"] = domain_class
-#        map_link_in_out[link_name]["type"] = "template_link"
-#    elif template["refProperty"] in ["out"]:
-#        map_link_in_out[link_name]["to"] = range_class
-#    else:
-    link = {
-        "from": domain_class,
-        "to": range_class,
-        "relation": _property_definition,
-        "template": template,
-        "type": "template_domain_range"
-    }
-    _add_graphviz_link(link, graph)
+    if template["refProperty"] in ["in"]:
+       map_link_in_out[link_name]["from"] = range_class
+       map_link_in_out[link_name]["relation"] = domain_class
+       map_link_in_out[link_name]["type"] = "template_link"
+    elif template["refProperty"] in ["out"]:
+       map_link_in_out[link_name]["to"] = range_class
+    else:
+        link = {
+            "from": domain_class,
+            "to": range_class,
+            "relation": _property_definition,
+            "template": template,
+            "type": "template_domain_range"
+        }
+        _add_graphviz_link(link, graph)
 
 def _filter_compact(graph):
     graph_new = _graph_create()
@@ -224,7 +224,7 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
     else:
         lines.append('\trankdir = "LR"')
     #nodes
-    lines.append('\n\tnode [shape=rect]')
+    lines.append('\n\tnode [shape=rect, peripheries=1]')
     lines.extend(sorted(list(graph["node_map"]["class"])))
     lines.append("")
 
@@ -264,6 +264,7 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
                 if line not in lines:
                     lines.append(line)
                 shape = "oval"
+                peripheries = 1
                 #logging.info(json4debug(link["to"]))
                 line = u'\t{} [shape=rect, label={} , style=dotted, peripheries=1]'.format( to_id, to_name)
                 if line not in lines:
@@ -276,9 +277,14 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
                     to_name)
                 if line not in lines:
                     lines.append(line)
-                shape = "diamond"
 
-            line = u'\t{} [shape={}, label={} , peripheries=1]'.format( prop_id, shape, prop_name)
+                shape = "diamond"
+                if link["type"] == "template_link":
+                    peripheries = 2
+                else:
+                    peripheries = 1
+
+            line = u'\t{} [shape={}, label={} , peripheries={}]'.format( prop_id, shape, prop_name, peripheries)
             if line not in lines:
                 lines.append(line)
 
