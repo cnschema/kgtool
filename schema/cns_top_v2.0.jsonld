@@ -746,7 +746,7 @@
             ], 
             "category": "link", 
             "cnschemaName": "broader", 
-            "descriptionZh": "语义更宽泛的标签", 
+            "descriptionZh": "比本标签语义更宽泛的标签，例如  （人 broader  动物）", 
             "name": "broader", 
             "nameZh": "上级标签", 
             "range": "CnsTag", 
@@ -1214,6 +1214,22 @@
             "name": "nameZh", 
             "nameZh": "中文的名称", 
             "range": "Text", 
+            "statedIn": "cns_top", 
+            "version": "v1.1"
+        }, 
+        {
+            "@id": "http://cnschema.org/narrower", 
+            "@type": [
+                "CnsProperty", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "link", 
+            "cnschemaName": "narrower", 
+            "descriptionZh": "比本标签语义更细致划分的标签，例如  （  动物 narrower 人）", 
+            "name": "narrower", 
+            "nameZh": "下级标签", 
+            "range": "CnsTag", 
             "statedIn": "cns_top", 
             "version": "v1.1"
         }, 
