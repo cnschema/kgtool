@@ -89,4 +89,4 @@ TODO: 处理 domain/range
 源文件
 https://docs.google.com/spreadsheets/d/1wAM3zoyjFmo0O92-okLHLMXwKNvx_GCWV2eu_AeX3VY/edit#gid=1085464633
 
-./genschema.sh cns_kg4ai
+./genschema.sh cns_kg4ai v20180915
