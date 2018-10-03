@@ -88,7 +88,7 @@ def run_validate(loaded_schema, cns_item, report):
 
     #check types
     types = cns_item.get("@type")
-    if types is None:
+    if not types:
         bug = {
             "category": "warn_validate",
             "description": "missing @type and no expected @type",
@@ -222,7 +222,6 @@ def _count_cnslink(loaded_schema, cns_item, report):
 
 def _validate_template(loaded_schema, cns_item, types, report):
     # template validation
-
     validated_property = set()
 
     if _validate_template_special(loaded_schema, cns_item, types, report, validated_property):

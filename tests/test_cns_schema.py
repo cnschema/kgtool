@@ -39,11 +39,11 @@ class CoreTestCase(unittest.TestCase):
     def test_get_all_property(self):
         ret = self.loaded_schema.get_all_property()
         logging.info(ret)
-        assert len(ret) == 44, len(ret)
+        assert len(ret) == 45, len(ret)
 
         ret = self.loaded_schema_org.get_all_property()
         logging.info(ret)
-        assert len(ret) == 55, len(ret)
+        assert len(ret) == 51, len(ret)
 
     def test_get_get_main_types(self):
         types = ["Company","Organization", "Thing"]

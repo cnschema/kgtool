@@ -588,6 +588,22 @@ class CnsSchema:
         self.build()
 
     def mem2jsonld(self, filename=None):
+        if not self.metadata["identifier"]:
+            bug = {
+                "category" : "error_ontology_release_missing_identifier",
+                "description" : "ontology release, sheet=metadata missing identifier",
+            }
+            self.report.report_bug( bug)
+            return {}
+
+        if not self.metadata["name"]:
+            bug = {
+                "category" : "error_ontology_release_missing_name",
+                "description" : "ontology release, sheet=metadata missing name",
+            }
+            self.report.report_bug( bug)
+            return {}
+
         xid_release = "http://meta.cnschema.org/ontologyrelease/{}".format(self.metadata["identifier"])
         xid_schema = "http://meta.cnschema.org/ontology/{}".format(self.metadata["name"])
 
