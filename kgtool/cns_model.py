@@ -122,6 +122,10 @@ class CnsSchema:
         return self.index_definition_alias.get(alias)
 
     def add_metadata(self, group, item):
+        """
+            only  template, changelog, import, keywords can be list,
+            other must remain the same
+        """
         if group in [ "template", "changelog"]:
             self.metadata[group].append(item)
         elif group in ["import"]:
@@ -131,6 +135,7 @@ class CnsSchema:
                 self.metadata[group].append(item)
         else:
             self.metadata[group] = item
+
 
     def load_jsonld(self, schema_release_identifier ):
         if self.schema_urlprefix:

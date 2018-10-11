@@ -160,12 +160,18 @@ def _excel2jsonld_item(cns_item, item):
 
     #definition
     if "category" in item:
-        if item["category"] in ["class", "datatype", "struct", "meta"]:
-            #cns_item["@type"].insert(0,  "rdfs:Class")
+#        if item["category"] in ["class", "datatype", "struct", "meta"]:
+        if item["category"] in ["class","datatype", "meta", "struct", "statement"]:
+#            cns_item["@type"].insert(0,  "rdfs:Class")
             cns_item["@type"].insert(0,  "CnsClass")
-        elif item["category"] in [ "link", "attribute"]:
-            #cns_item["@type"].insert(0,  "rdf:Property")
+        elif item["category"] in [ "link"]:
+#            cns_item["@type"].insert(0,  "rdf:Property")
             cns_item["@type"].insert(0,  "CnsProperty")
+#            cns_item["@type"].insert(0,  "CnsSimpleLink")
+        elif item["category"] in [ "attribute"]:
+#            cns_item["@type"].insert(0,  "rdf:Property")
+            cns_item["@type"].insert(0,  "CnsProperty")
+#            cns_item["@type"].insert(0,  "CnsAttribute")
         else:
             logging.info(item["category"])
             assert False

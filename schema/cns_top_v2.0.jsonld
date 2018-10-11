@@ -18,7 +18,7 @@
             "name": "Boolean", 
             "nameZh": "真假值类型", 
             "rdfs:subClassOf": [
-                "Text"
+                "DataType"
             ], 
             "schemaorgName": "Boolean", 
             "schemaorgUrl": "http://schema.org/Boolean", 
@@ -34,7 +34,7 @@
             ], 
             "category": "class", 
             "cnschemaName": "CnsAttribute", 
-            "descriptionZh": "CnSchema的定义，包括实体分类和属性。实体属性为了支持词汇复用。", 
+            "descriptionZh": "实体属性，通过属性值描述实体， 属性为复杂数据结构或简单数据结构。定义了实体属性主要是为了支持属性复用。", 
             "name": "CnsAttribute", 
             "nameZh": "实体描述属性", 
             "statedIn": "cns_top", 
@@ -173,7 +173,7 @@
             ], 
             "category": "class", 
             "cnschemaName": "CnsLink", 
-            "descriptionZh": "简化的二元关系，附属于某实体，关联到实体对外的链接", 
+            "descriptionZh": "实体二元关系，关联到实体对外的链接，附带一定数量的属性", 
             "name": "CnsLink", 
             "nameZh": "实体二元关系", 
             "statedIn": "cns_top", 
@@ -272,6 +272,21 @@
             "cnschemaName": "CnsPublishConfig", 
             "name": "CnsPublishConfig", 
             "nameZh": "CNS图谱发布配置", 
+            "statedIn": "cns_top", 
+            "version": "v2.0"
+        }, 
+        {
+            "@id": "http://cnschema.org/CnsSimpleLink", 
+            "@type": [
+                "CnsClass", 
+                "CnsDefinition", 
+                "CnsMeta"
+            ], 
+            "category": "class", 
+            "cnschemaName": "CnsSimpleLink", 
+            "descriptionZh": "简化的实体二元关系，不包含任何属性", 
+            "name": "CnsSimpleLink", 
+            "nameZh": "简单二元关系", 
             "statedIn": "cns_top", 
             "version": "v2.0"
         }, 
@@ -386,7 +401,7 @@
             "name": "Date", 
             "nameZh": "日期类型", 
             "rdfs:subClassOf": [
-                "Text"
+                "DataType"
             ], 
             "schemaorgName": "Date", 
             "schemaorgUrl": "http://schema.org/Date", 
@@ -405,7 +420,7 @@
             "name": "DateTime", 
             "nameZh": "时间类型", 
             "rdfs:subClassOf": [
-                "Text"
+                "DataType"
             ], 
             "schemaorgName": "DateTime", 
             "schemaorgUrl": "http://schema.org/DateTime", 
@@ -501,7 +516,7 @@
             "name": "Number", 
             "nameZh": "数字类型", 
             "rdfs:subClassOf": [
-                "Text"
+                "DataType"
             ], 
             "schemaorgName": "Number", 
             "schemaorgUrl": "http://schema.org/Number", 
@@ -674,7 +689,7 @@
             "name": "URL", 
             "nameZh": "链接类型", 
             "rdfs:subClassOf": [
-                "Text"
+                "DataType"
             ], 
             "schemaorgName": "URL", 
             "schemaorgUrl": "http://schema.org/URL", 
