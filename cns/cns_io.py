@@ -92,7 +92,7 @@ def table2schema(schema_excel_json, schema_urlprefix, options):
     #read table from excel, and convert them into mem model
     if not converter.table2mem(schema_excel_json):
         logging.info(json4debug(converter.report.data))
-        output_json["validation_result"] = converter.report.has_bug()
+        output_json["validation_result"] = not converter.report.has_bug()
         output_json["validation_report"] = converter.report.data
         return output_json
 
