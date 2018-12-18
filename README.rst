@@ -43,11 +43,17 @@ cns
 cnSchema 201806
 ====================
 
+### cns_meta
+源文件
+https://docs.google.com/spreadsheets/d/1YKtEpHqa2I8LvuNAVDg3uwV6G9b4ZrNJsZdvPMS3_98/edit#gid=175537852
+
+./genschema.sh cns_top v2.1
+
 ### cns_top
 源文件
 https://docs.google.com/spreadsheets/d/1YKtEpHqa2I8LvuNAVDg3uwV6G9b4ZrNJsZdvPMS3_98/edit#gid=175537852
 
-./genschema.sh cns_top v2.0
+./genschema.sh cns_top v2.1
 
 
 

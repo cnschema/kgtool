@@ -1,0 +1,20 @@
+digraph cns_import {
+  #  dot -Tpng example/cns_import.dot -oexample/cns_import.png
+
+  rankdir = "LR"
+
+  node [shape=rect]
+
+  cns_schemaorg -> cns_top
+  cns_person -> cns_top
+  cns_organization -> cns_top
+  cns_organization -> cns_place
+  cns_place -> cns_top
+
+  cns_fund_public -> cns_organization
+  cns_fund_public -> cns_person
+  cns_fund_public -> cns_place
+
+  cns_kg4ai -> cns_place
+  cns_kg4ai -> cns_person
+}

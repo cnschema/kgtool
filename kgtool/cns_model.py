@@ -169,31 +169,32 @@ class CnsSchema:
 
         self._stat()
 
-    def _complete_imported_schema_list(self):
+    def _import_one_schema(self, schema_identifier):
+        schema = self.preloaded_schema_list.get(schema_identifier)
+        if not schema:
+            # load schema on demand
+            jsonld = self.load_jsonld(schema_identifier)
+            #filename = u"../schema/{}.jsonld".format(schema_identifier)
+            #filename = file2abspath(filename)
+            #logging.info("import schema " + filename)
+            schema = CnsSchema()
+            schema.preload_schema_list = self.preloaded_schema_list
 
+            schema.jsonld2mem(jsonld)
+
+        assert schema, schema_identifier
+        self.imported_schema.append(schema)
+        logging.info("importing {}".format(schema_identifier))
+
+        self.preloaded_schema_list[schema_identifier] = schema
+
+    def _complete_imported_schema_list(self):
         self.imported_schema = []
 
         # handle import
         # logging.info(json4debug(imported_schema_identifier))
         for schema_identifier in self.metadata["import"]:
-            schema = self.preloaded_schema_list.get(schema_identifier)
-            if not schema:
-                # load schema on demand
-                jsonld = self.load_jsonld(schema_identifier)
-                #filename = u"../schema/{}.jsonld".format(schema_identifier)
-                #filename = file2abspath(filename)
-                #logging.info("import schema " + filename)
-                schema = CnsSchema()
-                schema.preload_schema_list = self.preloaded_schema_list
-
-                schema.jsonld2mem(jsonld)
-
-            assert schema, schema_identifier
-            self.imported_schema.append(schema)
-            logging.info("importing {}".format(schema_identifier))
-
-            self.preloaded_schema_list[schema_identifier] = schema
-
+            self._import_one_schema(schema_identifier)
         self.imported_schema.append(self)
 
 
@@ -238,6 +239,9 @@ class CnsSchema:
                 if "CnsProperty" in definition["@type"]:
                     ret.append(definition["name"])
         return sorted(list(set(ret)))
+
+    def get_super_class(self, xtype):
+        return self.index_inheritance["rdfs:subClassOf"].get(xtype)
 
     def get_main_types(self, types):
         parents = set()
@@ -593,6 +597,7 @@ class CnsSchema:
         self.build()
 
     def mem2jsonld(self, filename=None):
+
         if not self.metadata["identifier"]:
             bug = {
                 "category" : "error_ontology_release_missing_identifier",
@@ -611,6 +616,7 @@ class CnsSchema:
 
         xid_release = "http://meta.cnschema.org/ontologyrelease/{}".format(self.metadata["identifier"])
         xid_schema = "http://meta.cnschema.org/ontology/{}".format(self.metadata["name"])
+
 
         # assign metadata values
         jsonld = {"@context": {

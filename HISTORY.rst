@@ -2,7 +2,7 @@
 
 History
 -------
-0.1.0 (2018-08-05)
+0.1.0 (2018-10-12)
 ++++++++++++++++++
 * refactor code, switch back to lowercase&underscore code style, split cns_schema into cns_model, cns_validate, cns_convert, cns_graphviz
 * remove cns_creativework
@@ -10,6 +10,7 @@ History
 * add run_normalize_item, covert property value by schema template definition
 * add stat_json_path, count json object for jsonpath, values, unique values, samples and value distribution
 * rewrite validation code, update validation report
+* switch to new excel representation, support 4 sheets definition, template, changelog, metadata
 
 0.0.6 (2018-07-25)
 ++++++++++++++++++

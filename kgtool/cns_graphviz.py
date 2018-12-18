@@ -174,6 +174,19 @@ def _add_template_domain_range(loaded_schema, template, graph, map_link_in_out):
         }
         _add_graphviz_link(link, graph)
 
+def _filter_meta(graph):
+    graph_new = _graph_create()
+    for link in graph["link_list"]:
+        if "cns_meta" in link["from"]["statedIn"] and "cns_meta" in link["to"]["statedIn"]:
+            continue
+        graph_new["link_list"].append(link)
+        graph_new["node_map"]["class"].add(_get_definition_name(link["from"]))
+        graph_new["node_map"]["class"].add(_get_definition_name(link["to"]))
+
+    graph_new["node_map"]["class"] = graph_new["node_map"]["class"].difference( graph_new["node_map"]["link"] )
+    graph_new["node_map"]["class"] = graph_new["node_map"]["class"].difference( graph_new["node_map"]["property"] )
+    return graph_new
+
 def _filter_compact(graph):
     graph_new = _graph_create()
     for link in graph["link_list"]:
@@ -318,17 +331,43 @@ def _graph_update(loaded_schema, schema, graph):
         _add_graphviz_link(link, graph)
     return graph
 
+def _graph_update_inherit(loaded_schema, schema, graph):
+    # preprare data
+
+    for definition in sorted(schema.definition.values(), key=lambda x:x["@id"]):
+        # domain range relation
+        #_add_domain_range(loaded_schema, definition, graph)
+
+        _add_super(loaded_schema, definition, graph)
+        pass
+
+    map_link_in_out = collections.defaultdict(dict)
+    for template in schema.metadata["template"]:
+        _add_template_domain_range(loaded_schema, template, graph, map_link_in_out)
+
+    for key in sorted(map_link_in_out):
+        link = map_link_in_out[key]
+        _add_graphviz_link(link, graph)
+    return graph
 
 def run_graphviz(loaded_schema, name):
 
     ret = {}
 
-    key = "full"
+    key = "complete"
     graph = _graph_create()
     _graph_update(loaded_schema, loaded_schema, graph)
     ret["dot_"+key] = _render_dot_format(graph, name, key)
 
+    key = "full"
+    graph = _graph_create()
+    _graph_update(loaded_schema, loaded_schema, graph)
+    graph_new = _filter_meta(graph)
+    ret["dot_"+key] = _render_dot_format(graph, name, key)
+
     key = "compact"
+    graph = _graph_create()
+    _graph_update(loaded_schema, loaded_schema, graph)
     graph_new = _filter_compact(graph)
     ret["dot_"+key] = _render_dot_format(graph_new, name, key)
 
@@ -341,8 +380,8 @@ def run_graphviz(loaded_schema, name):
 
     for schema in loaded_schema.imported_schema:
         graph = _graph_create()
-#        if schema.metadata["name"] == "cns_top":
-#            continue
+        if schema.metadata["name"] == "cns_meta":
+            continue
         _graph_update(loaded_schema, schema, graph)
         graph_new = _filter_compact(graph)
         subgraph = _render_dot_format(graph_new, None, key, schema.metadata["name"])

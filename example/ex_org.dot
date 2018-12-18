@@ -1,0 +1,21 @@
+digraph ex_org {
+  #  dot -Tpng example/ex_org.dot -oexample/ex_org.png
+
+  rankdir = "LR"
+
+  node [shape=rect]
+  北京大学
+  方正富邦基金管理有限公司
+
+
+  方正富邦基金管理有限公司 -> 方正证券股份有限公司  [label="ShareHolderRole: 66.7%"]  # 44022万元  	66000万元人民币
+  方正证券股份有限公司 -> 北大方正集团有限公司 [label="ShareHolderRole: 31.6%"]  # 260322.8385万元， 823210.1395万元人民币
+  北大方正集团有限公司 -> 北大资产经营有限公司 [label="ShareHolderRole: 70%"]  # 77177万元， 110252.86万元人民币
+  北大资产经营有限公司 -> 北京大学 [label="ShareHolderRole: 100%"] # 301050.7万元  307227.7
+
+  方正富邦基金管理有限公司 -> 北京 [label="province"]
+  方正证券股份有限公司 -> 湖南 [label="province"]
+  北大方正集团有限公司 -> 北京 [label="province"]
+  北大资产经营有限公司 -> 北京 [label="province"]
+  北京大学 -> 北京 [label="province"]
+}
