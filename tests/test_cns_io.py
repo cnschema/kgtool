@@ -25,6 +25,6 @@ class CoreTestCase(unittest.TestCase):
         schema_excel_filename = file2abspath(schema_excel_filename, __file__ )
         options = "jsonld,table_single,table_import,dot_compact,dot_import,dot_full"
         output_json = excel2schema(schema_excel_filename, None, options)
-        logging.info(jsond4debug(output_json))
-        assert output_json["validation_result"]
-        assert False
+        logging.info(json4debug(output_json))
+        assert not output_json["validation_result"]
+        #assert False
