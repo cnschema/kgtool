@@ -832,7 +832,7 @@
             "cnschemaName": "value", 
             "name": "value", 
             "nameZh": "数值", 
-            "range": "Number", 
+            "range": "Float", 
             "schemaorgName": "value", 
             "schemaorgUrl": "http://schema.org/value", 
             "statedIn": "cns_top", 

@@ -534,20 +534,20 @@
             "version": "v1.0"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Company_taxpayersIdentificationNumber", 
+            "@id": "http://meta.cnschema.org/template/Company_taxpayersIdentificationFloat", 
             "@type": [
                 "CnsTemplate", 
                 "CnsMeta"
             ], 
             "maxCardinality": 1, 
             "minCardinality": 0, 
-            "name": "Company_taxpayersIdentificationNumber", 
-            "propertyDescriptionSource": "https://en.wikipedia.org/wiki/Taxpayer_Identification_Number", 
+            "name": "Company_taxpayersIdentificationFloat", 
+            "propertyDescriptionSource": "https://en.wikipedia.org/wiki/Taxpayer_Identification_Float", 
             "propertyDescriptionZh": "纳税人识别号是税务登记证上的号码，通常简称为“税号”，每个企业的纳税人识别号都是唯一的。这个属于每个人自己且终身不变的数字代码很可能成为我们的第二张“身份证”。", 
             "propertyNameZh": "纳税人识别号", 
             "propertyRange": "Text", 
             "refClass": "Company", 
-            "refProperty": "taxpayersIdentificationNumber", 
+            "refProperty": "taxpayersIdentificationFloat", 
             "statedIn": "cns_organization", 
             "version": "v1.0"
         }, 
@@ -941,7 +941,7 @@
                 "changeRatio"
             ], 
             "propertyNameZh": "变更后股权总量", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderChangeTransaction", 
             "refProperty": "changeRatio", 
             "statedIn": "cns_organization", 
@@ -979,7 +979,7 @@
                 "changeAmount"
             ], 
             "propertyNameZh": "变更股权总量", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderChangeTransaction", 
             "refProperty": "changeTotalShare", 
             "statedIn": "cns_organization", 
@@ -1014,7 +1014,7 @@
                 "changePrice"
             ], 
             "propertyNameZh": "变更股权单价", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderChangeTransaction", 
             "refProperty": "changeUnitPrice", 
             "statedIn": "cns_organization", 
@@ -1108,7 +1108,7 @@
                 "endRatio"
             ], 
             "propertyNameZh": "变更后股权比例", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderChangeTransaction", 
             "refProperty": "resultRatio", 
             "statedIn": "cns_organization", 
@@ -1127,7 +1127,7 @@
                 "endAmount"
             ], 
             "propertyNameZh": "变更后股权总量", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderChangeTransaction", 
             "refProperty": "resultTotalShare", 
             "statedIn": "cns_organization", 
@@ -1270,7 +1270,7 @@
                 "purRatio"
             ], 
             "propertyNameZh": "持股比例", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderRole", 
             "refProperty": "shareholderEquityRatio", 
             "statedIn": "cns_organization", 
@@ -1286,7 +1286,7 @@
             "minCardinality": 0, 
             "name": "ShareholderRole_shareholderEquityShare", 
             "propertyNameZh": "持股总量", 
-            "propertyRange": "Number", 
+            "propertyRange": "Float", 
             "refClass": "ShareholderRole", 
             "refProperty": "shareholderEquityShare", 
             "statedIn": "cns_organization", 

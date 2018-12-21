@@ -399,25 +399,6 @@
             "version": "v1.0"
         }, 
         {
-            "@id": "http://cnschema.org/Number", 
-            "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
-                "CnsMeta"
-            ], 
-            "category": "datatype", 
-            "cnschemaName": "Number", 
-            "name": "Number", 
-            "nameZh": "数字类型", 
-            "rdfs:subClassOf": [
-                "DataType"
-            ], 
-            "schemaorgName": "Number", 
-            "schemaorgUrl": "http://schema.org/Number", 
-            "statedIn": "cns_meta", 
-            "version": "v1.0"
-        }, 
-        {
             "@id": "http://cnschema.org/Text", 
             "@type": [
                 "CnsClass", 
