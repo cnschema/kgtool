@@ -191,46 +191,6 @@
             "version": "v1.0"
         }, 
         {
-            "@id": "http://cnschema.org/PropertyValue", 
-            "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
-                "CnsMeta"
-            ], 
-            "category": "struct", 
-            "cnschemaName": "PropertyValue", 
-            "descriptionZh": "更细节的属性值描述，包括进一步的属性名称", 
-            "name": "PropertyValue", 
-            "nameZh": "复杂属性值对", 
-            "rdfs:subClassOf": [
-                "CnsDataStructure"
-            ], 
-            "schemaorgName": "PropertyValue", 
-            "schemaorgUrl": "http://schema.org/PropertyValue", 
-            "statedIn": "cns_top", 
-            "version": "v1.2"
-        }, 
-        {
-            "@id": "http://cnschema.org/QuantitativeValue", 
-            "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
-                "CnsMeta"
-            ], 
-            "category": "struct", 
-            "cnschemaName": "QuantitativeValue", 
-            "descriptionZh": "针对数值型字段，提供可排序的浮点解析结果，", 
-            "name": "QuantitativeValue", 
-            "nameZh": "复杂数值描述", 
-            "rdfs:subClassOf": [
-                "CnsDataStructure"
-            ], 
-            "schemaorgName": "QuantitativeValue", 
-            "schemaorgUrl": "http://schema.org/QuantitativeValue", 
-            "statedIn": "cns_top", 
-            "version": "v1.2"
-        }, 
-        {
             "@id": "http://cnschema.org/Thing", 
             "@type": [
                 "CnsClass", 
@@ -458,7 +418,7 @@
             "cnschemaName": "entityScore", 
             "descriptionZh": "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体", 
             "name": "entityScore", 
-            "nameZh": "全局评分", 
+            "nameZh": "实体全局评分", 
             "range": "Integer", 
             "statedIn": "cns_top", 
             "version": "v1.1"
@@ -589,22 +549,6 @@
             "version": "v2.0"
         }, 
         {
-            "@id": "http://cnschema.org/mergedFrom", 
-            "@type": [
-                "CnsProperty", 
-                "CnsDefinition", 
-                "CnsMeta"
-            ], 
-            "category": "attribute", 
-            "cnschemaName": "mergedFrom", 
-            "descriptionZh": "溯源属性，实体融合来源实体", 
-            "name": "mergedFrom", 
-            "nameZh": "融合来源", 
-            "range": "Thing", 
-            "statedIn": "cns_top", 
-            "version": "v1.1"
-        }, 
-        {
             "@id": "http://cnschema.org/mergedFromCount", 
             "@type": [
                 "CnsProperty", 
@@ -725,7 +669,7 @@
             "cnschemaName": "pageRankScore", 
             "descriptionZh": "系统保留字，实体在对应图谱中的PageRank值", 
             "name": "pageRankScore", 
-            "nameZh": "图谱pagerank评分", 
+            "nameZh": "实体pagerank评分", 
             "range": "Float", 
             "statedIn": "cns_top", 
             "version": "v2.0"
@@ -1070,24 +1014,6 @@
             "version": "v2.0"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/CnsLink_date", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "CnsLink_date", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "日期", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "CnsLink", 
-            "refProperty": "date", 
-            "statedIn": "cns_top", 
-            "version": "v1.2"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/CnsLink_endDate", 
             "@type": [
                 "CnsTemplate", 
@@ -1260,119 +1186,6 @@
             "version": "v2.0"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/PropertyValue_name", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "PropertyValue_name", 
-            "propertyAlternateName": [
-                "姓名"
-            ], 
-            "propertyNameZh": "属性名", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "PropertyValue", 
-            "refProperty": "name", 
-            "statedIn": "cns_top", 
-            "version": "v2.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/PropertyValue_value", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "PropertyValue_value", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "属性值", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "PropertyValue", 
-            "refProperty": "value", 
-            "statedIn": "cns_top", 
-            "version": "v2.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/QuantitativeValue_endDate", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "QuantitativeValue_endDate", 
-            "propertyAlternateName": [
-                "截至时间", 
-                "结束日期"
-            ], 
-            "propertyNameZh": "截至时间", 
-            "propertyRange": "DateTime", 
-            "propertySchema": "cns_top", 
-            "refClass": "QuantitativeValue", 
-            "refProperty": "endDate", 
-            "statedIn": "cns_top", 
-            "version": "v2.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/QuantitativeValue_proportion", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "QuantitativeValue_proportion", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "占比", 
-            "propertyRange": "Float", 
-            "propertySchema": "cns_top", 
-            "refClass": "QuantitativeValue", 
-            "refProperty": "proportion", 
-            "statedIn": "cns_top", 
-            "version": "v2.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/QuantitativeValue_unitText", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "QuantitativeValue_unitText", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "单位", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "QuantitativeValue", 
-            "refProperty": "unitText", 
-            "statedIn": "cns_top", 
-            "version": "v2.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/QuantitativeValue_value", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "QuantitativeValue_value", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "数值", 
-            "propertyRange": "Float", 
-            "propertySchema": "cns_top", 
-            "refClass": "QuantitativeValue", 
-            "refProperty": "value", 
-            "statedIn": "cns_top", 
-            "version": "v2.0"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/Thing_alternateName", 
             "@type": [
                 "CnsTemplate", 
@@ -1390,27 +1203,6 @@
             "version": "v1.2"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Thing_description", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "Thing_description", 
-            "propertyAlternateName": [
-                "描述", 
-                "定义"
-            ], 
-            "propertyNameZh": "简介", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "Thing", 
-            "refProperty": "description", 
-            "statedIn": "cns_top", 
-            "version": "v1.2"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/Thing_entityScore", 
             "@type": [
                 "CnsTemplate", 
@@ -1420,7 +1212,7 @@
             "minCardinality": 0, 
             "name": "Thing_entityScore", 
             "propertyAlternateName": [], 
-            "propertyNameZh": "全局评分", 
+            "propertyNameZh": "实体全局评分", 
             "propertyRange": "Integer", 
             "propertySchema": "cns_top", 
             "refClass": "Thing", 
@@ -1445,23 +1237,6 @@
             "refProperty": "identifier", 
             "statedIn": "cns_top", 
             "version": "v1.2"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Thing_mergedFrom", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "minCardinality": 0, 
-            "name": "Thing_mergedFrom", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "融合来源", 
-            "propertyRange": "Thing", 
-            "propertySchema": "cns_top", 
-            "refClass": "Thing", 
-            "refProperty": "mergedFrom", 
-            "statedIn": "cns_top", 
-            "version": "v1.0"
         }, 
         {
             "@id": "http://meta.cnschema.org/template/Thing_mergedFromCount", 
@@ -1509,7 +1284,7 @@
             "minCardinality": 0, 
             "name": "Thing_pageRankScore", 
             "propertyAlternateName": [], 
-            "propertyNameZh": "图谱pagerank评分", 
+            "propertyNameZh": "实体pagerank评分", 
             "propertyRange": "Float", 
             "propertySchema": "cns_top", 
             "refClass": "Thing", 

@@ -301,7 +301,8 @@
     "description": "cnSchema顶级模块，覆盖地点位置常用概念。", 
     "identifier": "cns_place_v2.1", 
     "import": [
-        "cns_top_v2.1"
+        "cns_top_v2.1", 
+        "cns_meta_v2.1"
     ], 
     "name": "cns_place", 
     "template": [

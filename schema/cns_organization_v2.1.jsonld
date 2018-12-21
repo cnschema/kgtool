@@ -199,7 +199,7 @@
     "identifier": "cns_organization_v2.1", 
     "import": [
         "cns_top_v2.1", 
-        "cns_place_v2.1"
+        "cns_meta_v2.1"
     ], 
     "name": "cns_organization", 
     "template": [
@@ -327,28 +327,6 @@
             "propertySchema": "cns_top", 
             "refClass": "Company", 
             "refProperty": "foundingDate", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_name", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "exampleValueJson": "\"name\": \"腾讯征信有限公司\" ,", 
-            "exampleValueText": "腾讯征信有限公司", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "Company_name", 
-            "propertyAlternateName": [
-                "法定名称"
-            ], 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "Company", 
-            "refProperty": "name", 
             "statedIn": "cns_organization", 
             "version": "v1.0"
         }, 
@@ -840,25 +818,6 @@
             "version": "v1.0"
         }, 
         {
-            "@id": "http://meta.cnschema.org/template/Organization_city", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "exampleValueText": "深圳市", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Organization_city", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "所在城市", 
-            "propertyRange": "City", 
-            "propertySchema": "cns_place", 
-            "refClass": "Organization", 
-            "refProperty": "city", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
             "@id": "http://meta.cnschema.org/template/Organization_email", 
             "@type": [
                 "CnsTemplate", 
@@ -891,26 +850,6 @@
             "propertyRange": "Text", 
             "refClass": "Organization", 
             "refProperty": "fax", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Organization_province", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "exampleValueText": "广东省", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Organization_province", 
-            "propertyAlternateName": [], 
-            "propertyDescriptionZh": "组织机构所在的省份（直辖市以及特别行政区）", 
-            "propertyNameZh": "所在省份", 
-            "propertyRange": "Province", 
-            "propertySchema": "cns_place", 
-            "refClass": "Organization", 
-            "refProperty": "province", 
             "statedIn": "cns_organization", 
             "version": "v1.0"
         }, 
@@ -950,26 +889,6 @@
             "propertySchema": "cns_top", 
             "refClass": "Organization", 
             "refProperty": "website", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Organization_workLocation", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Organization_workLocation", 
-            "propertyAlternateName": [
-                "办公地址"
-            ], 
-            "propertyNameZh": "办公地点", 
-            "propertyRange": "Place", 
-            "propertySchema": "cns_place", 
-            "refClass": "Organization", 
-            "refProperty": "workLocation", 
             "statedIn": "cns_organization", 
             "version": "v1.0"
         }, 

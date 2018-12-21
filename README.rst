@@ -45,40 +45,48 @@ cnSchema 201806
 
 ### cns_meta
 源文件
-https://docs.google.com/spreadsheets/d/1YKtEpHqa2I8LvuNAVDg3uwV6G9b4ZrNJsZdvPMS3_98/edit#gid=175537852
+https://docs.google.com/spreadsheets/d/1PYGYZtQLaLa2Oo3HLaL33VyL9VkUJUruYJr6nKQH6EY/edit
 
-./genschema.sh cns_top v2.1
+./genschema.sh cns_meta v2.1 schema
 
 ### cns_top
 源文件
-https://docs.google.com/spreadsheets/d/1YKtEpHqa2I8LvuNAVDg3uwV6G9b4ZrNJsZdvPMS3_98/edit#gid=175537852
+https://docs.google.com/spreadsheets/d/1YKtEpHqa2I8LvuNAVDg3uwV6G9b4ZrNJsZdvPMS3_98/edit
 
-./genschema.sh cns_top v2.1
+./genschema.sh cns_top v2.1 schema
 
+
+### cns_temporal
+源文件
+https://docs.google.com/spreadsheets/d/1dH0ekNWX-HAfvEik088l4EMnLSRZ4AhQBZnqW4yv054/edit
+
+./genschema.sh cns_temporal v2.1 schema
 
 
 ### cns_place
 源文件
-https://docs.google.com/spreadsheets/d/1aX-_QOj2GQALx-k_dJU-ak5LyvV0iIBaAg6s2N0UNmw/edit#gid=1952900205
+https://docs.google.com/spreadsheets/d/1aX-_QOj2GQALx-k_dJU-ak5LyvV0iIBaAg6s2N0UNmw/edit
 
-./genschema.sh cns_place v2.0
-
-
-### cns_organization
-源文件
-https://docs.google.com/spreadsheets/d/1qVaBhsbf0RRkrVhG0kkkn79q_fH4s4bV3oO5isGrX8o/edit#gid=659512552
-
-./genschema.sh cns_organization v2.0
+./genschema.sh cns_place v2.1 schema
 
 
 ### cns_person
 源文件
 https://docs.google.com/spreadsheets/d/1b5DubotKUTU5tvT2pGXztwLpP63Xrc1le-VOuGKqbcw/edit
 
-./genschema.sh cns_person v2.0
+./genschema.sh cns_person v2.1 schema
+
+### cns_organization
+源文件
+https://docs.google.com/spreadsheets/d/1qVaBhsbf0RRkrVhG0kkkn79q_fH4s4bV3oO5isGrX8o/edit
+
+./genschema.sh cns_organization v2.1 schema
 
 
 
+
+~~~~~~~
+other files
 
 ### cns_schemaorg
 源文件

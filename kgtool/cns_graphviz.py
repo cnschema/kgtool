@@ -218,6 +218,7 @@ def _filter_compact(graph):
     return graph_new
 
 def _render_dot_format(graph, name, key, subgraph_name=None):
+    # shape files https://www.graphviz.org/doc/info/shapes.html
     # generate graph
     lines = []
     if subgraph_name == None:
@@ -291,16 +292,35 @@ def _render_dot_format(graph, name, key, subgraph_name=None):
                 if line not in lines:
                     lines.append(line)
 
-                shape = "diamond"
+                shape = "octagon"
                 if link["type"] == "template_link":
                     peripheries = 2
                 else:
                     peripheries = 1
 
+
+
             line = u'\t{} [shape={}, label={} , peripheries={}]'.format( prop_id, shape, prop_name, peripheries)
             if line not in lines:
                 lines.append(line)
 
+      # https://stackoverflow.com/questions/3499056/making-a-legend-key-in-graphviz
+      #   line = u"""
+      #
+      #   subgraph cluster_01 {
+      #   label = "图例";
+      #
+      #   node  [shape=rect, peripheries=2]
+      #   "实体分类（Class）"  [shape=rect, peripheries=1]
+      #   "实体关系（CnsLink）" [shape=octagon, peripheries=1]
+      #   "实体属性（Property）" [shape=oval, peripheries=1]
+      #   "数据类型（Property）" [shape=oval, style=Dotted, peripheries=1]
+      #   node [color=white]
+      #   e11 -> e12 [label="继承" style=dashed]
+      #   e21 -> e22 [label="属性/关系" style=solid]
+      # }
+      #           """
+      #   lines.append(line)
     lines.append(u"}")
 
     ret = u'\n'.join(lines)
