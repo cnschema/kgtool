@@ -10,7 +10,7 @@ try:
 except ImportError:
     import unittest
 
-from kgtool.core import file2abspath  # noqa
+from kgtool.core import file2abspath,json4debug  # noqa
 from kgtool.table import *  # noqa
 
 
@@ -41,6 +41,21 @@ class TableTestCase(unittest.TestCase):
         assert len(output_data["data"].values()[0]) == 2
         assert output_data["fields"].values()[0] == ["name", u"年龄", "notes"]
 
+    def test_load_empty_sheet_excel2json2018(self):
+        schema_excel_filename = "cns_empty.xlsx"
+        schema_excel_filename = file2abspath(schema_excel_filename, __file__ )
+        output_json = excel2json2018(schema_excel_filename)
+        logging.info(json4debug(output_json))
+        assert len(output_json) == 4
+        assert len(output_json[0]['rows']) == 0
+
+        schema_excel_filename = "empty_sheet.xls"
+        schema_excel_filename = file2abspath(schema_excel_filename, __file__ )
+        output_json = excel2json2018(schema_excel_filename)
+        logging.info(json4debug(output_json))
+        assert len(output_json) == 1
+        assert len(output_json[0]['rows']) == 0
+        assert len(output_json[0]['columns']) == 0
 
 if __name__ == '__main__':
     unittest.main()

@@ -190,6 +190,12 @@ def excel2json2018(filename, non_empty_col=-1, file_contents=None):
         # sheet name
         sh = workbook.sheet_by_name(name)
         table["sheetname"] = name
+        table['columns'] = []
+        table['rows'] = []
+
+        #skip empty sheet
+        if sh.nrows == 0:
+            continue
 
         # sheet headers
         headers = []
