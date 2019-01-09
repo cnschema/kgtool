@@ -84,6 +84,9 @@ class CnsSchema:
         # Schema raw data: concept definition,  @id => entity
         self.definition = collections.defaultdict(dict)
 
+        # schema dependency pairs e.g. {(cns_top_v2.1, cns_meta_v2.1), (cns_place_v2.1, cns_top_v2.1)}
+        self._schema_dependency = set()
+
         # all schema module, includion self
         self.imported_schema = []
 
@@ -183,19 +186,29 @@ class CnsSchema:
             schema.jsonld2mem(jsonld)
 
         assert schema, schema_identifier
-        self.imported_schema.append(schema)
         logging.info("importing {}".format(schema_identifier))
 
         self.preloaded_schema_list[schema_identifier] = schema
+        return schema
 
     def _complete_imported_schema_list(self):
-        self.imported_schema = []
-
+        self_id = self.metadata["identifier"]
         # handle import
         # logging.info(json4debug(imported_schema_identifier))
         for schema_identifier in self.metadata["import"]:
-            self._import_one_schema(schema_identifier)
-        self.imported_schema.append(self)
+            schema = self._import_one_schema(schema_identifier)
+            # update schema dependency from imported schema
+            self._schema_dependency.update(schema.schema_deps)
+            # self depends on schema_identifier
+            self._schema_dependency.add((self_id, schema_identifier))
+
+        # compute full imported schemas
+        if self._schema_dependency:
+            dg = DirectedGraph(self._schema_dependency)
+            st = dg.compute_subtree(include_self=False)
+            assert self_id in st
+            self.imported_schema = list(reversed([self.preloaded_schema_list[s] for s in st[self_id]]))
+            self.imported_schema.append(self)
 
 
     # def _validate_schema(self):
