@@ -12,7 +12,6 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import glob
@@ -21,7 +20,7 @@ import glob
 VERSION = 'v20180305'
 CONTEXTS = [os.path.basename(__file__), VERSION]
 
-from core import *  # noqa
+from kgtool.core import *  # noqa
 
 
 def stat_table(items, unique_fields, value_fields=[], printCounter=True, MAX_UNIQUE = 100, REPORT_GAP = 10000):
@@ -223,7 +222,7 @@ def stat_kg_pattern_entity(entity, counter, level):
             counter[key] += 1
 
 def task_stat_kg_pattern(args):
-    print "called task_stat_kg_pattern"
+    print("called task_stat_kg_pattern")
     logging.info(args)
     filenames = glob.glob(args["filepath"])
     logging.info(filenames)

@@ -14,6 +14,10 @@ additional setup
   pip install rdflib-jsonld
 
 
+setup
+-------------
+python3 -m venv ~/envs/cns-env
+source ~/envs/cns-env/bin/activate
 
 
 

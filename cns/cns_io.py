@@ -12,7 +12,6 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import glob
@@ -167,7 +166,7 @@ def mem4export(the_schema, options):
 
     if options:
         if "dot" in options:
-            graph_name = re.sub(ur"[-\.]","_", output_json["schema_identifier"])
+            graph_name = re.sub(r"[-\.]","_", output_json["schema_identifier"])
             dot_file_map = run_graphviz(the_schema, graph_name)
 
         for option in [x.strip() for x in options.split(",")]:
@@ -223,6 +222,8 @@ def task_excel2jsonld(args):
     if not output_json["validation_result"]:
         logging.info(json4debug(output_json["validation_report"]))
         return False
+
+    #validateJsonDump(output_json["jsonld"])
 
     filename_output = os.path.join(args["output_dir"], output_json["jsonld"]["identifier"]+".jsonld")
     json2file(output_json["jsonld"], filename_output)

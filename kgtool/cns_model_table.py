@@ -15,19 +15,15 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import glob
 import copy
 
 
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
-
-from cns_model import CnsSchema
-from cns_validate import run_validate_recursive
-from core import parse_list_value, is_empty_string
+from kgtool.cns_model import CnsSchema
+from kgtool.cns_validate import run_validate_recursive
+from kgtool.core import parse_list_value, is_empty_string
 
 
 # global constants
@@ -146,7 +142,7 @@ def _is_valid_row(item):
     if is_empty_string(version):
         return False
 
-    if not isinstance(version, basestring):
+    if not isinstance(version, str):
         return False
 
     if not version.startswith("v"):

@@ -12,19 +12,15 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import glob
 import copy
 
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
-
 from kgtool.core import *  # noqa
 from kgtool.stats import stat_kg_report_per_item
-from cns_model import CnsSchema
-from cns_common import gen_cns_id
+from kgtool.cns_model import CnsSchema
+from kgtool.cns_common import gen_cns_id
 
 # global constants
 VERSION = 'v20180724'
@@ -78,7 +74,7 @@ def run_convert(cns_model, item, types, primary_keys, report = None):
     return cns_item
 
 
-REGEX_JSON_STRING = re.compile(ur"^{.+}$")
+REGEX_JSON_STRING = re.compile(r"^{.+}$")
 
 def convert_cns_type_string(types):
     if isinstance(types, list):

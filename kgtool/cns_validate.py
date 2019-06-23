@@ -12,16 +12,15 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import glob
 import copy
 
-from core import *  # noqa
-from stats import stat_kg_report_per_item
-from cns_convert import convert_cns_type_string
-from cns_model import preload_schema, CnsSchema
+from kgtool.core import *  # noqa
+from kgtool.stats import stat_kg_report_per_item
+from kgtool.cns_convert import convert_cns_type_string
+from kgtool.cns_model import preload_schema, CnsSchema
 
 # global constants
 VERSION = 'v20180724'
@@ -531,11 +530,11 @@ def _validate_datatype(c, p, v, range_actual, range_config, report):
 ISO8601_REGEX_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ISO8601_REGEX_DATETIME = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$")
 def iso8601_date_parse(datestr):
-    if isinstance(datestr, basestring):
+    if isinstance(datestr, str):
         return ISO8601_REGEX_DATE.match(datestr)
 
 def iso8601_datetime_parse(datestr):
-    if isinstance(datestr, basestring):
+    if isinstance(datestr, str):
         return ISO8601_REGEX_DATETIME.match(datestr)
 
 #

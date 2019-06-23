@@ -12,18 +12,15 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import glob
 import copy
 
-sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
 
 from kgtool.core import *  # noqa
 from kgtool.stats import stat_kg_report_per_item
-from cns_model import preload_schema, CnsSchema, template2definition4property
+from kgtool.cns_model import preload_schema, CnsSchema, template2definition4property
 
 # global constants
 VERSION = 'v20180724'
@@ -425,7 +422,7 @@ def task_graphviz(args):
     jsonld_input = file2json(filename)
 
     name = os.path.basename(args["input_file"]).replace(".jsonld","")
-    graph_name = re.sub(ur"[-\.]","_", name)
+    graph_name = re.sub(r"[-\.]","_", name)
     ret = run_graphviz(the_schema, graph_name)
     for key, lines in ret.items():
         xdebug_file = os.path.join(args["debug_dir"], name+"_"+key+u".dot")

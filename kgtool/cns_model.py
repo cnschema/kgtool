@@ -7,9 +7,9 @@ import glob
 from difflib import unified_diff
 import urllib
 
-from core import *  # noqa
-from alg_graph import DirectedGraph
-from cns_common import CnsBugReport
+from kgtool.core import *  # noqa
+from kgtool.alg_graph import DirectedGraph
+from kgtool.cns_common import CnsBugReport
 
 # global constants
 VERSION = 'v20180920'
@@ -61,7 +61,7 @@ def gen_range_validation_config(range_text, schema):
     temp = {"text": range_text, "python_type_value_list": [], "cns_range_entity": [], "cns_range_datastructure": []}
     for r in parse_list_value(range_text):
         if range_text.lower() in ["text", "date", "datetime", "number", "url"]:
-            temp["python_type_value_list"].extend([basestring, unicode, str])
+            temp["python_type_value_list"].extend([str])
         elif range_text.lower() in ["integer"]:
             temp["python_type_value_list"].append(int)
         elif range_text.lower() in ["float"]:
@@ -198,7 +198,7 @@ class CnsSchema:
         for schema_identifier in self.metadata["import"]:
             schema = self._import_one_schema(schema_identifier)
             # update schema dependency from imported schema
-            self._schema_dependency.update(schema.schema_deps)
+            self._schema_dependency.update(schema._schema_dependency)
             # self depends on schema_identifier
             self._schema_dependency.add((self_id, schema_identifier))
 
@@ -644,7 +644,7 @@ class CnsSchema:
                         "@type": ["CnsOntology", "CnsMeta"],
                         "name": self.metadata["name"],
                     },
-                    "@graph": self.definition.values() }
+                    "@graph": list(self.definition.values()) }
 
         for p in self.metadata:
             if p in ["changelog", "template"]:

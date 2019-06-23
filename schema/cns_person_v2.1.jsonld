@@ -353,7 +353,7 @@
             "cnschemaName": "dharmaName", 
             "name": "dharmaName", 
             "nameZh": "法号", 
-            "range": "Person", 
+            "range": "Text", 
             "statedIn": "cns_person", 
             "version": "v2.0", 
             "wikipediaUrl": "https://en.wikipedia.org/wiki/Dharma_name"
@@ -1018,26 +1018,6 @@
         "cns_meta_v2.1"
     ], 
     "name": "cns_person", 
-    "template": [
-        {
-            "@id": "http://meta.cnschema.org/template/Person_gender", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "exampleValueJson": "\"gender\": “男” ,", 
-            "exampleValueText": "男", 
-            "minCardinality": 0, 
-            "name": "Person_gender", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "性别", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_person", 
-            "refClass": "Person", 
-            "refProperty": "gender", 
-            "statedIn": "cns_person", 
-            "version": "v2.0"
-        }
-    ], 
-    "version": "v2.0"
+    "template": [], 
+    "version": "v2.1"
 }

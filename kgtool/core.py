@@ -13,7 +13,6 @@ import hashlib
 import datetime
 import time
 import argparse
-import urlparse
 import re
 import collections
 import decimal
@@ -63,7 +62,7 @@ def main_subtask(module_name, method_prefixs=["task_"], optional_params={}):
                     sortby = 'cumulative'
                     ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
                     ps.print_stats()
-                    print s.getvalue()
+                    print (s.getvalue())
                 else:
                     the_method(args=vars(args))
 
@@ -262,7 +261,7 @@ def any2utf8(data):
         return [any2utf8(x) for x in data]
     elif isinstance(data, unicode):
         return data.encode("utf-8")
-    elif type(data) in [str, basestring]:
+    elif type(data) in [str]:
         return data
     elif type(data) in [int, float]:
         return data
@@ -285,7 +284,7 @@ def any2unicode(data):
         return [any2unicode(x) for x in data]
     elif isinstance(data, unicode):
         return data
-    elif type(data) in [str, basestring]:
+    elif type(data) in [str]:
         temp = data.decode("utf-8")
         logging.info("convert[{}]".format(temp))
         return temp
@@ -304,7 +303,7 @@ def any2text(any):
     """
     if isinstance(any, unicode):
         text = any.encode('utf-8')
-    elif isinstance(any, basestring):
+    elif isinstance(any, str):
         text = any
     elif isinstance(any, list):
         try:
@@ -338,17 +337,17 @@ def any2sha256(text):
 
 ####################################
 # string parser
-def parse_list_value(value, regex=ur"[，,、；;／/]"):
+def parse_list_value(value, regex=r"[，,、；;／/]"):
 #    return parseListValue(value, regex)
 #
-#def parseListValue(value, regex=ur"[，,、；;／/]"):
+#def parseListValue(value, regex=r"[，,、；;／/]"):
     """
         parse unicode string into a list
         if the input is not unicode or list, raise exception
     """
     vtype = type(value)
 
-    if isinstance(value, basestring):
+    if isinstance(value, str):
         ret = re.split(regex, value)
     elif vtype in [list]:
         ret = value
@@ -361,7 +360,7 @@ def is_empty_string(text):
     if text is None:
         return True
 
-    if isinstance(text, basestring):
+    if isinstance(text, str):
         if text.strip() == "":
             return True
     return False
@@ -409,13 +408,13 @@ def normalize_value(v, option="list2sample"):
             return None
         else:
             return v
-    elif xtype in [unicode, basestring]:
+    elif xtype in [str]:
         v = v.strip()
         if len(v) == 0:
             return None
         elif v in ["null","none"]:
             return None
-        elif re.search(ur"^[\-\.\s]*$",v):
+        elif re.search(r"^[\-\.\s]*$",v):
             return None
     return v
 
@@ -442,6 +441,25 @@ def item2flatstr(key, item, ret, option="list2sample"):
         ret[key] = item
 
     return ret
+
+
+def validateJsonDump(item):
+    if type(item) in [list]:
+        for x in item:
+            validateJsonDump(x)
+    elif type(item) in [dict]:
+        for p,v in item.items():
+            logging.info(p)
+            validateJsonDump(v)
+    else:
+        try:
+            json.dumps(item)
+        except Exception as e:
+            logging.info(e)
+            logging.info(item)
+            logging.info(type(item))
+
+
 
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)

@@ -9,7 +9,7 @@ shared code without external dependency
 
 import collections
 import copy
-from core import *  # noqa
+from kgtool.core import *  # noqa
 
 
 def gen_cns_link_default_primary_key(cns_item):
@@ -47,7 +47,7 @@ class CnsBugReport():
 
 
     def report_bug(self, bug):
-        key = ur" | ".join([bug["category"], bug["description"], bug.get("class", ""), bug.get("property", "")])
+        key = r" | ".join([bug["category"], bug["description"], bug.get("class", ""), bug.get("property", "")])
         self.data["stats"][key] += 1
         if key not in self.data["bugs_sample"]:
             self.data["bugs_sample"][key] = copy.deepcopy(bug)

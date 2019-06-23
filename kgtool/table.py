@@ -155,7 +155,7 @@ def excel2json(filename, non_empty_col=-1, file_contents=None):
 
             for col in range(len(headers)):
                 value = sh.cell(row, col).value
-                if type(value) in [unicode, basestring]:
+                if type(value) in [str]:
                     value = value.strip()
                 item[headers[col]] = value
 
@@ -222,7 +222,7 @@ def excel2json2018(filename, non_empty_col=-1, file_contents=None):
 
             for col in range(len(headers)):
                 value = sh.cell(row, col).value
-                if type(value) in [unicode, basestring]:
+                if type(value) in [str]:
                     value = value.strip()
                 item[headers[col]] = value
 
