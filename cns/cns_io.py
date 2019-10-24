@@ -47,7 +47,7 @@ KGTOOL API
 
 """
 
-def excel2schema(schema_excel_filename, schema_urlprefix, options):
+def excel2schema(schema_excel_filename, schema_urlprefix, options, schema_dir=None):
     """ given an excel filename, convert it into memory object,
         and output JSON representation based on options.
 
@@ -70,10 +70,10 @@ def excel2schema(schema_excel_filename, schema_urlprefix, options):
     """
     schema_excel_json = excel2json2018(schema_excel_filename)
 
-    return table2schema(schema_excel_json, schema_urlprefix, options)
+    return table2schema(schema_excel_json, schema_urlprefix, options, schema_dir)
 
 
-def table2schema(schema_excel_json, schema_urlprefix, options):
+def table2schema(schema_excel_json, schema_urlprefix, options, schema_dir=None):
     """ given an excel table json object, convert it into memory object,
         and output JSON representation based on options.
 
@@ -85,7 +85,7 @@ def table2schema(schema_excel_json, schema_urlprefix, options):
     """
     output_json = {}
 
-    converter = CnsModelTable()
+    converter = CnsModelTable(schema_dir=schema_dir)
     converter.schema.schema_urlprefix = schema_urlprefix
 
     #read table from excel, and convert them into mem model
@@ -216,7 +216,7 @@ def _export_nquad(args, filename_output):
 def task_excel2jsonld(args):
     schema_excel_filename = args["input_file"]
     options = "jsonld,table_single,table_import,dot_compact,dot_import,dot_full"
-    output_json = excel2schema(schema_excel_filename, None, options)
+    output_json = excel2schema(schema_excel_filename, None, options, args.get('schema_dir'))
 
     #read table from excel, and convert them into mem model
     if not output_json["validation_result"]:

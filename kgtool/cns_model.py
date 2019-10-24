@@ -147,10 +147,14 @@ class CnsSchema:
             text = response.read()
             return json.loads(text)
         elif self.schema_dir:
-            filename = "{}/{}.jsonld".format(self.schema_dir, schema_release_identifier)
-            return file2json(filename)
+            for schema_dir in  [self.schema_dir, "schema","local/schema"]:
+                filename = "{}/{}.jsonld".format(schema_dir, schema_release_identifier)
+                logging.info(filename)
+                if os.path.exists(filename):
+                    return file2json(filename)
+            assert False # cannot find file in any schema dir
         else:
-            assert False
+            assert False # neither URL or local schema dir supplied
 
     def build(self):
 
@@ -194,7 +198,6 @@ class CnsSchema:
     def _complete_imported_schema_list(self):
         self_id = self.metadata["identifier"]
         # handle import
-        # logging.info(json4debug(imported_schema_identifier))
         for schema_identifier in self.metadata["import"]:
             schema = self._import_one_schema(schema_identifier)
             # update schema dependency from imported schema
@@ -208,8 +211,8 @@ class CnsSchema:
             st = dg.compute_subtree(include_self=False)
             assert self_id in st
             self.imported_schema = list(reversed([self.preloaded_schema_list[s] for s in st[self_id]]))
-            self.imported_schema.append(self)
 
+        self.imported_schema.append(self)
 
     # def _validate_schema(self):
     #     for template in self.metadata["template"]:

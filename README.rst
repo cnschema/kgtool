@@ -108,3 +108,30 @@ TODO: 处理 domain/range
 https://docs.google.com/spreadsheets/d/1wAM3zoyjFmo0O92-okLHLMXwKNvx_GCWV2eu_AeX3VY/edit#gid=1085464633
 
 ./genschema.sh cns_kg4ai v20180915
+
+
+### test data on neo4j@Mac
+
+#1. DOWNLOAD two CSV files from the excel
+sample_entity
+sample_link
+
+#2. CD neo4j directory
+cd ~/my-software/neo4j-community-3.1.7
+
+#3. REMOVE EXISTING DATA
+mkdir data/cns_test
+rm -rf data/databases/graph.db
+
+#4. MOVE FILE
+rm data/cns_test/*
+mv ~/Downloads/cns_*sample_*csv data/cns_test/
+
+#5. LOAD EXAMPLE DATA
+bin/neo4j-admin import --nodes "data/cns_test/cns_*sample_entity.csv" --relationships "data/cns_test/cns_*sample_link.csv"
+
+#6. restart neo4j
+bin/neo4j restart
+
+#7. open web browser, may need to one more page refresh to load db
+http://localhost:7474/browser/

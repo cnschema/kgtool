@@ -231,13 +231,13 @@ def _jsonld2excel_item(cns_item):
 #            ret[px] = v
         elif p == "schemaorgUrl":
             px = "schemaorgName"
-            cns_item[px] = v.replace("http://schema.org/","")
+            ret[px] = v.replace("http://schema.org/","")
         elif p == "wikipediaName":
             px = "wikipediaUrl"
-            cns_item[px] = v.replace("https://en.wikipedia.org/","")
+            ret[px] = v.replace("https://en.wikipedia.org/","")
         elif p == "wikidataUrl":
             px = "wikidataName"
-            cns_item[px] = v.replace("https://www.wikidata.org/wiki/","")
+            ret[px] = v.replace("https://www.wikidata.org/wiki/","")
 
         elif p.startswith("@"):
             pass
@@ -337,11 +337,12 @@ def mem2table(the_schema, flag_import):
 
 
 class CnsModelTable():
-    def __init__(self):
+    def __init__(self, schema_dir=None):
         #cnSchema存储
         self.schema = CnsSchema()
         self.report = self.schema.report
-
+        if schema_dir:
+            self.schema.schema_dir = schema_dir
 
     def table2mem(self, excel_data):
         #logging.info(json4debug(excel_data))

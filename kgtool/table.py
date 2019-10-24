@@ -157,6 +157,9 @@ def excel2json(filename, non_empty_col=-1, file_contents=None):
                 value = sh.cell(row, col).value
                 if type(value) in [str]:
                     value = value.strip()
+                if type(value) in [float]:
+                    if abs(value-round(value))<0.000001:
+                        value = round(value)
                 item[headers[col]] = value
 
             if non_empty_col >= 0 and not item[headers[non_empty_col]]:
@@ -224,6 +227,9 @@ def excel2json2018(filename, non_empty_col=-1, file_contents=None):
                 value = sh.cell(row, col).value
                 if type(value) in [str]:
                     value = value.strip()
+                if type(value) in [float]:
+                    if abs(value-round(value))<0.000001:
+                        value = round(value)
                 item[headers[col]] = value
 
             if non_empty_col >= 0 and not item[headers[non_empty_col]]:

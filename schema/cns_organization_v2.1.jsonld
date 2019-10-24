@@ -1,1317 +1,3023 @@
 {
     "@context": {
-        "@vocab": "http://cnschema.org/", 
-        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#", 
+        "@vocab": "http://cnschema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
         "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
-    }, 
+    },
     "@graph": [
         {
-            "@id": "http://cnschema.org/Company", 
+            "@id": "http://cnschema.org/Company",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
+            ],
             "alternateName": [
                 "工商注册公司"
-            ], 
-            "category": "class", 
-            "cnschemaName": "Company", 
-            "descriptionSource": "https://en.wikipedia.org/wiki/Company", 
-            "name": "Company", 
-            "nameZh": "公司", 
+            ],
+            "category": "class",
+            "cnschemaName": "Company",
+            "descriptionSource": "https://en.wikipedia.org/wiki/Company",
+            "descriptionZh": "公司特指具备工商营业执照的组织，包括盈利企业和非盈利组织机构。",
+            "name": "Company",
+            "nameZh": "公司",
             "rdfs:subClassOf": [
                 "Organization"
-            ], 
-            "statedIn": "cns_organization", 
+            ],
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://cnschema.org/CompanyInfoUpdateEvent", 
+            "@id": "http://cnschema.org/CompanyAnnualReport",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "CompanyInfoUpdateEvent", 
-            "descriptionZh": "工商注册信息变更，内容比较杂乱，没有具体格式", 
-            "name": "CompanyInfoUpdateEvent", 
-            "nameZh": "公司信息变更事件", 
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyAnnualReport",
+            "name": "CompanyAnnualReport",
+            "nameZh": "工商年报",
             "rdfs:subClassOf": [
                 "Event"
-            ], 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://cnschema.org/LegalRepresentativeRole", 
+            "@id": "http://cnschema.org/CompanyBranchRole",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "LegalRepresentativeRole", 
-            "descriptionZh": "法人代表一般是指根据法人的内部规定担任某一职务或由法定代表人指派代表法人对外依法行使民事权利和义务的人，它不是一个独立的法律概念。法人代表依法定代表人的授权而产生，没有法定代表人的授权，就不能产生法人代表，而法定代表人则依法由上级任命或由企业权力机构依法定程序选举产生。", 
-            "descriptionZhSource": "智库百科", 
-            "name": "LegalRepresentativeRole", 
-            "nameZh": "法人代表关系", 
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyBranchRole",
+            "name": "CompanyBranchRole",
+            "nameZh": "分支机构关系",
             "rdfs:subClassOf": [
                 "CnsLink"
-            ], 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://cnschema.org/ManagerRole", 
+            "@id": "http://cnschema.org/CompanyEquityPledgeAgreement",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "ManagerRole", 
-            "name": "ManagerRole", 
-            "nameZh": "高管关系", 
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyEquityPledgeAgreement",
+            "name": "CompanyEquityPledgeAgreement",
+            "nameZh": "公司股权出质协议",
+            "rdfs:subClassOf": [
+                "Event"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://cnschema.org/CompanyInfoUpdateEvent",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyInfoUpdateEvent",
+            "descriptionZh": "工商注册信息变更，内容比较杂乱，没有具体格式",
+            "name": "CompanyInfoUpdateEvent",
+            "nameZh": "工商信息变更",
+            "rdfs:subClassOf": [
+                "Event"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://cnschema.org/CompanyWithAbnormalActPublicNotice",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyWithAbnormalActPublicNotice",
+            "name": "CompanyWithAbnormalActPublicNotice",
+            "nameZh": "工商经营异常公示",
+            "rdfs:subClassOf": [
+                "Event"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://cnschema.org/CompanyWithCivilPenaltyPublicNotice",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyWithCivilPenaltyPublicNotice",
+            "name": "CompanyWithCivilPenaltyPublicNotice",
+            "nameZh": "工商行政处罚公示",
+            "rdfs:subClassOf": [
+                "Event"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://cnschema.org/CompanyWithUnlawfulActPublicNotice",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CompanyWithUnlawfulActPublicNotice",
+            "name": "CompanyWithUnlawfulActPublicNotice",
+            "nameZh": "工商严重违法公示",
+            "rdfs:subClassOf": [
+                "Event"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://cnschema.org/LegalRepresentativeRole",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "LegalRepresentativeRole",
+            "descriptionZh": "法人代表一般是指根据法人的内部规定担任某一职务或由法定代表人指派代表法人对外依法行使民事权利和义务的人，它不是一个独立的法律概念。法人代表依法定代表人的授权而产生，没有法定代表人的授权，就不能产生法人代表，而法定代表人则依法由上级任命或由企业权力机构依法定程序选举产生。",
+            "descriptionZhSource": "智库百科",
+            "name": "LegalRepresentativeRole",
+            "nameZh": "法人代表关系",
             "rdfs:subClassOf": [
                 "CnsLink"
-            ], 
-            "statedIn": "cns_organization", 
+            ],
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://cnschema.org/ManagingPartnerRole", 
+            "@id": "http://cnschema.org/ManagerRole",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "ManagingPartnerRole", 
-            "descriptionZh": "有限合伙企业由普通合伙人执行合伙事务。合伙人对执行合伙事务享有同等的权利。按照合伙协议的约定或者经全体合伙人决定，可以委托一个或者数个合伙人对外代表合伙企业，执行合伙事务。", 
-            "name": "ManagingPartnerRole", 
-            "nameZh": "执行事务合伙人关系", 
+            ],
+            "category": "class",
+            "cnschemaName": "ManagerRole",
+            "name": "ManagerRole",
+            "nameZh": "高管关系",
             "rdfs:subClassOf": [
                 "CnsLink"
-            ], 
-            "statedIn": "cns_organization", 
+            ],
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://cnschema.org/OrganizationOrPerson", 
+            "@id": "http://cnschema.org/ManagingPartnerRole",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "OrganizationOrPerson", 
-            "name": "OrganizationOrPerson", 
-            "nameZh": "人或机构", 
+            ],
+            "category": "class",
+            "cnschemaName": "ManagingPartnerRole",
+            "descriptionZh": "有限合伙企业由普通合伙人执行合伙事务。合伙人对执行合伙事务享有同等的权利。按照合伙协议的约定或者经全体合伙人决定，可以委托一个或者数个合伙人对外代表合伙企业，执行合伙事务。",
+            "name": "ManagingPartnerRole",
+            "nameZh": "执行事务合伙人关系",
+            "rdfs:subClassOf": [
+                "CnsLink"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://cnschema.org/OrganizationOrPerson",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "OrganizationOrPerson",
+            "name": "OrganizationOrPerson",
+            "nameZh": "人或机构",
             "rdfs:subClassOf": [
                 "Thing"
-            ], 
-            "statedIn": "cns_organization", 
+            ],
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://cnschema.org/Partnership", 
+            "@id": "http://cnschema.org/Partnership",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "Partnership", 
-            "name": "Partnership", 
-            "nameZh": "合伙企业", 
+            ],
+            "category": "class",
+            "cnschemaName": "Partnership",
+            "name": "Partnership",
+            "nameZh": "合伙企业",
             "rdfs:subClassOf": [
                 "Company"
-            ], 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://cnschema.org/ShareholderChangeTransaction", 
+            "@id": "http://cnschema.org/PropertyValue",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "ShareholderChangeTransaction", 
-            "name": "ShareholderChangeTransaction", 
-            "nameZh": "公司股权变更交易", 
+            ],
+            "category": "struct",
+            "cnschemaName": "PropertyValue",
+            "name": "PropertyValue",
+            "nameZh": "属性值",
+            "rdfs:subClassOf": [
+                "CnsDataStructure"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://cnschema.org/ShareholderChangeTransaction",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "ShareholderChangeTransaction",
+            "name": "ShareholderChangeTransaction",
+            "nameZh": "公司股权变更交易",
             "rdfs:subClassOf": [
                 "CnsLink"
-            ], 
-            "statedIn": "cns_organization", 
+            ],
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://cnschema.org/ShareholderRole", 
+            "@id": "http://cnschema.org/ShareholderRole",
             "@type": [
-                "CnsClass", 
-                "CnsDefinition", 
+                "CnsClass",
+                "CnsDefinition",
                 "CnsMeta"
-            ], 
-            "category": "class", 
-            "cnschemaName": "ShareholderRole", 
-            "name": "ShareholderRole", 
-            "nameZh": "股东关系", 
+            ],
+            "category": "class",
+            "cnschemaName": "ShareholderRole",
+            "name": "ShareholderRole",
+            "nameZh": "股东关系",
             "rdfs:subClassOf": [
                 "CnsLink"
-            ], 
-            "statedIn": "cns_organization", 
+            ],
+            "statedIn": "cns_organization",
             "version": "v1.0"
         }
-    ], 
-    "@id": "http://meta.cnschema.org/ontologyrelease/cns_organization_v2.1", 
+    ],
+    "@id": "http://meta.cnschema.org/ontologyrelease/cns_organization_v2.1",
     "@type": [
-        "CnsOntologyRelease", 
+        "CnsOntologyRelease",
         "CnsMeta"
-    ], 
+    ],
     "about": {
-        "@id": "http://meta.cnschema.org/ontology/cns_organization", 
+        "@id": "http://meta.cnschema.org/ontology/cns_organization",
         "@type": [
-            "CnsOntology", 
+            "CnsOntology",
             "CnsMeta"
-        ], 
+        ],
         "name": "cns_organization"
-    }, 
+    },
     "changelog": [
         {
-            "@id": "http://meta.cnschema.org/changelog/v1.0_01", 
+            "@id": "http://meta.cnschema.org/changelog/v1.0_01",
             "@type": [
-                "CnsChangelog", 
+                "CnsChangelog",
                 "CnsMeta"
-            ], 
-            "datePublished": "2018-04-12T00:00:00", 
-            "description": "建立机构Schema", 
-            "name": "v1.0_01", 
-            "statedIn": "cns_organization", 
+            ],
+            "datePublished": "2018-04-12T00:00:00",
+            "description": "建立Schema",
+            "name": "v1.0_01",
+            "statedIn": "cns_organization",
             "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.0_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2018-08-17T00:00:00",
+            "description": "增加投融资、私募基金相关概念。",
+            "name": "v2.0_01",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.1_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2018-12-17T00:00:00",
+            "description": "更新metadata模块依赖。",
+            "name": "v2.1_01",
+            "statedIn": "cns_organization",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.1_02",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2019-06-20T00:00:00",
+            "description": "更新现有字段中文名称，增补例子。增加工商注册信息公示的关系和事件。",
+            "name": "v2.1_02",
+            "statedIn": "cns_organization",
+            "version": "v2.1"
         }
-    ], 
-    "datePublished": "2018-12-17T00:00:00", 
-    "description": "cnSchema的顶级模块组织机构类", 
-    "identifier": "cns_organization_v2.1", 
+    ],
+    "datePublished": "2019-06-20T00:00:00",
+    "description": "cnSchema的顶级模块组织机构类",
+    "identifier": "cns_organization_v2.1",
     "import": [
-        "cns_top_v2.1", 
+        "cns_top_v2.1",
         "cns_meta_v2.1"
-    ], 
-    "name": "cns_organization", 
+    ],
+    "name": "cns_organization",
     "template": [
         {
-            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_about", 
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_about",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"about\": {\"name\":“腾讯征信有限公司”} ,", 
-            "exampleValueText": "腾讯征信有限公司", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CompanyInfoUpdateEvent_about", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "关于", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "CompanyInfoUpdateEvent", 
-            "refProperty": "about", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "exampleValueJson": "\"about\": {\"name\":\"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyAnnualReport_about",
+            "propertyAlternateName": [],
+            "propertyNameZh": "关于",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "about",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_changeCategory", 
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_email",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"changeCategory\": [{\"name\":\"高管人员\"},{\"name\":“总经理”}] ,", 
-            "exampleValueText": "高管人员", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CompanyInfoUpdateEvent_changeCategory", 
+            ],
+            "exampleValueJson": "\"email\": \"1042158419@qq.com\" ,",
+            "exampleValueText": "1042158419@qq.com",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_email",
+            "propertyNameZh": "企业电子邮箱",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "email",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameCompany\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_nameCompany",
+            "propertyNameZh": "企业名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_numberOfStaff",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"numberOfStaff\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_numberOfStaff",
+            "propertyNameZh": "从业人数",
+            "propertyRange": "PropertyValue",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "numberOfStaff",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_revenueFromMainOperation",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"revenueFromMainOperation\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_revenueFromMainOperation",
+            "propertyNameZh": "主营业务收入",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "revenueFromMainOperation",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_saicRegistrationCode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"saicRegistrationCode\": \"\" ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_saicRegistrationCode",
+            "propertyDescriptionZh": "企业注册号与社会信用代码不同时出现",
+            "propertyNameZh": "企业注册号",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "saicRegistrationCode",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_saicRegistrationLocation",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"saicRegistrationLocation\": \"太原市迎泽区并州北路91号金港大酒店13层1305号\" ,",
+            "exampleValueText": "太原市迎泽区并州北路91号金港大酒店13层1305号",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_saicRegistrationLocation",
+            "propertyNameZh": "企业通信地址",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "saicRegistrationLocation",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_saicRegistrationStatus",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"saicRegistrationStatus\": \"开业\" ,",
+            "exampleValueText": "开业",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_saicRegistrationStatus",
+            "propertyNameZh": "企业经营状态",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "saicRegistrationStatus",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_shareholderEquity",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"shareholderEquity\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_shareholderEquity",
+            "propertyNameZh": "所有者权益合计",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "shareholderEquity",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_telephone",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"telephone\": \"13934238748\" ,",
+            "exampleValueText": "13934238748",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_telephone",
+            "propertyNameZh": "企业联系电话",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "telephone",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_totalAsset",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"totalAsset\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_totalAsset",
+            "propertyNameZh": "资产总额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "totalAsset",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_totalLiability",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"totalLiability\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_totalLiability",
+            "propertyNameZh": "负债总额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "totalLiability",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_totalNetProfit",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"totalNetProfit\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_totalNetProfit",
+            "propertyDescriptionZh": "此字段尚未采集",
+            "propertyNameZh": "净利润",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "totalNetProfit",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_totalProfit",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"totalProfit\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_totalProfit",
+            "propertyNameZh": "利润总额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "totalProfit",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_totalRevenue",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"totalRevenue\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_totalRevenue",
+            "propertyNameZh": "营业总收入",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "totalRevenue",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_totalTax",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"totalTax\": {\"text\":\"企业选择不公示\", \"value\":0} ,",
+            "exampleValueText": "企业选择不公示",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_totalTax",
+            "propertyNameZh": "纳税总额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "totalTax",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_unifiedSocialCreditCode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"unifiedSocialCreditCode\": \"140100200460703\" ,",
+            "exampleValueText": "140100200460703",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_unifiedSocialCreditCode",
+            "propertyNameZh": "统一社会信用代码",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "unifiedSocialCreditCode",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_year",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"year\": \"2013\" ,",
+            "exampleValueText": "2013",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyAnnualReport_year",
+            "propertyNameZh": "年份",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "year",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyAnnualReport_zipcode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"zipcode\": \"30002\" ,",
+            "exampleValueText": "30002",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyAnnualReport_zipcode",
+            "propertyNameZh": "邮政编码",
+            "propertyRange": "Text",
+            "refClass": "CompanyAnnualReport",
+            "refProperty": "zipcode",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyBranchRole_in",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"in\": {\"name\": \"河钢集团有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyBranchRole_in",
+            "propertyAlternateName": [],
+            "propertyNameZh": "总部",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyBranchRole",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyBranchRole_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"name\": \"分支机构\" ,",
+            "exampleValueText": "分支机构",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyBranchRole_name",
+            "propertyAlternateName": [
+                "姓名"
+            ],
+            "propertyDescriptionZh": "关系的名称都是\"分支机构”",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyBranchRole",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyBranchRole_nameBranch",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameBranch\": \"河北钢铁集团有限公司石家庄现货销售分公司\" ,",
+            "exampleValueText": "河北钢铁集团有限公司石家庄现货销售分公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyBranchRole_nameBranch",
+            "propertyDescriptionZh": "分支机构名称",
+            "propertyNameZh": "分支机构名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyBranchRole",
+            "refProperty": "nameBranch",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyBranchRole_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameCompany\": \"河钢集团有限公司\" ,",
+            "exampleValueText": "河钢集团有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyBranchRole_nameCompany",
+            "propertyDescriptionZh": "总部公司名称",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyBranchRole",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyBranchRole_out",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"out\": {\"name\": \"河北钢铁集团有限公司石家庄现货销售分公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyBranchRole_out",
+            "propertyAlternateName": [],
+            "propertyNameZh": "分支机构",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyBranchRole",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_about",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"about\": {\"name\":\"淮北市北方房地产开发有限责任公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_about",
+            "propertyNameZh": "关于",
+            "propertyRange": "Company",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "about",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_identifier",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"identifier\": \"340600201400000023\" ,",
+            "exampleValueText": "340600201400000023",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_identifier",
+            "propertyNameZh": "登记编号",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "identifier",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameCompany\": \"淮北市北方房地产开发有限责任公司\" ,",
+            "exampleValueText": "淮北市北方房地产开发有限责任公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgeAmount",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgeAmount\": \"\" ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgeAmount",
+            "propertyNameZh": "出质股权数额",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgeAmount",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgedPublicDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgedPublicDate\": \"1420473600000\" ,",
+            "exampleValueText": "1420473600000",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgedPublicDate",
+            "propertyNameZh": "股权出质设立登记日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgedPublicDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgedStatus",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgedStatus\": \"无效\" ,",
+            "exampleValueText": "无效",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgedStatus",
+            "propertyNameZh": "出质股权状态",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgedStatus",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgee",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgee\": {\"name\":\"韩军勇\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgee",
+            "propertyNameZh": "质权人",
+            "propertyRange": "OrganizationOrPerson",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgee",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgeeId",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgeeId\": \"非公示项\" ,",
+            "exampleValueText": "非公示项",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyEquityPledgeAgreement_pledgeeId",
+            "propertyNameZh": "质权人证照或证件号码",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgeeId",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgeeName",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgeeName\": \"韩军勇\" ,",
+            "exampleValueText": "韩军勇",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgeeName",
+            "propertyNameZh": "质权人名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgeeName",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgor",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgor\": {\"name\":\"李海云\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgor",
+            "propertyNameZh": "出质人",
+            "propertyRange": "OrganizationOrPerson",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgor",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgorId",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgorId\": \"非公示项\" ,",
+            "exampleValueText": "非公示项",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyEquityPledgeAgreement_pledgorId",
+            "propertyNameZh": "出质人证照或证件号码",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgorId",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyEquityPledgeAgreement_pledgorName",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"pledgorName\": \"李海云\" ,",
+            "exampleValueText": "李海云",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyEquityPledgeAgreement_pledgorName",
+            "propertyNameZh": "出质人名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyEquityPledgeAgreement",
+            "refProperty": "pledgorName",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_about",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"about\": {\"name\":\"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyInfoUpdateEvent_about",
+            "propertyAlternateName": [],
+            "propertyNameZh": "关于",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyInfoUpdateEvent",
+            "refProperty": "about",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_changeCategory",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"changeCategory\": \"经营范围变更（含业务范围变更）变更\" ,",
+            "exampleValueText": "经营范围变更（含业务范围变更）变更",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyInfoUpdateEvent_changeCategory",
             "propertyAlternateName": [
                 "changeItem"
-            ], 
-            "propertyNameZh": "变更事项", 
-            "propertyRange": "Text", 
-            "refClass": "CompanyInfoUpdateEvent", 
-            "refProperty": "changeCategory", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "变更事项",
+            "propertyRange": "Text",
+            "refClass": "CompanyInfoUpdateEvent",
+            "refProperty": "changeCategory",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_date", 
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_date",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"date\": “2016-07-18” ,", 
-            "exampleValueText": "2016年07月18日", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CompanyInfoUpdateEvent_date", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "日期", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "CompanyInfoUpdateEvent", 
-            "refProperty": "date", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"date\": \"2015-07-03\" ,",
+            "exampleValueText": "2015-07-03",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyInfoUpdateEvent_date",
+            "propertyAlternateName": [],
+            "propertyNameZh": "日期",
+            "propertyRange": "Date",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyInfoUpdateEvent",
+            "refProperty": "date",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textAfter", 
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_nameCompany",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"textAfter\": [{\"name\":吴丹\"}] ,", 
-            "exampleValueText": "郑浩剑（总经理）", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CompanyInfoUpdateEvent_textAfter", 
+            ],
+            "exampleValueJson": "\"nameCompany\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyInfoUpdateEvent_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyInfoUpdateEvent",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textAfter",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"textAfter\": \"普通货物仓储。（<em>依</em>法<em>须</em>经<em>批准</em>的<em>项目</em>，经<em>相关部门</em>批<em>准后方</em>可<em>开展</em>经营<em>活动</em>）***\" ,",
+            "exampleValueText": "普通货物仓储。（<em>依</em>法<em>须</em>经<em>批准</em>的<em>项目</em>，经<em>相关部门</em>批<em>准后方</em>可<em>开展</em>经营<em>活动</em>）***",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyInfoUpdateEvent_textAfter",
             "propertyAlternateName": [
                 "changeAfter"
-            ], 
-            "propertyNameZh": "变更后内容", 
-            "propertyRange": "Text", 
-            "refClass": "CompanyInfoUpdateEvent", 
-            "refProperty": "textAfter", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "变更后内容",
+            "propertyRange": "Text",
+            "refClass": "CompanyInfoUpdateEvent",
+            "refProperty": "textAfter",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textBefore", 
+            "@id": "http://meta.cnschema.org/template/CompanyInfoUpdateEvent_textBefore",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"textBefore\": [{\"name\":吴丹\"}] ,", 
-            "exampleValueText": "吴丹（总经理）", 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "CompanyInfoUpdateEvent_textBefore", 
+            ],
+            "exampleValueJson": "\"textBefore\": \"普通货物仓储。（<em>法律</em>法<em>规禁止</em>经<em>营</em>的<em>不得经营</em>，<em>需</em>经<em>审批未获审</em>批<em>前不得经营；许可项目在许</em>可<em>证有效期限内</em>经营）***<em>；</em>\" ,",
+            "exampleValueText": "普通货物仓储。（<em>法律</em>法<em>规禁止</em>经<em>营</em>的<em>不得经营</em>，<em>需</em>经<em>审批未获审</em>批<em>前不得经营；许可项目在许</em>可<em>证有效期限内</em>经营）***<em>；</em>",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyInfoUpdateEvent_textBefore",
             "propertyAlternateName": [
                 "changeBefore"
-            ], 
-            "propertyNameZh": "变更前内容", 
-            "propertyRange": "Text", 
-            "refClass": "CompanyInfoUpdateEvent", 
-            "refProperty": "textBefore", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "变更前内容",
+            "propertyRange": "Text",
+            "refClass": "CompanyInfoUpdateEvent",
+            "refProperty": "textBefore",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_foundingDate", 
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_about",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"foundingDate\": \"2015-03-17\" ,", 
-            "exampleValueText": "2015年03月17日", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_foundingDate", 
+            ],
+            "exampleValueJson": "\"about\": {\"name\":\"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithAbnormalActPublicNotice_about",
+            "propertyNameZh": "关于",
+            "propertyRange": "Company",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "about",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_addByOrganization",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"addByOrganization\": \"太原市工商行政管理局迎泽分局\" ,",
+            "exampleValueText": "太原市工商行政管理局迎泽分局",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithAbnormalActPublicNotice_addByOrganization",
+            "propertyNameZh": "列入作出决定机关",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "addByOrganization",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_addDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"addDate\": \"2015-12-07\" ,",
+            "exampleValueText": "2015-12-07",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithAbnormalActPublicNotice_addDate",
+            "propertyNameZh": "列入日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "addDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_addReason",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"addReason\": \"通过登记的住所或者经营场所无法联系的\" ,",
+            "exampleValueText": "通过登记的住所或者经营场所无法联系的",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithAbnormalActPublicNotice_addReason",
+            "propertyNameZh": "列入事由",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "addReason",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameCompany\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithAbnormalActPublicNotice_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_removeByOrganization",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"removeByOrganization\": \"太原市工商行政管理局迎泽分局\" ,",
+            "exampleValueText": "太原市工商行政管理局迎泽分局",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyWithAbnormalActPublicNotice_removeByOrganization",
+            "propertyNameZh": "移出作出决定机关",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "removeByOrganization",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_removeDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"removeDate\": \"2018-12-12\" ,",
+            "exampleValueText": "2018-12-12",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyWithAbnormalActPublicNotice_removeDate",
+            "propertyNameZh": "移出日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "removeDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithAbnormalActPublicNotice_removeReason",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"removeReason\": \"列入经营异常名录...\" ,",
+            "exampleValueText": "列入经营异常名录...",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyWithAbnormalActPublicNotice_removeReason",
+            "propertyNameZh": "移出事由",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithAbnormalActPublicNotice",
+            "refProperty": "removeReason",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_about",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"about\": {\"name\":\"上海际海广告有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_about",
+            "propertyNameZh": "关于",
+            "propertyRange": "Company",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "about",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_decisionByOrganization",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"decisionByOrganization\": \"上海市杨浦区市场监督管理局\" ,",
+            "exampleValueText": "上海市杨浦区市场监督管理局",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_decisionByOrganization",
+            "propertyNameZh": "作出行政处罚决定机关名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "decisionByOrganization",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_decisionDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"decisionDate\": \"2016-10-13\" ,",
+            "exampleValueText": "2016-10-13",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_decisionDate",
+            "propertyNameZh": "作出行政处罚决定日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "decisionDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_decisionReason",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"decisionReason\": \"公司成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的\" ,",
+            "exampleValueText": "公司成立后无正当理由超过六个月未开业的，或者开业后自行停业连续六个月以上的",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_decisionReason",
+            "propertyNameZh": "违法行为类型",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "decisionReason",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_identifier",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"identifier\": \"杨市监案处字〔2016〕第100201613017号\" ,",
+            "exampleValueText": "杨市监案处字〔2016〕第100201613017号",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_identifier",
+            "propertyNameZh": "行政处罚决定书文号",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "identifier",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameCompany\": \"上海际海广告有限公司\" ,",
+            "exampleValueText": "上海际海广告有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_nameLegalRepresentative",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameLegalRepresentative\": \"潘用福\" ,",
+            "exampleValueText": "潘用福",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_nameLegalRepresentative",
+            "propertyNameZh": "法定代表人（负责人）姓名",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "nameLegalRepresentative",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_releaseDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"releaseDate\": \"2016-10-13\" ,",
+            "exampleValueText": "2016-10-13",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_releaseDate",
+            "propertyNameZh": "公示日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "releaseDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_saicRegistrationCode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"saicRegistrationCode\": \"310110000600597\" ,",
+            "exampleValueText": "310110000600597",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_saicRegistrationCode",
+            "propertyNameZh": "公司注册号",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "saicRegistrationCode",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithCivilPenaltyPublicNotice_text",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"text\": \"吊销营业执照\" ,",
+            "exampleValueText": "吊销营业执照",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithCivilPenaltyPublicNotice_text",
+            "propertyNameZh": "行政处罚内容",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithCivilPenaltyPublicNotice",
+            "refProperty": "text",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_about",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"about\": {\"name\":\"深圳市鹏迅昌贸易有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithUnlawfulActPublicNotice_about",
+            "propertyAlternateName": [],
+            "propertyNameZh": "关于",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "about",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_addByOrganization",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"addByOrganization\": \"深圳市市场和质量监督管理委员会南山局\" ,",
+            "exampleValueText": "深圳市市场和质量监督管理委员会南山局",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithUnlawfulActPublicNotice_addByOrganization",
+            "propertyNameZh": "列入作出决定机关",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "addByOrganization",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_addDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"addDate\": \"2018-11-20\" ,",
+            "exampleValueText": "2018-11-20",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithUnlawfulActPublicNotice_addDate",
+            "propertyNameZh": "列入日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "addDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_addReason",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"addReason\": \"被列入经营异常名录届满3年仍未履行相关义务;2015年度， 未依照《企业信息公示暂行条例》第八条规定的期限公示年度报告的\" ,",
+            "exampleValueText": "被列入经营异常名录届满3年仍未履行相关义务;2015年度， 未依照《企业信息公示暂行条例》第八条规定的期限公示年度报告的",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithUnlawfulActPublicNotice_addReason",
+            "propertyNameZh": "列入事由",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "addReason",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameCompany\": \"深圳市鹏迅昌贸易有限公司\" ,",
+            "exampleValueText": "深圳市鹏迅昌贸易有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CompanyWithUnlawfulActPublicNotice_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_removeByOrganization",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"removeByOrganization\": \"\" ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyWithUnlawfulActPublicNotice_removeByOrganization",
+            "propertyNameZh": "移出作出决定机关",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "removeByOrganization",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_removeDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"removeDate\": \"\" ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyWithUnlawfulActPublicNotice_removeDate",
+            "propertyNameZh": "移出日期",
+            "propertyRange": "Date",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "removeDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CompanyWithUnlawfulActPublicNotice_removeReason",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"removeReason\": \"\" ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CompanyWithUnlawfulActPublicNotice_removeReason",
+            "propertyNameZh": "移出事由",
+            "propertyRange": "Text",
+            "refClass": "CompanyWithUnlawfulActPublicNotice",
+            "refProperty": "removeReason",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_foundingDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"foundingDate\": \"2011-01-25\" ,",
+            "exampleValueText": "2011-01-25",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_foundingDate",
             "propertyAlternateName": [
-                "establishDate", 
-                "establishDat", 
+                "establishDate",
+                "establishDat",
                 "注册时间"
-            ], 
-            "propertyNameZh": "成立日期", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "Company", 
-            "refProperty": "foundingDate", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "成立日期",
+            "propertyRange": "Date",
+            "refClass": "Company",
+            "refProperty": "foundingDate",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_nameEn", 
+            "@id": "http://meta.cnschema.org/template/Company_listCompanyBranchRole",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_nameEn", 
+            ],
+            "exampleValueJson": "\"listCompanyBranchRole\": [] ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_listCompanyBranchRole",
+            "propertyNameZh": "分支机构列表",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "listCompanyBranchRole",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_listManagerRole",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"listManagerRole\": [{\"name\": \"武清林\",\"roleName\":\"监事\"}, {\"name\": \"张星昇\", \"roleName\":\"总经理\"}] ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_listManagerRole",
+            "propertyNameZh": "主要人员列表",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "listManagerRole",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_listShareholderRole",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"listShareholderRole\": [{\"name\": \"张星昇\",\"shareEquityRatio\":0.8},{\"name\": \"职工股\",\"shareEquityRatio\":0.2}] ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_listShareholderRole",
+            "propertyNameZh": "股东列表",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "listShareholderRole",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"name\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "Company_name",
             "propertyAlternateName": [
-                "英文名"
-            ], 
-            "propertyNameZh": "英文名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "Company", 
-            "refProperty": "nameEn", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+                "法定名称"
+            ],
+            "propertyNameZh": "企业名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "Company",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_organizationCode", 
+            "@id": "http://meta.cnschema.org/template/Company_nameEn",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_organizationCode", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_nameEn",
+            "propertyNameZh": "英文名称",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "nameEn",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_nameLegalRepresentative",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameLegalRepresentative\": \"张星昇\" ,",
+            "exampleValueText": "张星昇",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "Company_nameLegalRepresentative",
+            "propertyAlternateName": [
+                "legalPersonName"
+            ],
+            "propertyDescriptionZh": "法人代表的姓名，冗余字段。也可以可以从法人代表关系得出。",
+            "propertyNameZh": "法人代表或执行管理人",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "nameLegalRepresentative",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_organizationCode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_organizationCode",
             "propertyAlternateName": [
                 "orgId"
-            ], 
-            "propertyDescriptionZh": "统一社会信用代码的一部分", 
-            "propertyNameZh": "组织机构代码", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "organizationCode", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "营业执照的历史字段，现在统一社会信用代码的一部分",
+            "propertyNameZh": "组织机构代码",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "organizationCode",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_saicOrganizationType", 
+            "@id": "http://meta.cnschema.org/template/Company_saicOrganizationType",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"saicOrganizationType\": \"有限责任公司“ ,", 
-            "exampleValueText": "有限责任公司", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicOrganizationType", 
+            ],
+            "exampleValueJson": "\"saicOrganizationType\": \"有限责任公司(自然人投资或控股)\" ,",
+            "exampleValueText": "有限责任公司(自然人投资或控股)",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicOrganizationType",
             "propertyAlternateName": [
-                "orgType", 
-                "企业类型", 
+                "orgType",
+                "企业类型",
                 "组织类型"
-            ], 
-            "propertyNameZh": "工商组织类型", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "saicOrganizationType", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "企业类型",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "saicOrganizationType",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationAgency", 
+            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationAgency",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicRegistrationAgency", 
+            ],
+            "exampleValueJson": "\"saicRegistrationAgency\": \"太原市工商行政管理局\" ,",
+            "exampleValueText": "太原市工商行政管理局",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicRegistrationAgency",
             "propertyAlternateName": [
                 "登记机关"
-            ], 
-            "propertyNameZh": "工商登记机关", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "saicRegistrationAgency", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "工商登记机关",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "saicRegistrationAgency",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationCapital", 
+            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationCapital",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"saicRegistrationCapital\": {\"text\":\"(人民币）5000万元\",\"value\":50000000,\"currency\":\"CNY\"} ,", 
-            "exampleValueText": "(人民币)5000万元", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicRegistrationCapital", 
+            ],
+            "exampleValueJson": "\"saicRegistrationCapital\": {\"text\":\"1000万元\",\"value\":10000000,\"currency\":\"CNY\"} ,",
+            "exampleValueText": "1000万元",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicRegistrationCapital",
             "propertyAlternateName": [
-                "regCap", 
+                "regCap",
                 "注册资本"
-            ], 
-            "propertyDescriptionZh": "，是指合营企业在登记管理机构登记的资本总额,是合营各方已经缴纳的或合营者承诺一定要缴纳的出资额的总和。", 
-            "propertyNameZh": "工商注册资本", 
-            "propertyRange": "MonetaryAmount", 
-            "refClass": "Company", 
-            "refProperty": "saicRegistrationCapital", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyDescriptionZh": "注册资本是指合营企业在登记管理机构登记的资本总额,是合营各方已经缴纳的或合营者承诺一定要缴纳的出资额的总和。结构化属性，有人民币，美元等不同比重，单位可以为万元。图谱中统一单位为\"元”，抽取金额数值以方便对比，抽取币种，保留原文。",
+            "propertyNameZh": "工商注册资本",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "Company",
+            "refProperty": "saicRegistrationCapital",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationDate", 
+            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationCode",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"saicRegistrationDate\": \"2011-07-26\" ,", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicRegistrationDate", 
-            "propertyAlternateName": [
-                "核准日期"
-            ], 
-            "propertyNameZh": "工商核准日期", 
-            "propertyRange": "Date", 
-            "refClass": "Company", 
-            "refProperty": "saicRegistrationDate", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationLocation", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicRegistrationLocation", 
-            "propertyAlternateName": [
-                "regAddr", 
-                "地址", 
-                "注册地址"
-            ], 
-            "propertyNameZh": "工商注册地址", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "saicRegistrationLocation", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationStatus", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicRegistrationStatus", 
-            "propertyAlternateName": [
-                "regStatus", 
-                "企业状态", 
-                "登记状态"
-            ], 
-            "propertyNameZh": "工商登记状态", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "saicRegistrationStatus", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_saicRegistrtionCode", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_saicRegistrtionCode", 
+            ],
+            "exampleValueJson": "\"saicRegistrationCode\": \"140100200460703\" ,",
+            "exampleValueText": "140100200460703",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicRegistrationCode",
             "propertyAlternateName": [
                 "注册号"
-            ], 
-            "propertyDescriptionZh": "已经被工商注册号代替，旧版工商注册执照的号码。", 
-            "propertyNameZh": "工商注册号", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "saicRegistrtionCode", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyDescriptionZh": "旧版工商注册执照的号码，是营业执照的历史字段，已经被统一社会信用代码替代。",
+            "propertyNameZh": "工商注册号",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "saicRegistrationCode",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_scopeOfBusiness", 
+            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationDate",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_scopeOfBusiness", 
-            "propertyNameZh": "经营范围", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "scopeOfBusiness", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_taxpayersIdentificationFloat", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_taxpayersIdentificationFloat", 
-            "propertyDescriptionSource": "https://en.wikipedia.org/wiki/Taxpayer_Identification_Float", 
-            "propertyDescriptionZh": "纳税人识别号是税务登记证上的号码，通常简称为“税号”，每个企业的纳税人识别号都是唯一的。这个属于每个人自己且终身不变的数字代码很可能成为我们的第二张“身份证”。", 
-            "propertyNameZh": "纳税人识别号", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "taxpayersIdentificationFloat", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
-        {
-            "@id": "http://meta.cnschema.org/template/Company_unifiedSocialCreditCode", 
-            "@type": [
-                "CnsTemplate", 
-                "CnsMeta"
-            ], 
-            "exampleValueJson": "\"unifiedSocialCreditCode\": \"91440300335187065E\" ,", 
-            "exampleValueText": "91440300335187065E", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_unifiedSocialCreditCode", 
+            ],
+            "exampleValueJson": "\"saicRegistrationDate\": \"2017-06-16\" ,",
+            "exampleValueText": "2017-06-16",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicRegistrationDate",
             "propertyAlternateName": [
-                "unifiedCreditCode", 
-                "credId", 
+                "核准日期"
+            ],
+            "propertyNameZh": "工商核准日期",
+            "propertyRange": "Date",
+            "refClass": "Company",
+            "refProperty": "saicRegistrationDate",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationLocation",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"saicRegistrationLocation\": \"太原市迎泽区并州北路91号金港大酒店13层1305号\" ,",
+            "exampleValueText": "太原市迎泽区并州北路91号金港大酒店13层1305号",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicRegistrationLocation",
+            "propertyAlternateName": [
+                "regAddr",
+                "地址",
+                "注册地址"
+            ],
+            "propertyNameZh": "工商注册住所",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "saicRegistrationLocation",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_saicRegistrationStatus",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"saicRegistrationStatus\": \"吊销，未注销\" ,",
+            "exampleValueText": "吊销，未注销",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_saicRegistrationStatus",
+            "propertyAlternateName": [
+                "regStatus",
+                "企业状态",
+                "登记状态"
+            ],
+            "propertyNameZh": "工商登记状态",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "saicRegistrationStatus",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_scopeOfBusiness",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"scopeOfBusiness\": \"普通货物仓储。（依法须经批准的项目，经相关部门批准后方可开展经营活动）***\" ,",
+            "exampleValueText": "普通货物仓储。（依法须经批准的项目，经相关部门批准后方可开展经营活动）***",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_scopeOfBusiness",
+            "propertyNameZh": "经营范围",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "scopeOfBusiness",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_taxpayersIdentificationNumber",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_taxpayersIdentificationNumber",
+            "propertyDescriptionSource": "https://en.wikipedia.org/wiki/Taxpayer_Identification_Float",
+            "propertyDescriptionZh": "营业执照的历史字段，纳税人识别号是税务登记证上的号码，通常简称为\"税号”，每个企业的纳税人识别号都是唯一的。这个属于每个人自己且终身不变的数字代码很可能成为我们的第二张\"身份证”。",
+            "propertyNameZh": "纳税人识别号",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "taxpayersIdentificationNumber",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Company_unifiedSocialCreditCode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"unifiedSocialCreditCode\": \"91140100568467615L\" ,",
+            "exampleValueText": "91140100568467615L",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_unifiedSocialCreditCode",
+            "propertyAlternateName": [
+                "unifiedCreditCode",
+                "credId",
                 "统一信用代码"
-            ], 
-            "propertyDescriptionZh": "统一社会信用代码是三证合一后企业唯一的识别码，注册号 组织机构代码号 税务号 三者公用一个号（统一社会信用代码）共18位", 
-            "propertyNameZh": "统一社会信用代码", 
-            "propertyRange": "Text", 
-            "refClass": "Company", 
-            "refProperty": "unifiedSocialCreditCode", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyDescriptionZh": "统一社会信用代码是三证合一后企业唯一的识别码，注册号 组织机构代码号 税务号 三者公用一个号（统一社会信用代码）共18位",
+            "propertyNameZh": "统一社会信用代码",
+            "propertyRange": "Text",
+            "refClass": "Company",
+            "refProperty": "unifiedSocialCreditCode",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_validFrom", 
+            "@id": "http://meta.cnschema.org/template/Company_validFrom",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_validFrom", 
-            "propertyNameZh": "营业期限自", 
-            "propertyRange": "Date", 
-            "refClass": "Company", 
-            "refProperty": "validFrom", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"validFrom\": \"2011-01-25\" ,",
+            "exampleValueText": "2011-01-25",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_validFrom",
+            "propertyNameZh": "营业期限自",
+            "propertyRange": "Date",
+            "refClass": "Company",
+            "refProperty": "validFrom",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Company_validUntil", 
+            "@id": "http://meta.cnschema.org/template/Company_validUntil",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Company_validUntil", 
-            "propertyNameZh": "营业期限至", 
-            "propertyRange": "Date", 
-            "refClass": "Company", 
-            "refProperty": "validUntil", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"validUntil\": \"2031-01-24\" ,",
+            "exampleValueText": "2031-01-24",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Company_validUntil",
+            "propertyNameZh": "营业期限至",
+            "propertyRange": "Date",
+            "refClass": "Company",
+            "refProperty": "validUntil",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_in", 
+            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_in",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "LegalRepresentativeRole_in", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "被管理企业", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "LegalRepresentativeRole", 
-            "refProperty": "in", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"in\": {\"name\": \"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "LegalRepresentativeRole_in",
+            "propertyAlternateName": [],
+            "propertyNameZh": "被管理企业",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "LegalRepresentativeRole",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_name", 
+            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_name",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "LegalRepresentativeRole_name", 
+            ],
+            "exampleValueJson": "\"name\": \"法人代表\" ,",
+            "exampleValueText": "法人代表",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "LegalRepresentativeRole_name",
             "propertyAlternateName": [
                 "姓名"
-            ], 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "LegalRepresentativeRole", 
-            "refProperty": "name", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyDescriptionZh": "关系的名称都是\"法人代表”",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "LegalRepresentativeRole",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_out", 
+            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_nameCompany",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "LegalRepresentativeRole_out", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "法人代表", 
-            "propertyRange": "Person", 
-            "propertySchema": "cns_top", 
-            "refClass": "LegalRepresentativeRole", 
-            "refProperty": "out", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"nameCompany\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "LegalRepresentativeRole_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "LegalRepresentativeRole",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_nameLegalRepresentative",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameLegalRepresentative\": \"张星昇\" ,",
+            "exampleValueText": "张星昇",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "LegalRepresentativeRole_nameLegalRepresentative",
+            "propertyNameZh": "法人代表姓名",
+            "propertyRange": "Text",
+            "refClass": "LegalRepresentativeRole",
+            "refProperty": "nameLegalRepresentative",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_out",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"out\": {\"name\": \"张星昇\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "LegalRepresentativeRole_out",
+            "propertyAlternateName": [],
+            "propertyNameZh": "法人代表",
+            "propertyRange": "Person",
+            "propertySchema": "cns_top",
+            "refClass": "LegalRepresentativeRole",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagerRole_endDate", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_endDate",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ManagerRole_endDate", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ManagerRole_endDate",
             "propertyAlternateName": [
-                "截至时间", 
+                "截至时间",
                 "结束日期"
-            ], 
-            "propertyNameZh": "结束时间", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagerRole", 
-            "refProperty": "endDate", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "上市公司专用",
+            "propertyNameZh": "结束时间",
+            "propertyRange": "DateTime",
+            "propertySchema": "cns_top",
+            "refClass": "ManagerRole",
+            "refProperty": "endDate",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagerRole_in", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_in",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ManagerRole_in", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "被管理企业", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagerRole", 
-            "refProperty": "in", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"in\": {\"name\": \"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagerRole_in",
+            "propertyAlternateName": [],
+            "propertyNameZh": "被管理企业",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "ManagerRole",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagerRole_name", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_name",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ManagerRole_name", 
+            ],
+            "exampleValueJson": "\"name\": \"监事\" ,",
+            "exampleValueText": "监事",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagerRole_name",
             "propertyAlternateName": [
                 "姓名"
-            ], 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagerRole", 
-            "refProperty": "name", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyDescriptionZh": "注意，同一个人可以有多个职位。形成图谱时要考虑PLAN A：一个职位一条边，或者同一个人的不同职位放在一条边上。",
+            "propertyNameZh": "职位",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "ManagerRole",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagerRole_out", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_nameCompany",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ManagerRole_out", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "管理者", 
-            "propertyRange": "Person", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagerRole", 
-            "refProperty": "out", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"nameCompany\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagerRole_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "ManagerRole",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ManagerRole_nameManager",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"nameManager\": \"武清林\" ,",
+            "exampleValueText": "武清林",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagerRole_nameManager",
+            "propertyNameZh": "管理者姓名",
+            "propertyRange": "Text",
+            "refClass": "ManagerRole",
+            "refProperty": "nameManager",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ManagerRole_out",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"out\": {\"name\": \"武清林\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagerRole_out",
+            "propertyAlternateName": [],
+            "propertyNameZh": "管理者",
+            "propertyRange": "Person",
+            "propertySchema": "cns_top",
+            "refClass": "ManagerRole",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagerRole_startDate", 
+            "@id": "http://meta.cnschema.org/template/ManagerRole_startDate",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ManagerRole_startDate", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ManagerRole_startDate",
             "propertyAlternateName": [
-                "开始时间", 
+                "开始时间",
                 "开始日期"
-            ], 
-            "propertyNameZh": "开始时间", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagerRole", 
-            "refProperty": "startDate", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "上市公司专用",
+            "propertyNameZh": "开始时间",
+            "propertyRange": "DateTime",
+            "propertySchema": "cns_top",
+            "refClass": "ManagerRole",
+            "refProperty": "startDate",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_in", 
+            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_in",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ManagingPartnerRole_in", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "被管理企业", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagingPartnerRole", 
-            "refProperty": "in", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "exampleValueJson": "\"in\": {\"name\": \"A公司\"} ,",
+            "exampleValueText": "A公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagingPartnerRole_in",
+            "propertyAlternateName": [],
+            "propertyDescriptionZh": "私募合伙企业常用",
+            "propertyNameZh": "被管理企业",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "ManagingPartnerRole",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_name", 
+            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_name",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ManagingPartnerRole_name", 
+            ],
+            "exampleValueJson": "\"name\": \"法人代表\" ,",
+            "exampleValueText": "法人代表",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ManagingPartnerRole_name",
             "propertyAlternateName": [
                 "姓名"
-            ], 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagingPartnerRole", 
-            "refProperty": "name", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "私募合伙企业常用",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "ManagingPartnerRole",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_out", 
+            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_nameCompany",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ManagingPartnerRole_out", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "执行事务合伙人", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "ManagingPartnerRole", 
-            "refProperty": "out", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "exampleValueJson": "\"nameCompany\": \"A公司\" ,",
+            "exampleValueText": "A公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagingPartnerRole_nameCompany",
+            "propertyDescriptionZh": "私募合伙企业常用",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "ManagingPartnerRole",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Organization_email", 
+            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_nameLegalRepresentative",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"email\": \"guotouchuangye@126.com\" ,", 
-            "minCardinality": 0, 
-            "name": "Organization_email", 
+            ],
+            "exampleValueJson": "\"nameLegalRepresentative\": \"B公司\" ,",
+            "exampleValueText": "B公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagingPartnerRole_nameLegalRepresentative",
+            "propertyDescriptionZh": "私募合伙企业常用",
+            "propertyNameZh": "执行事务合伙人名称",
+            "propertyRange": "Text",
+            "refClass": "ManagingPartnerRole",
+            "refProperty": "nameLegalRepresentative",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ManagingPartnerRole_out",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"out\": {\"name\": \"B公司\"} ,",
+            "exampleValueText": "B公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ManagingPartnerRole_out",
+            "propertyAlternateName": [],
+            "propertyDescriptionZh": "私募合伙企业常用",
+            "propertyNameZh": "执行事务合伙人",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "ManagingPartnerRole",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Organization_email",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "minCardinality": 0,
+            "name": "Organization_email",
             "propertyAlternateName": [
                 "客服邮箱"
-            ], 
-            "propertyNameZh": "联系邮箱", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "Organization", 
-            "refProperty": "email", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "联系邮箱",
+            "propertyRange": "Text",
+            "refClass": "Organization",
+            "refProperty": "email",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Organization_fax", 
+            "@id": "http://meta.cnschema.org/template/Organization_fax",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Organization_fax", 
-            "propertyNameZh": "传真号码", 
-            "propertyRange": "Text", 
-            "refClass": "Organization", 
-            "refProperty": "fax", 
-            "statedIn": "cns_organization", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Organization_fax",
+            "propertyNameZh": "传真号码",
+            "propertyRange": "Text",
+            "refClass": "Organization",
+            "refProperty": "fax",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Organization_telephone", 
+            "@id": "http://meta.cnschema.org/template/Organization_telephone",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"telephone\": “010-63282376” ,", 
-            "minCardinality": 0, 
-            "name": "Organization_telephone", 
+            ],
+            "minCardinality": 0,
+            "name": "Organization_telephone",
             "propertyAlternateName": [
                 "电话号码"
-            ], 
-            "propertyNameZh": "联系电话", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "Organization", 
-            "refProperty": "telephone", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "联系电话",
+            "propertyRange": "Text",
+            "refClass": "Organization",
+            "refProperty": "telephone",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Organization_website", 
+            "@id": "http://meta.cnschema.org/template/Organization_website",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "minCardinality": 0, 
-            "name": "Organization_website", 
+            ],
+            "minCardinality": 0,
+            "name": "Organization_website",
             "propertyAlternateName": [
                 "网站地址"
-            ], 
-            "propertyNameZh": "网址", 
-            "propertyRange": "URL", 
-            "propertySchema": "cns_top", 
-            "refClass": "Organization", 
-            "refProperty": "website", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyNameZh": "网址",
+            "propertyRange": "URL",
+            "refClass": "Organization",
+            "refProperty": "website",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/Organization_zipcode", 
+            "@id": "http://meta.cnschema.org/template/Organization_zipcode",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "exampleValueJson": "\"zipcode\": \"100086\" ,", 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "Organization_zipcode", 
-            "propertyNameZh": "邮政编码", 
-            "propertyRange": "Text", 
-            "refClass": "Organization", 
-            "refProperty": "zipcode", 
-            "statedIn": "cns_organization", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Organization_zipcode",
+            "propertyNameZh": "邮政编码",
+            "propertyRange": "Text",
+            "refClass": "Organization",
+            "refProperty": "zipcode",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection", 
+            "@id": "http://meta.cnschema.org/template/PropertyValue_text",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_changeDirection", 
+            ],
+            "minCardinality": 0,
+            "name": "PropertyValue_text",
+            "propertyNameZh": "原文",
+            "propertyRange": "Text",
+            "refClass": "PropertyValue",
+            "refProperty": "text",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/PropertyValue_value",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "minCardinality": 0,
+            "name": "PropertyValue_value",
+            "propertyNameZh": "数值",
+            "propertyRange": "Float",
+            "refClass": "PropertyValue",
+            "refProperty": "value",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeDirection",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_changeDirection",
             "propertyAlternateName": [
                 "changeDirection"
-            ], 
-            "propertyNameZh": "变更股权的增减方向", 
-            "propertyRange": "Text", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "changeDirection", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更股权的增减方向",
+            "propertyRange": "Text",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "changeDirection",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeRatio",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_changeRatio", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_changeRatio",
             "propertyAlternateName": [
                 "changeRatio"
-            ], 
-            "propertyNameZh": "变更后股权总量", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "changeRatio", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更后股权总量",
+            "propertyRange": "Float",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "changeRatio",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalPrice",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_changeTotalPrice", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_changeTotalPrice",
             "propertyAlternateName": [
                 "changeCash"
-            ], 
-            "propertyNameZh": "变更股权总价", 
-            "propertyRange": "Text", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "changeTotalPrice", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更股权总价",
+            "propertyRange": "Text",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "changeTotalPrice",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeTotalShare",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_changeTotalShare", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_changeTotalShare",
             "propertyAlternateName": [
                 "changeAmount"
-            ], 
-            "propertyNameZh": "变更股权总量", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "changeTotalShare", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更股权总量",
+            "propertyRange": "Float",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "changeTotalShare",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeType",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_changeType", 
-            "propertyNameZh": "变更股权方式", 
-            "propertyRange": "Text", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "changeType", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_changeType",
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更股权方式",
+            "propertyRange": "Text",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "changeType",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_changeUnitPrice",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_changeUnitPrice", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_changeUnitPrice",
             "propertyAlternateName": [
                 "changePrice"
-            ], 
-            "propertyNameZh": "变更股权单价", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "changeUnitPrice", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更股权单价",
+            "propertyRange": "Float",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "changeUnitPrice",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_date", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_date",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_date", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_date",
             "propertyAlternateName": [
                 "changeDate"
-            ], 
-            "propertyNameZh": "日期", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "date", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "日期",
+            "propertyRange": "Date",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "date",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_in", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_in",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ShareholderChangeTransaction_in", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "被投企业", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "in", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ShareholderChangeTransaction_in",
+            "propertyAlternateName": [],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "被投企业",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_name", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_name",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_name", 
+            ],
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_name",
             "propertyAlternateName": [
                 "姓名"
-            ], 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "name", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_out", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_out",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ShareholderChangeTransaction_out", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "投资者", 
-            "propertyRange": "OrganizationOrPerson", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "out", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ShareholderChangeTransaction_out",
+            "propertyAlternateName": [],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "投资者",
+            "propertyRange": "OrganizationOrPerson",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_resultRatio",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_resultRatio", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_resultRatio",
             "propertyAlternateName": [
                 "endRatio"
-            ], 
-            "propertyNameZh": "变更后股权比例", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "resultRatio", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更后股权比例",
+            "propertyRange": "Float",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "resultRatio",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_resultTotalShare",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_resultTotalShare", 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_resultTotalShare",
             "propertyAlternateName": [
                 "endAmount"
-            ], 
-            "propertyNameZh": "变更后股权总量", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "resultTotalShare", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "变更后股权总量",
+            "propertyRange": "Float",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "resultTotalShare",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_roundOfInvestment",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_roundOfInvestment", 
-            "propertyNameZh": "投资轮次", 
-            "propertyRange": "Text", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "roundOfInvestment", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_roundOfInvestment",
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "投资轮次",
+            "propertyRange": "Text",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "roundOfInvestment",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_tag", 
+            "@id": "http://meta.cnschema.org/template/ShareholderChangeTransaction_tag",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderChangeTransaction_tag", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "标签", 
-            "propertyRange": "CnsTag", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderChangeTransaction", 
-            "refProperty": "tag", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "minCardinality": 0,
+            "name": "ShareholderChangeTransaction_tag",
+            "propertyAlternateName": [],
+            "propertyDescriptionZh": "投融资场景专用",
+            "propertyNameZh": "标签",
+            "propertyRange": "CnsTag",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderChangeTransaction",
+            "refProperty": "tag",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_date", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_date",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderRole_date", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "日期", 
-            "propertyRange": "Date", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "date", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"date\": \"2011-01-25\" ,",
+            "exampleValueText": "2011-01-25",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_date",
+            "propertyAlternateName": [
+                "subscribe_time"
+            ],
+            "propertyNameZh": "认缴出资时间",
+            "propertyRange": "Date",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderRole",
+            "refProperty": "date",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_in", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_in",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ShareholderRole_in", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "被投企业", 
-            "propertyRange": "Company", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "in", 
-            "statedIn": "cns_organization", 
+            ],
+            "exampleValueJson": "\"in\": {\"name\": \"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ShareholderRole_in",
+            "propertyAlternateName": [],
+            "propertyNameZh": "被投企业",
+            "propertyRange": "Company",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderRole",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_name", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_name",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "minCardinality": 0, 
-            "name": "ShareholderRole_name", 
+            ],
+            "exampleValueJson": "\"name\": \"股东\" ,",
+            "exampleValueText": "股东",
+            "minCardinality": 0,
+            "name": "ShareholderRole_name",
             "propertyAlternateName": [
                 "姓名"
-            ], 
-            "propertyNameZh": "名称", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "name", 
-            "statedIn": "cns_organization", 
+            ],
+            "propertyDescriptionZh": "关系的名称都是\"股东”",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderRole",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
             "version": "v1.0"
-        }, 
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_out", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_nameCompany",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 1, 
-            "name": "ShareholderRole_out", 
-            "propertyAlternateName": [], 
-            "propertyNameZh": "投资者", 
-            "propertyRange": "OrganizationOrPerson", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "out", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "exampleValueJson": "\"nameCompany\": \"太原市金威德物流有限公司\" ,",
+            "exampleValueText": "太原市金威德物流有限公司",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ShareholderRole_nameCompany",
+            "propertyDescriptionZh": "总部公司名称",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "ShareholderRole",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquity", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_nameShareholder",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderRole_shareholderEquity", 
+            ],
+            "exampleValueJson": "\"nameShareholder\": \"张星昇\" ,",
+            "exampleValueText": "张星昇",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ShareholderRole_nameShareholder",
             "propertyAlternateName": [
-                "purMoney"
-            ], 
-            "propertyNameZh": "认缴出资金额", 
-            "propertyRange": "MonetaryAmount", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "shareholderEquity", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+                "investor_name"
+            ],
+            "propertyDescriptionZh": "分支机构名称",
+            "propertyNameZh": "股东名称",
+            "propertyRange": "Text",
+            "refClass": "ShareholderRole",
+            "refProperty": "nameShareholder",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquityRatio", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_out",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderRole_shareholderEquityRatio", 
+            ],
+            "exampleValueJson": "\"out\": {\"name\": \"张星昇\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "ShareholderRole_out",
+            "propertyAlternateName": [],
+            "propertyNameZh": "投资者",
+            "propertyRange": "OrganizationOrPerson",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderRole",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquity",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"shareholderEquity\": {\"text\":\"490万元\",\"value\":4900000,\"currency\":\"CNY\"} ,",
+            "exampleValueText": "490万元",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderEquity",
+            "propertyAlternateName": [
+                "purMoney",
+                "subscribe_amount"
+            ],
+            "propertyNameZh": "认缴出资额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderEquity",
+            "statedIn": "cns_organization",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquityMethod",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"shareholderEquityMethod\": \"货币\" ,",
+            "exampleValueText": "货币",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderEquityMethod",
+            "propertyAlternateName": [
+                "subscribe_type"
+            ],
+            "propertyNameZh": "认缴出资方式",
+            "propertyRange": "Text",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderEquityMethod",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquityRatio",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"shareholderEquityRatio\": 0.8 ,",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderEquityRatio",
             "propertyAlternateName": [
                 "purRatio"
-            ], 
-            "propertyNameZh": "持股比例", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "shareholderEquityRatio", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "propertyDescriptionZh": "可以通过 认缴金额/总认缴金额 计算出来，但是不能保证数据100%正确。风险点包括股东信息缺失，上市公司计算方法不一样，出资人币种差异等原因。",
+            "propertyNameZh": "持股比例",
+            "propertyRange": "Float",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderEquityRatio",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderEquityShare",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderRole_shareholderEquityShare", 
-            "propertyNameZh": "持股总量", 
-            "propertyRange": "Float", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "shareholderEquityShare", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
-        }, 
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderEquityShare",
+            "propertyDescriptionZh": "投融资分析场景专用",
+            "propertyNameZh": "持股总量",
+            "propertyRange": "Float",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderEquityShare",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
+        },
         {
-            "@id": "http://meta.cnschema.org/template/ShareholderRole_text", 
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderPurchasedEquity",
             "@type": [
-                "CnsTemplate", 
+                "CnsTemplate",
                 "CnsMeta"
-            ], 
-            "maxCardinality": 1, 
-            "minCardinality": 0, 
-            "name": "ShareholderRole_text", 
+            ],
+            "exampleValueJson": "\"shareholderPurchasedEquity\": {\"text\":\"490万元\",\"value\":4900000,\"currency\":\"CNY\"} ,",
+            "exampleValueText": "490万元",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderPurchasedEquity",
+            "propertyAlternateName": [
+                "paid_amount"
+            ],
+            "propertyNameZh": "实缴出资额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderPurchasedEquity",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderPurchasedEquityDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"shareholderPurchasedEquityDate\": \"2011-01-25\" ,",
+            "exampleValueText": "2011-01-25",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderPurchasedEquityDate",
+            "propertyAlternateName": [
+                "paid_time"
+            ],
+            "propertyNameZh": "实缴出资时间",
+            "propertyRange": "Date",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderPurchasedEquityDate",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_shareholderPurchasedEquityMethod",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"shareholderPurchasedEquityMethod\": \"货币\" ,",
+            "exampleValueText": "货币",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_shareholderPurchasedEquityMethod",
+            "propertyAlternateName": [
+                "paid_type"
+            ],
+            "propertyNameZh": "实缴出资方式",
+            "propertyRange": "Text",
+            "refClass": "ShareholderRole",
+            "refProperty": "shareholderPurchasedEquityMethod",
+            "statedIn": "cns_organization",
+            "version": "v2.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/ShareholderRole_text",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "ShareholderRole_text",
             "propertyAlternateName": [
                 "原文"
-            ], 
-            "propertyNameZh": "原文", 
-            "propertyRange": "Text", 
-            "propertySchema": "cns_top", 
-            "refClass": "ShareholderRole", 
-            "refProperty": "text", 
-            "statedIn": "cns_organization", 
-            "version": "v1.0"
+            ],
+            "propertyDescriptionZh": "投融资分析场景专用",
+            "propertyNameZh": "原文",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "ShareholderRole",
+            "refProperty": "text",
+            "statedIn": "cns_organization",
+            "version": "v2.0"
         }
-    ], 
+    ],
     "version": "v2.1"
 }
