@@ -66,6 +66,7 @@ def gen_range_validation_config(range_text, schema):
             temp["python_type_value_list"].append(int)
         elif range_text.lower() in ["float"]:
             temp["python_type_value_list"].append(float)
+            temp["python_type_value_list"].append(int)
         elif "CnsDataStructure" in schema.index_inheritance["rdfs:subClassOf"].get(r, []):
             temp["cns_range_datastructure"].append(range_text)
         else:
