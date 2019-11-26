@@ -57,34 +57,40 @@ https://docs.google.com/spreadsheets/d/1PYGYZtQLaLa2Oo3HLaL33VyL9VkUJUruYJr6nKQH
 源文件
 https://docs.google.com/spreadsheets/d/1YKtEpHqa2I8LvuNAVDg3uwV6G9b4ZrNJsZdvPMS3_98/edit
 
-./genschema.sh cns_top v2.1 schema
+./genschema.sh cns_top v2.3 schema
+
+### cns_struct
+源文件
+https://docs.google.com/spreadsheets/d/1HpHV4VkFIhTiUB2P80l-LZ_9kPaLYTQd0DfEhXxcGno/edit#gid=659512552
+
+./genschema.sh cns_struct v2.3 schema
 
 
 ### cns_temporal
 源文件
 https://docs.google.com/spreadsheets/d/1dH0ekNWX-HAfvEik088l4EMnLSRZ4AhQBZnqW4yv054/edit
 
-./genschema.sh cns_temporal v2.1 schema
+./genschema.sh cns_temporal v2.3 schema
 
 
 ### cns_place
 源文件
 https://docs.google.com/spreadsheets/d/1aX-_QOj2GQALx-k_dJU-ak5LyvV0iIBaAg6s2N0UNmw/edit
 
-./genschema.sh cns_place v2.1 schema
+./genschema.sh cns_place v2.3 schema
 
 
 ### cns_person
 源文件
 https://docs.google.com/spreadsheets/d/1b5DubotKUTU5tvT2pGXztwLpP63Xrc1le-VOuGKqbcw/edit
 
-./genschema.sh cns_person v2.1 schema
+./genschema.sh cns_person v2.3 schema
 
 ### cns_organization
 源文件
 https://docs.google.com/spreadsheets/d/1qVaBhsbf0RRkrVhG0kkkn79q_fH4s4bV3oO5isGrX8o/edit
 
-./genschema.sh cns_organization v2.1 schema
+./genschema.sh cns_organization v2.3 schema
 
 
 
@@ -110,9 +116,20 @@ https://docs.google.com/spreadsheets/d/1wAM3zoyjFmo0O92-okLHLMXwKNvx_GCWV2eu_AeX
 ./genschema.sh cns_kg4ai v20180915
 
 
+### cns_law
+源文件
+https://docs.google.com/spreadsheets/d/1IL4GMyyXpoPM3bQfq3EFg_1kBZM3DLLz_gUycYXLvKM/edit#gid=659512552
+./genschema.sh cns_law v1.1
+
+### cns_ckyc
+源文件
+https://docs.google.com/spreadsheets/d/1ZXfIsxcNL5dJ16gpDOYWiqTdn3DIOWGVNrmcG8f5Md8/edit#gid=2126084884
+./genschema.sh cns_ckyc v1.1
+
 ### test data on neo4j@Mac
 
 #1. DOWNLOAD two CSV files from the excel
+https://docs.google.com/spreadsheets/d/1qVaBhsbf0RRkrVhG0kkkn79q_fH4s4bV3oO5isGrX8o/edit#gid=659512552
 sample_entity
 sample_link
 
@@ -128,7 +145,7 @@ rm data/cns_test/*
 mv ~/Downloads/cns_*sample_*csv data/cns_test/
 
 #5. LOAD EXAMPLE DATA
-bin/neo4j-admin import --nodes "data/cns_test/cns_*sample_entity.csv" --relationships "data/cns_test/cns_*sample_link.csv"
+bin/neo4j-admin import --nodes "data/cns_test/cns_organization\ -\ sample_entity.csv" --relationships "data/cns_test/cns_organization\ -\ sample_link.csv"
 
 #6. restart neo4j
 bin/neo4j restart

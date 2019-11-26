@@ -736,7 +736,7 @@ def task_import_schema(args):
 
 
 if __name__ == "__main__":
-    logging.basic_complete_template_definition_referencenfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s',
+    logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s',
                         level=logging.INFO)
     logging.getLogger("requests").setLevel(logging.WARNING)
 

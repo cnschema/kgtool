@@ -10,7 +10,7 @@ echo $metaSchema
 # ./genschema.sh cns_kg4ai v1.0
 
 echo #schemaName
-if [ "$schemaName" = "cns_top_lite" ] || [ "$schemaName" = "cns_temporal" ] || [ "$schemaName" = "cns_meta" ] || [ "$schemaName" = "cns_top" ] || [ "$schemaName" = "cns_place" ] || [ "$schemaName" = "cns_schemaorg" ]  || [ "$schemaName" = "cns_person" ]  || [ "$schemaName" = "cns_organization" ]; then
+if [ "$schemaName" = "cns_top_lite" ] || [ "$schemaName" = "cns_struct" ] || [ "$schemaName" = "cns_temporal" ] || [ "$schemaName" = "cns_meta" ] || [ "$schemaName" = "cns_top" ] || [ "$schemaName" = "cns_place" ] || [ "$schemaName" = "cns_schemaorg" ]  || [ "$schemaName" = "cns_person" ]  || [ "$schemaName" = "cns_organization" ]; then
   schemaDir=schema
 else
   schemaDir=local/schema

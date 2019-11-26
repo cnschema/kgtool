@@ -1,0 +1,348 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/Agent",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "Agent",
+            "descriptionZh": "经济主体可以是个人，机构或者其他可以参与到经济活动中的个体。",
+            "name": "Agent",
+            "nameZh": "经济主体",
+            "rdfs:subClassOf": [
+                "Thing"
+            ],
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://cnschema.org/CnsDataStructure",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CnsDataStructure",
+            "descriptionZh": "基础属性包括更新时间，来源，原文",
+            "name": "CnsDataStructure",
+            "nameZh": "复杂数据结构",
+            "statedIn": "cns_struct",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/MonetaryAmount",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "struct",
+            "cnschemaName": "MonetaryAmount",
+            "descriptionZh": "金额的详细描述，通常包括原文text， 数值value，币种currency。例如 text为100万，而value就是数字1000000，币种为人民币。",
+            "name": "MonetaryAmount",
+            "nameZh": "复杂金额描述",
+            "rdfs:subClassOf": [
+                "CnsDataStructure"
+            ],
+            "schemaorgUrl": "http://schema.org/MonetaryAmount",
+            "statedIn": "cns_struct",
+            "version": "v1.5"
+        },
+        {
+            "@id": "http://cnschema.org/PropertyValue",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "struct",
+            "cnschemaName": "PropertyValue",
+            "descriptionZh": "更细节的属性值描述，包括进一步的属性名称",
+            "name": "PropertyValue",
+            "nameZh": "复杂属性值对",
+            "rdfs:subClassOf": [
+                "CnsDataStructure"
+            ],
+            "schemaorgUrl": "http://schema.org/PropertyValue",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://cnschema.org/category",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "category",
+            "descriptionZh": "实体的分组",
+            "name": "category",
+            "nameZh": "分组",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/category",
+            "statedIn": "cns_struct",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://cnschema.org/date",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "date",
+            "name": "date",
+            "nameZh": "日期",
+            "range": "Date",
+            "statedIn": "cns_struct",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/description",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "alternateName": [
+                "描述",
+                "定义"
+            ],
+            "category": "attribute",
+            "cnschemaName": "description",
+            "descriptionZh": "系统保留字，实体的描述，Wikidata的description。",
+            "name": "description",
+            "nameZh": "简介",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/description",
+            "statedIn": "cns_struct",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://cnschema.org/endDate",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "alternateName": [
+                "截至时间",
+                "结束日期"
+            ],
+            "category": "attribute",
+            "cnschemaName": "endDate",
+            "descriptionZh": "结束的具体日期",
+            "name": "endDate",
+            "nameZh": "结束时间",
+            "range": "DateTime",
+            "schemaorgUrl": "http://schema.org/endDate",
+            "statedIn": "cns_struct",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/keywords",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "keywords",
+            "descriptionZh": "一组用逗号分隔的实体相关的关键词",
+            "name": "keywords",
+            "nameZh": "关键词",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/keywords",
+            "statedIn": "cns_struct",
+            "version": "v1.1"
+        },
+        {
+            "@id": "http://cnschema.org/startDate",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "alternateName": [
+                "开始时间",
+                "开始日期"
+            ],
+            "category": "attribute",
+            "cnschemaName": "startDate",
+            "descriptionZh": "开始的具体日期",
+            "name": "startDate",
+            "nameZh": "开始时间",
+            "range": "DateTime",
+            "schemaorgUrl": "http://schema.org/startDate",
+            "statedIn": "cns_struct",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/text",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "alternateName": [
+                "原文"
+            ],
+            "category": "attribute",
+            "cnschemaName": "text",
+            "descriptionZh": "实体对应的原文",
+            "name": "text",
+            "nameZh": "内容",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/text",
+            "statedIn": "cns_struct",
+            "version": "v1.0"
+        }
+    ],
+    "@id": "http://meta.cnschema.org/ontologyrelease/cns_struct_v2.3",
+    "@type": [
+        "CnsOntologyRelease",
+        "CnsMeta"
+    ],
+    "about": {
+        "@id": "http://meta.cnschema.org/ontology/cns_struct",
+        "@type": [
+            "CnsOntology",
+            "CnsMeta"
+        ],
+        "name": "cns_struct"
+    },
+    "changelog": [
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.3_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2019-11-14T00:00:00",
+            "description": "迁移自cns_top",
+            "name": "v2.3_01",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        }
+    ],
+    "datePublished": "2019-11-14T00:00:00",
+    "description": "cnSchema的复杂结构",
+    "identifier": "cns_struct_v2.3",
+    "import": [
+        "cns_top_v2.3",
+        "cns_meta_v2.1"
+    ],
+    "name": "cns_struct",
+    "template": [
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDataStructure_statedIn",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CnsDataStructure_statedIn",
+            "propertyAlternateName": [],
+            "propertyNameZh": "来源",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "CnsDataStructure",
+            "refProperty": "statedIn",
+            "statedIn": "cns_struct",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsDataStructure_text",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CnsDataStructure_text",
+            "propertyNameZh": "原文",
+            "propertyRange": "Text",
+            "refClass": "CnsDataStructure",
+            "refProperty": "text",
+            "statedIn": "cns_struct",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/MonetaryAmount_currency",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "MonetaryAmount_currency",
+            "propertyNameZh": "币种",
+            "propertyRange": "Text",
+            "refClass": "MonetaryAmount",
+            "refProperty": "currency",
+            "statedIn": "cns_struct",
+            "version": "v1.5"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/MonetaryAmount_value",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "MonetaryAmount_value",
+            "propertyNameZh": "数值",
+            "propertyRange": "Float",
+            "refClass": "MonetaryAmount",
+            "refProperty": "value",
+            "statedIn": "cns_struct",
+            "version": "v1.5"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/PropertyValue_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "PropertyValue_name",
+            "propertyNameZh": "属性名",
+            "propertyRange": "Text",
+            "refClass": "PropertyValue",
+            "refProperty": "name",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/PropertyValue_value",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "PropertyValue_value",
+            "propertyNameZh": "属性值",
+            "propertyRange": "Text",
+            "refClass": "PropertyValue",
+            "refProperty": "value",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        }
+    ],
+    "version": "v2.3"
+}

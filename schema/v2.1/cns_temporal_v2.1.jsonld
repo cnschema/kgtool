@@ -1,0 +1,254 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/CnsTemporal",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CnsTemporal",
+            "name": "CnsTemporal",
+            "nameZh": "时序数据点",
+            "rdfs:subClassOf": [
+                "Thing"
+            ],
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://cnschema.org/CnsTemporalDataSource",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CnsTemporalDataSource",
+            "name": "CnsTemporalDataSource",
+            "nameZh": "时序数据源",
+            "rdfs:subClassOf": [
+                "Thing"
+            ],
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        }
+    ],
+    "@id": "http://meta.cnschema.org/ontologyrelease/cns_temporal_v2.1",
+    "@type": [
+        "CnsOntologyRelease",
+        "CnsMeta"
+    ],
+    "about": {
+        "@id": "http://meta.cnschema.org/ontology/cns_temporal",
+        "@type": [
+            "CnsOntology",
+            "CnsMeta"
+        ],
+        "name": "cns_temporal"
+    },
+    "changelog": [
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.1_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2018-12-21T00:00:00",
+            "description": "创建cns_temporal",
+            "name": "v2.1_01",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        }
+    ],
+    "datePublished": "2018-12-21T00:00:00",
+    "description": "cnSchema的时序类型",
+    "identifier": "cns_temporal_v2.1",
+    "import": [
+        "cns_top_v2.1",
+        "cns_meta_v2.1"
+    ],
+    "name": "cns_temporal",
+    "template": [
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporalDataSource_about",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "{\"@id\": \"...\", \"fundCode\":\"238923\"}",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsTemporalDataSource_about",
+            "propertyAlternateName": [],
+            "propertyNameZh": "关于",
+            "propertyRange": "Thing",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporalDataSource",
+            "refProperty": "about",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporalDataSource_dataSourceLocation",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"http://fundnetvalueservice.srv/nv/238923\"",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsTemporalDataSource_dataSourceLocation",
+            "propertyNameZh": "数据源地址",
+            "propertyRange": "URL",
+            "refClass": "CnsTemporalDataSource",
+            "refProperty": "dataSourceLocation",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporalDataSource_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"基金净值时间序列\"",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CnsTemporalDataSource_name",
+            "propertyAlternateName": [
+                "姓名"
+            ],
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporalDataSource",
+            "refProperty": "name",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporal_about",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "{ \"@id“:\"...\",\n”name“: “中国石油\"\n\"identifier:\"601857\"\n”keywords“: [\"上证A股\",\"石油行业\"]\n}",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsTemporal_about",
+            "propertyAlternateName": [],
+            "propertyNameZh": "关于",
+            "propertyRange": "Thing",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporal",
+            "refProperty": "about",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporal_endDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "“2017-01-01”",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsTemporal_endDate",
+            "propertyAlternateName": [
+                "截至时间",
+                "结束日期"
+            ],
+            "propertyNameZh": "结束时间",
+            "propertyRange": "DateTime",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporal",
+            "refProperty": "endDate",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporal_keywords",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "[“股价”,“国内”,“日报”]",
+            "minCardinality": 0,
+            "name": "CnsTemporal_keywords",
+            "propertyNameZh": "关键字",
+            "propertyRange": "Text",
+            "refClass": "CnsTemporal",
+            "refProperty": "keywords",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporal_mentions",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "[ {\"@id“:\"...\",\n”name“: “中国石化集团\n}\n]",
+            "minCardinality": 0,
+            "name": "CnsTemporal_mentions",
+            "propertyAlternateName": [],
+            "propertyNameZh": "提及",
+            "propertyRange": "Thing",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporal",
+            "refProperty": "mentions",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporal_startDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "“2017-01-01”",
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CnsTemporal_startDate",
+            "propertyAlternateName": [
+                "开始时间",
+                "开始日期"
+            ],
+            "propertyNameZh": "开始时间",
+            "propertyRange": "DateTime",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporal",
+            "refProperty": "startDate",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsTemporal_statedIn",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"万德\"",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsTemporal_statedIn",
+            "propertyAlternateName": [],
+            "propertyNameZh": "载于",
+            "propertyRange": "Text",
+            "propertySchema": "cns_top",
+            "refClass": "CnsTemporal",
+            "refProperty": "statedIn",
+            "statedIn": "cns_temporal",
+            "version": "v2.1"
+        }
+    ],
+    "version": "v2.1"
+}

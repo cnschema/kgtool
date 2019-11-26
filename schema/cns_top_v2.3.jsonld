@@ -1,0 +1,379 @@
+{
+    "@context": {
+        "@vocab": "http://cnschema.org/",
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#"
+    },
+    "@graph": [
+        {
+            "@id": "http://cnschema.org/CnsLink",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CnsLink",
+            "descriptionZh": "实体二元关系，关联到实体对外的链接，附带一定数量的属性",
+            "name": "CnsLink",
+            "nameZh": "实体二元关系",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/Thing",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "Thing",
+            "name": "Thing",
+            "nameZh": "事物",
+            "schemaorgUrl": "http://schema.org/Thing",
+            "statedIn": "cns_top",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://cnschema.org/alternateName",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "alternateName",
+            "descriptionZh": "系统保留字，实体的别名，Wikidata的alias。",
+            "name": "alternateName",
+            "nameZh": "别名",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/alternateName",
+            "statedIn": "cns_top",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://cnschema.org/entityScore",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "entityScore",
+            "descriptionZh": "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体",
+            "name": "entityScore",
+            "nameZh": "实体全局评分",
+            "range": "Integer",
+            "statedIn": "cns_top",
+            "version": "v1.1"
+        },
+        {
+            "@id": "http://cnschema.org/identifier",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "identifier",
+            "descriptionZh": "溯源属性，实体在数据源对应的ID",
+            "name": "identifier",
+            "nameZh": "标识",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/identifier",
+            "statedIn": "cns_top",
+            "version": "v1.1"
+        },
+        {
+            "@id": "http://cnschema.org/in",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "link",
+            "cnschemaName": "in",
+            "descriptionZh": "被描述的主体",
+            "name": "in",
+            "nameZh": "入点",
+            "range": "Thing",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/mergedFromCount",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "mergedFromCount",
+            "descriptionZh": "溯源属性，实体融合来源数量统计",
+            "name": "mergedFromCount",
+            "nameZh": "融合来源数量",
+            "range": "Integer",
+            "statedIn": "cns_top",
+            "version": "v1.1"
+        },
+        {
+            "@id": "http://cnschema.org/name",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "alternateName": [
+                "姓名"
+            ],
+            "category": "attribute",
+            "cnschemaName": "name",
+            "descriptionZh": "系统保留字，实体的名称，Wikidata的label。",
+            "name": "name",
+            "nameZh": "名称",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/name",
+            "statedIn": "cns_top",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://cnschema.org/out",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "link",
+            "cnschemaName": "out",
+            "descriptionZh": "被链接的客体",
+            "name": "out",
+            "nameZh": "出点",
+            "range": "Thing",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/pageRankScore",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "pageRankScore",
+            "descriptionZh": "系统保留字，实体在对应图谱中的PageRank值",
+            "name": "pageRankScore",
+            "nameZh": "实体pagerank评分",
+            "range": "Float",
+            "statedIn": "cns_top",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://cnschema.org/statedIn",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "statedIn",
+            "descriptionZh": "溯源属性，实体来自哪个数据源",
+            "name": "statedIn",
+            "nameZh": "来源",
+            "range": "Text",
+            "statedIn": "cns_top",
+            "version": "v1.1",
+            "wikidataUrl": "https://www.wikidata.org/wiki/P248"
+        },
+        {
+            "@id": "http://cnschema.org/sysGraphCommunitiesDetection",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "sysGraphCommunitiesDetection",
+            "descriptionZh": "系统保留字，社区发现算法标记的结果",
+            "name": "sysGraphCommunitiesDetection",
+            "nameZh": "社区编号",
+            "range": "Integer",
+            "statedIn": "cns_top",
+            "version": "v2.0"
+        }
+    ],
+    "@id": "http://meta.cnschema.org/ontologyrelease/cns_top_v2.3",
+    "@type": [
+        "CnsOntologyRelease",
+        "CnsMeta"
+    ],
+    "about": {
+        "@id": "http://meta.cnschema.org/ontology/cns_top",
+        "@type": [
+            "CnsOntology",
+            "CnsMeta"
+        ],
+        "name": "cns_top"
+    },
+    "changelog": [
+        {
+            "@id": "http://meta.cnschema.org/changelog/v1.0_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2017-03-01T00:00:00",
+            "description": "最初的核心概念，全部基于schemaorg",
+            "name": "v1.0_01",
+            "statedIn": "cns_top",
+            "version": "v1.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v1.1_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2017-08-01T00:00:00",
+            "description": "增补概念，Tag替代keywords，以及实体的更多核心属性",
+            "name": "v1.1_01",
+            "statedIn": "cns_top",
+            "version": "v1.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v1.2_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2018-05-19T00:00:00",
+            "description": "Link替代BinaryRelationOut，修订格式增加cardinality restriction",
+            "name": "v1.2_01",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.0_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2018-09-17T00:00:00",
+            "description": "增加Ontology，Definition 等本体定义，编程级别支持，修订Schema本体的相关数据结构",
+            "name": "v2.0_01",
+            "statedIn": "cns_top",
+            "version": "v2.0"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.1_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2018-12-07T00:00:00",
+            "description": "迁移系统级概念定义到cns_meta, 删除一部分不常用的template",
+            "name": "v2.1_01",
+            "statedIn": "cns_top",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.1_02",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2019-10-17T00:00:00",
+            "description": "增补sysGraphCommunitiesDetection",
+            "name": "v2.1_02",
+            "statedIn": "cns_top",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.3_01",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2019-11-14T00:00:00",
+            "description": "迁移非必要属性和概念",
+            "name": "v2.3_01",
+            "statedIn": "cns_top",
+            "version": "v2.3"
+        }
+    ],
+    "datePublished": "2019-11-14T00:00:00",
+    "description": "cnSchema的顶级模块",
+    "identifier": "cns_top_v2.3",
+    "import": [
+        "cns_meta_v2.1"
+    ],
+    "name": "cns_top",
+    "template": [
+        {
+            "@id": "http://meta.cnschema.org/template/CnsLink_in",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsLink_in",
+            "propertyNameZh": "入点",
+            "propertyRange": "Thing",
+            "refClass": "CnsLink",
+            "refProperty": "in",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsLink_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "CnsLink_name",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "refClass": "CnsLink",
+            "refProperty": "name",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/CnsLink_out",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "CnsLink_out",
+            "propertyNameZh": "出点",
+            "propertyRange": "Thing",
+            "refClass": "CnsLink",
+            "refProperty": "out",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "Thing_name",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "refClass": "Thing",
+            "refProperty": "name",
+            "statedIn": "cns_top",
+            "version": "v1.2"
+        }
+    ],
+    "version": "v2.3"
+}
