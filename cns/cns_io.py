@@ -183,6 +183,9 @@ def mem4export(the_schema, options):
             elif option == "jsonld":
                 json_data = the_schema.mem2jsonld()
                 output_json[option] = json_data
+            elif option == "openapi":
+                json_data = the_schema.mem2openapi()
+                output_json[option] = json_data
 
     #logging.info(options)
     logging.info(output_json.keys())
@@ -215,7 +218,7 @@ def _export_nquad(args, filename_output):
 
 def task_excel2jsonld(args):
     schema_excel_filename = args["input_file"]
-    options = "jsonld,table_single,table_import,dot_compact,dot_import,dot_full"
+    options = "jsonld,table_single,table_import,dot_compact,dot_import,dot_full,openapi"
     output_json = excel2schema(schema_excel_filename, None, options, args.get('schema_dir'))
 
     #read table from excel, and convert them into mem model
@@ -241,6 +244,10 @@ def task_excel2jsonld(args):
         filename_output = os.path.join(args["debug_dir"], output_json["jsonld"]["identifier"]+"."+p[4:]+".dot")
         lines2file([output_json[p]], filename_output)
 
+    #openapi yaml file
+    for p in ["openapi"]:
+        filename_output = os.path.join(args["debug_dir"], output_json["jsonld"]["identifier"]+"."+p+".yaml")
+        lines2file(output_json[p], filename_output)
 
 if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname)s][%(asctime)s][%(module)s][%(funcName)s][%(lineno)s] %(message)s', level=logging.INFO)

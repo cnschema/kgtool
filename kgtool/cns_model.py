@@ -613,6 +613,73 @@ class CnsSchema:
 
         self.build()
 
+    def mem2openapi(self, filename=None):
+
+        lines = []
+        for refClass, propMap in self.index_validate_template.items():
+            indent_space = 4
+            line = '{}{}:'.format(' ' * indent_space, refClass)
+            lines.append(line)
+
+            indent_space +=2
+            line = '{}type: object'.format(' ' * indent_space)
+            lines.append(line)
+            line = '{}properties:'.format(' ' * indent_space)
+            lines.append(line)
+
+            indent_space +=2
+            for refProperty, template in propMap.items():
+                line = '{}{}:'.format(' ' * indent_space, refProperty)
+                lines.append(line)
+
+                propertyRange = template.get("propertyRange",{}).get("text")
+                xtype=None
+                xformat=None
+                if not propertyRange:
+                    logging.error(template)
+                    assert False
+                elif propertyRange in ["Text"]:
+                    xtype = 'string'
+                elif propertyRange in ["Date"]:
+                    xtype = 'string'
+                    xformat = 'date'
+                elif propertyRange in ["DateTime"]:
+                    xtype = 'string'
+                    xformat = 'date-time'
+                elif propertyRange in ["Float"]:
+                    xtype = 'number'
+                    xformat = 'float'
+                elif propertyRange in ["Integer"]:
+                    xtype = 'number'
+                    xformat = 'int64'
+                else:
+                    line = "{}$ref: '#/components/schemas/{}'".format(' ' * (indent_space+2), propertyRange)
+                    lines.append(line)
+                    continue
+
+                #line = '{}range:{}'.format(' ' * (indent_space+2), propertyRange)
+                #lines.append(line)
+
+                if xtype:
+                    line = '{}type: {}'.format(' ' * (indent_space+2), xtype)
+                    lines.append(line)
+                if xformat:
+                    line = '{}format: {}'.format(' ' * (indent_space+2), xformat)
+                    lines.append(line)
+
+                exampleValueJson = template.get("exampleValueJson")
+                if exampleValueJson:
+                    exampleValueJson = re.sub("^[^:]+:","", exampleValueJson)
+                    exampleValueJson = re.sub(",\s*$","", exampleValueJson)
+                    line = '{}example: {}'.format(' ' * (indent_space+2), exampleValueJson)
+                    lines.append(line)
+
+        # save to file
+        if filename:
+            lines2file(lines, filename)
+
+        return lines
+
     def mem2jsonld(self, filename=None):
 
         if not self.metadata["identifier"]:
@@ -718,6 +785,9 @@ def task_import_schema(args):
     xdebug_file = os.path.join(args["debug_dir"], os.path.basename(args["input_file"]))
     filename_debug = xdebug_file + u".debug-jsonld.json"
     jsonld_output = loaded_schema.mem2jsonld(filename_debug)
+
+    filename_openapi = xdebug_file + u".openapi.yaml"
+    jsonld_output = loaded_schema.mem2openapi(filename_openapi)
 
     assert len(jsonld_input) == len(jsonld_output)
     x = json4debug(jsonld_input).splitlines(1)
