@@ -6,24 +6,6 @@
     },
     "@graph": [
         {
-            "@id": "http://cnschema.org/Person",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "class",
-            "cnschemaName": "Person",
-            "name": "Person",
-            "nameZh": "人物",
-            "rdfs:subClassOf": [
-                "Agent"
-            ],
-            "schemaorgUrl": "http://schema.org/Person",
-            "statedIn": "cns_person",
-            "version": "v1.0"
-        },
-        {
             "@id": "http://cnschema.org/academicMajor",
             "@type": [
                 "CnsProperty",
@@ -977,6 +959,8 @@
     "identifier": "cns_person_v2.3",
     "import": [
         "cns_top_v2.3",
+        "cns_place_v2.3",
+        "cns_struct_v2.3",
         "cns_meta_v2.1"
     ],
     "name": "cns_person",

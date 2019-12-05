@@ -39,6 +39,42 @@
             "version": "v1.2"
         },
         {
+            "@id": "http://cnschema.org/CnsTag",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "CnsTag",
+            "descriptionZh": "该实体的分类标签，在不进一步扩展分类树的前提下支持facted search ,细化分类",
+            "name": "CnsTag",
+            "nameZh": "分类标签",
+            "rdfs:subClassOf": [
+                "Thing"
+            ],
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://cnschema.org/Event",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "Event",
+            "name": "Event",
+            "nameZh": "事件",
+            "rdfs:subClassOf": [
+                "Thing"
+            ],
+            "schemaorgUrl": "http://schema.org/Event",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
             "@id": "http://cnschema.org/MonetaryAmount",
             "@type": [
                 "CnsClass",
@@ -58,6 +94,45 @@
             "version": "v1.5"
         },
         {
+            "@id": "http://cnschema.org/Organization",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "alternateName": [
+                "组织"
+            ],
+            "category": "class",
+            "cnschemaName": "Organization",
+            "name": "Organization",
+            "nameZh": "机构",
+            "rdfs:subClassOf": [
+                "Agent"
+            ],
+            "schemaorgUrl": "http://schema.org/Organization",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://cnschema.org/Person",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "Person",
+            "name": "Person",
+            "nameZh": "人物",
+            "rdfs:subClassOf": [
+                "Agent"
+            ],
+            "schemaorgUrl": "http://schema.org/Person",
+            "statedIn": "cns_struct",
+            "version": "v2.3"
+        },
+        {
             "@id": "http://cnschema.org/PropertyValue",
             "@type": [
                 "CnsClass",
@@ -75,6 +150,23 @@
             "schemaorgUrl": "http://schema.org/PropertyValue",
             "statedIn": "cns_struct",
             "version": "v2.3"
+        },
+        {
+            "@id": "http://cnschema.org/alternateName",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "alternateName",
+            "descriptionZh": "系统保留字，实体的别名，Wikidata的alias。",
+            "name": "alternateName",
+            "nameZh": "别名",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/alternateName",
+            "statedIn": "cns_struct",
+            "version": "v1.0"
         },
         {
             "@id": "http://cnschema.org/category",
@@ -151,6 +243,23 @@
             "version": "v1.2"
         },
         {
+            "@id": "http://cnschema.org/identifier",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "identifier",
+            "descriptionZh": "溯源属性，实体在数据源对应的ID",
+            "name": "identifier",
+            "nameZh": "标识",
+            "range": "Text",
+            "schemaorgUrl": "http://schema.org/identifier",
+            "statedIn": "cns_struct",
+            "version": "v1.1"
+        },
+        {
             "@id": "http://cnschema.org/keywords",
             "@type": [
                 "CnsProperty",
@@ -164,6 +273,22 @@
             "nameZh": "关键词",
             "range": "Text",
             "schemaorgUrl": "http://schema.org/keywords",
+            "statedIn": "cns_struct",
+            "version": "v1.1"
+        },
+        {
+            "@id": "http://cnschema.org/mergedFromCount",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "mergedFromCount",
+            "descriptionZh": "溯源属性，实体融合来源数量统计",
+            "name": "mergedFromCount",
+            "nameZh": "融合来源数量",
+            "range": "Integer",
             "statedIn": "cns_struct",
             "version": "v1.1"
         },
@@ -187,6 +312,39 @@
             "schemaorgUrl": "http://schema.org/startDate",
             "statedIn": "cns_struct",
             "version": "v1.2"
+        },
+        {
+            "@id": "http://cnschema.org/statedIn",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "statedIn",
+            "descriptionZh": "溯源属性，实体来自哪个数据源",
+            "name": "statedIn",
+            "nameZh": "来源",
+            "range": "Text",
+            "statedIn": "cns_struct",
+            "version": "v1.1",
+            "wikidataUrl": "https://www.wikidata.org/wiki/P248"
+        },
+        {
+            "@id": "http://cnschema.org/sysGraphCommunitiesDetection",
+            "@type": [
+                "CnsProperty",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "attribute",
+            "cnschemaName": "sysGraphCommunitiesDetection",
+            "descriptionZh": "社区发现算法标记的结果",
+            "name": "sysGraphCommunitiesDetection",
+            "nameZh": "社区编号",
+            "range": "Integer",
+            "statedIn": "cns_struct",
+            "version": "v2.0"
         },
         {
             "@id": "http://cnschema.org/text",
@@ -254,10 +412,8 @@
             "maxCardinality": 1,
             "minCardinality": 0,
             "name": "CnsDataStructure_statedIn",
-            "propertyAlternateName": [],
             "propertyNameZh": "来源",
             "propertyRange": "Text",
-            "propertySchema": "cns_top",
             "refClass": "CnsDataStructure",
             "refProperty": "statedIn",
             "statedIn": "cns_struct",
@@ -342,6 +498,22 @@
             "refProperty": "value",
             "statedIn": "cns_struct",
             "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_statedIn",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Thing_statedIn",
+            "propertyNameZh": "来源",
+            "propertyRange": "Text",
+            "refClass": "Thing",
+            "refProperty": "statedIn",
+            "statedIn": "cns_struct",
+            "version": "v2.1"
         }
     ],
     "version": "v2.3"

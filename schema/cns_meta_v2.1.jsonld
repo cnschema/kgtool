@@ -25,21 +25,6 @@
             "version": "v1.0"
         },
         {
-            "@id": "http://cnschema.org/CnsAttribute",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "class",
-            "cnschemaName": "CnsAttribute",
-            "descriptionZh": "实体属性，通过属性值描述实体， 属性为复杂数据结构或简单数据结构。定义了实体属性主要是为了支持属性复用。",
-            "name": "CnsAttribute",
-            "nameZh": "实体描述属性",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
             "@id": "http://cnschema.org/CnsChangelog",
             "@type": [
                 "CnsClass",
@@ -75,34 +60,6 @@
             "version": "v2.0"
         },
         {
-            "@id": "http://cnschema.org/CnsDataSource",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsDataSource",
-            "name": "CnsDataSource",
-            "nameZh": "CNS数据源",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsDataset",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsDataset",
-            "name": "CnsDataset",
-            "nameZh": "CNS数据集",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
             "@id": "http://cnschema.org/CnsDefinition",
             "@type": [
                 "CnsClass",
@@ -117,34 +74,6 @@
             "rdfs:subClassOf": [
                 "CnsMeta"
             ],
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsGraph",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsGraph",
-            "name": "CnsGraph",
-            "nameZh": "CNS图谱",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsGraphRelease",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsGraphRelease",
-            "name": "CnsGraphRelease",
-            "nameZh": "CNS图谱版本",
             "statedIn": "cns_meta",
             "version": "v2.0"
         },
@@ -199,20 +128,6 @@
             "version": "v2.0"
         },
         {
-            "@id": "http://cnschema.org/CnsProductionConfig",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsProductionConfig",
-            "name": "CnsProductionConfig",
-            "nameZh": "CNS图谱生产配置",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
             "@id": "http://cnschema.org/CnsProperty",
             "@type": [
                 "CnsClass",
@@ -227,63 +142,6 @@
             "rdfs:subClassOf": [
                 "CnsDefinition"
             ],
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsPublishConfig",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsPublishConfig",
-            "name": "CnsPublishConfig",
-            "nameZh": "CNS图谱发布配置",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsSimpleLink",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "class",
-            "cnschemaName": "CnsSimpleLink",
-            "descriptionZh": "简化的实体二元关系，不包含任何属性",
-            "name": "CnsSimpleLink",
-            "nameZh": "简单二元关系",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsStep",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsStep",
-            "name": "CnsStep",
-            "nameZh": "CNS图谱生产步骤",
-            "statedIn": "cns_meta",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/CnsTask",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "meta",
-            "cnschemaName": "CnsTask",
-            "name": "CnsTask",
-            "nameZh": "CNS图谱生产任务",
             "statedIn": "cns_meta",
             "version": "v2.0"
         },
@@ -452,6 +310,18 @@
             "datePublished": "2018-12-17T00:00:00",
             "description": "迁移cns_top中的系统概念到这里",
             "name": "v2.1_01",
+            "statedIn": "cns_meta",
+            "version": "v2.1"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.1_02",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2019-12-03T00:00:00",
+            "description": "删除未使用的定义definition",
+            "name": "v2.1_02",
             "statedIn": "cns_meta",
             "version": "v2.1"
         }

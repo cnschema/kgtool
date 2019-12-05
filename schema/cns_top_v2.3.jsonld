@@ -14,7 +14,7 @@
             ],
             "category": "class",
             "cnschemaName": "CnsLink",
-            "descriptionZh": "实体二元关系，关联到实体对外的链接，附带一定数量的属性",
+            "descriptionZh": "顶级分类，实体二元关系，关联\b两个实体，有方向，附带一定数量的属性",
             "name": "CnsLink",
             "nameZh": "实体二元关系",
             "statedIn": "cns_top",
@@ -29,26 +29,10 @@
             ],
             "category": "class",
             "cnschemaName": "Thing",
+            "descriptionZh": "\b\b顶级分类，实体节点，附带一定量的属性",
             "name": "Thing",
             "nameZh": "事物",
             "schemaorgUrl": "http://schema.org/Thing",
-            "statedIn": "cns_top",
-            "version": "v1.0"
-        },
-        {
-            "@id": "http://cnschema.org/alternateName",
-            "@type": [
-                "CnsProperty",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "attribute",
-            "cnschemaName": "alternateName",
-            "descriptionZh": "系统保留字，实体的别名，Wikidata的alias。",
-            "name": "alternateName",
-            "nameZh": "别名",
-            "range": "Text",
-            "schemaorgUrl": "http://schema.org/alternateName",
             "statedIn": "cns_top",
             "version": "v1.0"
         },
@@ -59,29 +43,15 @@
                 "CnsDefinition",
                 "CnsMeta"
             ],
+            "alternateName": [
+                "\bkgEntityScore"
+            ],
             "category": "attribute",
             "cnschemaName": "entityScore",
-            "descriptionZh": "系统保留字，实体词典中的排序，对应Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体",
+            "descriptionZh": "系统保留字，实体词典中的排序，支持Google的I'm feeling lucky。整数，用于实体消歧义时选择最热门实体",
             "name": "entityScore",
             "nameZh": "实体全局评分",
             "range": "Integer",
-            "statedIn": "cns_top",
-            "version": "v1.1"
-        },
-        {
-            "@id": "http://cnschema.org/identifier",
-            "@type": [
-                "CnsProperty",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "attribute",
-            "cnschemaName": "identifier",
-            "descriptionZh": "溯源属性，实体在数据源对应的ID",
-            "name": "identifier",
-            "nameZh": "标识",
-            "range": "Text",
-            "schemaorgUrl": "http://schema.org/identifier",
             "statedIn": "cns_top",
             "version": "v1.1"
         },
@@ -94,28 +64,12 @@
             ],
             "category": "link",
             "cnschemaName": "in",
-            "descriptionZh": "被描述的主体",
+            "descriptionZh": "系统保留字，从二元关系指向被描述的主体，二元关系的入点",
             "name": "in",
             "nameZh": "入点",
             "range": "Thing",
             "statedIn": "cns_top",
             "version": "v1.2"
-        },
-        {
-            "@id": "http://cnschema.org/mergedFromCount",
-            "@type": [
-                "CnsProperty",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "attribute",
-            "cnschemaName": "mergedFromCount",
-            "descriptionZh": "溯源属性，实体融合来源数量统计",
-            "name": "mergedFromCount",
-            "nameZh": "融合来源数量",
-            "range": "Integer",
-            "statedIn": "cns_top",
-            "version": "v1.1"
         },
         {
             "@id": "http://cnschema.org/name",
@@ -146,7 +100,7 @@
             ],
             "category": "link",
             "cnschemaName": "out",
-            "descriptionZh": "被链接的客体",
+            "descriptionZh": "系统保留字，从二元关系指向被关联的客体，二元关系的出点",
             "name": "out",
             "nameZh": "出点",
             "range": "Thing",
@@ -160,45 +114,15 @@
                 "CnsDefinition",
                 "CnsMeta"
             ],
+            "alternateName": [
+                "kgPageRankScore"
+            ],
             "category": "attribute",
             "cnschemaName": "pageRankScore",
             "descriptionZh": "系统保留字，实体在对应图谱中的PageRank值",
             "name": "pageRankScore",
             "nameZh": "实体pagerank评分",
             "range": "Float",
-            "statedIn": "cns_top",
-            "version": "v2.0"
-        },
-        {
-            "@id": "http://cnschema.org/statedIn",
-            "@type": [
-                "CnsProperty",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "attribute",
-            "cnschemaName": "statedIn",
-            "descriptionZh": "溯源属性，实体来自哪个数据源",
-            "name": "statedIn",
-            "nameZh": "来源",
-            "range": "Text",
-            "statedIn": "cns_top",
-            "version": "v1.1",
-            "wikidataUrl": "https://www.wikidata.org/wiki/P248"
-        },
-        {
-            "@id": "http://cnschema.org/sysGraphCommunitiesDetection",
-            "@type": [
-                "CnsProperty",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "category": "attribute",
-            "cnschemaName": "sysGraphCommunitiesDetection",
-            "descriptionZh": "系统保留字，社区发现算法标记的结果",
-            "name": "sysGraphCommunitiesDetection",
-            "nameZh": "社区编号",
-            "range": "Integer",
             "statedIn": "cns_top",
             "version": "v2.0"
         }
@@ -359,11 +283,29 @@
             "version": "v1.2"
         },
         {
+            "@id": "http://meta.cnschema.org/template/Thing_entityScore",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "Thing_entityScore",
+            "propertyNameZh": "实体全局评分",
+            "propertyRange": "Integer",
+            "refClass": "Thing",
+            "refProperty": "entityScore",
+            "statedIn": "cns_top",
+            "version": "v1.3"
+        },
+        {
             "@id": "http://meta.cnschema.org/template/Thing_name",
             "@type": [
                 "CnsTemplate",
                 "CnsMeta"
             ],
+            "exampleValueJson": "\"name\": \"张三\" ,",
+            "exampleValueText": "张三",
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "Thing_name",
@@ -373,6 +315,21 @@
             "refProperty": "name",
             "statedIn": "cns_top",
             "version": "v1.2"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/Thing_pageRankScore",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "minCardinality": 0,
+            "name": "Thing_pageRankScore",
+            "propertyNameZh": "实体pagerank评分",
+            "propertyRange": "Float",
+            "refClass": "Thing",
+            "refProperty": "pageRankScore",
+            "statedIn": "cns_top",
+            "version": "v1.3"
         }
     ],
     "version": "v2.3"

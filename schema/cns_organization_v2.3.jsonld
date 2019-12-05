@@ -202,27 +202,6 @@
             "version": "v2.0"
         },
         {
-            "@id": "http://cnschema.org/Organization",
-            "@type": [
-                "CnsClass",
-                "CnsDefinition",
-                "CnsMeta"
-            ],
-            "alternateName": [
-                "组织"
-            ],
-            "category": "class",
-            "cnschemaName": "Organization",
-            "name": "Organization",
-            "nameZh": "机构",
-            "rdfs:subClassOf": [
-                "Agent"
-            ],
-            "schemaorgUrl": "http://schema.org/Organization",
-            "statedIn": "cns_organization",
-            "version": "v1.0"
-        },
-        {
             "@id": "http://cnschema.org/Partnership",
             "@type": [
                 "CnsClass",
@@ -354,7 +333,7 @@
     "identifier": "cns_organization_v2.3",
     "import": [
         "cns_top_v2.3",
-        "cns_person_v2.3",
+        "cns_place_v2.3",
         "cns_struct_v2.3",
         "cns_meta_v2.1"
     ],
