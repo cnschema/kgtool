@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" language="javascript">
+        function getElementByIdAsListOfString(elementId){
+            v = document.getElementById(elementId).value
+            ary = v.split(";").map(function(item) {
+                return item.trim();
+            })
+            ret = ary.filter(function(el) { return el; })
+            return ret
+        }
+
+        function showThing(data, lines){
+            const line = JSON.stringify(data)
+            lines.push(line)
+        }
+        function showCnsLink(data, lines){
+          var line = JSON.stringify(data)
+          lines.push(line)
+
+          line = 'in: ' + genLinkEntity(data['in'])
+          lines.push(line)
+
+          line = 'out: ' + genLinkEntity(data['out'])
+          lines.push(line)
+        }
+        function genLinkEntity(data){
+          // <a onclick='check(event, {})'>test<a>
+          const params = {
+            'termList' : data["@id"],
+            'kgExpectTypeList' : data["@type"][0]
+          }
+          var name = data["name"]
+          if (name == undefined){
+            name = "NoName:"+data['@id']
+          }
+          line = '<a href="?'+encodeQueryData(params)+'">'+name+'<a>'
+          return line
+        }
+
+        // https://stackoverflow.com/questions/111529/how-to-create-query-parameters-in-javascript
+        function encodeQueryData(data) {
+           const ret = [];
+           for (let d in data)
+             ret.push(encodeURIComponent(d) + '=' + encodeURIComponent(data[d]));
+           return ret.join('&');
+        }
+
+        function showKgQueryResult(data){
+          var lines = []
+          //lines.push(JSON.stringify(data))
+
+          for (kgobject of data['kgObjectList']){
+              var key
+              key = 'kgMainObject'
+              lines.push("<h3>"+key+"</h3>")
+              if (kgobject[key] != undefined){
+                showThing(kgobject[key], lines)
+              }
+
+              key = 'kgContextEntityList'
+              lines.push("<h3>"+key+"</h3>")
+              if (kgobject[key] != undefined){
+                for (item of kgobject[key]){
+                  showThing(item, lines)
+                }
+              }
+
+              key = 'kgContextLinkList'
+              lines.push("<h3>"+key+"</h3>")
+              if (kgobject[key] != undefined){
+                for (item of kgobject[key]){
+                  showCnsLink(item, lines)
+                }
+              }
+          }
+          const ret = lines.join("<p/>");
+          return ret
+        }
+
+        function check(event) {
+            if (event != undefined){
+              event.preventDefault();
+            }else{
+              //write params to form
+              const params = new URLSearchParams(window.location.search);
+
+              const keyList = ['servicePath', 'propertyPath','q', 'termList', 'kgExpectTypeList', 'limit']
+              for (key of keyList){
+                var myParam = params.get(key);
+                if (myParam != undefined && myParam !=''){
+                  document.getElementById(key).value = myParam;
+                }
+              }
+            }
+
+            //load params from form
+            url = document.getElementById('serviceUrl').value +
+                  document.getElementById('servicePath').value;
+
+            const paramAsList = ['termList','kgExpectTypeList'] ;
+            var data = {
+                'propertyPath': document.getElementById('propertyPath').value,
+            } ;
+            for (const key of paramAsList){
+              data[key] = getElementByIdAsListOfString(key)
+            }
+
+            limit = document.getElementById('limit').value
+            if (limit != undefined && limit != null ){
+              //alert(limit)
+              //data['limit'] = parseInt(limit)
+            }
+
+
+            const other_params = {
+                headers : { "content-type" : "application/json; charset=UTF-8"},
+                body : data,
+                method : "POST",
+                mode : "cors"
+            };
+
+            document.getElementById('requestUrl').innerHTML = url;
+            document.getElementById('requestBody').innerHTML = JSON.stringify(data,undefined, 2);
+
+            fetch(url, other_params)
+                .then(function(response) {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Could not reach the API: " + response.statusText);
+                }
+            }).then(function(data) {
+                document.getElementById("result").innerHTML = showKgQueryResult(data);
+            }).catch(function(error) {
+                document.getElementById("result").innerHTML = error.message;
+            });
+
+            document.getElementById('message').innerHTML = "done";
+
+            return true;
+        }
+      </script>
+  </head>
+<body onload="check();">
+  <form method="POST" onsubmit="return check();">
+      <h1>kgapi test</h1>
+
+      <p>serviceUrl:
+      <input id='serviceUrl' size=80 value="https://virtserver.swaggerhub.com/lidingpku/kgapi/1.0.0" />
+      </p>
+
+      <p>servicePath:
+      <input id='servicePath' size=80  value="/core/match" />
+      /core/search
+      /core/match
+      /ckyc/searchCompany
+      /ckyc/matchCompanyGroup
+      /ckyc/listLawsuit
+      /ckyc/listJudicialDocument
+      /ckyc/listJudicialDecisionStatement
+      </p>
+
+
+      <p>termList:
+      <textarea id="termList" name="termList" rows="8" cols="80">test</textarea>
+      </p>
+
+      <p>propertyPath:
+      <input id='propertyPath' value="*.id" />
+      </p>
+
+      <p>kgExpectTypeList:
+      <textarea id="kgExpectTypeList" name="kgExpectTypeList" rows="4" cols="80">test</textarea>
+      </p>
+
+
+        <p/>
+      limit: <input id='limit' type="integer" >
+
+      <span id='message'>{{msg}}</span>
+      <button type="submit" onclick="check(event)" name="Submit"><b>Submit</b>  </button>
+  </form>
+  <table border='1'>
+    <tr><td>
+      <h2>request</h2>
+    </td></tr>
+    <tr><td>
+    <div id='requestUrl'></div>
+    <p/>
+    <pre id='requestBody'></pre>
+    </td></tr>
+    <tr><td>
+      <h2>response</h2>
+    </td></tr>
+    <tr><td>
+  <span id='result'>{{result}}</span>
+  </td></tr>
+  </table>
+
+</body>
+</html>
