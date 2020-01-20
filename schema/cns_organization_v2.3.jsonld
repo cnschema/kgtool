@@ -148,6 +148,23 @@
             "version": "v2.2"
         },
         {
+            "@id": "http://cnschema.org/InvestmentRole",
+            "@type": [
+                "CnsClass",
+                "CnsDefinition",
+                "CnsMeta"
+            ],
+            "category": "class",
+            "cnschemaName": "InvestmentRole",
+            "name": "InvestmentRole",
+            "nameZh": "投资关系",
+            "rdfs:subClassOf": [
+                "CnsLink"
+            ],
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
             "@id": "http://cnschema.org/LegalRepresentativeRole",
             "@type": [
                 "CnsClass",
@@ -324,6 +341,18 @@
             "datePublished": "2019-11-14T00:00:00",
             "description": "remove PropertyValue",
             "name": "v2.3_01",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/changelog/v2.3_02",
+            "@type": [
+                "CnsChangelog",
+                "CnsMeta"
+            ],
+            "datePublished": "2020-01-10T00:00:00",
+            "description": "增加投资关系 InvestmentRole",
+            "name": "v2.3_02",
             "statedIn": "cns_organization",
             "version": "v2.3"
         }
@@ -690,10 +719,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "CompanyBranchRole_in",
-            "propertyAlternateName": [],
             "propertyNameZh": "总部",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "CompanyBranchRole",
             "refProperty": "in",
             "statedIn": "cns_organization",
@@ -770,10 +797,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "CompanyBranchRole_out",
-            "propertyAlternateName": [],
             "propertyNameZh": "分支机构",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "CompanyBranchRole",
             "refProperty": "out",
             "statedIn": "cns_organization",
@@ -1976,6 +2001,216 @@
             "version": "v1.0"
         },
         {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_in",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"in\": {\"name\": \"太原市金威德物流有限公司\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "InvestmentRole_in",
+            "propertyNameZh": "投资者",
+            "propertyRange": "Company",
+            "refClass": "InvestmentRole",
+            "refProperty": "in",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investeeLegalRepresentativeName",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investeeLegalRepresentativeName",
+            "propertyNameZh": "被投资企业法定代表人",
+            "propertyRange": "Text",
+            "refClass": "InvestmentRole",
+            "refProperty": "investeeLegalRepresentativeName",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investeeSaicRegistrationCapital",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investeeSaicRegistrationCapital",
+            "propertyNameZh": "被投资企业注册资本",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "InvestmentRole",
+            "refProperty": "investeeSaicRegistrationCapital",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investeeSaicRegistrationDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investeeSaicRegistrationDate",
+            "propertyNameZh": "被投资企业成立日期",
+            "propertyRange": "Date",
+            "refClass": "InvestmentRole",
+            "refProperty": "investeeSaicRegistrationDate",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investeeSaicRegistrationStatus",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investeeSaicRegistrationStatus",
+            "propertyNameZh": "被投资企业经营状态",
+            "propertyRange": "Text",
+            "refClass": "InvestmentRole",
+            "refProperty": "investeeSaicRegistrationStatus",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investeeUnifiedSocialCreditCode",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investeeUnifiedSocialCreditCode",
+            "propertyNameZh": "被投资企业统一社会信用号",
+            "propertyRange": "Text",
+            "refClass": "InvestmentRole",
+            "refProperty": "investeeUnifiedSocialCreditCode",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investmentDate",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investmentDate",
+            "propertyNameZh": "出资日期",
+            "propertyRange": "Date",
+            "refClass": "InvestmentRole",
+            "refProperty": "investmentDate",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investmentEquity",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investmentEquity",
+            "propertyNameZh": "出资金额",
+            "propertyRange": "MonetaryAmount",
+            "refClass": "InvestmentRole",
+            "refProperty": "investmentEquity",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_investmentEquityRatio",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_investmentEquityRatio",
+            "propertyNameZh": "出资比例",
+            "propertyRange": "Float",
+            "refClass": "InvestmentRole",
+            "refProperty": "investmentEquityRatio",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_name",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_name",
+            "propertyNameZh": "名称",
+            "propertyRange": "Text",
+            "refClass": "InvestmentRole",
+            "refProperty": "name",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_nameCompany",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_nameCompany",
+            "propertyNameZh": "公司名称",
+            "propertyRange": "Text",
+            "refClass": "InvestmentRole",
+            "refProperty": "nameCompany",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_nameInvestee",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "maxCardinality": 1,
+            "minCardinality": 0,
+            "name": "InvestmentRole_nameInvestee",
+            "propertyNameZh": "被投资企业名称",
+            "propertyRange": "Text",
+            "refClass": "InvestmentRole",
+            "refProperty": "nameInvestee",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
+            "@id": "http://meta.cnschema.org/template/InvestmentRole_out",
+            "@type": [
+                "CnsTemplate",
+                "CnsMeta"
+            ],
+            "exampleValueJson": "\"out\": {\"name\": \"张星昇\"} ,",
+            "maxCardinality": 1,
+            "minCardinality": 1,
+            "name": "InvestmentRole_out",
+            "propertyNameZh": "被投资企业",
+            "propertyRange": "Company",
+            "refClass": "InvestmentRole",
+            "refProperty": "out",
+            "statedIn": "cns_organization",
+            "version": "v2.3"
+        },
+        {
             "@id": "http://meta.cnschema.org/template/LegalRepresentativeRole_in",
             "@type": [
                 "CnsTemplate",
@@ -1985,10 +2220,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "LegalRepresentativeRole_in",
-            "propertyAlternateName": [],
             "propertyNameZh": "被管理企业",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "LegalRepresentativeRole",
             "refProperty": "in",
             "statedIn": "cns_organization",
@@ -2063,10 +2296,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "LegalRepresentativeRole_out",
-            "propertyAlternateName": [],
             "propertyNameZh": "法人代表",
             "propertyRange": "Person",
-            "propertySchema": "cns_top",
             "refClass": "LegalRepresentativeRole",
             "refProperty": "out",
             "statedIn": "cns_organization",
@@ -2099,10 +2330,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ManagerRole_in",
-            "propertyAlternateName": [],
             "propertyNameZh": "被管理企业",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "ManagerRole",
             "refProperty": "in",
             "statedIn": "cns_organization",
@@ -2177,10 +2406,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ManagerRole_out",
-            "propertyAlternateName": [],
             "propertyNameZh": "管理者",
             "propertyRange": "Person",
-            "propertySchema": "cns_top",
             "refClass": "ManagerRole",
             "refProperty": "out",
             "statedIn": "cns_organization",
@@ -2214,11 +2441,9 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ManagingPartnerRole_in",
-            "propertyAlternateName": [],
             "propertyDescriptionZh": "私募合伙企业常用",
             "propertyNameZh": "被管理企业",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "ManagingPartnerRole",
             "refProperty": "in",
             "statedIn": "cns_organization",
@@ -2296,11 +2521,9 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ManagingPartnerRole_out",
-            "propertyAlternateName": [],
             "propertyDescriptionZh": "私募合伙企业常用",
             "propertyNameZh": "执行事务合伙人",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "ManagingPartnerRole",
             "refProperty": "out",
             "statedIn": "cns_organization",
@@ -2538,11 +2761,9 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ShareholderChangeTransaction_in",
-            "propertyAlternateName": [],
             "propertyDescriptionZh": "投融资场景专用",
             "propertyNameZh": "被投企业",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "ShareholderChangeTransaction",
             "refProperty": "in",
             "statedIn": "cns_organization",
@@ -2577,11 +2798,9 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ShareholderChangeTransaction_out",
-            "propertyAlternateName": [],
             "propertyDescriptionZh": "投融资场景专用",
             "propertyNameZh": "投资者",
             "propertyRange": "Agent",
-            "propertySchema": "cns_top",
             "refClass": "ShareholderChangeTransaction",
             "refProperty": "out",
             "statedIn": "cns_organization",
@@ -2674,10 +2893,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ShareholderRole_in",
-            "propertyAlternateName": [],
             "propertyNameZh": "被投企业",
             "propertyRange": "Company",
-            "propertySchema": "cns_top",
             "refClass": "ShareholderRole",
             "refProperty": "in",
             "statedIn": "cns_organization",
@@ -2756,10 +2973,8 @@
             "maxCardinality": 1,
             "minCardinality": 1,
             "name": "ShareholderRole_out",
-            "propertyAlternateName": [],
             "propertyNameZh": "投资者",
             "propertyRange": "Agent",
-            "propertySchema": "cns_top",
             "refClass": "ShareholderRole",
             "refProperty": "out",
             "statedIn": "cns_organization",
